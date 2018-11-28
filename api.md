@@ -1,4 +1,4 @@
-## 1 加入課程
+### 1 加入課程
 
 ```javascript
 名稱 /course/add
