@@ -34,3 +34,11 @@
 傳入 {cou_serNo,couNo,memNo}
 回傳 true|false
 ```
+
+### 6 查看已加入課程
+```javascript
+名稱 /course/query
+方法 get
+傳入 {cou_serNo,couNo,memNo}
+回傳 true|false
+```
