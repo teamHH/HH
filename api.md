@@ -31,32 +31,99 @@ response回傳:{"memNo":"會員帳號",
               "code":"0"
              }
 ```
-### 3 發起課程
+### 3 會員更新
 ```javascript
-名稱 /course/add2
-方法 post
-傳入 {couNo,course,couTypeNo,couDays,contnet,memNo,getPoint}
-回傳 true|false
+名稱 /member/update
+HTTP方法 put
+request請求: { "memNo":"會員帳號", 
+              "memPassword":"會員密碼",
+              "displayName":"會員姓名",
+              "gender":"性別",
+              "tel":"電話",
+              "birthday":"生日"
+             }
+response回傳:{"memNo":"會員帳號",
+              "memPassword":"會員密碼",
+              "displayName":"會員姓名",
+              "gender":"性別",
+              "tel":"電話",
+              "birthday":"生日",
+              "code":"0"
+             }
 ```
-### 4 更改課程
+### 4 文章新增
 ```javascript
-名稱 /course/update
-方法 put
-傳入 {couNo,course,couTypeNo,couDays,contnet,memNo,getPoint}
-回傳 true|false
+名稱 /posts/add
+HTTP方法 post
+request請求: { "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+             }
+response回傳:{ "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+              "code":"0"
+             }
 ```
-### 5 退出課程
+### 4 文章刪除
 ```javascript
-名稱 /course/delete
-方法 delete
-傳入 {cou_serNo,couNo,memNo}
-回傳 true|false
+名稱 /posts/delete
+HTTP方法 Delete
+request請求: { "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+             }
+response回傳:{ "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+              "code":"0"
+             }
+```
+### 5 文章更新
+```javascript
+名稱 /posts/update
+HTTP方法 put
+request請求: { "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+             }
+response回傳:{ "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+              "code":"0"
+             }
+```
+### 6 查看某人的文章
+```javascript
+名稱 /posts/:id
+HTTP方法 get
+response回傳:{ "文章編號":"P001", 
+              "會員帳號":"10456004@ntub.edu.tw",
+              "文章分類編號":"跑步",
+              "時間":"2018/12/13",
+              "標題":"馬拉松",
+              "內容":"今天去參加了馬拉松活動"
+              "code":"0"
+             }
 ```
 
-### 6 查看已加入課程
-```javascript
-名稱 /course/query
-方法 get
-傳入 {cou_serNo,couNo,memNo}
-回傳 true|false
-```
+
+
