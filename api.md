@@ -124,6 +124,99 @@ response回傳:{"文章編號":"P001",
               "code":"0"
              }
 ```
-
+### 7 新增留言
+```javascript
+名稱 /comments/add
+HTTP方法 post
+request請求: {"comNo":"留言編號", 
+              "postNo":"文章編號",
+              "memNo":"會員帳號",
+              "comTime":"時間",
+              "msg":"內容",
+             }
+response回傳:{"comNo":"留言編號", 
+              "postNo":"文章編號",
+              "memNo":"會員帳號",
+              "comTime":"時間",
+              "msg":"內容",
+              "code":"0"
+             }
+```
+### 8 刪除留言
+```javascript
+名稱 /comments/delete
+HTTP方法 Delete
+request請求: {"comNo":"留言編號", 
+              "postNo":"文章編號",
+              "memNo":"會員帳號",
+              "comTime":"時間",
+              "msg":"內容",
+             }
+response回傳:{"comNo":"留言編號", 
+              "postNo":"文章編號",
+              "memNo":"會員帳號",
+              "comTime":"時間",
+              "msg":"內容",
+              "code":"0"
+             }
+```
+### 9 加入課程
+```javascript
+名稱 /course/add
+HTTP方法 post
+request請求: {"couNo":"課程編號", 
+              "course":"課程名稱",
+              "couTypeNo":"課程分類編號",
+              "coudays":"總天數",
+              "content":"內容",
+              "memNo":"會員張浩",
+              "getPoint":"可得到點數",
+             }
+response回傳: {"couNo":"課程編號", 
+              "course":"課程名稱",
+              "couTypeNo":"課程分類編號",
+              "coudays":"總天數",
+              "content":"內容",
+              "memNo":"會員張浩",
+              "getPoint":"可得到點數",
+              "code":"0"
+             }
+```
+### 10 退出課程
+```javascript
+名稱 /course/delete
+HTTP方法 Delete
+request請求: {"couNo":"課程編號", 
+              "course":"課程名稱",
+              "couTypeNo":"課程分類編號",
+              "coudays":"總天數",
+              "content":"內容",
+              "memNo":"會員帳號",
+              "getPoint":"可得到點數",
+             }
+response回傳: {"couNo":"課程編號", 
+              "course":"課程名稱",
+              "couTypeNo":"課程分類編號",
+              "coudays":"總天數",
+              "content":"內容",
+              "memNo":"會員帳號",
+              "getPoint":"可得到點數",
+              "code":"0"
+             }
+```
+### 11 查詢已加入課程課程
+```javascript
+名稱 /course/:memNo
+HTTP方法 get
+response回傳: {"課程編號":"C001", 
+              "課程名稱":"有氧運動",
+              "課程分類編號""C1",
+              "總天數":"7",
+              "內容":"利用有氧運動來減重",
+              "會員帳號":"10456004@ntub.edu.tw",
+              "可得到點數":"10",
+              "code":"0"
+             }
+```
 
 
