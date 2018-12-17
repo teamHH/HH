@@ -3,14 +3,21 @@
 ```javascript
 名稱 /member/add
 HTTP方法 post
-request請求: {"memNo":"會員帳號", 
+request請求: { "memNo":"會員帳號", 
               "memPassword":會員密碼,
               "displayName":會員姓名,
               "gender":"性別",
               "tel":"電話",
               "birthday":"生日"
              }
-response回傳:{"memNo":"會員帳號", "memPassword":會員密碼,"displayName":會員姓名,"gender":"性別","tel":"電話","birthday":"生日","code":"0"}
+response回傳:{"memNo":"會員帳號",
+              "memPassword":會員密碼,
+              "displayName":會員姓名,
+              "gender":"性別",
+              "tel":"電話",
+              "birthday":"生日",
+              "code":"0"
+             }
 ```
 ### 2 加入課程
 ```javascript
