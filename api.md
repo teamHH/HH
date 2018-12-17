@@ -3,7 +3,7 @@
 ```javascript
 名稱 /member/add
 HTTP方法 post
-request請求: { "memNo":"會員帳號", 
+request請求: {"memNo":"會員帳號", 
               "memPassword":"會員密碼",
               "displayName":"會員姓名",
               "gender":"性別",
@@ -35,7 +35,7 @@ response回傳:{"memNo":"會員帳號",
 ```javascript
 名稱 /member/update
 HTTP方法 put
-request請求: { "memNo":"會員帳號", 
+request請求: {"memNo":"會員帳號", 
               "memPassword":"會員密碼",
               "displayName":"會員姓名",
               "gender":"性別",
@@ -55,14 +55,14 @@ response回傳:{"memNo":"會員帳號",
 ```javascript
 名稱 /posts/add
 HTTP方法 post
-request請求: { "postNo":"文章編號", 
+request請求: {"postNo":"文章編號", 
               "memNo":"會員帳號",
               "postTypeNo":"文章分類編號",
               "postTime":"時間",
               "title":"標題",
               "content":"內容"
              }
-response回傳:{ "postNo":"文章編號", 
+response回傳:{"postNo":"文章編號", 
               "memNo":"會員帳號",
               "postTypeNo":"文章分類編號",
               "postTime":"時間",
@@ -82,7 +82,7 @@ request請求: { "postNo":"文章編號",
               "title":"標題",
               "content":"內容"
              }
-response回傳:{ "postNo":"文章編號", 
+response回傳:{"postNo":"文章編號", 
               "memNo":"會員帳號",
               "postTypeNo":"文章分類編號",
               "postTime":"時間",
@@ -95,14 +95,14 @@ response回傳:{ "postNo":"文章編號",
 ```javascript
 名稱 /posts/update
 HTTP方法 put
-request請求: { "postNo":"文章編號", 
+request請求: {"postNo":"文章編號", 
               "memNo":"會員帳號",
               "postTypeNo":"文章分類編號",
               "postTime":"時間",
               "title":"標題",
               "content":"內容"
              }
-response回傳:{ "postNo":"文章編號", 
+response回傳:{"postNo":"文章編號", 
               "memNo":"會員帳號",
               "postTypeNo":"文章分類編號",
               "postTime":"時間",
@@ -115,7 +115,7 @@ response回傳:{ "postNo":"文章編號",
 ```javascript
 名稱 /posts/:id
 HTTP方法 get
-response回傳:{ "文章編號":"P001", 
+response回傳:{"文章編號":"P001", 
               "會員帳號":"10456004@ntub.edu.tw",
               "文章分類編號":"跑步",
               "時間":"2018/12/13",
