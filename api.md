@@ -82,12 +82,7 @@ request請求: { "postNo":"文章編號",
               "title":"標題",
               "content":"內容"
              }
-response回傳:{"postNo":"文章編號", 
-              "memNo":"會員帳號",
-              "postTypeNo":"文章分類編號",
-              "postTime":"時間",
-              "title":"標題",
-              "content":"內容"
+response回傳:{
               "code":"0"
              }
 ```
@@ -152,11 +147,7 @@ request請求: {"comNo":"留言編號",
               "comTime":"時間",
               "msg":"內容",
              }
-response回傳:{"comNo":"留言編號", 
-              "postNo":"文章編號",
-              "memNo":"會員帳號",
-              "comTime":"時間",
-              "msg":"內容",
+response回傳:{
               "code":"0"
              }
 ```
@@ -194,13 +185,7 @@ request請求: {"couNo":"課程編號",
               "memNo":"會員帳號",
               "getPoint":"可得到點數",
              }
-response回傳: {"couNo":"課程編號", 
-              "course":"課程名稱",
-              "couTypeNo":"課程分類編號",
-              "coudays":"總天數",
-              "content":"內容",
-              "memNo":"會員帳號",
-              "getPoint":"可得到點數",
+response回傳: {
               "code":"0"
              }
 ```
