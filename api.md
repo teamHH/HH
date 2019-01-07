@@ -87,6 +87,7 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"成功退出此文章"
                    }
 response回傳(失敗):{
                     "code":"-1"
@@ -174,7 +175,7 @@ request請求: {
               "couTypeNo":"課程分類編號",
               "coudays":"總天數",
               "content":"內容",
-              "memNo":"會員張浩",
+              "memNo":"會員帳號",
               "getPoint":"可得到點數",
              }
 response回傳(成功):{
@@ -199,12 +200,13 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"成功退出此課程"
                    }
 response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 11 查詢某會員已加入課程課程
+### 11 查詢某會員已加入課程
 ```javascript
 名稱 /course/:memNo
 HTTP方法 GET
@@ -222,5 +224,239 @@ response回傳:[
                ...
              ]
 ```
+### 12 加入活動
+```javascript
+名稱 /Activity/add
+HTTP方法 POST
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"總天數",
+              "content":"內容",
+              "actTime":"活動時間",
+              "memNo":"會員編號",
+              "getPoint":"可得到點數",
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 13 退出活動
+```javascript
+名稱 /Activity/delete
+HTTP方法 DELETE
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"總天數",
+              "content":"內容",
+              "actTime":"活動時間",
+              "memNo":"會員編號",
+              "getPoint":"可得到點數",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"成功退出此活動"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 14 查詢某會員已加入活動
+```javascript
+名稱 /Activity/:memNo
+HTTP方法 GET
+request請求:[
+               {
+                "活動編號":"A001", 
+                "活動名稱":"騎車趣",
+                "活動分類編號"A1",
+                "內容":"去河濱公園騎腳踏車",
+                "活動時間":"2018/12/20 下午3點",
+                "會員帳號":"10456004@ntub.edu.tw",
+                "可得到點數":"10",
+                "code":"0"
+               }
+               ...
+            ]
 
+```
+### 15 新增好友
+```javascript
+名稱 /Friends/add
+HTTP方法 POST
+request請求: {
+              "serNo":"編號", 
+              "friendTypeNo":"好友分類編號",
+              "memNo_1":"會員帳號_1",
+              "memNo_2":"會員帳號_2"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 16 刪除好友
+```javascript
+名稱 /Friends/delete
+HTTP方法 DELETE
+request請求: {
+              "serNo":"編號", 
+              "friendTypeNo":"好友分類編號",
+              "memNo_1":"會員帳號_1",
+              "memNo_2":"會員帳號_2"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"成功刪除此好友"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 17 每日簽到
+```javascript
+名稱 /signIn/add
+HTTP方法 POST
+request請求: {
+              "serNo":"編號", 
+              "signDate":"簽到日期",
+              "memNo":"會員帳號"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 18 新增飲食紀錄
+```javascript
+名稱 /Food/add
+HTTP方法 POST
+request請求: {
+              "serNo":"編號", 
+              "memNo":"會員帳號",
+              "foodTypeNo":"飲食分類編號",
+              "foodName":"食物名稱",
+              "foodTime":"日期時間",
+              "img":"圖片",
+              "remark":"備註"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 19 刪除飲食紀錄
+```javascript
+名稱 /Food/delete
+HTTP方法 DELETE
+request請求: {
+              "serNo":"編號", 
+              "memNo":"會員帳號",
+              "foodTypeNo":"飲食分類編號",
+              "foodName":"食物名稱",
+              "foodTime":"日期時間",
+              "img":"圖片",
+              "remark":"備註"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"成功刪除此紀錄"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 20 更新飲食紀錄
+```javascript
+名稱 /Food/update
+HTTP方法 PUT
+request請求: {
+              "serNo":"編號", 
+              "memNo":"會員帳號",
+              "foodTypeNo":"飲食分類編號",
+              "foodName":"食物名稱",
+              "foodTime":"日期時間",
+              "img":"圖片",
+              "remark":"備註"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 21 新增運動紀錄
+```javascript
+名稱 /Food/add
+HTTP方法 POST
+request請求: {
+              "serNo":"編號", 
+              "memNo":"會員帳號",
+              "sportTypeNo":"運動分類編號",
+              "sportName":"運動名稱",
+              "startTime":"開始時間",
+              "endTime":"結束時間",
+              "remark":"備註"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 22 刪除運動紀錄
+```javascript
+名稱 /Food/delete
+HTTP方法 DELETE
+request請求: {
+              "serNo":"編號", 
+              "memNo":"會員帳號",
+              "sportTypeNo":"運動分類編號",
+              "sportName":"運動名稱",
+              "startTime":"開始時間",
+              "endTime":"結束時間",
+              "remark":"備註"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"成功刪除此紀錄"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 23 更新運動紀錄
+```javascript
+名稱 /Food/update
+HTTP方法 PUT
+request請求: {
+              "serNo":"編號", 
+              "memNo":"會員帳號",
+              "sportTypeNo":"運動分類編號",
+              "sportName":"運動名稱",
+              "startTime":"開始時間",
+              "endTime":"結束時間",
+              "remark":"備註"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
 
