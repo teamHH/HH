@@ -440,7 +440,7 @@ response回傳(失敗):{
 ```
 ### 23 更新運動紀錄
 ```javascript
-名稱 /Food/update
+名稱 /sport/update
 HTTP方法 PUT
 request請求: {
               "serNo":"編號", 
