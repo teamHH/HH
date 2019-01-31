@@ -399,7 +399,7 @@ response回傳(失敗):{
 ```
 ### 21 新增運動紀錄
 ```javascript
-名稱 /Food/add
+名稱 /sport/add
 HTTP方法 POST
 request請求: {
               "serNo":"編號", 
@@ -419,7 +419,7 @@ response回傳(失敗):{
 ```
 ### 22 刪除運動紀錄
 ```javascript
-名稱 /Food/delete
+名稱 /sport/delete
 HTTP方法 DELETE
 request請求: {
               "serNo":"編號", 
