@@ -223,11 +223,8 @@ request請求: {
               "actNo":"活動編號", 
               "activity":"活動名稱",
               "actTypeNo":"活動分類編號",
-              "content":"總天數",
               "content":"內容",
               "actTime":"活動時間",
-              "memNo":"會員編號",
-              "getPoint":"可得到點數",
              }
 response回傳(成功):{
                     "code":"0"
