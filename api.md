@@ -325,9 +325,11 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"簽到成功"
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"簽到失敗"
                    }
 ```
 
