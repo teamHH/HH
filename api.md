@@ -30,9 +30,11 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"登入成功"
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"登入失敗"
                    }
 ```
 ### 3 會員更新
@@ -49,9 +51,11 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"更新成功"
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"更新失敗"
                    }                   
 ```
 ### 4 文章新增
@@ -73,7 +77,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 4 文章刪除
+### 5 文章刪除
 ```javascript
 名稱 /posts/delete
 HTTP方法 DELETE
@@ -87,13 +91,14 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
-                    "message":"成功退出此文章"
+                    "message":"成功刪除此文章"
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"刪除失敗"
                    }                   
 ```
-### 5 文章更新
+### 6 文章更新
 ```javascript
 名稱 /posts/update
 HTTP方法 PUT
@@ -107,12 +112,14 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"更新成功"
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"更新失敗"
                    }
 ```
-### 6 查看某人的文章
+### 7 查看某人的文章
 ```javascript
 名稱 /posts/:memNo
 HTTP方法 GET
@@ -129,7 +136,7 @@ response回傳:[
                ...
              ]
 ```
-### 7 新增留言
+### 8 新增留言
 ```javascript
 名稱 /comments/add
 HTTP方法 POST
@@ -147,7 +154,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                  
 ```
-### 8 刪除留言
+### 9 刪除留言
 ```javascript
 名稱 /comments/delete
 HTTP方法 DELETE
@@ -165,6 +172,49 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
+### 10 更新留言
+```javascript
+名稱 /comments/update
+HTTP方法 PUT
+request請求: {
+              "comNo":"留言編號", 
+              "postNo":"文章編號",
+              "memNo":"會員帳號",
+              "comTime":"時間",
+              "msg":"內容",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"更新成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"更新失敗"
+                   }                   
+```
+### 11 創建活動
+```javascript
+名稱 /Activity/create
+HTTP方法 POST
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"總天數",
+              "content":"內容",
+              "actTime":"活動時間",
+              "memNo":"會員編號",
+              "getPoint":"可得到點數",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"創建成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"創建失敗"
+                   }
+```
 ### 12 加入活動
 ```javascript
 名稱 /Activity/add
@@ -181,9 +231,11 @@ request請求: {
              }
 response回傳(成功):{
                     "code":"0"
+                    "message":"加入成功"
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"加入失敗"
                    }
 ```
 ### 13 退出活動
@@ -206,6 +258,7 @@ response回傳(成功):{
                    }
 response回傳(失敗):{
                     "code":"-1"
+                    "message":"退出失敗"
                    }
 ```
 ### 14 查詢某會員已加入活動
