@@ -17,7 +17,7 @@ response回傳(成功):{
                    }
 response回傳(失敗):{
                     "code":"-1"
-                    "message":"註冊失敗,有未填欄位或重複的帳號密碼"
+                    "message":"註冊失敗,有未填欄位或重複的帳號"
                    }            
 ```
 ### 2 會員登入
@@ -42,7 +42,6 @@ response回傳(失敗):{
 名稱 /member/update
 HTTP方法 PUT
 request請求: {
-              "memNo":"會員帳號", 
               "memPassword":"會員密碼",
               "displayName":"會員姓名",
               "gender":"性別",
@@ -77,7 +76,28 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 5 文章刪除
+### 5 文章刪除(本人)
+```javascript
+名稱 /posts/delete
+HTTP方法 DELETE
+request請求: { 
+              "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"成功刪除此文章"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"刪除失敗"
+                   }                   
+```
+### 5 文章刪除(管理者)
 ```javascript
 名稱 /posts/delete
 HTTP方法 DELETE
@@ -103,8 +123,6 @@ response回傳(失敗):{
 名稱 /posts/update
 HTTP方法 PUT
 request請求: {
-              "postNo":"文章編號", 
-              "memNo":"會員帳號",
               "postTypeNo":"文章分類編號",
               "postTime":"時間",
               "title":"標題",
@@ -135,6 +153,10 @@ response回傳:[
                }
                ...
              ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
 ```
 ### 8 新增留言
 ```javascript
@@ -154,7 +176,25 @@ response回傳(失敗):{
                     "code":"-1"
                    }                  
 ```
-### 9 刪除留言
+### 9 刪除留言(本人)
+```javascript
+名稱 /comments/delete
+HTTP方法 DELETE
+request請求: {
+              "comNo":"留言編號", 
+              "postNo":"文章編號",
+              "memNo":"會員帳號",
+              "comTime":"時間",
+              "msg":"內容",
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }                   
+```
+### 10 刪除留言(管理者)
 ```javascript
 名稱 /comments/delete
 HTTP方法 DELETE
@@ -177,9 +217,6 @@ response回傳(失敗):{
 名稱 /comments/update
 HTTP方法 PUT
 request請求: {
-              "comNo":"留言編號", 
-              "postNo":"文章編號",
-              "memNo":"會員帳號",
               "comTime":"時間",
               "msg":"內容",
              }
@@ -235,7 +272,30 @@ response回傳(失敗):{
                     "message":"加入失敗"
                    }
 ```
-### 13 退出活動
+### 13 退出活動(本人)
+```javascript
+名稱 /Activity/delete
+HTTP方法 DELETE
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"總天數",
+              "content":"內容",
+              "actTime":"活動時間",
+              "memNo":"會員編號",
+              "getPoint":"可得到點數",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"成功退出此活動"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"退出失敗"
+                   }
+```
+### 14 退出活動(管理者)
 ```javascript
 名稱 /Activity/delete
 HTTP方法 DELETE
@@ -262,7 +322,7 @@ response回傳(失敗):{
 ```javascript
 名稱 /Activity/:memNo
 HTTP方法 GET
-request請求:[
+request回傳:[
                {
                 "活動編號":"A001", 
                 "活動名稱":"騎車趣",
@@ -275,6 +335,10 @@ request請求:[
                }
                ...
             ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
 ```
 ### 15 新增好友
 ```javascript
@@ -329,4 +393,156 @@ response回傳(失敗):{
                     "message":"簽到失敗"
                    }
 ```
-
+### 18 新增運動紀錄
+```javascript
+名稱 /Sport/add
+HTTP方法 POST
+request請求: {
+              "sportNo":"運動編號", 
+              "sport":"運動名稱",
+              "content":"內容",
+              "sportStartTime":"運動開始時間",
+              "sportEndTime":"運動結束時間",
+              "memNo":"會員帳號"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"新增成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"新增失敗"
+                   }
+```
+### 19 查詢運動紀錄
+```javascript
+名稱 /Sport/
+HTTP方法 GET
+request回傳(成功):[
+                   {
+                    "sportNo":"s001", 
+                    "sport":"跑步",
+                    "content":"會顯示路線圖 跟共走幾步",
+                    "sportStartTime":"2018/3/21 12:00:00",
+                    "sportEndTime":"2018/3/21 14:00:00",
+                    "memNo":"a22753516@gmail.com"
+                    "code":"0"
+                   }
+                   ...
+                 ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                   }                
+```
+### 20 新增評分
+```javascript
+名稱 /Score/add
+HTTP方法 POST
+request請求: {
+              "scoreNo":"評分編號", 
+              "actNo":"活動編號",
+              "memNo":"會員帳號",
+              "score":"活動評分",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"新增成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"新增失敗"
+                   }
+```
+### 21 修改評分
+```javascript
+名稱 /Score/update
+HTTP方法 PUT
+request請求: {
+              "score":"活動評分",
+             }
+response回傳(成功):{  
+                    "code":"0"
+                    "message":"更新成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"更新失敗"
+                   }
+```
+### 22 新增好友
+```javascript
+名稱 / Friends/add
+HTTP方法 POST
+request請求: {
+              "serNo":"編號", 
+              "friendTypeNo":"好友分類編號",
+              "memNo_1":"會員帳號_1",
+              "memNo_2":"會員帳號_2",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"新增成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"新增失敗"
+                   }
+```
+### 23 新增好友
+```javascript
+名稱 / Friends/add
+HTTP方法 POST
+request請求: {
+              "serNo":"編號", 
+              "friendTypeNo":"好友分類編號",
+              "memNo_1":"會員帳號_1",
+              "memNo_2":"會員帳號_2",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"新增成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"新增失敗"
+                   }
+```
+### 24 刪除好友
+```javascript
+名稱 / Friends/delete
+HTTP方法 DELETE
+request請求: {
+              "serNo":"編號", 
+              "friendTypeNo":"好友分類編號",
+              "memNo_1":"會員帳號_1",
+              "memNo_2":"會員帳號_2",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"刪除成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"刪除失敗"
+                   }
+```
+### 25 查詢好友
+```javascript
+名稱 / Friends/memNo
+HTTP方法 GET
+request回傳(成功):[
+                   {
+                    "serNo":"F001", 
+                    "friendTypeNo":"莫逆之交",
+                    "memNo_1":"a22753516@gmail.com",
+                    "memNo_2":"b22753516@gmail.com",
+                    "code":"0"
+                   }
+                   ...
+                 ]
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                   }
+```
