@@ -497,7 +497,7 @@ request請求: {
               "serNo":"編號", 
               "friendTypeNo":"好友分類編號",
               "memNo_1":"會員帳號_1",
-              "memNo_2":"會員帳號_2",
+              "memNo_2":"會員帳號_2"
              }
 response回傳(成功):{
                     "code":"0"
@@ -516,7 +516,7 @@ request請求: {
               "serNo":"編號", 
               "friendTypeNo":"好友分類編號",
               "memNo_1":"會員帳號_1",
-              "memNo_2":"會員帳號_2",
+              "memNo_2":"會員帳號_2"
              }
 response回傳(成功):{
                     "code":"0"
@@ -544,5 +544,59 @@ request回傳(成功):[
 response回傳(失敗):{
                     "code":"-1"
                     "message":"查詢失敗"
+                   }
+```
+### 26 新增留言
+```javascript
+名稱 / Comments/add
+HTTP方法 DELETE
+request請求: {
+              "comNo":"C001", 
+              "postNo":"P001",
+              "memNo":"a22753516@gmail.com",
+              "comTime":"2018/12/13",
+              "msg":"好帥哦"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"留言失敗"
+                   }
+```
+### 27 刪除留言
+```javascript
+名稱 / Comments/delete
+HTTP方法 DELETE
+request請求: {
+              "comNo":"C001", 
+              "postNo":"P001",
+              "memNo":"a22753516@gmail.com",
+              "comTime":"2018/12/13",
+              "msg":"好帥哦"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"刪除失敗"
+                   }
+```
+### 28 修改留言
+```javascript
+名稱 / Comments/update
+HTTP方法 PUT
+request請求: {
+              "comTime":"2018/12/13",
+              "msg":"好帥哦"
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"更新失敗"
                    }
 ```
