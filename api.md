@@ -97,7 +97,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }                   
 ```
-### 5 文章刪除(管理者)
+### 6 文章刪除(管理者)
 ```javascript
 名稱 /posts/delete
 HTTP方法 DELETE
@@ -118,7 +118,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }                   
 ```
-### 6 文章更新
+### 7 文章更新
 ```javascript
 名稱 /posts/update
 HTTP方法 PUT
@@ -137,7 +137,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
-### 7 查看某人的文章
+### 8 查看某人的文章
 ```javascript
 名稱 /posts/:memNo
 HTTP方法 GET
@@ -158,7 +158,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                   }     
 ```
-### 8 新增留言
+### 9 新增留言
 ```javascript
 名稱 /comments/add
 HTTP方法 POST
@@ -176,7 +176,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                  
 ```
-### 9 刪除留言(本人)
+### 10 刪除留言(本人)
 ```javascript
 名稱 /comments/delete
 HTTP方法 DELETE
@@ -194,7 +194,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 10 刪除留言(管理者)
+### 11 刪除留言(管理者)
 ```javascript
 名稱 /comments/delete
 HTTP方法 DELETE
@@ -212,7 +212,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 10 更新留言
+### 12 更新留言
 ```javascript
 名稱 /comments/update
 HTTP方法 PUT
@@ -229,7 +229,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }                   
 ```
-### 11 創建活動
+### 13 創建活動
 ```javascript
 名稱 /Activity/create
 HTTP方法 POST
@@ -252,7 +252,7 @@ response回傳(失敗):{
                     "message":"創建失敗"
                    }
 ```
-### 12 加入活動
+### 14 加入活動
 ```javascript
 名稱 /Activity/add
 HTTP方法 POST
@@ -272,7 +272,7 @@ response回傳(失敗):{
                     "message":"加入失敗"
                    }
 ```
-### 13 退出活動(本人)
+### 15 退出活動(本人)
 ```javascript
 名稱 /Activity/delete
 HTTP方法 DELETE
@@ -295,7 +295,7 @@ response回傳(失敗):{
                     "message":"退出失敗"
                    }
 ```
-### 14 退出活動(管理者)
+### 16 退出活動(管理者)
 ```javascript
 名稱 /Activity/delete
 HTTP方法 DELETE
@@ -318,7 +318,7 @@ response回傳(失敗):{
                     "message":"退出失敗"
                    }
 ```
-### 14 查詢某會員已加入活動
+### 17 查詢某會員已加入活動
 ```javascript
 名稱 /Activity/:memNo
 HTTP方法 GET
@@ -340,7 +340,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                   }     
 ```
-### 15 新增好友
+### 18 新增好友
 ```javascript
 名稱 /Friends/add
 HTTP方法 POST
@@ -357,7 +357,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }
 ```
-### 16 刪除好友
+### 19 刪除好友
 ```javascript
 名稱 /Friends/delete
 HTTP方法 DELETE
@@ -375,7 +375,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }
 ```
-### 17 每日簽到
+### 20 每日簽到
 ```javascript
 名稱 /signIn/add
 HTTP方法 POST
@@ -393,7 +393,7 @@ response回傳(失敗):{
                     "message":"簽到失敗"
                    }
 ```
-### 18 新增運動紀錄
+### 21 新增運動紀錄
 ```javascript
 名稱 /Sport/add
 HTTP方法 POST
@@ -414,7 +414,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 19 查詢運動紀錄
+### 22 查詢運動紀錄
 ```javascript
 名稱 /Sport/
 HTTP方法 GET
@@ -435,7 +435,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                    }                
 ```
-### 20 新增評分
+### 23 新增評分
 ```javascript
 名稱 /Score/add
 HTTP方法 POST
@@ -454,7 +454,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 21 修改評分
+### 24 修改評分
 ```javascript
 名稱 /Score/update
 HTTP方法 PUT
@@ -470,7 +470,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
-### 22 新增好友
+### 25 新增好友
 ```javascript
 名稱 / Friends/add
 HTTP方法 POST
@@ -489,7 +489,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 23 新增好友
+### 26 新增好友
 ```javascript
 名稱 / Friends/add
 HTTP方法 POST
@@ -508,7 +508,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 24 刪除好友
+### 27 刪除好友
 ```javascript
 名稱 / Friends/delete
 HTTP方法 DELETE
@@ -527,7 +527,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }
 ```
-### 25 查詢好友
+### 28 查詢好友
 ```javascript
 名稱 / Friends/memNo
 HTTP方法 GET
@@ -546,7 +546,7 @@ response回傳(失敗):{
                     "message":"查詢失敗"
                    }
 ```
-### 26 新增留言
+### 29 新增留言
 ```javascript
 名稱 / Comments/add
 HTTP方法 DELETE
@@ -565,7 +565,7 @@ response回傳(失敗):{
                     "message":"留言失敗"
                    }
 ```
-### 27 刪除留言
+### 30 刪除留言
 ```javascript
 名稱 / Comments/delete
 HTTP方法 DELETE
@@ -584,7 +584,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }
 ```
-### 28 修改留言
+### 31 修改留言
 ```javascript
 名稱 / Comments/update
 HTTP方法 PUT
