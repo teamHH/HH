@@ -393,7 +393,25 @@ response回傳(失敗):{
                     "message":"簽到失敗"
                    }
 ```
-### 21 新增運動紀錄
+### 21 查詢簽到紀錄
+```javascript
+名稱 /signIn/:memNo
+HTTP方法 GET
+request回傳(成功):[
+                   {
+                    "serNo":"1", 
+                    "signDate":"2018-11-01",
+                    "memNo":"10456021@ntub.edu.tw",
+                    "code":"0"
+                   }
+                   ...
+                 ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                   }                
+```
+### 22 新增運動紀錄
 ```javascript
 名稱 /Sport/add
 HTTP方法 POST
@@ -414,7 +432,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 22 查詢運動紀錄
+### 23 查詢運動紀錄
 ```javascript
 名稱 /Sport/
 HTTP方法 GET
@@ -435,7 +453,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                    }                
 ```
-### 23 新增評分
+### 24 新增評分
 ```javascript
 名稱 /Score/add
 HTTP方法 POST
@@ -454,7 +472,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 24 修改評分
+### 25 修改評分
 ```javascript
 名稱 /Score/update
 HTTP方法 PUT
