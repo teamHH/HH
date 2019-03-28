@@ -57,6 +57,27 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }                   
 ```
+### 3 查詢會員資料
+```javascript
+名稱 /member/:memNo
+HTTP方法 GET
+response回傳:[
+               {
+                "會員帳號":"0456004@ntub.edu.tw", 
+                "會員密碼":"123456",
+                "會員姓名":"劉安",
+                "性別":"M",
+                "電話":"0987559018",
+                "生日":"2018/12/13"
+                "code":"0"
+               }
+               ...
+             ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
+```
 ### 4 文章新增
 ```javascript
 名稱 /posts/add
