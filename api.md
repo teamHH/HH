@@ -509,7 +509,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
-### 25 新增好友分類
+### 26 新增好友分類
 ```javascript
 名稱 /friendType/add
 HTTP方法 POST
@@ -526,7 +526,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 25 刪除好友分類
+### 27 刪除好友分類
 ```javascript
 名稱 /friendType/delete
 HTTP方法 DELETE
@@ -543,7 +543,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }
 ```
-### 25 修改好友分類
+### 28 修改好友分類
 ```javascript
 名稱 /friendType/update
 HTTP方法 PUT
@@ -559,7 +559,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
-### 23 查詢好友分類名稱
+### 29 查詢好友分類名稱
 ```javascript
 名稱 /friendType/:friendType
 HTTP方法 GET
