@@ -509,3 +509,70 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
+### 25 新增好友分類
+```javascript
+名稱 /friendType/add
+HTTP方法 POST
+request請求: {
+              "friendTypeNo":"好友分類編號",
+              "friendType":"好友分類名稱"
+             }
+response回傳(成功):{  
+                    "code":"0"
+                    "message":"新增成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"新增失敗"
+                   }
+```
+### 25 刪除好友分類
+```javascript
+名稱 /friendType/delete
+HTTP方法 DELETE
+request請求: {
+              "friendTypeNo":"好友分類編號",
+              "friendType":"好友分類名稱"
+             }
+response回傳(成功):{  
+                    "code":"0"
+                    "message":"刪除成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"刪除失敗"
+                   }
+```
+### 25 修改好友分類
+```javascript
+名稱 /friendType/update
+HTTP方法 PUT
+request請求: {
+              "friendType":"好友分類名稱"
+             }
+response回傳(成功):{  
+                    "code":"0"
+                    "message":"更新成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"更新失敗"
+                   }
+```
+### 23 查詢好友分類名稱
+```javascript
+名稱 /friendType/:friendType
+HTTP方法 GET
+request回傳(成功):[
+                   {
+                    "friendTypeNo":"1", 
+                    "friendType":"點頭之交",
+                    "code":"0"
+                   }
+                   ...
+                 ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                   }                
+``
