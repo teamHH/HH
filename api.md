@@ -97,7 +97,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 5 文章刪除(本人)
+### 5 文章刪除
 ```javascript
 名稱 /posts/delete
 HTTP方法 DELETE
@@ -118,27 +118,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }                   
 ```
-### 6 文章刪除(管理者)
-```javascript
-名稱 /posts/delete
-HTTP方法 DELETE
-request請求: { 
-              "postNo":"文章編號", 
-              "memNo":"會員帳號",
-              "postTypeNo":"文章分類編號",
-              "postTime":"時間",
-              "title":"標題",
-              "content":"內容"
-             }
-response回傳(成功):{
-                    "code":"0"
-                    "message":"成功刪除此文章"
-                   }
-response回傳(失敗):{
-                    "code":"-1"
-                    "message":"刪除失敗"
-                   }                   
-```
+
 ### 7 文章更新
 ```javascript
 名稱 /posts/update
@@ -197,25 +177,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                  
 ```
-### 10 刪除留言(本人)
-```javascript
-名稱 /comments/delete
-HTTP方法 DELETE
-request請求: {
-              "comNo":"留言編號", 
-              "postNo":"文章編號",
-              "memNo":"會員帳號",
-              "comTime":"時間",
-              "msg":"內容",
-             }
-response回傳(成功):{
-                    "code":"0"
-                   }
-response回傳(失敗):{
-                    "code":"-1"
-                   }                   
-```
-### 11 刪除留言(管理者)
+### 10 刪除留言
 ```javascript
 名稱 /comments/delete
 HTTP方法 DELETE
@@ -316,32 +278,31 @@ response回傳(失敗):{
                     "message":"退出失敗"
                    }
 ```
-### 16 退出活動(管理者)
-```javascript
-名稱 /Activity/delete
-HTTP方法 DELETE
-request請求: {
-              "actNo":"活動編號", 
-              "activity":"活動名稱",
-              "actTypeNo":"活動分類編號",
-              "content":"總天數",
-              "content":"內容",
-              "actTime":"活動時間",
-              "memNo":"會員編號",
-              "getPoint":"可得到點數",
-             }
-response回傳(成功):{
-                    "code":"0"
-                    "message":"成功退出此活動"
-                   }
-response回傳(失敗):{
-                    "code":"-1"
-                    "message":"退出失敗"
-                   }
-```
-### 17 查詢某會員已加入活動
+### 16 查詢某會員已加入活動
 ```javascript
 名稱 /Activity/:memNo
+HTTP方法 GET
+request回傳:[
+               {
+                "活動編號":"A001", 
+                "活動名稱":"騎車趣",
+                "活動分類編號":"A1",
+                "內容":"去河濱公園騎腳踏車",
+                "活動時間":"2018/12/20 下午3點",
+                "會員帳號":"10456004@ntub.edu.tw",
+                "可得到點數":"10",
+                "code":"0"
+               }
+               ...
+            ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
+```
+### 17 查詢所有活動
+```javascript
+名稱 /Activity
 HTTP方法 GET
 request回傳:[
                {
@@ -514,8 +475,8 @@ response回傳(失敗):{
 名稱 /friendType/add
 HTTP方法 POST
 request請求: {
-              "friendTypeNo":"好友分類編號",
-              "friendType":"好友分類名稱"
+              "friendTypeNo":"1",
+              "friendType":"摯友"
              }
 response回傳(成功):{  
                     "code":"0"
@@ -531,8 +492,8 @@ response回傳(失敗):{
 名稱 /friendType/delete
 HTTP方法 DELETE
 request請求: {
-              "friendTypeNo":"好友分類編號",
-              "friendType":"好友分類名稱"
+              "friendTypeNo":"1",
+              "friendType":"摯友"
              }
 response回傳(成功):{  
                     "code":"0"
@@ -541,22 +502,6 @@ response回傳(成功):{
 response回傳(失敗):{
                     "code":"-1"
                     "message":"刪除失敗"
-                   }
-```
-### 28 修改好友分類
-```javascript
-名稱 /friendType/update
-HTTP方法 PUT
-request請求: {
-              "friendType":"好友分類名稱"
-             }
-response回傳(成功):{  
-                    "code":"0"
-                    "message":"更新成功"
-                   }
-response回傳(失敗):{
-                    "code":"-1"
-                    "message":"更新失敗"
                    }
 ```
 ### 29 查詢好友分類名稱
