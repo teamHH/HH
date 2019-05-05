@@ -57,7 +57,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }                   
 ```
-### 3 查詢會員資料
+### 4 查詢會員資料
 ```javascript
 名稱 /member/:memNo
 HTTP方法 GET
@@ -78,17 +78,15 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                   }     
 ```
-### 4 文章新增
+### 5 點數新增
 ```javascript
-名稱 /posts/add
+名稱 /points/add
 HTTP方法 POST
 request請求: {
-              "postNo":"文章編號", 
+              "serNo":"編號", 
               "memNo":"會員帳號",
-              "postTypeNo":"文章分類編號",
-              "postTime":"時間",
-              "title":"標題",
-              "content":"內容"
+              "pointTime":"時間",
+              "ruleNo":"規則編號",
              }
 response回傳(成功):{
                     "code":"0"
@@ -97,7 +95,45 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 5 文章刪除
+### 6 點數查詢
+```javascript
+名稱 /points/:memNo
+HTTP方法 GET
+response回傳:[
+               {
+                "編號":"1", 
+                "會員帳號":"10456004@ntub.edu.tw",
+                "時間":"2019/2/15",
+                "規則編號":"a",
+               }
+               ...
+             ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
+```
+### 7 文章新增
+```javascript
+名稱 /points/add
+HTTP方法 POST
+request請求: {
+              "postNo":"文章編號", 
+              "memNo":"會員帳號",
+              "postTypeNo":"文章分類編號",
+              "postTime":"時間",
+              "title":"標題",
+              "content":"內容",
+              "friendTypeNo":"好友分類編號",
+             }
+response回傳(成功):{
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }                   
+```
+### 8 文章刪除
 ```javascript
 名稱 /posts/delete
 HTTP方法 DELETE
@@ -119,7 +155,7 @@ response回傳(失敗):{
                    }                   
 ```
 
-### 7 文章更新
+### 9 文章更新
 ```javascript
 名稱 /posts/update
 HTTP方法 PUT
@@ -138,7 +174,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
-### 8 查看某人的文章
+### 10 查看某人的文章
 ```javascript
 名稱 /posts/:memNo
 HTTP方法 GET
@@ -159,7 +195,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                   }     
 ```
-### 9 新增留言
+### 11 新增留言
 ```javascript
 名稱 /comments/add
 HTTP方法 POST
@@ -177,7 +213,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                  
 ```
-### 10 刪除留言
+### 12 刪除留言
 ```javascript
 名稱 /comments/delete
 HTTP方法 DELETE
@@ -195,7 +231,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }                   
 ```
-### 12 更新留言
+### 13 更新留言
 ```javascript
 名稱 /comments/update
 HTTP方法 PUT
@@ -212,19 +248,17 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }                   
 ```
-### 13 創建活動
+### 14 創建活動
 ```javascript
-名稱 /Activity/create
+名稱 /sActivity/add
 HTTP方法 POST
 request請求: {
               "actNo":"活動編號", 
               "activity":"活動名稱",
               "actTypeNo":"活動分類編號",
               "content":"總天數",
-              "content":"內容",
               "actTime":"活動時間",
-              "memNo":"會員編號",
-              "getPoint":"可得到點數",
+              "memNo":"會員編號"
              }
 response回傳(成功):{
                     "code":"0"
@@ -235,9 +269,72 @@ response回傳(失敗):{
                     "message":"創建失敗"
                    }
 ```
-### 14 加入活動
+### 15 刪除自建活動
 ```javascript
-名稱 /Activity/add
+名稱 /sActivity/delete
+HTTP方法 delete
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"總天數",
+              "actTime":"活動時間",
+              "memNo":"會員編號"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"刪除成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"刪除失敗"
+                   }
+```
+### 16 修改自建活動
+```javascript
+名稱 /sActivity/update
+HTTP方法 put
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"總天數",
+              "actTime":"活動時間",
+              "memNo":"會員編號"
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"修改成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"修改失敗"
+                   }
+```
+### 17 查詢自身建立的活動清單
+```javascript
+名稱 /sActivity/:memNo
+HTTP方法 GET
+request回傳:[
+               {
+                "活動編號":"A001", 
+                "活動名稱":"騎車趣",
+                "活動分類編號":"A1",
+                "內容":"去河濱公園騎腳踏車",
+                "活動時間":"2018/12/20 下午3點",
+                "會員帳號":"10456004@ntub.edu.tw",
+                "code":"0"
+               }
+               ...
+            ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
+```
+### 18 加入活動
+```javascript
+名稱 /eActivity/add
 HTTP方法 POST
 request請求: {
               "actNo":"活動編號", 
@@ -255,9 +352,50 @@ response回傳(失敗):{
                     "message":"加入失敗"
                    }
 ```
-### 16 查詢某會員已加入活動
+### 19 刪除已參加活動
 ```javascript
-名稱 /Activity/:memNo
+名稱 /eActivity/add
+HTTP方法 POST
+request請求: {
+              "actNo":"活動編號", 
+              "activity":"活動名稱",
+              "actTypeNo":"活動分類編號",
+              "content":"內容",
+              "actTime":"活動時間",
+             }
+response回傳(成功):{
+                    "code":"0"
+                    "message":"刪除成功"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                    "message":"刪除失敗"
+                   }
+```
+### 20 查詢自身加入活動
+```javascript
+名稱 /eActivity/:memNo
+HTTP方法 GET
+request回傳:[
+               {
+                "活動編號":"A001", 
+                "活動名稱":"騎車趣",
+                "活動分類編號":"A1",
+                "內容":"去河濱公園騎腳踏車",
+                "活動時間":"2018/12/20 下午3點",
+                "會員帳號":"10456004@ntub.edu.tw",
+                "code":"0"
+               }
+               ...
+            ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
+```
+### 21 查詢現有活動清單
+```javascript
+名稱 /eActivity
 HTTP方法 GET
 request回傳:[
                {
@@ -277,29 +415,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                   }     
 ```
-### 17 查詢所有活動
-```javascript
-名稱 /Activity
-HTTP方法 GET
-request回傳:[
-               {
-                "活動編號":"A001", 
-                "活動名稱":"騎車趣",
-                "活動分類編號":"A1",
-                "內容":"去河濱公園騎腳踏車",
-                "活動時間":"2018/12/20 下午3點",
-                "會員帳號":"10456004@ntub.edu.tw",
-                "可得到點數":"10",
-                "code":"0"
-               }
-               ...
-            ]
-request回傳(失敗):{
-                    "code":"-1"
-                    "message":"查詢失敗"
-                  }     
-```
-### 18 新增好友
+### 22 新增好友
 ```javascript
 名稱 /Friends/add
 HTTP方法 POST
@@ -316,7 +432,7 @@ response回傳(失敗):{
                     "code":"-1"
                    }
 ```
-### 19 刪除好友
+### 23 刪除好友
 ```javascript
 名稱 /Friends/delete
 HTTP方法 DELETE
@@ -334,7 +450,25 @@ response回傳(失敗):{
                     "code":"-1"
                    }
 ```
-### 20 每日簽到
+### 24 查詢好友清單
+```javascript
+名稱 /Friends/:memNo
+HTTP方法 get
+request回傳:[
+               {
+                "編號":"1", 
+                "好友分類名稱":"摯友",
+                "會員帳號":"10456004@ntub.edu.tw",
+                "code":"0"
+               }
+               ...
+            ]
+request回傳(失敗):{
+                    "code":"-1"
+                    "message":"查詢失敗"
+                  }     
+```
+### 25 每日簽到
 ```javascript
 名稱 /signIn/add
 HTTP方法 POST
@@ -352,7 +486,7 @@ response回傳(失敗):{
                     "message":"簽到失敗"
                    }
 ```
-### 21 查詢簽到紀錄
+### 26 查詢簽到紀錄
 ```javascript
 名稱 /signIn/:memNo
 HTTP方法 GET
@@ -370,17 +504,16 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                    }                
 ```
-### 22 新增運動紀錄
+### 27 新增運動紀錄
 ```javascript
 名稱 /Sport/add
 HTTP方法 POST
 request請求: {
-              "sportNo":"運動編號", 
-              "sport":"運動名稱",
-              "content":"內容",
-              "sportStartTime":"運動開始時間",
-              "sportEndTime":"運動結束時間",
-              "memNo":"會員帳號"
+              "orbitRecordNo":"軌跡紀錄編號", 
+              "memNo":"會員帳號",
+              "type":"類型",
+              "startDateTime":"運動開始時間",
+              "endDateTime":"運動結束時間"
              }
 response回傳(成功):{
                     "code":"0"
@@ -391,18 +524,17 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 23 查詢運動紀錄
+### 28 查詢運動紀錄
 ```javascript
-名稱 /Sport/
+名稱 /Sport/memNo
 HTTP方法 GET
 request回傳(成功):[
                    {
-                    "sportNo":"s001", 
-                    "sport":"跑步",
-                    "content":"會顯示路線圖 跟共走幾步",
-                    "sportStartTime":"2018/3/21 12:00:00",
-                    "sportEndTime":"2018/3/21 14:00:00",
-                    "memNo":"a22753516@gmail.com"
+                    "orbitRecordNo":"1", 
+                    "memNo":"10456021@ntub.edu.tw",
+                    "type":"跑步",
+                    "startDateTime":"2019/3/21 14:00:00",
+                    "endDateTime":"20193/21 14:30:00"
                     "code":"0"
                    }
                    ...
@@ -412,7 +544,7 @@ request回傳(失敗):{
                     "message":"查詢失敗"
                    }                
 ```
-### 24 新增評分
+### 29 新增評分
 ```javascript
 名稱 /Score/add
 HTTP方法 POST
@@ -431,7 +563,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 25 修改評分
+### 30 修改評分
 ```javascript
 名稱 /Score/update
 HTTP方法 PUT
@@ -447,7 +579,7 @@ response回傳(失敗):{
                     "message":"更新失敗"
                    }
 ```
-### 26 新增好友分類
+### 31 新增好友分類
 ```javascript
 名稱 /friendType/add
 HTTP方法 POST
@@ -464,7 +596,7 @@ response回傳(失敗):{
                     "message":"新增失敗"
                    }
 ```
-### 27 刪除好友分類
+### 32 刪除好友分類
 ```javascript
 名稱 /friendType/delete
 HTTP方法 DELETE
@@ -481,7 +613,7 @@ response回傳(失敗):{
                     "message":"刪除失敗"
                    }
 ```
-### 29 查詢好友分類名稱
+### 33 查詢好友分類名稱
 ```javascript
 名稱 /friendType/:friendType
 HTTP方法 GET
@@ -497,4 +629,4 @@ request回傳(失敗):{
                     "code":"-1"
                     "message":"查詢失敗"
                    }                
-``
+```
