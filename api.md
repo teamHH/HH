@@ -1,4 +1,4 @@
-### 1 加入會員
+### 1 註冊會員
 
 ```javascript
 名稱 /member/add
@@ -253,29 +253,6 @@ response回傳(成功):{
 response回傳(失敗):{
                     "code":"-1"
                     "message":"加入失敗"
-                   }
-```
-### 15 退出活動(本人)
-```javascript
-名稱 /Activity/delete
-HTTP方法 DELETE
-request請求: {
-              "actNo":"活動編號", 
-              "activity":"活動名稱",
-              "actTypeNo":"活動分類編號",
-              "content":"總天數",
-              "content":"內容",
-              "actTime":"活動時間",
-              "memNo":"會員編號",
-              "getPoint":"可得到點數",
-             }
-response回傳(成功):{
-                    "code":"0"
-                    "message":"成功退出此活動"
-                   }
-response回傳(失敗):{
-                    "code":"-1"
-                    "message":"退出失敗"
                    }
 ```
 ### 16 查詢某會員已加入活動
