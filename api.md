@@ -311,7 +311,7 @@ response回傳(失敗):{
                     "message":"修改失敗"
                    }
 ```
-### 17 查詢自身建立的活動清單
+### 17 查詢某會員建立的活動清單
 ```javascript
 名稱 /sActivity/:memNo
 HTTP方法 GET
@@ -629,4 +629,38 @@ request回傳(失敗):{
                     "code":"-1"
                     "message":"查詢失敗"
                    }                
+```
+### 34 按讚
+```javascript
+名稱 /Likes/add
+HTTP方法 POST
+request請求: {
+              "likeNo":"按讚編號",
+              "postNo":"文章編號",
+              "memNo":"會員帳號,
+              "likeTime":"時間"
+             }
+response回傳(成功):{  
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
+```
+### 34 收回讚
+```javascript
+名稱 /Likes/delete
+HTTP方法 DELETE
+request請求: {
+              "likeNo":"按讚編號",
+              "postNo":"文章編號",
+              "memNo":"會員帳號,
+              "likeTime":"時間"
+             }
+response回傳(成功):{  
+                    "code":"0"
+                   }
+response回傳(失敗):{
+                    "code":"-1"
+                   }
 ```
