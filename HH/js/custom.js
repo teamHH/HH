@@ -14,7 +14,7 @@ $(window).load(function () {
         filter: '*',
     });
 
-    $('.portfolio_filter a').click(function () {
+    $('.portfolio_filter a.actType').click(function () {
         $('.portfolio_filter .active').removeClass('active');
         $(this).addClass('active');
 

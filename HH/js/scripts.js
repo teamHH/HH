@@ -86,18 +86,6 @@ window.onload = function() {
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #ffbf00}";
     document.body.appendChild(css);
 };
-
-/* ----------------------------------------------------------- */
-/*  6. LATEST PRODUCT SLIDER (SLICK SLIDER)
-/* ----------------------------------------------------------- */      
-
-jQuery('.aa-properties-details-img').slick({
-    dots: false,
-    infinite: true,
-    arrows: true,
-    speed: 500,      
-    cssEase: 'linear'
-});
   
 
 
@@ -108,36 +96,35 @@ function myFunction(){
 	alert("修改成功");
 }
 
+/*==================================================================
+memberSetting
+[ Validate ]*/
 
-/*memberSetting*/
 
 (function ($) {
     "use strict";
 
-    
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
+var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+$('.validate-form').on('submit',function(){
+  var check = true;
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
+  for(var i=0; i<input.length; i++) {
+    if(validate(input[i]) == false){
+      showValidate(input[i]);
+      check=false;
+    }
+  }
 
-        return check;
-    });
+  return check;
+});
 
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-        });
-    });
+$('.validate-form .input100').each(function(){
+  $(this).focus(function(){
+    hideValidate(this);
+  });
+});
 
     function validate (input) {
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
@@ -166,65 +153,48 @@ function myFunction(){
     
     
 
-})(jQuery);
+})(jQuery); 
 
 
 /*使用者換大頭照*/
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('#userPhoto')
-                .attr('src', e.target.result);
-        };
+$(document).ready(function() {
+	
+  var readURL = function(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+          reader.onload = function (e) {
+              $('.profile-pic').attr('src', e.target.result);
+          }
+  
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+ 
+  $(".file-upload").on('change', function(){
+      readURL(this);
+  });
+  
+  $(".upload-button").on('click', function() {
+     $(".file-upload").click();
+  });
+});
 
-/* ----------------------------------------------------------- */
-/* totPost                                                */
-/* ----------------------------------------------------------- */  
-(function($) {
 
-	'use strict';
-    // home slider
-    $('.home-slider').owlCarousel({
-        loop:true,
-        autoplay: true,
-        margin:10,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        nav:true,
-        autoplayHoverPause: true,
-        items: 1,
-        navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-        responsive:{
-            0:{
-                items:1,
-                nav:false
-            },
-            600:{
-                items:1,
-                nav:false
-            },
-            1000:{
-                items:1,
-                nav:true
-            }
-        }
-    });
 
-})(jQuery);
+
+
 
 /* ----------------------------------------------------------- */
 /*post.html */
 /* ----------------------------------------------------------- */
+/*
+(jQuery)會出錯 還找不到原因 拿掉有包含(jQuery)的程式 網頁就可繼續執行
+
+	Validate Contact Form
+	
 (function($){
-    /*
-		Validate Contact Form
-	*/
 	
 	$("#cform").validate({
 		ignore: ".ignore",
@@ -269,37 +239,241 @@ function readURL(input) {
 			});
 		}
 	});
-})(jQuery);
+})(jQuery); 
+
+*/
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("settingsmodal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var closeBtn = document.getElementById("closeBtn");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function(){
+  modal.style.display = "none";
+}
+
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+/*-----------------------------------------------------------*/
+/* deleteConfirm(SweetAlert)*/
+/*-----------------------------------------------------------*/
+
+document.getElementById("deleteConfirm").onclick = function() {
+  swal({
+      title: "你確定嗎？",
+      text: "文章一經刪除後將無法恢復！",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "是的，删除！",
+      cancelButtonText: "不，取消",
+      closeOnConfirm: false,
+      closeOnCancel: false
+  }, function(isConfirm) {
+      if (isConfirm) {
+          swal("確定删除", "文章已經成功刪除！", "success") 
+          //window.location.href = 'login.html';   跳到別頁                      
+      } else{
+          swal("取消", "文章已經取消刪除！", "error")
+      }
+  })
+};
+
+document.getElementById("deleteConfirm2").onclick = function() {
+  swal({
+      title: "你確定嗎？",
+      text: "活動一經刪除後將無法恢復！",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "是的，删除！",
+      cancelButtonText: "不，取消",
+      closeOnConfirm: false,
+      closeOnCancel: false
+  }, function(isConfirm) {
+      if (isConfirm) {
+          swal("確定删除", "活動已經成功刪除！", "success")                    
+      } else{
+          swal("取消", "活動已經取消刪除！", "error")
+      }
+  })
+};
+
+document.getElementById("deleteComment").onclick = function() {
+  swal({
+      title: "你確定嗎？",
+      text: "留言一經刪除後將無法恢復！",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "是的，删除！",
+      cancelButtonText: "不，取消",
+      closeOnConfirm: false,
+      closeOnCancel: false
+  }, function(isConfirm) {
+      if (isConfirm) {
+          swal("確定删除", "留言已經成功刪除！", "success")                    
+      } else{
+          swal("取消", "留言已經取消刪除！", "error")
+      }
+  })
+};
+
+
 
 /* ----------------------------------------------------------- */
-/* totPost.html button-like*/
+/*personal-profile.html  filterBtn*/
 /* ----------------------------------------------------------- */
-$(document).foundation();
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
 
-$(function() {
-  $('.button-like')
-    .bind('click', function(event) {
-      $('.button-like').toggleClass('liked');
-    })
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1); 
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("filterBtn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+/* ----------------------------------------------------------- */
+/*personal-profile.html  likeBtn*/
+/* ----------------------------------------------------------- */
+$(document).ready(function(){
+
+  $('.like-button').click(function(){
+      $(this).toggleClass('is-active');
+  })
+
+})
+
+/* ----------------------------------------------------------- */
+/*use multiple summernote*/
+/* ----------------------------------------------------------- */
+$(document).ready(function() {
+  $('.summernote').summernote();
 });
 
+/* ----------------------------------------------------------- */
+/*編輯貼文 儲存貼文*/
+/* ----------------------------------------------------------- */
+var edit = function() {
+  $('.click2edit').summernote({focus: true});
+};
+
+var save = function() {
+  var markup = $('.click2edit').summernote('code');
+  $('.click2edit').summernote('destroy');
+};
+
+
+/*
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
+*/
+
+// [groupName, [list of button]]
+/*$('#summernote').summernote({
+  toolbar: [
+    
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+  ]
+});
+*/
+
+var edit2 = function() {
+  $('.click2edit2').summernote({focus: true});
+};
+
+var save2 = function() {
+  var markup = $('.click2edit2').summernote('code');
+  $('.click2edit2').summernote('destroy');
+};
+
+var edit3 = function() {
+  $('.click2edit3').summernote({focus: true});
+};
+
+var save3 = function() {
+  var markup = $('.click2edit3').summernote('code');
+  $('.click2edit3').summernote('destroy');
+};
+
 
 /* ----------------------------------------------------------- */
-/* quill rich text*/
+/*totPost 篩選*/
 /* ----------------------------------------------------------- */
-var editor = new Quill('.editor');  // First matching element will be used
-var container = document.getElementById('editor');
-var editor = new Quill(container);
-var container = $('.editor').get(0);
-var editor = new Quill(container);
-
-var options = {
-    debug: 'info',
-    modules: {
-      toolbar: '#toolbar'
-    },
-    placeholder: 'Compose an epic...',
-    readOnly: true,
-    theme: 'snow'
-  };
-var editor = new Quill('#editor', options);
+$('.ui.fluid.dropdown')
+  .dropdown({
+    maxSelections: 6
+  })
+;
