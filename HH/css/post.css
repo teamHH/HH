@@ -22,11 +22,6 @@ button.btn-primary{
   font-size: 18px;
 }
 
-h3.lead a{
-  color: #ffbf00;
-  font-size: 16px;
-}
-
 ul.list-unstyled li a{
   color: #555;
 }
@@ -122,8 +117,12 @@ hr{
   border-top: 0;
 }
 
+.col .post-box h1{
+	font-size: 28px;
+}
+
 .lead {
-  font-size: 18px;
+  font-size: 16px;
   /* font-weight: 200;*/
 }
 
@@ -156,76 +155,39 @@ hr{
 
 
 
-.button-like {
-  border: 2px solid #8a8a8a;
-  background-color: transparent;
-  text-decoration: none;
-  padding: 1rem;
-  position: relative;
-  vertical-align: middle;
-  text-align: center;
-  display: inline-block;
-  border-radius: 3rem;
-  color: #8a8a8a;
-  transition: all ease 0.4s;
+
+
+[id='toggle-heart'] {
+	position: absolute;
+	left: -100vw;
+	display: flex;
+	justify-content: center; /* horizontal alignment */
 }
 
-.button-like span {
-  margin-left: 0.5rem;
+[for='toggle-heart'] {
+color: #aab8c2;
 }
 
-.button-like .fa,
-.button-like span {
-  transition: all ease 0.4s;
+[id='toggle-heart']:checked + label {
+color: #e2264d;
 }
 
-.button-like:focus {
-  background-color: transparent;
+[for='toggle-heart'] {
+	font-size: 2em;
+	cursor: pointer;
 }
 
-.button-like:focus .fa,
-.button-like:focus span {
-  color: #8a8a8a;
+
+/* vertical alignment, needs the height of 
+ the body to be equal to that of the 
+ viewport if we want it in the middle */
+[for='toggle-heart'] { 
+align-self: center; 
 }
 
-.button-like:hover {
-  border-color: #cc4b37;
-  background-color: transparent;
-}
 
-.button-like:hover .fa,
-.button-like:hover span {
-  color: #cc4b37;
-}
 
-.liked {
-  background-color: #cc4b37;
-  border-color: #cc4b37;
-}
 
-.liked .fa,
-.liked span {
-  color: #fefefe;
-}
-
-.liked:focus {
-  background-color: #cc4b37;
-}
-
-.liked:focus .fa,
-.liked:focus span {
-  color: #fefefe;
-}
-
-.liked:hover {
-  background-color: #cc4b37;
-  border-color: #cc4b37;
-}
-
-.liked:hover .fa,
-.liked:hover span {
-  color: #fefefe;
-}
 
 
 
@@ -513,6 +475,8 @@ hr{
 }
 
 
+
+
 .col .post-box .post-comments {
 	margin: 0 0 20px 0;  
 	width: 100%;
@@ -573,25 +537,34 @@ hr{
 	font-weight: 500;
 }
 
-.post-box .post-comments li .comment-info .name a {
+.post-box .post-comments li .comment-info .name button.reply {
 	position: absolute;
 	top: 0;
 	right: 0;
 	font-size: 12px;
 	color: #171717;
 	text-transform: uppercase;
+	background-color: transparent;
+	border-color: transparent;
+	padding: 0;
 }
 
 
 
 .post-box .post-comments li .comment-info .name h6 {
+	left:0;
 	margin: 0;
 	font-size: 14px;
 	line-height: 14px;
 	color: #ffbf00;
 }
 
+.post-box .post-comments li .comment-info .name h6 a {
+	color: #ffbf00;
+}
+
 .post-box .post-comments li .comment-info .name h6 span {
+	left: 0;
 	margin: 0 0 0 10px;
 	padding: 0 0 0 10px;
 	display: inline-block;

@@ -1,0 +1,1047 @@
+/*
+Template Name: Socialyte
+Author: Codeplus team
+Author URI: https://codeplus.it
+*/
+
+
+/*我加的*/
+.react{
+    float: left;
+}
+
+.like-button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-decoration: none;
+    overflow: hidden;
+    /*margin: 0 auto;*/
+}
+
+.like-button .like-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffbf00;
+    transform: scale(0);
+    transition: all 0.4s;
+    z-index: 0;
+}
+
+.like-button i.not-liked {
+    display: block;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+.like-button i.is-liked {
+    display: none;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+@-webkit-keyframes bouncy {
+    from, to {
+        -webkit-transform: scale(1, 1);
+   }
+    25% {
+        -webkit-transform: scale(0.9, 1.1);
+   }
+    50% {
+        -webkit-transform: scale(1.1, 0.9);
+   }
+    75% {
+        -webkit-transform: scale(0.95, 1.05);
+   }
+}
+@keyframes bouncy {
+    from, to {
+        transform: scale(1, 1);
+   }
+    25% {
+        transform: scale(0.9, 1.1);
+   }
+    50% {
+        transform: scale(1.1, 0.9);
+   }
+    75% {
+        transform: scale(0.95, 1.05);
+   }
+}
+.bouncy {
+    -webkit-animation: bouncy 0.6s;
+    animation: bouncy 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.like-button.is-active .like-overlay {
+    transform: scale(1);
+}
+.like-button.is-active i.not-liked {
+    display: none;
+}
+.like-button.is-active i.is-liked {
+    display: block;
+}
+
+.avatar-wrapper {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.avatar-wrapper:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.avatar-wrapper:hover .profile-pic {
+    opacity: 0.5;
+}
+.avatar-wrapper .profile-pic {
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+.avatar-wrapper .profile-pic:after {
+    font-family: FontAwesome;
+    content: "\f007";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 190px;
+    background: #ecf0f1;
+    color: #34495e;
+    text-align: center;
+}
+.avatar-wrapper .upload-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.avatar-wrapper .upload-button .fa-camera {
+    position: absolute;
+    font-size: 100px;
+    top: 45px;
+    left: 45px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: rgba(255,191,0, 0.8);
+    
+}
+.avatar-wrapper .upload-button:hover .fa-camera {
+    opacity: 0.9;
+}
+
+
+
+
+
+.clear{
+    clear: both;
+}
+
+
+@media (max-width: 560px) {
+    .filterDiv {
+		top: 35px;
+		left: 0;
+		right: auto;
+	}
+
+	.filterBtn {
+		margin: 0 15px 0 0;
+	}
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.filterBtn {
+    margin: 0;
+	padding: 0 auto;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 40px;
+	line-height: 40px;
+	font-size: 13px;
+    color: #626262;
+    background-color: transparent;
+	cursor: pointer;
+	border: none;
+}
+
+/* Add a dark background to the active button */
+.myBtnContainer .active {
+  color: #ffbf00;
+}
+
+.filterDiv {
+  float: left;
+  color: #000;
+  text-align: center;
+  margin: 2px;
+  display: none; /* Hidden by default */
+}
+
+.points i{
+    vertical-align: text-bottom;
+    display: inline-block;
+    padding-right: 3px;
+}
+
+.points{
+	margin:0 ;
+	display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box-item {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+.box-item .image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.box-item .image a {
+	display: block;
+}
+
+.box-item .image a img {
+	position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.box-item .image .info {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	opacity: 0;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+}
+
+.box-item .image .info:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: -moz-linear-gradient(-45deg, rgba(120, 204, 109, 0.4) 0%, rgba(120, 204, 109, 0.01) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(120, 204, 109, 0.4) 0%, rgba(120, 204, 109, 0.01) 100%);
+	background: linear-gradient(135deg, rgba(120, 204, 109, 0.4) 0%, rgba(120, 204, 109, 0.01) 100%);
+	transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+}
+
+.box-item .desc {
+	padding: 15px 45px 0 45px;
+	position: relative;
+}
+
+.box-item .desc .name {
+	padding: 0 0 2px 0;
+	display: block;
+	font-size: 13px;
+	color: #171717;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.box-item .date {
+	padding: 10px 0 0 0;
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	width: 50px;
+	height: 50px;
+	font-size: 11px;
+	line-height: 11px;
+	color: #171717;
+	text-align: center;
+	font-weight: 500;
+	text-transform: uppercase;
+	background: #ffffff;
+}
+
+.box-item .date strong {
+	display: block;
+	font-size: 20px;
+	line-height: 20px;
+	color: #171717;
+	font-weight: 700;
+}
+
+.box-item2 {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+.box-item2 table.point{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 5px;
+}
+
+.col .box-item2 table.point tr td{
+	margin-top: 200px;
+}
+
+.box-item2 table.point tr td:first-child{
+	width: 20%;
+}
+
+.box-item2 p.point {
+	padding: 10px 0 0 0;
+	margin-top: 8px;
+	position: relative;
+	top:-0px;
+	bottom: 30px;
+	width: 50px;
+	height: 50px;
+	font-size: 11px;
+	line-height: 11px;
+	color: #171717;
+	text-align: center;
+	font-weight: 500;
+	text-transform: uppercase;
+	background: #ffffff;
+	border: 1.5px dashed#ffbf00;
+}
+
+.box-item2 p.point strong {
+	display: block;
+	font-size: 20px;
+	line-height: 20px;
+	color: #171717;
+	font-weight: 700;
+}
+
+.box-item2 .desc2 {
+	/*padding: 15px 45px 0 45px;*/
+	position: relative;
+	margin-top: 8px;
+}
+
+.box-item2 .desc2 p{
+	font-size: 14px;
+    margin:0 0 3px 20px;
+    text-align: left;
+}
+
+.box-item2 .desc2 .name {
+	margin:0 0 3px 20px;
+    text-align: left;
+	display: block;
+	font-size: 15px;
+	color: #171717;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+button#deleteConfirm:focus{
+    box-shadow: none;
+}
+
+
+
+
+/*我加的*/
+
+/*---------------------------------------------------------------
+[Main Color]
+here you can change #f3ad00 main color.
+-----------------------------------------------------------------*/
+.btn-social, /*.badge,*/ .btn-social, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary,
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive {
+    background: #f3ad00;
+}
+
+.btn-social {
+    border: #f3ad00;
+}
+
+
+/*----------------------------------------------------------------
+  [Table of contents]
+  1. Body
+  2. Header
+  3. Wall
+  4. User profile
+  5. Login
+  6. Settings
+  7. Scrollbar
+  8. Small Devices
+-----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------
+1. Body
+-----------------------------------------------------------------*/
+
+html, body, .sidebar-nav, .content-posts {
+    height: 100%;
+}
+
+body {
+    background: #edf1f5;
+    font-family: 'Poppins','Noto Sans TC', sans-serif !important;
+}
+
+a, a:link, a:visited, a:focus {
+    color: #404040;
+    text-decoration: none;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+h1, h2, h3 { font-weight: 600; }
+
+h2 {  font-size:22px; }
+
+h3 { font-size: 15px;
+     margin-top:0;
+     margin-bottom:5px;}
+
+video, img {
+    width: 100%;
+    height: auto;
+}
+
+.emoji  { width:16px;}
+
+.btn:focus,.btn:active, .btn:active:focus  { outline:none; }
+
+.content-posts {
+    margin-left: 240px;
+    margin-top: 70px;
+}
+
+.img-user {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.card-post .img-user  { max-width: 110px;
+                        min-width: 60px;}
+
+.card-post .chat-row .img-user { min-width:inherit; }
+
+.img-user-mini {
+    width: 30px;
+    height: 30px;
+}
+
+.popular-img {
+   margin-top:10px;
+}
+
+
+/*----------------------------------------------------------------
+2. Header
+-----------------------------------------------------------------
+
+header {
+    min-height: 50px;
+    background: #4F5467;
+    font-size: 14px;
+    padding: 15px 130px 10px 370px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+header, header a, header a:link, header a:visited, header a:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header .search {
+    float: left;
+    margin: 0px;
+}
+
+header .fa {
+    font-size: 18px;
+}
+
+header div {
+    float: right;
+}
+
+header .second-icon {
+    margin-right: 60px;
+}
+
+header .menu-icon { margin-top:3px; }
+
+header .dropdown-menu, header .dropdown-menu a, header .dropdown-menu a:link, header .dropdown-menu a:focus, header .dropdown-menu a:visited {
+    color: #404040;
+}
+
+header .dropdown-menu {
+    padding: 0px;
+    min-width: 220px;
+    text-align: center;
+}
+
+header .dropdown-menu li, header .dropdown-menu li a { display: block;
+                                                       overflow: hidden;}
+
+.dropdown-menu>li>a  {  padding: 8px 20px; }
+
+.dropdown-menu .divider {margin:0px;}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.badge {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+header .badge {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+}
+
+.new-not {
+    background: #ffeab6;
+}
+
+.search input {
+    width: 200px;
+    border-radius: 10px;
+    border: 0px;
+    color: #404040;
+    font-size: 13px;
+    padding: 5px;
+    padding-bottom: 3px;
+}*/
+
+.sidebar-nav {
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 240px;
+    margin-top: 67px;
+    padding: 50px 10px 0px 10px;
+    background: #ffffff;
+    z-index: 1;
+}
+
+
+
+/*----------------------------------------------------------------
+3. Wall
+-----------------------------------------------------------------*/
+
+.card-post {
+    background: #ffffff;
+    padding: 15px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.container-posts {
+    padding: 0 130px;
+}
+
+.img-post {
+    width: 100%;
+}
+
+.info-user i { 
+    color:#929292;
+    font-size: 14px; 
+    margin-top: 5px;
+}
+
+.reaction {
+    padding: 10px 0;
+}
+
+.comments {
+    border-top: 1px solid #dadada;
+    padding-top: 5px;
+}
+
+.comments ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.comments ul li, .comments .more-comments {
+    padding: 5px 0;
+}
+
+.comments .more-comments {
+    color: #ababab;
+}
+
+#loading {
+    width: 36px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.user-description {
+    margin-top: 20px;
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.info-user { margin-top:15px; }
+
+.info-user p {margin:0px; }
+
+.primary-content { width:70%;
+                   float: left; }
+
+.sidebar-right  { width:28%;
+                  float: left; }
+
+.primary-content .container-posts {
+    padding: 0 40px;
+}
+
+/*----------------------------------------------------------------
+4. User Profile
+-----------------------------------------------------------------*/
+
+.banner-profile{
+    height: 160px;
+    width: 100%;
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-content {
+    margin-top:60px;
+}
+
+.profile-content .nav-tabs {
+    padding-left: 130px;
+}
+
+.profile-data {
+    list-style: none;
+    padding: 0px;
+    line-height: 25px;
+}
+
+.profile-data li{
+    color: #4F5467;
+}
+
+.profile-data li b{
+    color: #272727;
+}
+
+.chat-message {
+    padding: 12px 5px;
+    border-radius: 10px;
+    background: #4F5467;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.chat-message h4 { margin-top:2px;
+                   font-size: 14px;}
+
+.chat-row {
+    margin-top: 20px;
+}
+
+.chat-message.pull-right {
+    background: #3a5248;
+}
+
+.chat-time {
+    font-size: 11px;
+    color: #b5b5b5;
+    margin-bottom: 6px;
+}
+
+.chat-message .chat-time {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+.scrollbar-container {
+    height: 340px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.badge-replay, .badge-message {
+    font-size: 14px;
+    position: relative;
+    top: 36px;
+    font-weight: normal;
+}
+
+.badge-message {
+    background: #4f5467;
+}
+
+.form-message {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
+textarea.post-textarea {
+    height: 80px;
+}
+
+.create-post-form input[type=submit] {
+    margin-top: 10px;
+}
+
+.row-user-list {
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    width: 50%;
+    float: left;
+}
+
+.row-user-list .friendType{
+    font-size: 14px;
+    margin: -10px 0 3px 10px;
+    padding-top: 0;
+}
+
+.row-user-list p b{
+    margin: 0 0 0 10px;
+}
+
+
+/*----------------------------------------------------------------
+5. Login
+-----------------------------------------------------------------
+
+#login-page {
+    width: 100%;
+    height: 100%;
+    background-image: url('img/urban.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-social { color: #ffffff;}
+
+.btn-social:hover, .btn-social:focus, .btn-social:active { color: #ffffff;
+                                                           background: #e8a500;}
+
+.btn-social:active:focus { background: #d09400;}
+
+.form-box {
+    width: 380px;
+    height: 370px;
+    padding: 15px;
+    color: #ffffff;
+    position: relative;
+    top: 50%;
+    margin: auto;
+    margin-top: -185px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.form-box form {
+    margin-bottom: 20px;
+}
+
+.form-box input {
+    margin-top: 20px;
+}
+
+.form-box input[type="submit"] {
+    width: 100%;
+}
+
+.form-logo {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.form-logo img { width:90%;
+                 margin:25px 0 10px;
+                 height: auto;}
+
+.login-action, .login-action:link, .login-action:focus, .login-action:visited {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+footer.login-footer {
+    position: fixed;
+    bottom: 0px;
+    background: #404040;
+    width: 100%;
+    padding: 15px;
+}*/
+
+/*----------------------------------------------------------------
+6. Settings
+-----------------------------------------------------------------*/
+
+.modal-dialog  { width:700px;}
+
+.modal-row  { margin-top:25px; }
+
+.modal-row p { 
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.modal.fade {
+    z-index: 1200 !important;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  text-align: center;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.6s;
+  animation-name: animatetop;
+  animation-duration: 0.6s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close, .editclose {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus,
+.editclose:hover, .editclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #4f5467;
+  color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    font-size: 14px;
+}
+
+.modal-footer button{
+    border-color: #888;
+}
+
+.modal-footer button.btn-social{
+    border-color: #888;
+    color: #fff;
+}
+
+.modal-row .gender{
+    width: 50px;
+}
+
+/*----------------------------------------------------------------
+7. Scrollbar
+-----------------------------------------------------------------*/
+
+ ::-webkit-scrollbar {
+    width: 5px;
+}
+
+ ::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+ ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*----------------------------------------------------------------
+8. Small Devices
+-----------------------------------------------------------------*/
+
+@media screen and (max-width:1199px)  {   header { padding: 15px 30px 10px 220px;  }
+
+                                          .sidebar-nav {  width:190px;  }
+
+                                          .content-posts {  margin-left:190px;}
+
+                                          .container-posts { padding:0px 30px;  }
+                                      }
+
+@media screen and (max-width:991px) {  .img-user { width: 100%;
+                                                   margin: 0px;}
+
+                                        header .dropdown-menu { top:33px; }
+
+                                        .primary-content { width:100%;}
+                                     }
+
+@media screen and (max-width:767px)  {
+
+  header { padding:0px;
+           min-height: 104px;
+           padding-left:125px;}
+
+  header .search, header .search input, header .dropdown { width:100%; }
+
+  header .search input  { border-radius:0px;
+                          height: 40px;}
+
+  header .dropdown-menu { top:36px; }
+
+  .sidebar-nav {  width:125px;
+                  height: auto;
+                  padding: 10px;}
+
+  .img-user   { width:80%;
+                margin-left:10%;  }
+
+  .card-post .img-user { width:70%;
+                        margin-left:15%; }
+
+  .card-post .chat-row .img-user  { width:100%;
+                                    margin:0px;}
+
+  header .menu-icon { margin:0px;
+                      margin-top:25px;
+                      width:25%;
+                      text-align: center;}
+
+  header .menu-icon .fa  {  font-size: 20px;  }
+
+  header .badge { position: relative;
+                  right: 15px;
+                  top:-12px;}
+
+  .content-posts  {  margin:0px;
+                     margin-top:120px;}
+
+  .container-posts, .primary-content .container-posts { padding:0px 15px;  }
+
+  .data-post { margin-top:10px;}
+
+  .profile-content  {  margin-top: 0px;
+                       padding-top: 100px;}
+
+  .profile-content .nav-tabs  { padding-left:15px; }
+
+  .chat-message .chat-time {   top: 6px;
+                               right: 10px;}
+
+  .form-box  {margin-bottom:60px;}
+
+  .modal-dialog  { width:auto;}
+
+}
+
+@media screen and (max-width:479px)  {
+    header { padding-left: 100px;
+    min-height:100px; }
+
+    header .dropdown-menu { top:32px; }
+
+    .img-user {  width:100%;
+    margin: 0px;}
+
+    .card-post  .img-user  {width:90%;
+    margin-left:5%;}
+
+    .sidebar-nav { width: 100px;}
+
+    .form-box  {width: 310px;
+    margin-top: -225px;}
+
+}

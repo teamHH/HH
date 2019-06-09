@@ -5,7 +5,7 @@
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%;
-    z-index: 999 !important;
+    z-index: 999999999 !important;
     display: block;
     font-family: 'Poppins','Noto Sans TC', sans-serif !important;
 }
@@ -14,11 +14,6 @@
     background-color: #fff;
     border: medium none;
     border-radius: 0;
-    /*float: right;*/
-}
-
-#aa-menu-area .main-navbar .navbar-header .navbar-brand {
-    padding: 0;
 }
 
 #aa-menu-area .main-navbar .navbar-header .aa-logo {

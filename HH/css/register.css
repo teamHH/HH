@@ -1,25 +1,25 @@
 /*--------------------------------------- register ----------------------------------------------*/
 
-$font-family:   "Roboto";
+/*$font-family:   "Roboto";
 $font-size:     14px;
 
-$color-primary: #ABA194;
+$color-primary: #ABA194;*/
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins','Noto Sans TC', sans-serif;
-    font-size: 14px;
-    background-size: 200% 200% !important;
-    animation: move 10s ease infinite;
-    transform: translate3d(0, 0, 0);
-    background: linear-gradient(45deg, #ee6363 10%, #ffbf00 90%);
-    /* background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%); */
-    height: 100%;
+  font-family: 'Poppins','Noto Sans TC', sans-serif;
+  font-size: 14px;
+  background-size: 200% 200% !important;
+  animation: move 10s ease infinite;
+  transform: translate3d(0, 0, 0);
+  background: linear-gradient(45deg, #ee6363 10%, #ffbf00 90%);
+  /* background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%); */
+  height: 100%;
 }
 
 .user {
@@ -61,7 +61,7 @@ body {
     display: block;
     width: 100%;
     padding: 15px;
-    font-family: $font-family;
+    font-family:'Poppins','Noto Sans TC', sans-serif;
     -webkit-appearance: none;
     border: 0;
     outline: 0;
@@ -76,7 +76,7 @@ body {
     display: block;
     width: 100%;
     padding: 15px;
-    font-family: $font-family;
+    font-family: 'Poppins','Noto Sans TC', sans-serif;
     -webkit-appearance: none;
     outline: 0;
     border: 0;

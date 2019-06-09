@@ -55,11 +55,13 @@ pre {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  color: #ffbf00;
 }
 
 a:active,
 a:hover {
   outline-width: 0;
+  color: #ffa500;
 }
 
 abbr[title] {
