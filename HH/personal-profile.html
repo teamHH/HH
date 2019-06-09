@@ -38,23 +38,21 @@
 	<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+	
+	
+
+
     <!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<!-- Include the Quill library -->
 	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-	<link rel="shortcut icon" href="img/2.png">
-	
-	<link href="css/semantic.css" rel="stylesheet">
-	<script src="js/semantic.js"></script>
-	
-
+    <link rel="shortcut icon" href="img/2.png">
 </head>
 
 <body>
     <div class="container-fluid" style="margin:0; padding:0;">
-        <!-- nav -->
-		<nav>
+        <nav>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
 				<!-- Modal content -->
@@ -266,6 +264,17 @@
         </div>
         
         <div class="content-posts profile-content">
+			<div class="banner-profile"></div>
+			<!-- Tab Panel -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="active"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">最近發文</a></li>
+				<li><a href="#profile" role="tab" id="profileTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">簡介</a></li>
+				<li><a href="#friends" role="tab" id="friendsTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">好友</a></li>
+				<li><a href="#activity" role="tab" id="activityTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">活動</a></li>
+				<li><a href="#records" role="tab" id="recordsTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">紀錄</a></li>
+				<li><a href="#points" role="tab" id="pointsTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">點數</a></li>
+				<!--<li><a href="#chat" role="tab" id="chatTab" data-toggle="tab" aria-controls="chat" aria-expanded="true">Chat</a></li>-->
+			</ul>
 		
 			<!--Start Tab Content-->
 			<div class="tab-content">
@@ -273,21 +282,6 @@
 				<!-- Tab Posts -->
 				<div class="tab-pane fade active in" role="tabpanel" id="posts" aria-labelledby="postsTab">
 					<div id="posts-container" class="container-fluid container-posts">
-						<div class="card-post" style="margin-top: 10px;">
-							<div class="row">
-								<div class="col-xs-9 col-sm-10 data-post">
-									<ul class="tags">
-										<li><a href="#" class="tag">運動</a></li>
-										<li><a href="#" class="tag">休閒</a></li>
-										<li><a href="#" class="tag">賽事分享</a></li>
-										<li><a href="#" class="tag">討論</a></li>
-										<li><a href="#" class="tag">減肥</a></li>
-										<li><a href="#" class="tag">瑜珈</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
 						<div class="card-post">
 							<div class="row">
 								<div class="col-xs-3 col-sm-2">
@@ -296,161 +290,12 @@
 									</a>
 								</div>
 							
-								<div class=" col-xs-9 col-sm-10 data-post">									
-									<div style="margin-bottom: 10px;">
-										<table>
-											<tr>
-												<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
-												<td>
-													<div class="ui fluid dropdown multiple" style="z-index: 800;">
-														<input type="hidden" name="filters">									
-														<span class="text" style="padding: 5px; border:1px solid gray; border-radius: 5px; ">
-															<i class="fas fa-tags"></i>選擇話題</span>
-														<div class="menu">
-															<div class="ui icon search input">
-																<!-- <i class="search icon"></i> -->
-																
-																<input type="text" placeholder=" &#x1f50d; 搜尋話題...">
-															</div>
-															<!-- <div class="divider"></div>
-															<div class="header">
-																<i class="fas fa-tags"></i>
-																hashtags
-															</div> -->
-															<div class="scrolling menu">
-															<div class="item" data-value="sport">
-																<div class="ui red empty circular label"></div>
-																運動
-															</div>
-															<div class="item" data-value="休閒">
-																<div class="ui orange empty circular label"></div>
-																休閒
-															</div>
-															<div class="item" data-value="賽事分享">
-																<div class="ui purple empty circular label"></div>
-																賽事分享
-															</div>
-															<div class="item" data-value="討論">
-																<div class="ui green empty circular label"></div>
-																討論
-															</div>
-															<div class="item" data-value="減肥">
-																<div class="ui yellow empty circular label"></div>
-																減肥
-															</div>
-															<div class="item" data-value="瑜珈">
-																<div class="ui pink empty circular label"></div>
-																瑜珈
-															</div>
-															
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-											
-										</table>										
-									</div>
-
-									 
-									
+								<div class=" col-xs-9 col-sm-10 data-post">
 									<div class="summernote"><p>快來分享今天做了什麼吧</p></div>
 									<div class="clear"></div>
 								</div>
 								<button type="submit" class="btn btn-primary2" style="margin-left: 48%;">送出</button>
 							</div>		
-						</div>
-
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/4.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<h3><a href="personal-profile.html" title="Profile">郭加于</a></h3>
-									<p><i>1h 30min</i></p>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-									<h2>HOW健康</h2>
-									<p>&#x1F643;&#x1F643;&#x1F643;&#x1F643;</p>
-									<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-									<img src="img/6.jpg" alt="image post" class="img-post">
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-										<div class="clear"></div>
-									</div>
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>陳盈臻</b> 加于好棒！</li>
-											<li><b>劉安</b> 加于不愧是我們的精神領袖</li>
-											<li><b>郭加于</b> &#x1F610;</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/3.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<h3><a href="personal-profile.html" title="Profile">劉安</a></h3>
-									<p><i>2h</i></p>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-									<h2>HOW健康</h2>
-									<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-									<img src="img/6.jpg" alt="image post" class="img-post">
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-										<div class="clear"></div>
-									</div>
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>陳盈臻</b> 謝謝安安哥哥！</li>
-											<li><b>郭加于</b> .....原來是約好一起發的阿&#x1F610;</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
-									</div>
-								</div>
-							</div>
 						</div>
 
 						<div class="card-post">
@@ -520,68 +365,7 @@
 							</div>
 						</div>
 
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/2.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<h3><a href="personal-profile.html" title="Profile">陳盈臻</a></h3>
-									<p><i>3h</i></p>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-									<h2>HOW健康</h2>
-									<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-									<p>嘿嘿 管理員都要發這篇文&#x1F60F;&#x1F60F;</p>
-									<img src="img/6.jpg" alt="image post" class="img-post">
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-										<div class="clear"></div>
-									</div>
-
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>張傑婷</b> 
-												<div style="float: right;">
-													<button id="edit" onclick="edit3()" type="button" style="border: none; background-color:transparent;">
-														<i class="fas fa-edit" style="font-size: 13px; color: #404040;"></i>編輯留言
-													</button>
-													<button id="save" onclick="save3()" type="button" style="border: none; background-color:transparent;">
-														<i class="far fa-save" style="font-size: 13px; color: #404040;"></i>儲存留言
-													</button>
-													<button id="deleteComment" title="刪除" style="border: none; background-color:transparent;">
-														<i class="far fa-trash-alt" style="font-size: 13px; color: #404040;"></i>
-													</button>
-												</div>
-												
-												<div class="click2edit3" id="summernote">
-													&#x1F923;&#x1F923;&#x1F923;你很煩
-												</div>
-											</li>
-											<li><b>劉安</b> 我也要發嗎 &#x1F602;</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
+						
 							
 						<div class="card-post">
 							<div class="row">
@@ -639,6 +423,24 @@
 										<ul>
 											<li><b>陳盈臻</b> 美哭我</li>
 											<li><b>郭加于</b> 太讚了吧&#x1F602;</li>
+											<li>
+												<b>張傑婷</b> 
+												<div style="float: right;">
+													<button id="edit" onclick="edit3()" type="button" style="border: none; background-color:transparent;">
+														<i class="fas fa-edit" style="font-size: 13px; color: #404040;"></i>編輯留言
+													</button>
+													<button id="save" onclick="save3()" type="button" style="border: none; background-color:transparent;">
+														<i class="far fa-save" style="font-size: 13px; color: #404040;"></i>儲存留言
+													</button>
+													<button id="deleteComment" title="刪除" style="border: none; background-color:transparent;">
+														<i class="far fa-trash-alt" style="font-size: 13px; color: #404040;"></i>
+													</button>
+												</div>
+												
+												<div class="click2edit3" id="summernote">
+													是吧～～～～
+												</div>
+											</li>
 										</ul>
 										<form>
 											<input type="text" class="form-control" placeholder="回覆留言">
@@ -681,6 +483,30 @@
 										<img src="img/profile/2.jpg" alt="User name" class="img-circle img-user">
 									</div>
 									<div class="col-sm-7 col-xs-9">
+										<button id="deleteFriend" title="刪除" style="border: none; background-color:transparent; float: right;">
+											<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
+										</button>
+										<script>
+											document.getElementById("deleteFriend").onclick = function() {
+												swal({
+													title: "你確定嗎？",
+													text: "刪除好友後須將重新遞送交友邀請",
+													type: "warning",
+													showCancelButton: true,
+													confirmButtonColor: "#DD6B55",
+													confirmButtonText: "是的，删除！",
+													cancelButtonText: "不，取消",
+													closeOnConfirm: false,
+													closeOnCancel: false
+												}, function(isConfirm) {
+													if (isConfirm) {
+														swal("確定删除", "已經成功刪除！", "success")                    
+													} else{
+														swal("取消", "已經取消刪除！", "error")
+													}
+												})
+											};
+										</script>
 										<p><b>陳盈臻</b></p>
 										<p class="friendType">
 											<select type="text" class="" name="friendType">
@@ -695,6 +521,9 @@
 										<img src="img/profile/4.jpg" alt="User name" class="img-circle img-user">
 									</div>
 									<div class="col-sm-7 col-xs-9">
+										<button id="deleteFriend" title="刪除" style="border: none; background-color:transparent; float: right;">
+											<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
+										</button>
 										<p><b>郭加于</b></p>
 										<p class="friendType">
 											<select type="text" class="" name="friendType">
@@ -709,6 +538,9 @@
 										<img src="img/profile/3.jpg" alt="User name" class="img-circle img-user">
 									</div>
 									<div class="col-sm-7 col-xs-9">
+										<button id="deleteFriend" title="刪除" style="border: none; background-color:transparent; float: right;">
+											<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
+										</button>
 										<p><b>劉安</b></p>
 										<p class="friendType">
 											<select type="text" class="" name="friendType">

@@ -19,7 +19,7 @@
     <!--google icon-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <!-- modernizr -->
     <script src="js/modernizr.js"></script>
@@ -36,103 +36,189 @@
     <div class="container-fluid">
         <!-- nav -->
 		<nav>
-			<section id="aa-menu-area">
-				<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
-					<div class="col-md-6">
-						<ul id="top-menu" class="nav navbar-nav aa-main-nav">
-							<!--<li class="active"><a href="index.html">HOME</a></li>-->
-							<li class="dropdown nav-item">
-								<div class="box-logo">
-									<!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
-									<a href="homepage.html" class="logo">HH</a>
-								</div>
-							</li>
-						</ul> 
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<h2>設定</h2>
 					</div>
-
-					<div class="col-md-6 right">
-					<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
-						<li class="dropdown" >
-							<a class="dropdown-toggle">
-								<form class="form-inline">
-									<input class="form-control mr-sm-2" type="text" placeholder="可輸入關鍵字或代碼搜尋"> 
-									<button class="btn btn-primary2" type="submit">
-										搜尋
-									</button>
-								</form>
-							</a>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="material-icons icon-align" style="font-size:35px;">menu</i></span>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" role="menu">          
-								<li><a href="homepage.html"><i class="material-icons icon-align">home</i>首頁<i class="ion-ios-circle-filled color"></i></a></li>      
-								<li><a href="joinPublicActivity.html"><i class="material-icons icon-align">event</i>活動</a></li>
-								<li><a href="totPost.html"><i class="material-icons icon-align">widgets</i>討論區</a></li>                                          
-							</ul>
-						</li>                    
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="material-icons icon-align" style="font-size:35px;">notifications</i>
-								<span class="badge">3</span>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" role="menu">                
-								<li class="notific">
-									<div class="media mb-4">
-										<img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
-										<div class="media-body">
-											<h4 class="mt-0 name">劉安</h4><p>說你的貼文讚</p>
-										</div>
-									</div>
-								</li>
-								<li class="notific">
-									<div class="media mb-4">
-										<img class=" mr-3 rounded-circle" src="img/profile/4.jpg" alt="">
-										<div class="media-body">
-											<h4 class="mt-0 name">郭加于</h4><p>說你的貼文讚</p>
-										</div>
-									</div>
-								</li>
-								<li class="notific">
-									<div class="media mb-4">
-										<img class=" mr-3 rounded-circle" src="img/profile/2.jpg" alt="">
-										<div class="media-body">
-											<h4 class="mt-0 name">陳盈臻</h4><p>在此篇文留言說你最口愛</p>
-										</div>
-									</div>
-								</li>                                           
-							</ul>
-						</li>                   
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="material-icons icon-align" style="font-size:35px;">person</i>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right" role="menu">                
-								<li class="member">
-									<a href="profile.html">
-										<div class="image">
-											<img src="img/profile/1.jpg" alt="" style="border-radius: 100%;">
-										</div>
-										<div class="title user">
-											張傑婷
-										</div>
-										<div class="title email">
-											10456022@ntub.edu.tw
-										</div>
-										
-									</a>   
-								</li>
-								<li><a href="memberSetting.html"><i class="material-icons icon-align">settings</i>帳號設定</a></li>       
-								<li><a href="index.html"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
-							</ul>
-						</li>
-					</ul>
+					<div class="modal-body">
+						<div class="row modal-row">
+							<div class="col-sm-3">
+								<p><label>使用者名稱: </label></p>
+							</div>
+							<div class="col-sm-6">
+								<p>張傑婷</p>
+							</div>
+							<div class="col-sm-3">
+								<a href="#" title="編輯使用者名字"><i class="fa fa-pencil" aria-hidden="true"></i> <i>編輯</i></a>
+							</div>
+						</div>
+						<div class="row modal-row">
+							<div class="col-sm-3">
+								<p><label>Email: </label></p>
+							</div>
+							<div class="col-sm-6">
+								<p>10456022@ntub.edu.tw</p>
+							</div>
+							<div class="col-sm-3">
+								<a href="#" title="編輯Email"><i class="fa fa-pencil" aria-hidden="true"></i> <i>編輯</i></a>
+							</div>
+						</div>
+						<div class="row modal-row">
+							<div class="col-sm-3">
+								<p>
+									<label>更改密碼: </label>
+								</p>
+							</div>
+							<div class="col-sm-6">
+								<p>*********</p>
+							</div>
+							<div class="col-sm-3">
+								<a href="password.html" title="更改密碼"><i class="fa fa-pencil" aria-hidden="true"></i> <i>編輯</i></a>
+							</div>
+						</div>
+						<div class="row modal-row">
+							<div class="col-sm-3">
+								<p><label>性別: </label></p>
+							</div>
+							<div class="col-sm-6">
+								<p>
+									<select type="text" class="gender" name="gender">
+									<option value="M"> 男</option>
+									<option value="F"> 女</option>
+									</select>
+								</p>
+							</div>
+						</div>
+						<div class="row modal-row">
+							<div class="col-sm-3">
+								<p><label>公開帳號: </label></p>
+							</div>
+							<div class="col-sm-6">
+								<p>
+									<input class="switch-checkbox" type="checkbox" name="PublicProfile" data-on-text="開" data-off-text="關" checked>
+								</p>
+							</div>
+							<div class="col-sm-3">
+							</div>
+						</div>
+						<div class="row modal-row">
+							<div class="col-sm-3">
+								<p><label>通知信件: </label></p>
+							</div>
+							<div class="col-sm-6">
+								<input class="switch-checkbox" type="checkbox" name="NotificationsEmail" data-on-text="開" data-off-text="關" checked>
+							</div>
+							<div class="col-sm-3">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">關閉</button>
+						<button type="button" class="btn btn-social">儲存變更</button>
+					</div>
 				</div>
-				</div><!--/.nav-collapse --> 
-			</section>
-		</nav>
-		<!-- end nav -->
+			</div>
+            <section id="aa-menu-area">
+                <div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
+                    <div class="col-md-4">
+                        <ul id="top-menu" class="nav navbar-nav aa-main-nav">
+                            <!--<li class="active"><a href="index.html">HOME</a></li>-->
+                            <li class="dropdown nav-item">
+                                <div class="box-logo">
+                                    <!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
+                                    <a href="homepage.html" class="logo">HH</a>
+                                </div>
+                            </li>
+                        </ul> 
+                    </div>
+    
+                    <div class="col-md-8 right">
+                        <ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
+                            <li class="dropdown" >
+                                <a class="dropdown-toggle">
+                                    <form class="form-inline">
+                                        <input class="form-control mr-sm-2" type="text" placeholder="可輸入關鍵字或代碼搜尋"> 
+                                        <button class="btn btn-primary2" type="submit">
+                                            搜尋
+                                        </button>
+                                    </form>
+                                </a>
+                            </li>
+                                
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="totPost.html">
+                                    <i class="far fa-newspaper" style="font-size:30px;"></i>
+                                </a>
+                            </li>  
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="joinActivity.html">
+                                    <i class="material-icons icon-align" style="font-size:35px;">event</i>
+                                </a>
+                            </li>   
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
+                                    <span class="badge">3</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">                
+                                    <li class="notific">
+                                        <div class="media mb-4">
+                                            <img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
+                                            <div class="media-body">
+                                                <h4 class="mt-0 name">劉安</h4><p>說你的貼文讚</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="notific">
+                                        <div class="media mb-4">
+                                            <img class=" mr-3 rounded-circle" src="img/profile/4.jpg" alt="">
+                                            <div class="media-body">
+                                                <h4 class="mt-0 name">郭加于</h4><p>說你的貼文讚</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="notific">
+                                        <div class="media mb-4">
+                                            <img class=" mr-3 rounded-circle" src="img/profile/2.jpg" alt="">
+                                            <div class="media-body">
+                                                <h4 class="mt-0 name">陳盈臻</h4><p>在此篇文留言說你最口愛</p>
+                                            </div>
+                                        </div>
+                                    </li>                                           
+                                </ul>
+                            </li>
+                                
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="personal-profile.html">
+                                    <i class="fas fa-user" style="font-size:30px;"></i>
+                                </a>
+                            </li>  
+
+                            <li class="dropdown">
+		        				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				    				<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+								</a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
+                                    <li>
+                                        <a href="settings.html" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
+                                            <i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>設定
+                                        </a>  
+                                    </li>    
+                                    <li><a href="index.html"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--/.nav-collapse --> 
+            </section>
+        </nav>
+        <!-- end nav -->
 
         
 
@@ -310,113 +396,10 @@
                 </div>
             </div>
             <div class="watch-more">
-                <a href="joinPublicActivity.html" class="aa-top-slider-btn">看更多 <i class="material-icons icon2">arrow_forward_ios</i></a>
+                <a href="joinPublicActivity.html" class="aa-top-slider-btn">看更多 <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </section>
-
-
-
-
-    <!-- portfolio div -->
-    <div class="portfolio-div">
-        <div class="portfolio">
-            <div class="no-padding portfolio_container">
-                <!-- single work -->
-                <!--
-                <div class="col-md-3 col-sm-6  fashion logo">
-                    <a href="single-project.html" class="portfolio_item">
-                        <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                        <div class="portfolio_item_hover">
-                            <div class="portfolio-border clearfix">
-                                <div class="item_info">
-                                    <span>Mockups in seconds</span>
-                                    <em>Fashion / Logo</em>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                -->
-                <!-- end single work -->
-
-                <!-- single work -->
-                <!--
-                <div class="col-md-3 col-sm-6 ads graphics">
-                    <a href="single-project.html" class="portfolio_item">
-                        <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                        <div class="portfolio_item_hover">
-                            <div class="portfolio-border clearfix">
-                                <div class="item_info">
-                                    <span>Floating mockups</span>
-                                    <em>Ads / Graphics</em>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                -->
-                <!-- end single work -->
-
-                <!-- single work -->
-                <!--
-                <div class="col-md-6 col-sm-12 photography">
-                    <a href="single-project.html" class="portfolio_item">
-                        <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                        <div class="portfolio_item_hover">
-                            <div class="portfolio-border clearfix">
-                                <div class="item_info">
-                                    <span>Photorealistic smartwatch</span>
-                                    <em>Photography</em>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                -->
-                <!-- end single work -->
-
-                <!-- single work -->
-                <!--
-                <div class="col-md-3 col-sm-6 fashion ads">
-                    <a href="single-project.html" class="portfolio_item">
-                        <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                        <div class="portfolio_item_hover">
-                            <div class="portfolio-border clearfix">
-                                <div class="item_info">
-                                    <span>Held by hands</span>
-                                    <em>Fashion / Ads</em>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                -->
-                <!-- end single work -->
-
-                <!-- single work -->
-                <!--
-                <div class="col-md-3 col-sm-6 graphics ads">
-                    <a href="single-project.html" class="portfolio_item">
-                        <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
-                        <div class="portfolio_item_hover">
-                            <div class="portfolio-border clearfix">
-                                <div class="item_info">
-                                    <span>Mobile devices</span>
-                                    <em>Graphics / Ads</em>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                -->
-                <!-- end single work -->
-            </div>
-            <!-- end portfolio_container -->
-        </div>
-        <!-- portfolio -->
-    </div>
-    <!-- end portfolio div -->
 
 
 

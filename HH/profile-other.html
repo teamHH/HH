@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--Basic-->
+	<!--Basic-->
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <title>How Healthy</title>
@@ -38,22 +38,21 @@
 	<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+	
+	
+
+
     <!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<!-- Include the Quill library -->
 	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-	<link rel="shortcut icon" href="img/2.png">
+    <link rel="shortcut icon" href="img/2.png">
 	
-	<link href="css/semantic.css" rel="stylesheet">
-	<script src="js/semantic.js"></script>
-	
-
 </head>
 
 <body>
     <div class="container-fluid" style="margin:0; padding:0;">
-        <!-- nav -->
 		<nav>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
@@ -239,33 +238,36 @@
         </nav>
         <!-- end nav -->
 
-        <div class="sidebar-nav">
-			<div class="avatar-wrapper" style="margin:0 auto;">
-				<img class="profile-pic img-circle img-user" src="img/profile/1.jpg" style="margin:0 auto;" />
-				<div class="upload-button">
-					<i class="fas fa-camera" aria-hidden="true"></i>
-					
-				</div>
-				<input class="file-upload" type="file" accept="image/*"/>
-			</div>		
-
-			<h2 class="text-center hidden-xs"><a href="personal-profile.html" title="Profile">張傑婷</a></h2>
-				  
+		<div class="sidebar-nav">
+			<a href="profile-other.html" title="Profile">
+				<img src="img/profile/man1.jpg" alt="User name" class="img-circle img-user" >
+			</a>
+			<h2 class="text-center hidden-xs"><a href="profile-other.html" title="Profile">王小明</a></h2>
 			<div class="text-center">
 				<div class="points"><i class="material-icons">stars</i>20</div>
 			</div>
 			<p class="text-center user-description hidden-xs">
-				<i>當個小透明</i>
+				<i>Yo wuts up</i>
 			</p>
 			<div class="center">
 				<button class="btn btn-primary2" type="submit" style="font-size:15px;">
-					簽到
+					加好友
 				</button>
 			</div>
 			
-        </div>
-        
-        <div class="content-posts profile-content">
+		</div>
+
+
+
+
+		<div class="content-posts profile-content">
+			<div class="banner-profile"></div>
+			<!-- Tab Panel -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="active"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">最近發文</a></li>
+				<li><a href="#profile" role="tab" id="profileTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">簡介</a></li>
+				<li><a href="#activity" role="tab" id="activityTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">活動</a></li>
+			</ul>
 		
 			<!--Start Tab Content-->
 			<div class="tab-content">
@@ -273,224 +275,22 @@
 				<!-- Tab Posts -->
 				<div class="tab-pane fade active in" role="tabpanel" id="posts" aria-labelledby="postsTab">
 					<div id="posts-container" class="container-fluid container-posts">
-						<div class="card-post" style="margin-top: 10px;">
-							<div class="row">
-								<div class="col-xs-9 col-sm-10 data-post">
-									<ul class="tags">
-										<li><a href="#" class="tag">運動</a></li>
-										<li><a href="#" class="tag">休閒</a></li>
-										<li><a href="#" class="tag">賽事分享</a></li>
-										<li><a href="#" class="tag">討論</a></li>
-										<li><a href="#" class="tag">減肥</a></li>
-										<li><a href="#" class="tag">瑜珈</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
 						<div class="card-post">
 							<div class="row">
 								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/1.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-							
-								<div class=" col-xs-9 col-sm-10 data-post">									
-									<div style="margin-bottom: 10px;">
-										<table>
-											<tr>
-												<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
-												<td>
-													<div class="ui fluid dropdown multiple" style="z-index: 800;">
-														<input type="hidden" name="filters">									
-														<span class="text" style="padding: 5px; border:1px solid gray; border-radius: 5px; ">
-															<i class="fas fa-tags"></i>選擇話題</span>
-														<div class="menu">
-															<div class="ui icon search input">
-																<!-- <i class="search icon"></i> -->
-																
-																<input type="text" placeholder=" &#x1f50d; 搜尋話題...">
-															</div>
-															<!-- <div class="divider"></div>
-															<div class="header">
-																<i class="fas fa-tags"></i>
-																hashtags
-															</div> -->
-															<div class="scrolling menu">
-															<div class="item" data-value="sport">
-																<div class="ui red empty circular label"></div>
-																運動
-															</div>
-															<div class="item" data-value="休閒">
-																<div class="ui orange empty circular label"></div>
-																休閒
-															</div>
-															<div class="item" data-value="賽事分享">
-																<div class="ui purple empty circular label"></div>
-																賽事分享
-															</div>
-															<div class="item" data-value="討論">
-																<div class="ui green empty circular label"></div>
-																討論
-															</div>
-															<div class="item" data-value="減肥">
-																<div class="ui yellow empty circular label"></div>
-																減肥
-															</div>
-															<div class="item" data-value="瑜珈">
-																<div class="ui pink empty circular label"></div>
-																瑜珈
-															</div>
-															
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-											
-										</table>										
-									</div>
-
-									 
-									
-									<div class="summernote"><p>快來分享今天做了什麼吧</p></div>
-									<div class="clear"></div>
-								</div>
-								<button type="submit" class="btn btn-primary2" style="margin-left: 48%;">送出</button>
-							</div>		
-						</div>
-
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/4.jpg" alt="My User" class="img-circle img-user">
+									<a href="profile-other.html" title="Profile">
+										<img src="img/profile/man1.jpg" alt="My User" class="img-circle img-user">
 									</a>
 								</div>
 								<div class="col-xs-9 col-sm-10 info-user">
-									<h3><a href="personal-profile.html" title="Profile">郭加于</a></h3>
-									<p><i>1h 30min</i></p>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-									<h2>HOW健康</h2>
-									<p>&#x1F643;&#x1F643;&#x1F643;&#x1F643;</p>
-									<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-									<img src="img/6.jpg" alt="image post" class="img-post">
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-										<div class="clear"></div>
-									</div>
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>陳盈臻</b> 加于好棒！</li>
-											<li><b>劉安</b> 加于不愧是我們的精神領袖</li>
-											<li><b>郭加于</b> &#x1F610;</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/3.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<h3><a href="personal-profile.html" title="Profile">劉安</a></h3>
+									<h3><a href="profile-other.html" title="Profile">王小明</a></h3>
 									<p><i>2h</i></p>
 								</div>
 							</div>
 							<div class="row">
 								<div class=" col-sm-8 col-sm-offset-2 data-post">
-									<h2>HOW健康</h2>
-									<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-									<img src="img/6.jpg" alt="image post" class="img-post">
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-										<div class="clear"></div>
-									</div>
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>陳盈臻</b> 謝謝安安哥哥！</li>
-											<li><b>郭加于</b> .....原來是約好一起發的阿&#x1F610;</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/1.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<div class="col-xs-2 col-sm-2" style="float: right; position: relative; top:0;">							
-										<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">  
-											<li class="dropdown">
-												<!--data-toggle指以什麼事件觸發，常用的如modal,popover,tooltips等，
-													data-target指事件的目標，一起使用就是代表data-target所指的元素以data-toggle指定的形式顯示-->
-												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
-													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
-												</button>
-												
-											</li>
-										</ul>
-									</div>
-									<h3><a href="personal-profile.html" title="Profile">張傑婷</a></h3>
-									<p><i>2h</i></p>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-										<button id="edit" onclick="edit()" type="button" style="border: none; background-color:transparent;">
-											<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
-										</button>
-										<button id="save" onclick="save()" type="button" style="border: none; background-color:transparent;">
-											<i class="far fa-save" style="font-size: 20px; color: #404040;"></i>儲存貼文
-										</button>
-										<div class="click2edit">
-											<h2>HOW健康</h2>
-											<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-											<img src="img/6.jpg" alt="image post" class="img-post">
-										</div>
-									
+									<p>攀岩真的很酷</p>
+									<img src="img/profile/blog/blog4.jpg" alt="image post" class="img-post">
 									<div class="reaction">
 										<div class="react">
 											<a href="javascript:void(0);" class="like-button">
@@ -508,9 +308,8 @@
 									<div class="comments">
 										<div class="more-comments">查看更多留言</div>
 										<ul>
-											<li><b><a href="">陳盈臻</a></b> 你最口愛</li>
-											<li><b><a href="">郭加于</a></b> 我也要運動 揪我 &#x1F602;</li>
-											<li><b><a href="profile-other.html">王小明</a></b> 好酷</li>
+											<li><b>John</b> Lorem Ipsum Dolor si amet</li>
+											<li><b>David</b> Lorem Ipsum Dolor si amet &#x1F602;</li>
 										</ul>
 										<form>
 											<input type="text" class="form-control" placeholder="回覆留言">
@@ -519,107 +318,22 @@
 								</div>
 							</div>
 						</div>
-
+	
 						<div class="card-post">
 							<div class="row">
 								<div class="col-xs-3 col-sm-2">
 									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/2.jpg" alt="My User" class="img-circle img-user">
+										<img src="img/profile/man1.jpg" alt="User name" class="img-circle img-user">
 									</a>
 								</div>
 								<div class="col-xs-9 col-sm-10 info-user">
-									<h3><a href="personal-profile.html" title="Profile">陳盈臻</a></h3>
-									<p><i>3h</i></p>
-								</div>
-							</div>
-							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-									<h2>HOW健康</h2>
-									<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-									<p>嘿嘿 管理員都要發這篇文&#x1F60F;&#x1F60F;</p>
-									<img src="img/6.jpg" alt="image post" class="img-post">
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-										<div class="clear"></div>
-									</div>
-
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>張傑婷</b> 
-												<div style="float: right;">
-													<button id="edit" onclick="edit3()" type="button" style="border: none; background-color:transparent;">
-														<i class="fas fa-edit" style="font-size: 13px; color: #404040;"></i>編輯留言
-													</button>
-													<button id="save" onclick="save3()" type="button" style="border: none; background-color:transparent;">
-														<i class="far fa-save" style="font-size: 13px; color: #404040;"></i>儲存留言
-													</button>
-													<button id="deleteComment" title="刪除" style="border: none; background-color:transparent;">
-														<i class="far fa-trash-alt" style="font-size: 13px; color: #404040;"></i>
-													</button>
-												</div>
-												
-												<div class="click2edit3" id="summernote">
-													&#x1F923;&#x1F923;&#x1F923;你很煩
-												</div>
-											</li>
-											<li><b>劉安</b> 我也要發嗎 &#x1F602;</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-							
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/1.jpg" alt="User name" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<div class="col-xs-2 col-sm-2" style="float: right; position: relative; top:0;">							
-										<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">  
-											<li class="dropdown">
-												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
-													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
-												</button>
-											</li>
-										</ul>
-									</div>
-									<h3><a href="personal-profile.html" title="Profile">張傑婷</a></h3>
-									<p><i>6h</i></p>
+									<h3><a href="personal-profile.html" title="Profile">王小明</a></h3>
+									<p><i>2h</i></p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-8 col-sm-offset-2 data-post">
-									<button id="edit" onclick="edit2()" type="button" style="border: none; background-color:transparent;">
-										<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
-									</button>
-									<button id="save" onclick="save2()" type="button" style="border: none; background-color:transparent;">
-										<i class="far fa-save" style="font-size: 20px; color: #404040;"></i>儲存貼文
-									</button>
-									<div class="click2edit2">
-										<p>太美了......</p>
-										<video controls>
-										<source src="img/post-video.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-										你使用的瀏覽器不支援上傳影片
-										</video>
-									</div>
+									<p>Lorem Ipsum Dolor si amet</p>
 									<div class="reaction">
 										<div class="react">
 											<a href="javascript:void(0);" class="like-button">
@@ -637,8 +351,8 @@
 									<div class="comments">
 										<div class="more-comments">查看更多留言</div>
 										<ul>
-											<li><b>陳盈臻</b> 美哭我</li>
-											<li><b>郭加于</b> 太讚了吧&#x1F602;</li>
+											<li><b>Apple</b> Lorem Ipsum Dolor si amet</li>
+											<li><b>Orange</b> Lorem Ipsum Dolor si amet &#x1F602;</li>
 										</ul>
 										<form>
 											<input type="text" class="form-control" placeholder="回覆留言">
@@ -658,14 +372,14 @@
 					<div class="container-fluid container-posts">
 						<div class="card-post">
 							<ul class="profile-data">
-								<li><b>名字: </b> 張傑婷</li>
-								<li><b>年紀: </b> 18</li>
-								<li><b>愛好: </b> 閱讀</li>
-								<li><b>學歷: </b> NTUB</li>
+								<li><b>名字: </b> 王小明</li>
+								<li><b>年紀: </b> 20</li>
+								<li><b>愛好: </b> 打籃球</li>
+								<li><b>學歷: </b> </li>
 								<li><b>職業: </b> 學生</li>
-								<li><b>自我介紹: </b> 不是很喜歡運動，但我正在努力改掉這個毛病T^T</li>
+								<li><b>自我介紹: </b> 喜歡探索大自然！！！熱愛運動 熱愛生活</li>
 							</ul>
-							<p><a href="" title="編輯簡介"><i class="fa fa-pencil-alt" aria-hidden="true"></i>編輯</a></p>
+							<!--<p><a href="" title="編輯簡介"><i class="fa fa-pencil-alt" aria-hidden="true"></i>編輯</a></p>-->
 						</div>
 					</div>
 				</div>
@@ -735,7 +449,6 @@
 								<button class="filterBtn active" onclick="filterSelection('all')"> 全部</button>
 								<button class="filterBtn" onclick="filterSelection('public')"> 官方活動</button>
 								<button class="filterBtn" onclick="filterSelection('spont')"> 自主活動</button>
-								<button class="filterBtn" onclick="filterSelection('create')"> 你發起的活動</button>
 							</div>
 
 							<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
@@ -746,11 +459,6 @@
 										<p style="font-size: 12px;">官方活動</p>
 									</div>
 									<div class="col-sm-0 col-xs-1"> </div>
-									<div class="col-sm-2 col-xs-3">
-										<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-											<i class="fa fa-trash" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
 								</div>
 
 								<div class="row row-user-list filterDiv spont">
@@ -759,11 +467,6 @@
 										<p style="font-size: 12px;">自主活動</p>
 									</div>
 									<div class="col-sm-0 col-xs-1"> </div>
-									<div class="col-sm-2 col-xs-3">
-										<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-											<i class="fa fa-trash" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
 								</div>
 								
 								<div class="row row-user-list filterDiv create">
@@ -772,13 +475,8 @@
 										<p style="font-size: 12px;">自主活動</p>
 									</div>
 									<div class="col-sm-0 col-xs-1">
-										<button id="" title="編輯" style="border:none; background-color: transparent;">
-											<i class="fa fa-pencil-alt" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
-									<div class="col-sm-2 col-xs-3">
-										<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-											<i class="fa fa-trash" aria-hidden="true" style="color:black;"></i>
+										<button class="btn btn-primary" id="" title="編輯" style="background-color: transparent;">
+											<i class="fa fa-pencil" aria-hidden="true" style="color:black;"></i>
 										</button>
 									</div>
 								</div>
@@ -903,19 +601,22 @@
 				</div>
 				<!-- end tab points -->
 				
-
-
 	
 			</div><!-- Close Tab Content-->
 		
-        </div><!--Close content posts-->
-        
-
-    </div>
+		</div><!--Close content posts-->
 
 
 
-    <!-- footer -->
+
+
+		
+	</div>
+
+
+
+
+	<!-- footer -->
     <footer>
         <div class="container-fluid">
             <p class="copyright">&copy; NTUB IMD  108506. All rights reserved.</p>
@@ -928,6 +629,7 @@
     <!-- end back to top -->
     
 	<!-- jQuery -->
+	<script src="js/jquery-2.1.1.js" type="text/javascript"></script>
 	
 	<script src="js/scripts.js" type="text/javascript"></script>
 	
@@ -940,8 +642,6 @@
 
 	<!--  custom script -->
 	<script src="js/custom.js"></script>
-                
-
+	
 </body>
-
 </html>

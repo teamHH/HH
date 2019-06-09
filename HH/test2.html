@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>How Healthy</title>
-	<link rel="icon" href="img/2.png" type="image/x-icon">
+    <title>How Healthy</title>
+    <link rel="icon" href="img/2.png" type="image/x-icon">
 
-	<meta name="description" content="Source code generated using layoutit.com">
-	<meta name="author" content="LayoutIt!">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="ionicons/css/ionicons.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/navbar.css" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 
-	<!--===============================================================================================-->
+	<!--<link href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/memberSetting.css">
 
+
+    <!-- rich text -->
+	<!--<link href="css/richText/boostrap.css" rel="stylesheet">
+	<link href="css/richText/summernote.css" rel="stylesheet"> icon跑不出來-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+	<!-- rich text -->
 </head>
-	
+
+
+
 
 <body>
-	<div class="container-fluid">
+    <div class="container-fluid">
 		<nav>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
@@ -214,96 +220,39 @@
             </section>
         </nav>
         <!-- end nav -->
+	
+        
 
-
-		<div class="container" style="padding-top:65px;">
-			<div class="limiter">
-				<div class="container-login100">
-					<div class="wrap-login2">
-						<form class="login100-form validate-form">
-							<span class="login100-form-title">
-								更改密碼
-							</span>
+		<div class="container4">
+			<div class="row">
+				<div class="row blog-entries">
+					<div class="col-md-8 main-content">
+						<div class="newPost">
+							<div class="col-md-12">
+								<img src="img/profile/1.jpg"/>
 				
-							<div class="wrap-input100 validate-input" method="post" action="employeeAdd" data-validate = "Valid email is required: ex@abc.xyz">
-								
-								<input class="input100" type="text" name="empName" required>
-								<!--<span class="focus-input100"></span>-->
-								<span class="symbol-input100">
-									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-									原密碼
-								</span>
-							</div>
-
-							<div class="wrap-input100 validate-input" method="post" action="employeeAdd" data-validate = "Valid email is required: ex@abc.xyz">
-								
-								<input class="input100" type="text" name="empName" required>
-								<!--<span class="focus-input100"></span>-->
-								<span class="symbol-input100">
-									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-									新密碼
-								</span>
-							</div>
-
-							<div class="container-login100-form-btn">
-								<button class="login100-form-btn" type="submit" onclick="myFunction()">
-									確認
-								</button>
-							</div>
+								<div class="col-md-10">
+									<div id="summernote" style="margin: 0; padding:0;"><p>在想些什麼?</p></div>
+									<script>
+									$(document).ready(function() {
+										$('#summernote').summernote();
+									});
+									</script>
+								</div>
 				
-						</form>
+								<div class="clear"></div>
+								<div>
+									<button type="submit" class="btn btn-primary2 postbtn">送出</button>
+								</div>
+							</div>			
+						</div>
 					</div>
+							
+					
 				</div>
 			</div>
-		</div>
+	  </div>
 	</div>
-	
-	
-
-	
-			<!-- footer -->
-			<footer>
-				<div class="container-fluid">
-					<p class="copyright">&copy; NTUB IMD  108506. All rights reserved.</p>
-				</div>
-			</footer>
-			<!-- end footer -->
-	
-			<!-- back to top -->
-			<a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
-			<!-- end back to top -->
-	
-	
-	
-			<!-- jQuery -->
-			<script src="js/jquery-2.1.1.js"></script>
-			<!--  plugins -->
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/menu.js"></script>
-			<script src="js/animated-headline.js"></script>
-			<script src="js/isotope.pkgd.min.js"></script>
-
-
-			<script src="js/register.js"></script>
-			
-			<script src="js/jquery-3.2.1.min.js"></script>
-
-			<!--===============================================================================================-->
-			<script src="/js/popper.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-		
-			<script src="js/tilt.jquery.min.js"></script>
-			<script >
-				$('.js-tilt').tilt({
-					scale: 1.1
-				})
-			</script>
-			<!--===============================================================================================-->
-	
-	
-			<!--  custom script -->
-			<script src="js/custom.js"></script>
-			<script src="js/scripts.js"></script>
-	
-	</body>
+ 
+</body>
 </html>

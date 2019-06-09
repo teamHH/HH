@@ -38,23 +38,21 @@
 	<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+	
+	
+
+
     <!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<!-- Include the Quill library -->
 	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-	<link rel="shortcut icon" href="img/2.png">
-	
-	<link href="css/semantic.css" rel="stylesheet">
-	<script src="js/semantic.js"></script>
-	
-
+    <link rel="shortcut icon" href="img/2.png">
 </head>
 
 <body>
     <div class="container-fluid" style="margin:0; padding:0;">
-        <!-- nav -->
-		<nav>
+        <nav>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
 				<!-- Modal content -->
@@ -275,85 +273,13 @@
 					<div id="posts-container" class="container-fluid container-posts">
 						<div class="card-post" style="margin-top: 10px;">
 							<div class="row">
-								<div class="col-xs-9 col-sm-10 data-post">
-									<ul class="tags">
-										<li><a href="#" class="tag">運動</a></li>
-										<li><a href="#" class="tag">休閒</a></li>
-										<li><a href="#" class="tag">賽事分享</a></li>
-										<li><a href="#" class="tag">討論</a></li>
-										<li><a href="#" class="tag">減肥</a></li>
-										<li><a href="#" class="tag">瑜珈</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="card-post">
-							<div class="row">
 								<div class="col-xs-3 col-sm-2">
 									<a href="personal-profile.html" title="Profile">
 										<img src="img/profile/1.jpg" alt="My User" class="img-circle img-user">
 									</a>
 								</div>
 							
-								<div class=" col-xs-9 col-sm-10 data-post">									
-									<div style="margin-bottom: 10px;">
-										<table>
-											<tr>
-												<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
-												<td>
-													<div class="ui fluid dropdown multiple" style="z-index: 800;">
-														<input type="hidden" name="filters">									
-														<span class="text" style="padding: 5px; border:1px solid gray; border-radius: 5px; ">
-															<i class="fas fa-tags"></i>選擇話題</span>
-														<div class="menu">
-															<div class="ui icon search input">
-																<!-- <i class="search icon"></i> -->
-																
-																<input type="text" placeholder=" &#x1f50d; 搜尋話題...">
-															</div>
-															<!-- <div class="divider"></div>
-															<div class="header">
-																<i class="fas fa-tags"></i>
-																hashtags
-															</div> -->
-															<div class="scrolling menu">
-															<div class="item" data-value="sport">
-																<div class="ui red empty circular label"></div>
-																運動
-															</div>
-															<div class="item" data-value="休閒">
-																<div class="ui orange empty circular label"></div>
-																休閒
-															</div>
-															<div class="item" data-value="賽事分享">
-																<div class="ui purple empty circular label"></div>
-																賽事分享
-															</div>
-															<div class="item" data-value="討論">
-																<div class="ui green empty circular label"></div>
-																討論
-															</div>
-															<div class="item" data-value="減肥">
-																<div class="ui yellow empty circular label"></div>
-																減肥
-															</div>
-															<div class="item" data-value="瑜珈">
-																<div class="ui pink empty circular label"></div>
-																瑜珈
-															</div>
-															
-															</div>
-														</div>
-													</div>
-												</td>
-											</tr>
-											
-										</table>										
-									</div>
-
-									 
-									
+								<div class=" col-xs-9 col-sm-10 data-post">
 									<div class="summernote"><p>快來分享今天做了什麼吧</p></div>
 									<div class="clear"></div>
 								</div>
@@ -466,7 +392,7 @@
 											<li class="dropdown">
 												<!--data-toggle指以什麼事件觸發，常用的如modal,popover,tooltips等，
 													data-target指事件的目標，一起使用就是代表data-target所指的元素以data-toggle指定的形式顯示-->
-												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
+												<button id="deleteFriend" title="刪除" style="border: none; background-color:transparent;">
 													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
 												</button>
 												

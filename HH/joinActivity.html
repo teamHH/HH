@@ -13,24 +13,20 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/navbar.css" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/filterBtn.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
-
-	<!--===============================================================================================-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/memberSetting.css">
 
 </head>
 	
 
 <body>
 	<div class="container-fluid">
-		<nav>
+        <nav>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
 				<!-- Modal content -->
@@ -216,42 +212,261 @@
         <!-- end nav -->
 
 
-		<div class="container" style="padding-top:65px;">
-			<div class="limiter">
-				<div class="container-login100">
-					<div class="wrap-login2">
-						<form class="login100-form validate-form">
-							<span class="login100-form-title">
-								更改密碼
-							</span>
-				
-							<div class="wrap-input100 validate-input" method="post" action="employeeAdd" data-validate = "Valid email is required: ex@abc.xyz">
-								
-								<input class="input100" type="text" name="empName" required>
-								<!--<span class="focus-input100"></span>-->
-								<span class="symbol-input100">
-									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-									原密碼
-								</span>
-							</div>
 
-							<div class="wrap-input100 validate-input" method="post" action="employeeAdd" data-validate = "Valid email is required: ex@abc.xyz">
-								
-								<input class="input100" type="text" name="empName" required>
-								<!--<span class="focus-input100"></span>-->
-								<span class="symbol-input100">
-									<!--<i class="fa fa-envelope" aria-hidden="true"></i>-->
-									新密碼
-								</span>
-							</div>
+		<div class="container container2">
+			<div class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<!-- top bar -->
+						<div class="top-bar">
+							<h1>加入活動</h1>
+							<p><a href="homepage.html">Home</a> / Activities</p>
+						</div>
+						<!-- end top bar -->
 
-							<div class="container-login100-form-btn">
-								<button class="login100-form-btn" type="submit" onclick="myFunction()">
-									確認
-								</button>
+						<!-- main container -->
+						<div class="main-container portfolio-inner clearfix">
+							<!-- portfolio div -->
+							<div class="portfolio-div">
+								<div class="portfolio">
+									<!-- portfolio_filter -->
+									<div class="categories-grid wow fadeInLeft">
+										<nav class="categories text-center">
+											<ul class="portfolio_filter act">
+												<li><a href="" class="active actType" data-filter="*">所有活動</a></li>
+												<li><a href="" class="actType" data-filter=".public">官方活動</a></li>
+												<li><a href="" class="actType" data-filter=".spont">自主活動</a></li>		
+												<li>
+													<a href="addActivity.html">
+														<i class="material-icons icon-align2">add_circle_outline</i>
+													</a>
+												</li>									
+											</ul>
+										</nav>
+									</div>
+									<!-- portfolio_filter -->
+					
+									<!-- portfolio_container -->
+									<div class="portfolio_container clearfix">
+										
+										<div class="col-md-12 col-sm-6 public spont">
+											<div class="actTitle">
+												<ul>
+													<li>活動名稱</li>
+													<li>類型</li>
+													<li>內容</li>
+													<li>可得點數</li>
+													<li>加入</li>
+												</ul>
+											</div>
+											<div class="clear"></div>
+										</div>
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>Taishin Women Run Taipei</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="https://www.newbalance.com.tw/event/2019/women-run-taipei/" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="joinedActivity.html"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+										
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 spont">
+											<div class="actDesc">
+												<ul>
+													<li>一起跑3k</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="detailedAct.html" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>2019 PUMA螢光夜跑</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="http://www.puma-nightrun.com.tw/" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>2019 Elle Run With Style</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="https://bao-ming.com/eb/www/activity_content.php?activitysn=3585&contentsn=18280" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>2019 臺北101垂直馬拉松</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="http://www.taipei101-runup.com.tw/index.aspx" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>環海岸山脈挑戰</li>
+													<li>自行車</li>
+													<li>
+														<div class="watch-more2">
+															<a href="http://www.cyclist.org.tw/event_txt.asp?pno=100" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>2019 日出迎新 為愛兒跑</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="https://bao-ming.com/eb/www/activity_content.php?activitysn=3618&contentsn=18364" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>牛仔帽路跑</li>
+													<li>路跑</li>
+													<li>
+														<div class="watch-more2">
+															<a href="http://www.pesports.org/2019%E7%89%9B%E4%BB%94%E5%B8%BD%E8%B7%AF%E8%B7%91/" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 public">
+											<div class="actDesc">
+												<ul>
+													<li>日本北海道「Granfondo 摩周」挑戰遊</li>
+													<li>自行車</li>
+													<li>
+														<div class="watch-more2">
+															<a href="http://www.cyclist.org.tw/event_txt.asp?pno=109" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 spont">
+											<div class="actDesc">
+												<ul>
+													<li>挑戰鐵馬30k</li>
+													<li>自行車</li>
+													<li>
+														<div class="watch-more2">
+															<a href="detailedAct2.html" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+
+										<!-- single work -->
+										<div class="col-md-12 col-sm-6 spont">
+											<div class="actDesc">
+												<ul>
+													<li>徜徉水中</li>
+													<li>游泳</li>
+													<li>
+														<div class="watch-more2">
+															<a href="detailedAct.html" class="aa-top-slider-btn">看更多</a>
+														</div>
+													</li>
+													<li>10</li>
+													<li><a href="#"><i class="material-icons check">done</i></a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end single work -->
+					
+									</div>
+									<!-- end portfolio_container -->
+								</div>
+								<!-- portfolio -->
 							</div>
-				
-						</form>
+							<!-- end portfolio div -->
+						</div>
+						<!-- end main container -->
 					</div>
 				</div>
 			</div>
@@ -282,27 +497,11 @@
 			<script src="js/menu.js"></script>
 			<script src="js/animated-headline.js"></script>
 			<script src="js/isotope.pkgd.min.js"></script>
-
-
-			<script src="js/register.js"></script>
-			
-			<script src="js/jquery-3.2.1.min.js"></script>
-
-			<!--===============================================================================================-->
-			<script src="/js/popper.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-		
-			<script src="js/tilt.jquery.min.js"></script>
-			<script >
-				$('.js-tilt').tilt({
-					scale: 1.1
-				})
-			</script>
-			<!--===============================================================================================-->
 	
 	
 			<!--  custom script -->
 			<script src="js/custom.js"></script>
+			<script src="js/modernizr.js"></script>
 			<script src="js/scripts.js"></script>
 	
 	</body>
