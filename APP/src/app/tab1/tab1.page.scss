@@ -1,0 +1,35 @@
+.no-scroll .scroll-content {
+  overflow: hidden;
+}
+
+ion-title{
+  font-family: 'Noto Sans TC', sans-serif;
+  text-align: center;
+}
+
+ion-content{
+  --ion-font-family: 'Noto Sans TC', sans-serif;
+  
+}
+
+.body {
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+ion-select {
+  width:100%;
+  max-width: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 50%;
+}
+
+ion-button{
+  height: 40px;
+  --border-radius: 10px;
+}

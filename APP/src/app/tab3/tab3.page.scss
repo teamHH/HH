@@ -1,0 +1,31 @@
+ion-title{
+  font-family: 'Noto Sans TC', sans-serif;
+  text-align: center;
+}
+
+ion-content{
+  --ion-font-family: 'Noto Sans TC', sans-serif;
+}
+
+.ion_right {
+  text-align: right;
+}
+
+
+ion-select {
+  width:100%;
+  max-width: 100%;
+}
+
+ion-button{
+  height: 40px;
+  --border-radius: 10px;
+}
+
+.profile_pic {
+  width: 120px;
+  height: 100%;
+  margin: auto;
+  border-radius: 50% !important;
+  overflow: hidden;
+}

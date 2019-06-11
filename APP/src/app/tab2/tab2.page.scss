@@ -1,0 +1,33 @@
+ion-title{
+  font-family: 'Noto Sans TC', sans-serif;
+  text-align: center;
+}
+
+ion-content{
+    --ion-font-family: 'Noto Sans TC', sans-serif;
+    --ion-background-color:#FFE599;
+}
+
+ion-row {
+    text-align: center;
+}
+
+ion-card{
+    max-height: 100%;
+    overflow: hidden;
+    background-color:#FFFFFF;
+}
+
+ion-card-title{
+    font-size: 130%;
+    font-weight: 200;
+    line-height: 130%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+ion-card-content{
+    font-size: 130%;
+    font-weight: 500;
+    line-height: 130%;
+}
