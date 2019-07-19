@@ -6,6 +6,42 @@ Author URI: https://codeplus.it
 
 
 /*我加的*/
+.editBtn, .editBtn2 {
+  border: none;
+  padding: 10px 12px;
+  background: #F96;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  font-size:15px;
+  margin: 0 0 1em;
+}
+
+.editBtn:hover, .editBtn2:hover,
+.editBtn:focus, .editBtn2:focus {
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+
+
+
+/** * Media query for tablet sized screens. */
+ @media only screen and (max-width: 960px) {
+	 body {
+		 padding: 5% 10%;
+	}
+}
+/** * Media query for tablet sized screens. */
+ @media only screen and (max-width: 520px) {
+	 body {
+		 padding: 5%;
+	}
+}
+
+
 .react{
     float: left;
 }
@@ -98,6 +134,9 @@ Author URI: https://codeplus.it
     display: block;
 }
 
+
+/*大頭照
+====================================*/
 .avatar-wrapper {
     position: relative;
     height: 200px;
@@ -117,18 +156,19 @@ Author URI: https://codeplus.it
     height: 100%;
     width: 100%;
     transition: all 0.3s ease;
+    background-image: url('../img/profile/avatar.svg');
+    background-size: cover;
+    background-position: center;
+    margin:0 auto; 
+    border: 5px solid #555;
 }
 .avatar-wrapper .profile-pic:after {
-    font-family: FontAwesome;
     content: "\f007";
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    position: absolute;
-    font-size: 190px;
-    background: #ecf0f1;
-    color: #34495e;
     text-align: center;
 }
 .avatar-wrapper .upload-button {
@@ -141,12 +181,12 @@ Author URI: https://codeplus.it
 .avatar-wrapper .upload-button .fa-camera {
     position: absolute;
     font-size: 100px;
-    top: 45px;
-    left: 45px;
+    top: 50px;
+    left: 50px;
     text-align: center;
     opacity: 0;
     transition: all 0.3s ease;
-    color: rgba(255,191,0, 0.8);
+    color: rgba(255,191,0, 0.85);
     
 }
 .avatar-wrapper .upload-button:hover .fa-camera {
@@ -154,7 +194,11 @@ Author URI: https://codeplus.it
 }
 
 
-
+.user-birthday{
+    vertical-align: text-bottom; 
+    float: left; 
+    font-size: 14px;
+}
 
 
 .clear{
@@ -188,12 +232,13 @@ Author URI: https://codeplus.it
 	vertical-align: top;
 	height: 40px;
 	line-height: 40px;
-	font-size: 13px;
+	font-size: 16px;
     color: #626262;
     background-color: transparent;
 	cursor: pointer;
 	border: none;
 }
+
 
 /* Add a dark background to the active button */
 .myBtnContainer .active {
@@ -284,7 +329,7 @@ Author URI: https://codeplus.it
 .box-item .desc .name {
 	padding: 0 0 2px 0;
 	display: block;
-	font-size: 13px;
+	font-size: 16px;
 	color: #171717;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -363,11 +408,12 @@ Author URI: https://codeplus.it
 .box-item2 .desc2 {
 	/*padding: 15px 45px 0 45px;*/
 	position: relative;
-	margin-top: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .box-item2 .desc2 p{
-	font-size: 14px;
+	font-size: 15px;
     margin:0 0 3px 20px;
     text-align: left;
 }
@@ -376,7 +422,7 @@ Author URI: https://codeplus.it
 	margin:0 0 3px 20px;
     text-align: left;
 	display: block;
-	font-size: 15px;
+	font-size: 18px;
 	color: #171717;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -671,6 +717,7 @@ header .badge {
 
 .profile-content .nav-tabs {
     padding-left: 130px;
+    font-size: 18px;
 }
 
 .profile-data {
@@ -681,10 +728,12 @@ header .badge {
 
 .profile-data li{
     color: #4F5467;
+    font-size: 16px;
 }
 
 .profile-data li b{
     color: #272727;
+    font-size: 16px;
 }
 
 .chat-message {
@@ -832,103 +881,7 @@ footer.login-footer {
     padding: 15px;
 }*/
 
-/*----------------------------------------------------------------
-6. Settings
------------------------------------------------------------------*/
 
-.modal-dialog  { width:700px;}
-
-.modal-row  { margin-top:25px; }
-
-.modal-row p { 
-    margin-top: 8px;
-    font-size: 16px;
-}
-
-.modal.fade {
-    z-index: 1200 !important;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 999; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  text-align: center;
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.6s;
-  animation-name: animatetop;
-  animation-duration: 0.6s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close, .editclose {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover, .close:focus,
-.editclose:hover, .editclose:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #4f5467;
-  color: white;
-}
-
-.modal-body {
-    padding: 2px 16px;
-    font-size: 14px;
-}
-
-.modal-footer button{
-    border-color: #888;
-}
-
-.modal-footer button.btn-social{
-    border-color: #888;
-    color: #fff;
-}
-
-.modal-row .gender{
-    width: 50px;
-}
 
 /*----------------------------------------------------------------
 7. Scrollbar
