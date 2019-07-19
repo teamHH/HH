@@ -30,32 +30,30 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
-    <!-- include summernote css/js -->
+    <!-- include summernote css/js 
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>-->
 	
 	<!-- sweetalert -->
 	<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+	<link rel="shortcut icon" href="img/2.png">
 	
-	
-
-
-    <!-- Include stylesheet -->
+	<link href="css/semantic.css" rel="stylesheet">
+	<script src="js/semantic.js"></script>
+	<!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<!-- Include the Quill library -->
 	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
-    <link rel="shortcut icon" href="img/2.png">
 </head>
 
 <body>
     <div class="container-fluid" style="margin:0; padding:0;">
-        <nav>
-			<!-- The Modal -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->
+    	<nav>
+			<!-- The Modal 
+			<div id="myModal" class="modal">-->
+				<!-- Modal content 
 				<div class="modal-content">
 					<div class="modal-header">
 						<span class="close">&times;</span>
@@ -97,178 +95,208 @@
 								<a href="password.html" title="更改密碼"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
 							</div>
 						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>性別: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<select type="text" class="gender" name="gender">
-									<option value="M"> 男</option>
-									<option value="F"> 女</option>
-									</select>
-								</p>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>公開帳號: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<input class="switch-checkbox" type="checkbox" name="PublicProfile" data-on-text="開" data-off-text="關" checked>
-								</p>
-							</div>
-							<div class="col-sm-3">
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>通知信件: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<input class="switch-checkbox" type="checkbox" name="NotificationsEmail" data-on-text="開" data-off-text="關" checked>
-							</div>
-							<div class="col-sm-3">
-							</div>
-						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">關閉</button>
 						<button type="button" class="btn btn-social">儲存變更</button>
 					</div>
 				</div>
-			</div>
+			</div>-->
             <section id="aa-menu-area">
-                <div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
-                    <div class="col-md-4">
-                        <ul id="top-menu" class="nav navbar-nav aa-main-nav">
-                            <!--<li class="active"><a href="index.html">HOME</a></li>-->
-                            <li class="dropdown nav-item">
-                                <div class="box-logo">
-                                    <!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
-                                    <a href="homepage.html" class="logo">HH</a>
-                                </div>
-                            </li>
-                        </ul> 
-                    </div>
+              	<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
+					<div class="col-md-4">
+						<ul id="top-menu" class="nav navbar-nav aa-main-nav">
+							<!--<li class="active"><a href="index.html">HOME</a></li>-->
+							<li class="dropdown nav-item">
+							<div class="box-logo">
+								<!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
+								<a href="homepage.html" class="logo">HH</a>
+							</div>
+							</li>
+						</ul> 
+					</div>
     
-                    <div class="col-md-8 right">
-                        <ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
-                            <li class="dropdown" >
-                                <a class="dropdown-toggle">
-                                    <form class="form-inline">
-                                        <input class="form-control mr-sm-2" type="text" placeholder="可輸入關鍵字或代碼搜尋"> 
-                                        <button class="btn btn-primary2" type="submit">
-                                            搜尋
-                                        </button>
-                                    </form>
-                                </a>
-                            </li>
-                                
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="totPost.html">
-                                    <i class="far fa-newspaper" style="font-size:30px;"></i>
-                                </a>
-                            </li>  
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="joinActivity.html">
-                                    <i class="material-icons icon-align" style="font-size:35px;">event</i>
-                                </a>
-                            </li>   
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
-                                    <span class="badge">3</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu">                
-                                    <li class="notific">
-                                        <div class="media mb-4">
-                                            <img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
-                                            <div class="media-body">
-                                                <h4 class="mt-0 name">劉安</h4><p>說你的貼文讚</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="notific">
-                                        <div class="media mb-4">
-                                            <img class=" mr-3 rounded-circle" src="img/profile/4.jpg" alt="">
-                                            <div class="media-body">
-                                                <h4 class="mt-0 name">郭加于</h4><p>說你的貼文讚</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="notific">
-                                        <div class="media mb-4">
-                                            <img class=" mr-3 rounded-circle" src="img/profile/2.jpg" alt="">
-                                            <div class="media-body">
-                                                <h4 class="mt-0 name">陳盈臻</h4><p>在此篇文留言說你最口愛</p>
-                                            </div>
-                                        </div>
-                                    </li>                                           
-                                </ul>
-                            </li>
-                                
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="personal-profile.html">
-                                    <i class="fas fa-user" style="font-size:30px;"></i>
-                                </a>
-                            </li>  
-
-                            <li class="dropdown">
-		        				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				    				<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+					<div class="col-md-8 right">
+						<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
+							<li class="dropdown" >
+								<a class="dropdown-toggle">
+									<form class="form-inline">
+									<input class="form-control mr-sm-2" type="text" placeholder="可輸入關鍵字或代碼搜尋"> 
+									<button class="btn btn-primary2" type="submit">
+										搜尋
+									</button>
+									</form>
 								</a>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
-                                    <li>
-                                        <a href="settings.html" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
-                                            <i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>設定
-                                        </a>  
-                                    </li>    
-                                    <li><a href="index.html"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!--/.nav-collapse --> 
-            </section>
-        </nav>
-        <!-- end nav -->
+							</li>
+								
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="totPost.html">
+									<i class="far fa-newspaper" style="font-size:30px;"></i>
+								</a>
+							</li>  
 
-        <div class="sidebar-nav">
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="joinActivity.html">
+									<i class="material-icons icon-align" style="font-size:35px;">event</i>
+								</a>
+							</li>   
+											
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
+									<span class="badge">3</span>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right" role="menu">                
+									<li class="notific">
+										<div class="media mb-4">
+											<img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
+											<div class="media-body">
+											<h4 class="mt-0 name">劉安</h4><p>說你的貼文讚</p>
+											</div>
+										</div>
+									</li>
+									<li class="notific">
+										<div class="media mb-4">
+											<img class=" mr-3 rounded-circle" src="img/profile/4.jpg" alt="">
+											<div class="media-body">
+											<h4 class="mt-0 name">郭加于</h4><p>說你的貼文讚</p>
+											</div>
+										</div>
+									</li>
+									<li class="notific">
+										<div class="media mb-4">
+											<img class=" mr-3 rounded-circle" src="img/profile/2.jpg" alt="">
+											<div class="media-body">
+											<h4 class="mt-0 name">陳盈臻</h4><p>在此篇文留言說你最口愛</p>
+											</div>
+										</div>
+									</li>                                           
+								</ul>
+							</li>
+									
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="personal-profile.html">
+									<i class="fas fa-user" style="font-size:30px;"></i>
+								</a>
+							</li>  
+
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
+									<li>
+										<a href="password.html" title="設定" > <!--data-target="#settingsmodal"-->
+											<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
+										</a>  
+									</li>    
+									<li><a href="index.html"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div><!--/.nav-collapse --> 
+			</section>
+		</nav>
+		<!-- end nav -->
+
+      	<div class="sidebar-nav">
 			<div class="avatar-wrapper" style="margin:0 auto;">
-				<img class="profile-pic img-circle img-user" src="img/profile/1.jpg" style="margin:0 auto;" />
+				<img class="profile-pic img-circle img-user" src="img/profile/1.jpg"/>
+
 				<div class="upload-button">
 					<i class="fas fa-camera" aria-hidden="true"></i>
-					
 				</div>
 				<input class="file-upload" type="file" accept="image/*"/>
 			</div>		
 
-			<h2 class="text-center hidden-xs"><a href="personal-profile.html" title="Profile">張傑婷</a></h2>
-				  
-			<div class="text-center">
+			</br>
+
+
+
+			<h2 class="text-center hidden-xs user-name" contenteditable="true"><a href="personal-profile.html" title="Profile">張傑婷</a></h2>
+		
+			<div class="text-center" style="margin-bottom: 15px;">
 				<div class="points"><i class="material-icons">stars</i>20</div>
 			</div>
-			<p class="text-center user-description hidden-xs">
+		
+			<p class="text-center user-description hidden-xs" contenteditable="true" maxlength="10" style="margin-bottom: 8px;">
 				<i>當個小透明</i>
 			</p>
-			<div class="center">
+				
+			<div class="text-center" style="margin-bottom: 5px;">
+				<div class="points">
+					<i class="fas fa-birthday-cake" style="float: left; margin-right: 3px;"></i>
+					<p contenteditable="true" class="user-birthday">2000/6/30</p>
+				</div>
+			</div>
+
+
+			<script>
+				input = document.querySelector('.user-description');
+				settings = {maxLen: 20,}
+
+				keys = {'backspace': 8,	'shift': 16, 'ctrl': 17, 'alt': 18, 'delete': 46, // 'cmd': 
+						'leftArrow': 37, 'upArrow': 38, 'rightArrow': 39, 'downArrow': 40,}
+
+				utils = {
+					special: {},
+					navigational: {},
+					isSpecial(e) {
+						return typeof this.special[e.keyCode] !== 'undefined';
+					},
+					isNavigational(e) {
+						return typeof this.navigational[e.keyCode] !== 'undefined';
+					}
+				}
+
+				utils.special[keys['backspace']] = true;
+				utils.special[keys['shift']] = true;
+				utils.special[keys['ctrl']] = true;
+				utils.special[keys['alt']] = true;
+				utils.special[keys['delete']] = true;
+
+				utils.navigational[keys['upArrow']] = true;
+				utils.navigational[keys['downArrow']] = true;
+				utils.navigational[keys['leftArrow']] = true;
+				utils.navigational[keys['rightArrow']] = true;
+
+				input.addEventListener('keydown', function(event) {
+					let len = event.target.innerText.trim().length;
+					hasSelection = false;
+					selection = window.getSelection();
+					isSpecial = utils.isSpecial(event);
+					isNavigational = utils.isNavigational(event);
+					
+					if (selection) {
+						hasSelection = !!selection.toString();
+					}
+						
+					if (isSpecial || isNavigational) {
+						return true;
+					}
+					
+					if (len >= settings.maxLen && !hasSelection) {
+						event.preventDefault();
+						return false;
+					}
+				});
+			</script>
+
+
+								
+			<div class="center" style="margin-top: 10px;">
 				<button class="btn btn-primary2" type="submit" style="font-size:15px;">
 					簽到
 				</button>
 			</div>
-			
-        </div>
+		</div>
         
-        <div class="content-posts profile-content">
+      	<div class="content-posts profile-content">
 			<div class="banner-profile"></div>
 			<!-- Tab Panel -->
 			<ul class="nav nav-tabs" role="tablist">
 				<li class="active"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">最近發文</a></li>
-				<li><a href="#profile" role="tab" id="profileTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">簡介</a></li>
 				<li><a href="#friends" role="tab" id="friendsTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">好友</a></li>
 				<li><a href="#activity" role="tab" id="activityTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">活動</a></li>
 				<li><a href="#records" role="tab" id="recordsTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">紀錄</a></li>
@@ -284,17 +312,94 @@
 					<div id="posts-container" class="container-fluid container-posts">
 						<div class="card-post">
 							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/1.jpg" alt="My User" class="img-circle img-user">
-									</a>
-								</div>
-							
-								<div class=" col-xs-9 col-sm-10 data-post">
-									<div class="summernote"><p>快來分享今天做了什麼吧</p></div>
+								<div class="col-xs-9 col-sm-10 data-post">
+									<div class="btnTags">
+										<button class="btnTag btn--stripe">運動</button>
+										<button class="btnTag btn--stripe">休閒</button>
+										<button class="btnTag btn--stripe">賽事分享</button>
+										<button class="btnTag btn--stripe">討論</button>
+										<button class="btnTag btn--stripe">減肥</button>
+										<button class="btnTag btn--stripe">瑜珈</button>
+									</div>
 									<div class="clear"></div>
 								</div>
-								<button type="submit" class="btn btn-primary2" style="margin-left: 48%;">送出</button>
+							</div>
+						</div>
+
+						<div class="card-post">
+							<div class="row">
+								<form>
+									<div class="col-xs-3 col-sm-2">
+										<a href="personal-profile.html" title="Profile">
+											<img src="img/profile/1.jpg" alt="My User" class="img-circle img-user">
+										</a>
+									</div>
+								
+									<div class=" col-xs-9 col-sm-10 data-post">			
+										
+										<div style="margin-bottom: 10px;">
+											<table>
+												<tr>
+													<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
+													<td>
+														<div class="ui fluid dropdown multiple" style="z-index: 800;">
+															<input type="hidden" name="filters">									
+															<span class="text" style="padding: 5px; border:1px solid gray; border-radius: 5px; ">
+																<i class="fas fa-tags"></i>選擇話題</span>
+															<div class="menu">
+																<div class="ui icon search input">
+																	<!-- <i class="search icon"></i> -->
+																	
+																	<input type="text" placeholder=" &#x1f50d; 搜尋話題...">
+																</div>
+																<!-- <div class="divider"></div>
+																<div class="header">
+																	<i class="fas fa-tags"></i>
+																	hashtags
+																</div> -->
+																<div class="scrolling menu">
+																<div class="item" data-value="sport">
+																	<div class="ui red empty circular label"></div>
+																	運動
+																</div>
+																<div class="item" data-value="休閒">
+																	<div class="ui orange empty circular label"></div>
+																	休閒
+																</div>
+																<div class="item" data-value="賽事分享">
+																	<div class="ui purple empty circular label"></div>
+																	賽事分享
+																</div>
+																<div class="item" data-value="討論">
+																	<div class="ui green empty circular label"></div>
+																	討論
+																</div>
+																<div class="item" data-value="減肥">
+																	<div class="ui yellow empty circular label"></div>
+																	減肥
+																</div>
+																<div class="item" data-value="瑜珈">
+																	<div class="ui pink empty circular label"></div>
+																	瑜珈
+																</div>
+																
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>	
+											</table>										
+										</div>
+
+										<div class="richText">
+											<div id="editor" style="height:250px;">									
+											</div>
+										</div>
+										<div class="clear"></div>									
+										
+									</div>
+									<button type="submit" class="btn btn-primary2" style="margin-left: 48%; margin-top:10px;">送出</button>
+								</form>	
 							</div>		
 						</div>
 
@@ -313,8 +418,7 @@
 													data-target指事件的目標，一起使用就是代表data-target所指的元素以data-toggle指定的形式顯示-->
 												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
 													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
-												</button>
-												
+												</button>							
 											</li>
 										</ul>
 									</div>
@@ -323,33 +427,70 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-										<button id="edit" onclick="edit()" type="button" style="border: none; background-color:transparent;">
-											<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
-										</button>
-										<button id="save" onclick="save()" type="button" style="border: none; background-color:transparent;">
-											<i class="far fa-save" style="font-size: 20px; color: #404040;"></i>儲存貼文
-										</button>
-										<div class="click2edit">
-											<h2>HOW健康</h2>
-											<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-											<img src="img/6.jpg" alt="image post" class="img-post">
-										</div>
+								<div class=" col-sm-8 col-sm-offset-2 data-post">									
 									
+									<button id="editBtn" type="button" style="border: none; background-color:transparent;">
+										<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
+									</button>
+									<div id="editor-content">
+										<h2>HOW健康</h2>
+										<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
+										<img src="img/6.jpg" alt="image post" class="img-post">
+								   	</div>
+
+								   	<script>
+										var editBtn = document.getElementById("editBtn");
+										var editable = document.getElementById("editor-content");
+
+										function saveContent() {
+										// Save the data in localStorage
+										localStorage.setItem(editable, editable.innerHTML);
+										}
+
+										editBtn.addEventListener("click", function(e) {
+										if (!editable.isContentEditable) {
+											editable.contentEditable = "true";
+											editable.style.border = "1px dashed #404040";
+											editBtn.innerHTML = "<i class='far fa-save' style='font-size: 20px; color: #404040;'></i>"+"儲存貼文";
+											editBtn.style.backgroundColor = "transparent"; 
+											editBtn.style.color = "#404040";
+											editBtn.style.fontSize = "14px";
+											editBtn.style.border = "none"; 
+
+										} else { // Disable Editing
+											editable.contentEditable = "false";
+											editable.style.border = "none";
+											editBtn.innerHTML = "<i class='fas fa-edit' style='font-size: 20px; color: #404040;'></i>"+"編輯貼文";
+											editBtn.style.backgroundColor = "transparent";
+											editBtn.style.color = "#404040";
+											editBtn.style.fontSize = "14px";
+											editBtn.style.border = "none"; 
+											saveContent();
+										}
+										});
+									</script>
+
+
 									<div class="reaction">
 										<div class="react">
 											<a href="javascript:void(0);" class="like-button">
-											<i class="material-icons not-liked bouncy">favorite_border</i>
-											<i class="material-icons is-liked bouncy">favorite</i>
-											<span class="like-overlay"></span>
-										</a>
+												<i class="material-icons not-liked bouncy">favorite_border</i>
+												<i class="material-icons is-liked bouncy">favorite</i>
+												<span class="like-overlay"></span>
+											</a>
 										</div>
-										
+												
 										<div class="react" style="margin: 10px 0 0 10px;">
 											&#x1F496; 1234 &#x1F4AC; 54
 										</div>
+
+										<div class="btnTags" style="float: right;">
+											<button class="btnTag btn--stripe">休閒</button>
+											<button class="btnTag btn--stripe">討論</button>
+										</div>
 										<div class="clear"></div>
 									</div>
+												
 									<div class="comments">
 										<div class="more-comments">查看更多留言</div>
 										<ul>
@@ -364,9 +505,7 @@
 								</div>
 							</div>
 						</div>
-
-						
-							
+						<!--
 						<div class="card-post">
 							<div class="row">
 								<div class="col-xs-3 col-sm-2">
@@ -388,6 +527,7 @@
 									<p><i>6h</i></p>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-sm-8 col-sm-offset-2 data-post">
 									<button id="edit" onclick="edit2()" type="button" style="border: none; background-color:transparent;">
@@ -400,78 +540,92 @@
 										<p>太美了......</p>
 										<video controls>
 										<source src="img/post-video.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-										你使用的瀏覽器不支援上傳影片
+											Your browser does not support the video tag.
+											你使用的瀏覽器不支援上傳影片
 										</video>
 									</div>
+
 									<div class="reaction">
 										<div class="react">
 											<a href="javascript:void(0);" class="like-button">
-											<i class="material-icons not-liked bouncy">favorite_border</i>
-											<i class="material-icons is-liked bouncy">favorite</i>
-											<span class="like-overlay"></span>
-										</a>
+												<i class="material-icons not-liked bouncy">favorite_border</i>
+												<i class="material-icons is-liked bouncy">favorite</i>
+												<span class="like-overlay"></span>
+											</a>
 										</div>
-										
+												
 										<div class="react" style="margin: 10px 0 0 10px;">
 											&#x1F496; 1234 &#x1F4AC; 54
 										</div>
+
+										<div class="btnTags" style="float: right;">
+											<button class="btnTag btn--stripe">休閒</button>
+										</div>
+
 										<div class="clear"></div>
 									</div>
+			
 									<div class="comments">
 										<div class="more-comments">查看更多留言</div>
-										<ul>
-											<li><b>陳盈臻</b> 美哭我</li>
-											<li><b>郭加于</b> 太讚了吧&#x1F602;</li>
-											<li>
-												<b>張傑婷</b> 
-												<div style="float: right;">
-													<button id="edit" onclick="edit3()" type="button" style="border: none; background-color:transparent;">
+											<ul>
+												<li><b>陳盈臻</b> 美哭我</li>
+												<li><b>郭加于</b> 太讚了吧&#x1F602;</li>
+												<li>
+													<b>張傑婷</b> 
+													<div style="float: right;">
+														
+													</div>
+													<button id="editBtn2" type="button" style="border: none; background-color:transparent;">
 														<i class="fas fa-edit" style="font-size: 13px; color: #404040;"></i>編輯留言
 													</button>
-													<button id="save" onclick="save3()" type="button" style="border: none; background-color:transparent;">
-														<i class="far fa-save" style="font-size: 13px; color: #404040;"></i>儲存留言
-													</button>
+		
 													<button id="deleteComment" title="刪除" style="border: none; background-color:transparent;">
 														<i class="far fa-trash-alt" style="font-size: 13px; color: #404040;"></i>
 													</button>
-												</div>
-												
-												<div class="click2edit3" id="summernote">
-													是吧～～～～
-												</div>
-											</li>
-										</ul>
-										<form>
-											<input type="text" class="form-control" placeholder="回覆留言">
-										</form>
+
+													<div id="editor-content">
+														是吧～～～～
+													</div>
+													
+
+													<script>
+														var editBtn2 = document.getElementById("editBtn2");
+														var editable2 = document.getElementById("editor-content");
+														
+														function saveContent() {
+															// Save the data in localStorage
+															localStorage.setItem(editable2, editable2.innerHTML);
+														}
+
+														editBtn2.addEventListener("click", function(e) {
+															if (!editable2.isContentEditable) {
+																editable2.contentEditable = "true";
+																editBtn2.innerHTML = "儲存";
+																editBtn2.style.backgroundColor = "#6F9"; 
+															} else { // Disable Editing
+																editable2.contentEditable = "false";
+																editBtn2.innerHTML = "編輯";
+																editBtn2.style.backgroundColor = "#F96";
+																saveContent();
+															}
+														});
+													</script>
+												</li>
+											</ul>
+				
+											<form>
+												<input type="text" class="form-control" placeholder="回覆留言">
+											</form>
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->		
 					</div>
+					
 					<div id="loading">
 						<img src="img/load.gif" alt="loader">
 					</div>
 				</div><!-- end Tab Posts -->
-	
-				<!--Start Tab Profile-->
-				<div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profileTab">
-					<div class="container-fluid container-posts">
-						<div class="card-post">
-							<ul class="profile-data">
-								<li><b>名字: </b> 張傑婷</li>
-								<li><b>年紀: </b> 18</li>
-								<li><b>愛好: </b> 閱讀</li>
-								<li><b>學歷: </b> NTUB</li>
-								<li><b>職業: </b> 學生</li>
-								<li><b>自我介紹: </b> 不是很喜歡運動，但我正在努力改掉這個毛病T^T</li>
-							</ul>
-							<p><a href="" title="編輯簡介"><i class="fa fa-pencil-alt" aria-hidden="true"></i>編輯</a></p>
-						</div>
-					</div>
-				</div>
-				<!-- end tab Profile -->
 
 				<!--Start Tab friends-->
 				<div class="tab-pane fade" role="tabpanel" id="friends" aria-labelledby="friendsTab">
@@ -533,6 +687,7 @@
 										</p>
 									</div>
 								</div>
+				
 								<div class="row row-user-list">
 									<div class="col-sm-2 col-xs-3">
 										<img src="img/profile/3.jpg" alt="User name" class="img-circle img-user">
@@ -556,26 +711,25 @@
 					</div>
 				</div>
 				<!-- end tab friends -->
-	
-
+		
 				<!--Start Tab activity-->
 				<div class="tab-pane fade" role="tabpanel" id="activity" aria-labelledby="activityTab">
 					<div class="container-fluid container-posts">
 						<div class="card-post">
 							<!-- Control buttons -->
 							<div id="myBtnContainer">
-								<button class="filterBtn active" onclick="filterSelection('all')"> 全部</button>
-								<button class="filterBtn" onclick="filterSelection('public')"> 官方活動</button>
-								<button class="filterBtn" onclick="filterSelection('spont')"> 自主活動</button>
+								<button class="filterBtn active" onclick="filterSelection('all')" style="margin-right:8px;"> 全部</button>
+								<button class="filterBtn" onclick="filterSelection('public')" style="margin-right:8px;"> 官方活動</button>
+								<button class="filterBtn" onclick="filterSelection('spont')" style="margin-right:8px;"> 自主活動</button>
 								<button class="filterBtn" onclick="filterSelection('create')"> 你發起的活動</button>
 							</div>
 
 							<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
 							<div class="filterContainer">
 								<div class="row row-user-list filterDiv public">
-									<div class="col-sm-7 col-xs-9">
-										<a href="https://www.newbalance.com.tw/event/2019/women-run-taipei/"><b>Taishin Women Run Taipei</b></a>
-										<p style="font-size: 12px;">官方活動</p>
+									<div class="col-xs-9">
+										<a href="https://www.newbalance.com.tw/event/2019/women-run-taipei/" style="font-size: 18px;"><b>Taishin Women Run Taipei</b></a>
+										<p style="font-size: 14px;">官方活動</p>
 									</div>
 									<div class="col-sm-0 col-xs-1"> </div>
 									<div class="col-sm-2 col-xs-3">
@@ -586,9 +740,9 @@
 								</div>
 
 								<div class="row row-user-list filterDiv spont">
-									<div class="col-sm-7 col-xs-9">
-										<a href="detailedAct.html"><b>一起跑3K</b></a>
-										<p style="font-size: 12px;">自主活動</p>
+									<div class="col-xs-9">
+										<a href="detailedAct.html" style="font-size: 18px;"><b>一起跑3K</b></a>
+										<p style="font-size: 14px;">自主活動</p>
 									</div>
 									<div class="col-sm-0 col-xs-1"> </div>
 									<div class="col-sm-2 col-xs-3">
@@ -597,11 +751,11 @@
 										</button>
 									</div>
 								</div>
-								
+									
 								<div class="row row-user-list filterDiv create">
-									<div class="col-sm-7 col-xs-9">
-										<a href="detailedAct.html"><b>挑戰鐵馬30k</b></a>
-										<p style="font-size: 12px;">自主活動</p>
+									<div class="col-xs-9">
+										<a href="detailedAct.html" style="font-size: 18px;"><b>挑戰鐵馬30k</b></a>
+										<p style="font-size: 14px;">自主活動</p>
 									</div>
 									<div class="col-sm-0 col-xs-1">
 										<button id="" title="編輯" style="border:none; background-color: transparent;">
@@ -614,9 +768,9 @@
 										</button>
 									</div>
 								</div>
-								
+									
 							</div>
-							
+								
 						</div>
 					</div>
 				</div>
@@ -641,6 +795,30 @@
 											<span class="date"><strong>7</strong>May</span>
 										</a>
 									</div>
+
+									<div class="desc">
+										<a href="records.html" class="name">2019/05/07</a>
+										<!--<div class="category">Design</div>-->
+									</div>
+								</div>
+							</div>
+
+							<!-- blog item -->
+							<div class="col col-md-6">
+								<div class="box-item">
+									<div class="image">
+										<a href="records.html">
+											<div class="image">
+												<img src="img/8.jpg" alt="">
+											</div>
+													
+											<span class="info">
+												<span class="ion ion-document-text"></span>
+											</span>
+											<span class="date"><strong>7</strong>May</span>
+										</a>
+									</div>
+
 									<div class="desc">
 										<a href="records.html" class="name">2019/05/07</a>
 										<!--<div class="category">Design</div>-->
@@ -668,30 +846,7 @@
 										<!--<div class="category">Design</div>-->
 									</div>
 								</div>
-							</div>
-
-							<!-- blog item -->
-							<div class="col col-md-6">
-								<div class="box-item">
-									<div class="image">
-										<a href="records.html">
-											<div class="image">
-												<img src="img/8.jpg" alt="">
-											</div>
-												
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-											<span class="date"><strong>7</strong>May</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="records.html" class="name">2019/05/07</a>
-										<!--<div class="category">Design</div>-->
-									</div>
-								</div>
-							</div>
-	
+							</div>		
 						</div>
 					</div>
 				</div>
@@ -734,15 +889,9 @@
 					</div>
 				</div>
 				<!-- end tab points -->
-				
-
-
-	
 			</div><!-- Close Tab Content-->
 		
-        </div><!--Close content posts-->
-        
-
+      	</div><!--Close content posts-->
     </div>
 
 

@@ -29,6 +29,9 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
 	<!-- rich text -->
+
+	<link href="css/test.css" rel="stylesheet">
+	<link href="css/feed.css" rel="stylesheet">
 </head>
 
 
@@ -166,8 +169,76 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
                                     <span class="badge">3</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu">                
+								</a>
+								
+
+								
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu"> 
+									<div class="ui feed">
+										<div class="event">
+											<div class="label rounded-circle">
+												<img src="img/profile/3.jpg">
+											</div>
+											<div class="content">
+											<div class="summary">
+												<a class="user">
+													劉安
+												</a> 說你的貼文讚
+												<div class="date">
+												1 Hour Ago
+												</div>
+											</div>
+											<div class="meta">
+												<a class="like">
+												<i class="like icon"></i> 4 Likes
+												</a>
+											</div>
+											</div>
+										</div>
+										<div class="event">
+											<div class="label">
+											<img src="/images/avatar/small/jenny.jpg">
+											</div>
+											<div class="content">
+											<div class="summary">
+												<a class="user">
+												Jenny Hess
+												</a> added you as a friend
+												<div class="date">
+												2 Days Ago
+												</div>
+											</div>
+											<div class="meta">
+												<a class="like">
+												<i class="like icon"></i> 8 Likes
+												</a>
+											</div>
+											</div>
+										</div>
+										<div class="event">
+											<div class="label">
+											<img src="/images/avatar/small/justen.jpg">
+											</div>
+											<div class="content">
+											<div class="summary">
+												<a>Justen Kitsune</a> added <a>2 new photos</a> of you
+												<div class="date">
+												4 days ago
+												</div>
+											</div>
+											<div class="extra images">
+												<a><img src="/images/wireframe/image.png"></a>
+												<a><img src="/images/wireframe/image.png"></a>
+											</div>
+											<div class="meta">
+												<a class="like">
+												<i class="like icon"></i> 41 Likes
+												</a>
+											</div>
+											</div>
+										</div>
+										</div>
+
                                     <li class="notific">
                                         <div class="media mb-4">
                                             <img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
@@ -221,38 +292,122 @@
         </nav>
         <!-- end nav -->
 	
-        
+		<select multiple data-placeholder="Add tools" class="selectMultiple">
+			<option>Sketch</option>
+			<option selected>Framer X</option>
+			<option>Photoshop</option>
+			<option>Principle</option>
+			<option>Invision</option>
+		</select>
 
-		<div class="container4">
-			<div class="row">
-				<div class="row blog-entries">
-					<div class="col-md-8 main-content">
-						<div class="newPost">
-							<div class="col-md-12">
-								<img src="img/profile/1.jpg"/>
-				
-								<div class="col-md-10">
-									<div id="summernote" style="margin: 0; padding:0;"><p>在想些什麼?</p></div>
-									<script>
-									$(document).ready(function() {
-										$('#summernote').summernote();
-									});
-									</script>
-								</div>
-				
-								<div class="clear"></div>
-								<div>
-									<button type="submit" class="btn btn-primary2 postbtn">送出</button>
-								</div>
-							</div>			
-						</div>
-					</div>
+		<!-- dribbble -->
+		<a class="dribbble" href="https://dribbble.com/shots/5112850-Multiple-select-animation-field" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-1col-dnld-e29e0436f93d2f9c430fde5f3da66f94493fdca66351408ab0f96e2ec518ab17.png" alt=""></a>
+		
+
+
+
+
+
+
+		<div class="_box">
+			<label for="tagList">Add tag (Press ENTER to Add new Tag)</label>
+			<label for="text-tags">Tags</label>
+			<input type="text" id="text-tags" class="tags" value="Quint,USS Indianapolis,Orca" />
+		</div>
+		<script>
+			(function($) {
+				var methods = {
+					init: function(opts) {
+						opts = opts || {};
+						opts.tags = opts.tags || [];
+
+						var me = $(this),
+							clean = new RegExp(',', 'g'),
+							cloud = me.parents('.tag-cloud');
+						opts.tags = (opts.tags.length > 0) ? opts.tags : me.val().split(",");
+									me.val('');
+
+						me.wrap('<div class="tag-cloud" />');
+									cloud.click(function() {
+										me.focus();
+						});
+
+						var addTag = function(value) {
+							value = value.replace(clean, '');
+							if (value !== '') {
+								var tag = $('<div class="tag"><span>' + value + '</span></div>');
+								var del = $('<a href="#" class="close">Delete</a>');
+
+								del.click(function() {
+									del.parent().remove();
+								});
+								
+								tag.append(del);
+								tag.insertBefore(me);
+							}
+						}
+
+						me.blur(function() {
+							addTag(this.value);
+							this.value = '';
+						});
+						me.keyup(function(e) {
+							var key = e.keyCode;
+							var isEnter = key == 13;
+							var isComma = key == 188;
+							var isBack = key == 8;
 							
-					
-				</div>
-			</div>
-	  </div>
+							if (isEnter || isComma) {
+								addTag(this.value);
+								this.value = '';
+							}
+							if (isBack && this.data('delete-prev')) { 
+								$(this).prev().remove(); 
+								$(this).data('delete-prev',false);
+							} else if(isBack && this.value === '') {
+								$(this).data('delete-prev', true); 
+								
+							}
+						});
+						$.each(opts.tags, function(i, e) {
+							addTag(e);
+						});
+					},
+					get: function() {
+						return $('.tag span',this.parent()).map(function() {
+							return $(this).text();
+						});
+					},
+					clear: function() {
+						$('div', this).remove();
+					}
+				};
+				$.fn.tagcloud = function(method) {
+					if (methods[method]) {
+						return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+					} else if (typeof method === 'object' || !method) {
+						return methods.init.apply(this, arguments);
+					} else {
+						$.error('Method ' + method + ' does not exist on tagcloud plugin');
+					}
+				};
+				})(jQuery);
+
+				$('.tags').tagcloud();
+
+				/*
+				//override the html element value:
+				$('.tags').tagcloud({
+				tags: ['Brody', 'Hooper', 'Amity Island']
+				});
+
+				//get the tags as an array
+				var tags = $('.tags').tagcloud('get');
+				*/
+
+
+		</script>
 	</div>
- 
+
 </body>
 </html>

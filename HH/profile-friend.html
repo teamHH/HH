@@ -55,92 +55,6 @@
     <div class="container-fluid" style="margin:0; padding:0;">
 		<!-- nav -->
 		<nav>
-			<!-- The Modal -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<span class="close">&times;</span>
-						<h2>設定</h2>
-					</div>
-					<div class="modal-body">
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>使用者名稱: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>張傑婷</p>
-							</div>
-							<div class="col-sm-3">
-								<a href="#" title="編輯使用者名字"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>Email: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>10456022@ntub.edu.tw</p>
-							</div>
-							<div class="col-sm-3">
-								<a href="#" title="編輯Email"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p>
-									<label>更改密碼: </label>
-								</p>
-							</div>
-							<div class="col-sm-6">
-								<p>*********</p>
-							</div>
-							<div class="col-sm-3">
-								<a href="password.html" title="更改密碼"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>性別: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<select type="text" class="gender" name="gender">
-									<option value="M"> 男</option>
-									<option value="F"> 女</option>
-									</select>
-								</p>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>公開帳號: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<input class="switch-checkbox" type="checkbox" name="PublicProfile" data-on-text="開" data-off-text="關" checked>
-								</p>
-							</div>
-							<div class="col-sm-3">
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>通知信件: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<input class="switch-checkbox" type="checkbox" name="NotificationsEmail" data-on-text="開" data-off-text="關" checked>
-							</div>
-							<div class="col-sm-3">
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">關閉</button>
-						<button type="button" class="btn btn-social">儲存變更</button>
-					</div>
-				</div>
-			</div>
             <section id="aa-menu-area">
                 <div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
                     <div class="col-md-4">
@@ -240,9 +154,16 @@
         <!-- end nav -->
 
 		<div class="sidebar-nav">
-			<a href="profile-friend.html" title="Profile">
-				<img src="img/profile/2.jpg" alt="User name" class="img-circle img-user" >
-			</a>
+			<div class="avatar-wrapper" style="margin:0 auto;">
+				<img class="profile-pic img-circle img-user" src="img/profile/2.jpg"/>
+
+				<div class="upload-button">
+					<i class="fas fa-camera" aria-hidden="true"></i>
+				</div>
+				<input class="file-upload" type="file" accept="image/*"/>
+			</div>		
+
+			</br>
 			<h2 class="text-center hidden-xs"><a href="profile-friend.html" title="Profile">陳盈臻</a></h2>
 			<div class="text-center">
 				<div class="points"><i class="material-icons">stars</i>20</div>
@@ -269,7 +190,6 @@
 			<!-- Tab Panel -->
 			<ul class="nav nav-tabs" role="tablist">
 				<li class="active"><a href="#posts" role="tab" id="postsTab" data-toggle="tab" aria-controls="posts" aria-expanded="true">最近發文</a></li>
-				<li><a href="#profile" role="tab" id="profileTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">簡介</a></li>
 				<li><a href="#activity" role="tab" id="activityTab" data-toggle="tab" aria-controls="profile" aria-expanded="true">活動</a></li>
 			</ul>
 		
@@ -390,24 +310,6 @@
 						<img src="img/load.gif" alt="loader">
 					</div>
 				</div><!-- end Tab Posts -->
-	
-				<!--Start Tab Profile-->
-				<div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profileTab">
-					<div class="container-fluid container-posts">
-						<div class="card-post">
-							<ul class="profile-data">
-								<li><b>名字: </b> 陳盈臻</li>
-								<li><b>年紀: </b> 19</li>
-								<li><b>愛好: </b> 跑步</li>
-								<li><b>學歷: </b> NTUB</li>
-								<li><b>職業: </b> 學生</li>
-								<li><b>自我介紹: </b> 喜歡探索大自然！！！熱愛運動 熱愛生活</li>
-							</ul>
-							<!--<p><a href="" title="編輯簡介"><i class="fa fa-pencil-alt" aria-hidden="true"></i>編輯</a></p>-->
-						</div>
-					</div>
-				</div>
-				<!-- end tab Profile -->
 
 				<!--Start Tab activity-->
 				<div class="tab-pane fade" role="tabpanel" id="activity" aria-labelledby="activityTab">
