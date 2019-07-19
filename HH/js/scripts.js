@@ -96,64 +96,6 @@ function myFunction(){
 	alert("修改成功");
 }
 
-/*==================================================================
-memberSetting
-[ Validate ]*/
-
-
-(function ($) {
-    "use strict";
-
-var input = $('.validate-input .input100');
-
-$('.validate-form').on('submit',function(){
-  var check = true;
-
-  for(var i=0; i<input.length; i++) {
-    if(validate(input[i]) == false){
-      showValidate(input[i]);
-      check=false;
-    }
-  }
-
-  return check;
-});
-
-
-$('.validate-form .input100').each(function(){
-  $(this).focus(function(){
-    hideValidate(this);
-  });
-});
-
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
-    }
-
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
-    
-    
-
-})(jQuery); 
 
 
 /*使用者換大頭照*/
@@ -183,101 +125,37 @@ $(document).ready(function() {
 
 
 
+var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
 
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  [{ 'align': [] }],
 
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
-/* ----------------------------------------------------------- */
-/*post.html */
-/* ----------------------------------------------------------- */
-/*
-(jQuery)會出錯 還找不到原因 拿掉有包含(jQuery)的程式 網頁就可繼續執行
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
 
-	Validate Contact Form
-	
-(function($){
-	
-	$("#cform").validate({
-		ignore: ".ignore",
-		rules: {
-			name: {
-				required: true
-			},
-			message: {
-				required: true
-			},
-			email: {
-				required: true,
-				email: true
-			},
-			hiddenRecaptcha: {
-				required: function () {
-					if (grecaptcha.getResponse() == '') {
-						return true;
-					} else {
-						return false;
-					}
-				}
-			}
-		},
-		success: "valid",
-		submitHandler: function() {
-			$.ajax({
-				url: 'mailer/feedback.php',
-				type: 'post',
-				dataType: 'json',
-				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
-				beforeSend: function() {
-				
-				},
-				complete: function() {
-				
-				},
-				success: function(data) {
-					$('#cform').fadeOut();
-					$('.alert-success').delay(1000).fadeIn();
-				}
-			});
-		}
-	});
-})(jQuery); 
+  ['link', 'image'],
 
-*/
+  ['clean']                                         // remove formatting button
+];
+
+var quill = new Quill('#editor', {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  theme: 'snow'
+});
 
 
 
 
 
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("settingsmodal");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var closeBtn = document.getElementById("closeBtn");
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function(){
-  modal.style.display = "none";
-}
-
-closeBtn.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 
 
@@ -408,19 +286,38 @@ $(document).ready(function(){
   $('.like-button').click(function(){
       $(this).toggleClass('is-active');
   })
-
 })
+
 
 /* ----------------------------------------------------------- */
 /*use multiple summernote*/
 /* ----------------------------------------------------------- */
+/*
 $(document).ready(function() {
-  $('.summernote').summernote();
+  $('.summernote').summernote({
+    placeholder: '快來分享今天做了什麼吧'
+  });
 });
+
+$('.summernote').summernote({
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['style']],
+    ['font', ['bold', 'underline', 'clear']],
+    ['fontname', ['fontname']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture', 'video']],
+    ['misc',['fullscreen', 'undo', 'redo']],
+  ],
+});*/
+
+
 
 /* ----------------------------------------------------------- */
 /*編輯貼文 儲存貼文*/
-/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- 
 var edit = function() {
   $('.click2edit').summernote({focus: true});
 };
@@ -430,26 +327,6 @@ var save = function() {
   $('.click2edit').summernote('destroy');
 };
 
-
-/*
-$(document).ready(function() {
-  $('#summernote').summernote();
-});
-*/
-
-// [groupName, [list of button]]
-/*$('#summernote').summernote({
-  toolbar: [
-    
-    ['style', ['bold', 'italic', 'underline', 'clear']],
-    ['font', ['strikethrough', 'superscript', 'subscript']],
-    ['fontsize', ['fontsize']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-  ]
-});
-*/
-
 var edit2 = function() {
   $('.click2edit2').summernote({focus: true});
 };
@@ -457,16 +334,7 @@ var edit2 = function() {
 var save2 = function() {
   var markup = $('.click2edit2').summernote('code');
   $('.click2edit2').summernote('destroy');
-};
-
-var edit3 = function() {
-  $('.click2edit3').summernote({focus: true});
-};
-
-var save3 = function() {
-  var markup = $('.click2edit3').summernote('code');
-  $('.click2edit3').summernote('destroy');
-};
+};*/
 
 
 /* ----------------------------------------------------------- */
@@ -474,6 +342,141 @@ var save3 = function() {
 /* ----------------------------------------------------------- */
 $('.ui.fluid.dropdown')
   .dropdown({
-    maxSelections: 6
+    maxSelections: 4
   })
 ;
+
+
+
+$(document).ready(function() {
+
+  var select = $('select[multiple]');
+  var options = select.find('option');
+
+  var div = $('<div />').addClass('selectMultiple');
+  var active = $('<div />');
+  var list = $('<ul />');
+  var placeholder = select.data('placeholder');
+
+  var span = $('<span />').text(placeholder).appendTo(active);
+
+  options.each(function() {
+      var text = $(this).text();
+      if($(this).is(':selected')) {
+          active.append($('<a />').html('<em>' + text + '</em><i></i>'));
+          span.addClass('hide');
+      } else {
+          list.append($('<li />').html(text));
+      }
+  });
+
+  active.append($('<div />').addClass('arrow'));
+  div.append(active).append(list);
+
+  select.wrap(div);
+
+  $(document).on('click', '.selectMultiple ul li', function(e) {
+      var select = $(this).parent().parent();
+      var li = $(this);
+      if(!select.hasClass('clicked')) {
+          select.addClass('clicked');
+          li.prev().addClass('beforeRemove');
+          li.next().addClass('afterRemove');
+          li.addClass('remove');
+          var a = $('<a />').addClass('notShown').html('<em>' + li.text() + '</em><i></i>').hide().appendTo(select.children('div'));
+          a.slideDown(400, function() {
+              setTimeout(function() {
+                  a.addClass('shown');
+                  select.children('div').children('span').addClass('hide');
+                  select.find('option:contains(' + li.text() + ')').prop('selected', true);
+              }, 500);
+          });
+          setTimeout(function() {
+              if(li.prev().is(':last-child')) {
+                  li.prev().removeClass('beforeRemove');
+              }
+              if(li.next().is(':first-child')) {
+                  li.next().removeClass('afterRemove');
+              }
+              setTimeout(function() {
+                  li.prev().removeClass('beforeRemove');
+                  li.next().removeClass('afterRemove');
+              }, 200);
+
+              li.slideUp(400, function() {
+                  li.remove();
+                  select.removeClass('clicked');
+              });
+          }, 600);
+      }
+  });
+
+  $(document).on('click', '.selectMultiple > div a', function(e) {
+      var select = $(this).parent().parent();
+      var self = $(this);
+      self.removeClass().addClass('remove');
+      select.addClass('open');
+      setTimeout(function() {
+          self.addClass('disappear');
+          setTimeout(function() {
+              self.animate({
+                  width: 0,
+                  height: 0,
+                  padding: 0,
+                  margin: 0
+              }, 300, function() {
+                  var li = $('<li />').text(self.children('em').text()).addClass('notShown').appendTo(select.find('ul'));
+                  li.slideDown(400, function() {
+                      li.addClass('show');
+                      setTimeout(function() {
+                          select.find('option:contains(' + self.children('em').text() + ')').prop('selected', false);
+                          if(!select.find('option:selected').length) {
+                              select.children('div').children('span').removeClass('hide');
+                          }
+                          li.removeClass();
+                      }, 400);
+                  });
+                  self.remove();
+              })
+          }, 300);
+      }, 400);
+  });
+
+  $(document).on('click', '.selectMultiple > div .arrow, .selectMultiple > div span', function(e) {
+      $(this).parent().parent().toggleClass('open');
+  });
+
+});
+
+
+/* ----------------------------------------------------------- */
+/*personal-profile 修改個人資料*/
+/* ----------------------------------------------------------- */
+/** Playing around with editable text
+	* and local storage.*/
+if (typeof(Storage) !== "undefined") {
+	if (localStorage.getItem('user-name') !== null) {
+		$('.user-name').text(localStorage.getItem('user-name'));
+	}
+	if (localStorage.getItem('user-description') !== null) {
+		$('.user-description').text(localStorage.getItem('user-description'));
+	}
+	if (localStorage.getItem('user-birthday') !== null) {
+		$('.user-birthday').text(localStorage.getItem('user-birthday'));
+	}
+						
+	$('.user-name, .user-description, .user-birthday').on('input', function (e) {
+		localStorage.setItem($(this).attr('class'), $(this).text());
+	});
+}
+  
+
+/* ----------------------------------------------------------- */
+/*addActivity 新增活動*/
+/* ----------------------------------------------------------- 
+const button = document.querySelector('.addAct-btn')
+const form   = document.querySelector('.addAct-form')
+
+button.addEventListener('click', function() {
+   form.classList.add('form--no') 
+});*/
