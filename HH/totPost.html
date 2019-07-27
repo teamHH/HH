@@ -184,7 +184,8 @@
 			</div>
 
 			<script>
-				input = document.querySelector('.user-description');
+				input = document.querySelector('.user-name'); //10個字就好，但還沒改完
+				input2 = document.querySelector('.user-description');
 				settings = {maxLen: 20,}
 
 				keys = {'backspace': 8,	'shift': 16, 'ctrl': 17, 'alt': 18, 'delete': 46, // 'cmd': 
@@ -234,12 +235,22 @@
 				});
 			</script>
 
-			<div class="center">
-				<button class="btn btn-primary2" type="submit" style="font-size:15px;">
-					簽到
-				</button>
-			</div>
+			<form>
+				<div class="center">
+					<button class="btn btn-primary2" id="signIn" type="submit" style="font-size:15px;">
+						簽到
+					</button>
+				</div>
+			</form>			
+
+			<script>
 			
+				$('#signIn').on('click',function(){
+					$(this).attr('disabled','disabled');
+					$(this).innerHTML="Close Curtain";
+				});
+				
+			</script>
         </div>
         
         <div class="content-posts profile-content">
@@ -265,6 +276,70 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="card-post" style="background: rgba(252, 244, 163, 0.6); color: #fff;  padding: 0;">
+							<div class="row">
+								<div class="col-md-12">
+									<div style="margin: 0; padding:0;">
+										<div class="col-md-6" style="margin: 0; padding:0;">
+											<h2 style="text-align: right; width:200px; margin:30px 0; color: #fe7d67;">
+												點數排行榜</h2>
+										</div>
+										<div class="col-md-6" style="margin: 0; padding:0;">
+											<button id="toggle">
+													<i class="fas fa-chevron-down"></i>
+											</button>
+										</div>	
+									</div>
+									
+									<script>
+										$('#toggle').click(function() {
+											$('.leaderboard').toggle(900);
+										});
+									</script>
+
+									<table class="leaderboard">
+										<tr>
+											<th style="text-align: center;">排名</th>
+											<th>使用者</th>
+											<th>點數</th>
+										</tr>
+
+										<tr>
+											<td class="position" style="text-align: center;">
+												<i class="fas fa-crown" style="font-size: 14px; margin-right: 5px;"></i>1
+											</td>
+											<td class="user">劉安</td>
+											<td class="points"><span>250</span></td>
+										</tr>
+
+										<tr>
+											<td class="position" style="text-align: center;">2</td>
+											<td class="user">郭加于</td>
+											<td class="points"><span>40</span></td>
+										</tr>
+
+										<tr>
+											<td class="position" style="text-align: center;">3</td>
+											<td class="user">張傑婷</td>
+											<td class="points"><span>30</span></td>
+										</tr>
+
+										<tr>
+											<td class="position" style="text-align: center;">4</td>
+											<td class="user">陳盈臻</td>
+											<td class="points"><span>20</span></td>
+										</tr>
+
+										<tr>
+											<td class="position" style="text-align: center;">5</td>
+											<td class="user">user</td>
+											<td class="points"><span>points</span></td>
+										</tr>
+									</table>
+								</div>			
+							</div>		
+						</div>
 						
 						<div class="card-post">
 							<div class="row">
@@ -282,56 +357,22 @@
 												<tr>
 													<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
 													<td>
-														<div class="ui fluid dropdown multiple" style="z-index: 800;">
-															<input type="hidden" name="filters">									
-															<span class="text" style="padding: 5px; border:1px solid gray; border-radius: 5px; ">
-																<i class="fas fa-tags"></i>選擇話題</span>
-															<div class="menu">
-																<div class="ui icon search input">
-																	<!-- <i class="search icon"></i> -->
-																	
-																	<input type="text" placeholder=" &#x1f50d; 搜尋話題...">
-																</div>
-																<!-- <div class="divider"></div>
-																<div class="header">
-																	<i class="fas fa-tags"></i>
-																	hashtags
-																</div> -->
-																<div class="scrolling menu">
-																<div class="item" data-value="sport">
-																	<div class="ui red empty circular label"></div>
-																	運動
-																</div>
-																<div class="item" data-value="休閒">
-																	<div class="ui orange empty circular label"></div>
-																	休閒
-																</div>
-																<div class="item" data-value="賽事分享">
-																	<div class="ui purple empty circular label"></div>
-																	賽事分享
-																</div>
-																<div class="item" data-value="討論">
-																	<div class="ui green empty circular label"></div>
-																	討論
-																</div>
-																<div class="item" data-value="減肥">
-																	<div class="ui yellow empty circular label"></div>
-																	減肥
-																</div>
-																<div class="item" data-value="瑜珈">
-																	<div class="ui pink empty circular label"></div>
-																	瑜珈
-																</div>
-																
-																</div>
-															</div>
+														<div class="col-md-12">
+															<select type="text" class="postType">
+																<option value="sports">運動</option>
+																<option value="leisure">休閒</option>
+																<option value="races">賽事分享</option>
+																<option value="discussion">討論</option>
+																<option value="loseWeight">減肥</option>
+																<option value="yoga">瑜珈</option>
+															</select>
 														</div>
 													</td>
 												</tr>	
 											</table>										
 										</div>
 
-										<div class="richText">
+										<div class="richText"  style="margin-right: 5%;">
 											<div id="editor" style="height:250px;">									
 											</div>
 										</div>
@@ -598,218 +639,6 @@
 						<img src="img/load.gif" alt="loader">
 					</div>
 				</div><!-- end Tab Posts -->
-	
-				<!--Start Tab Profile-->
-				<div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profileTab">
-					<div class="container-fluid container-posts">
-						<div class="card-post">
-							<ul class="profile-data">
-								<li><b>名字: </b> 張傑婷</li>
-								<li><b>年紀: </b> 18</li>
-								<li><b>愛好: </b> 閱讀</li>
-								<li><b>學歷: </b> NTUB</li>
-								<li><b>職業: </b> 學生</li>
-								<li><b>自我介紹: </b> 不是很喜歡運動，但我正在努力改掉這個毛病T^T</li>
-							</ul>
-							<p><a href="" title="編輯簡介"><i class="fa fa-pencil-alt" aria-hidden="true"></i>編輯</a></p>
-						</div>
-					</div>
-				</div>
-				<!-- end tab Profile -->
-
-				<!--Start Tab friends-->
-				<div class="tab-pane fade" role="tabpanel" id="friends" aria-labelledby="friendsTab">
-					<div class="container-fluid container-posts">
-						<div class="card-post">
-							<div class="scrollbar-container">
-								<div class="row row-user-list">
-									<div class="col-sm-2 col-xs-3">
-										<img src="img/profile/2.jpg" alt="User name" class="img-circle img-user">
-									</div>
-									<div class="col-sm-7 col-xs-9">
-										<p><b>陳盈臻</b></p>
-										<p class="friendType">
-											<select type="text" class="" name="friendType">
-												<option value="type1">好友</option>
-												<option value="type2">摯友</option>
-											</select>
-										</p>
-									</div>
-								</div>
-								<div class="row row-user-list">
-									<div class="col-sm-2 col-xs-3">
-										<img src="img/profile/4.jpg" alt="User name" class="img-circle img-user">
-									</div>
-									<div class="col-sm-7 col-xs-9">
-										<p><b>郭加于</b></p>
-										<p class="friendType">
-											<select type="text" class="" name="friendType">
-												<option value="type1">好友</option>
-												<option value="type2">摯友</option>
-											</select>
-										</p>
-									</div>
-								</div>
-								<div class="row row-user-list">
-									<div class="col-sm-2 col-xs-3">
-										<img src="img/profile/3.jpg" alt="User name" class="img-circle img-user">
-									</div>
-									<div class="col-sm-7 col-xs-9">
-										<p><b>劉安</b></p>
-										<p class="friendType">
-											<select type="text" class="" name="friendType">
-												<option value="type1">好友</option>
-												<option value="type2">摯友</option>
-											</select>
-										</p>
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- end tab friends -->
-	
-
-				<!--Start Tab activity-->
-				<div class="tab-pane fade" role="tabpanel" id="activity" aria-labelledby="activityTab">
-					<div class="container-fluid container-posts">
-						<div class="card-post">
-							<!-- Control buttons -->
-							<div id="myBtnContainer">
-								<button class="filterBtn active" onclick="filterSelection('all')"> 全部</button>
-								<button class="filterBtn" onclick="filterSelection('public')"> 官方活動</button>
-								<button class="filterBtn" onclick="filterSelection('spont')"> 自主活動</button>
-								<button class="filterBtn" onclick="filterSelection('create')"> 你發起的活動</button>
-							</div>
-
-							<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
-							<div class="filterContainer">
-								<div class="row row-user-list filterDiv public">
-									<div class="col-sm-7 col-xs-9">
-										<a href="https://www.newbalance.com.tw/event/2019/women-run-taipei/"><b>Taishin Women Run Taipei</b></a>
-										<p style="font-size: 12px;">官方活動</p>
-									</div>
-									<div class="col-sm-0 col-xs-1"> </div>
-									<div class="col-sm-2 col-xs-3">
-										<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-											<i class="fa fa-trash" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
-								</div>
-
-								<div class="row row-user-list filterDiv spont">
-									<div class="col-sm-7 col-xs-9">
-										<a href="detailedAct.html"><b>一起跑3K</b></a>
-										<p style="font-size: 12px;">自主活動</p>
-									</div>
-									<div class="col-sm-0 col-xs-1"> </div>
-									<div class="col-sm-2 col-xs-3">
-										<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-											<i class="fa fa-trash" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
-								</div>
-								
-								<div class="row row-user-list filterDiv create">
-									<div class="col-sm-7 col-xs-9">
-										<a href="detailedAct.html"><b>挑戰鐵馬30k</b></a>
-										<p style="font-size: 12px;">自主活動</p>
-									</div>
-									<div class="col-sm-0 col-xs-1">
-										<button id="" title="編輯" style="border:none; background-color: transparent;">
-											<i class="fa fa-pencil-alt" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
-									<div class="col-sm-2 col-xs-3">
-										<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-											<i class="fa fa-trash" aria-hidden="true" style="color:black;"></i>
-										</button>
-									</div>
-								</div>
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- end tab activity -->
-
-				<!--Start Tab records-->
-				<div class="tab-pane fade" role="tabpanel" id="records" aria-labelledby="recordsTab">
-					<div class="container-fluid container-posts">
-						<div class="card-post">
-							<!-- blog item -->
-							<div class="col col-md-6">
-								<div class="box-item">
-									<div class="image">
-										<a href="records.html">
-											<div class="image">
-												<img src="img/8.jpg" alt="">
-											</div>
-												
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-											<span class="date"><strong>7</strong>May</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="records.html" class="name">2019/05/07</a>
-										<!--<div class="category">Design</div>-->
-									</div>
-								</div>
-							</div>
-
-							<!-- blog item -->
-							<div class="col col-md-6">
-								<div class="box-item">
-									<div class="image">
-										<a href="records.html">
-											<div class="image">
-												<img src="img/8.jpg" alt="">
-											</div>
-												
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-											<span class="date"><strong>7</strong>May</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="records.html" class="name">2019/05/07</a>
-										<!--<div class="category">Design</div>-->
-									</div>
-								</div>
-							</div>
-
-							<!-- blog item -->
-							<div class="col col-md-6">
-								<div class="box-item">
-									<div class="image">
-										<a href="records.html">
-											<div class="image">
-												<img src="img/8.jpg" alt="">
-											</div>
-												
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-											<span class="date"><strong>7</strong>May</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="records.html" class="name">2019/05/07</a>
-										<!--<div class="category">Design</div>-->
-									</div>
-								</div>
-							</div>
-	
-						</div>
-					</div>
-				</div>
-				<!-- end tab records -->
 
 				<!--Start Tab points-->
 				<div class="tab-pane fade" role="tabpanel" id="points" aria-labelledby="pointsTab">

@@ -202,16 +202,15 @@
 
       	<div class="sidebar-nav">
 			<div class="avatar-wrapper" style="margin:0 auto;">
-				<img class="profile-pic img-circle img-user" src="img/profile/1.jpg"/>
-
+				<img class="profile-pic img-circle img-user" src="img/profile/1.jpg" style="margin:0 auto;" />
 				<div class="upload-button">
 					<i class="fas fa-camera" aria-hidden="true"></i>
+					
 				</div>
 				<input class="file-upload" type="file" accept="image/*"/>
 			</div>		
 
 			</br>
-
 
 
 			<h2 class="text-center hidden-xs user-name" contenteditable="true"><a href="personal-profile.html" title="Profile">張傑婷</a></h2>
@@ -231,9 +230,9 @@
 				</div>
 			</div>
 
-
 			<script>
-				input = document.querySelector('.user-description');
+				input = document.querySelector('.user-name'); //10個字就好，但還沒改完
+				input2 = document.querySelector('.user-description');
 				settings = {maxLen: 20,}
 
 				keys = {'backspace': 8,	'shift': 16, 'ctrl': 17, 'alt': 18, 'delete': 46, // 'cmd': 
@@ -283,14 +282,23 @@
 				});
 			</script>
 
+			<form>
+				<div class="center">
+					<button class="btn btn-primary2" id="signIn" type="submit" style="font-size:15px;">
+						簽到
+					</button>
+				</div>
+			</form>			
 
-								
-			<div class="center" style="margin-top: 10px;">
-				<button class="btn btn-primary2" type="submit" style="font-size:15px;">
-					簽到
-				</button>
-			</div>
-		</div>
+			<script>
+			
+				$('#signIn').on('click',function(){
+					$(this).attr('disabled','disabled');
+					$(this).innerHTML="Close Curtain";
+				});
+				
+			</script>
+        </div>
         
       	<div class="content-posts profile-content">
 			<div class="banner-profile"></div>
@@ -342,56 +350,22 @@
 												<tr>
 													<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
 													<td>
-														<div class="ui fluid dropdown multiple" style="z-index: 800;">
-															<input type="hidden" name="filters">									
-															<span class="text" style="padding: 5px; border:1px solid gray; border-radius: 5px; ">
-																<i class="fas fa-tags"></i>選擇話題</span>
-															<div class="menu">
-																<div class="ui icon search input">
-																	<!-- <i class="search icon"></i> -->
-																	
-																	<input type="text" placeholder=" &#x1f50d; 搜尋話題...">
-																</div>
-																<!-- <div class="divider"></div>
-																<div class="header">
-																	<i class="fas fa-tags"></i>
-																	hashtags
-																</div> -->
-																<div class="scrolling menu">
-																<div class="item" data-value="sport">
-																	<div class="ui red empty circular label"></div>
-																	運動
-																</div>
-																<div class="item" data-value="休閒">
-																	<div class="ui orange empty circular label"></div>
-																	休閒
-																</div>
-																<div class="item" data-value="賽事分享">
-																	<div class="ui purple empty circular label"></div>
-																	賽事分享
-																</div>
-																<div class="item" data-value="討論">
-																	<div class="ui green empty circular label"></div>
-																	討論
-																</div>
-																<div class="item" data-value="減肥">
-																	<div class="ui yellow empty circular label"></div>
-																	減肥
-																</div>
-																<div class="item" data-value="瑜珈">
-																	<div class="ui pink empty circular label"></div>
-																	瑜珈
-																</div>
-																
-																</div>
-															</div>
+														<div class="col-md-12">
+															<select type="text" class="postType">
+																<option value="sports">運動</option>
+																<option value="leisure">休閒</option>
+																<option value="races">賽事分享</option>
+																<option value="discussion">討論</option>
+																<option value="loseWeight">減肥</option>
+																<option value="yoga">瑜珈</option>
+															</select>
 														</div>
 													</td>
 												</tr>	
 											</table>										
 										</div>
 
-										<div class="richText">
+										<div class="richText" style="margin-right: 5%;">
 											<div id="editor" style="height:250px;">									
 											</div>
 										</div>
@@ -444,29 +418,29 @@
 
 										function saveContent() {
 										// Save the data in localStorage
-										localStorage.setItem(editable, editable.innerHTML);
+											localStorage.setItem(editable, editable.innerHTML);
 										}
 
 										editBtn.addEventListener("click", function(e) {
-										if (!editable.isContentEditable) {
-											editable.contentEditable = "true";
-											editable.style.border = "1px dashed #404040";
-											editBtn.innerHTML = "<i class='far fa-save' style='font-size: 20px; color: #404040;'></i>"+"儲存貼文";
-											editBtn.style.backgroundColor = "transparent"; 
-											editBtn.style.color = "#404040";
-											editBtn.style.fontSize = "14px";
-											editBtn.style.border = "none"; 
+											if (!editable.isContentEditable) {
+												editable.contentEditable = "true";
+												editable.style.border = "1px dashed #404040";
+												editBtn.innerHTML = "<i class='far fa-save' style='font-size: 20px; color: #404040;'></i>"+"儲存貼文";
+												editBtn.style.backgroundColor = "transparent"; 
+												editBtn.style.color = "#404040";
+												editBtn.style.fontSize = "14px";
+												editBtn.style.border = "none"; 
 
-										} else { // Disable Editing
-											editable.contentEditable = "false";
-											editable.style.border = "none";
-											editBtn.innerHTML = "<i class='fas fa-edit' style='font-size: 20px; color: #404040;'></i>"+"編輯貼文";
-											editBtn.style.backgroundColor = "transparent";
-											editBtn.style.color = "#404040";
-											editBtn.style.fontSize = "14px";
-											editBtn.style.border = "none"; 
-											saveContent();
-										}
+											} else { // Disable Editing
+												editable.contentEditable = "false";
+												editable.style.border = "none";
+												editBtn.innerHTML = "<i class='fas fa-edit' style='font-size: 20px; color: #404040;'></i>"+"編輯貼文";
+												editBtn.style.backgroundColor = "transparent";
+												editBtn.style.color = "#404040";
+												editBtn.style.fontSize = "14px";
+												editBtn.style.border = "none"; 
+												saveContent();
+											}
 										});
 									</script>
 
@@ -486,7 +460,6 @@
 
 										<div class="btnTags" style="float: right;">
 											<button class="btnTag btn--stripe">休閒</button>
-											<button class="btnTag btn--stripe">討論</button>
 										</div>
 										<div class="clear"></div>
 									</div>
