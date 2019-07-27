@@ -71,6 +71,10 @@ function singleLetters($words) {
     });
 }
 
+
+/* ----------------------------------------------------------- */
+/* index & homepage 動畫                                       */
+/* ----------------------------------------------------------- */  
 window.onload = function() {
     var elements = document.getElementsByClassName('typewrite');
     for (var i=0; i<elements.length; i++) {
@@ -125,6 +129,10 @@ $(document).ready(function() {
 
 
 
+/* ----------------------------------------------------------- */
+/* quill                                                      */
+/* ----------------------------------------------------------- */ 
+
 var toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
   ['blockquote', 'code-block'],
@@ -145,14 +153,18 @@ var toolbarOptions = [
   ['clean']                                         // remove formatting button
 ];
 
-var quill = new Quill('#editor', {
+
+var options = {
+  debug: 'info',
   modules: {
     toolbar: toolbarOptions
   },
-  theme: 'snow'
-});
+  //placeholder: '快來分享今天發生了什麼吧',
+  theme: 'snow',
+  scrollingContainer:'true'
+};
 
-
+var editor = new Quill('#editor', options);
 
 
 
