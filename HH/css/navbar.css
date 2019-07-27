@@ -97,22 +97,25 @@
 }
 
 
-/*
-@media (min-width: 768px) {
+
+/*@media (min-width: 768px) {
     .navbar-nav {
       width: 100%;
-      margin-right: 5px;
-      text-align: right;
     }
     .navbar-nav > li {
       float: none;
       display: inline-block;
     }
-    .navbar-nav > li.navbar-right {
-      float: right !important;
-    }
+}*/
+
+
+
+@media (max-width: 991px) {
+  #aa-menu-area .col-md-8 .navbar-nav li a {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
-*/
 
 #aa-menu-area .navbar-fixed-top {
     background-color: #FFF;
@@ -222,3 +225,7 @@
 .media-body p{
     font-size: 13px;
 }
+
+
+
+

@@ -23,16 +23,16 @@ body {
 }
 
 .user {
-    width: 90%;
-    max-width: 340px;
-    margin: 10vh auto;
+  width: 90%;
+  max-width: 340px;
+  margin: 10vh auto;
 }
 
 .user__header {
-    text-align: center;
-    opacity: 0;
-    transform: translate3d(0, 500px, 0);
-    animation: arrive 500ms ease-in-out 0.7s forwards;
+  text-align: center;
+  opacity: 0;
+  transform: translate3d(0, 500px, 0);
+  animation: arrive 500ms ease-in-out 0.7s forwards;
 }
 
 .user__title {
@@ -51,11 +51,13 @@ body {
   animation: arrive 500ms ease-in-out 0.9s forwards;
 }
 
+/* 登入會晃的動畫 (應該用不到)
 .form--no {
   animation: NO 1s ease-in-out;
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+*/
 
 .form__input {
   display: block;
@@ -240,6 +242,10 @@ a.login{
 .txt2 {
   font-size: 15px;
   line-height: 1.5;
+  color: #fff;
+}
+
+.txt2:hover{
   color: #fff;
 }
 

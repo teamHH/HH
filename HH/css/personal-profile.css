@@ -6,6 +6,78 @@ Author URI: https://codeplus.it
 
 
 /*我加的*/
+
+
+._box {
+	position: relative;
+	width: 100rem;
+	margin: 1rem auto;
+	border-radius: 0.5rem;
+	box-shadow: 0 0.25rem 2rem rgba(67,160,71,0.1);
+	padding: 2rem;  
+	background-color: white;
+  	border-top: 0.125rem solid #e9c17b;
+}
+
+._box input.tags {
+	border: none;
+	box-shadow: none;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+._box input.tags:focus {
+	outline: none;
+	background: transparent;
+}
+
+._box .tag-cloud {
+	display: block;
+	height: 80px;
+	padding: .5em;
+	margin: .5em 0;
+	background: #FFF;
+	border: solid 1px #666;
+	border-radius: 4px;
+	font-size: 15px;
+}
+._box .tag-cloud .tag {
+	display: inline-block;
+	border-radius: 1em;
+	background: #E8F5E9;
+	color: #607D8B;
+	margin: 0 .25em 0 0;
+  padding: 3px 3px 3px 10px;
+}
+._box .tag-cloud .tag a.close {
+	display: block;
+	float: right;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 15px;
+	margin: 0 3px 0 3px;
+	text-indent: -999em;
+	color: #607D8B;
+}
+._box .tag-cloud .tag a.close:before {
+	display: block;
+	float: left;
+	content: "\2716";
+	font-size: 15px;
+	font-weight: bold;
+	text-indent: 0;
+	line-height: 15px;
+	padding-top: 6px;
+	color: #607D8B;
+}
+
+
+
+
+
+
+
 .editBtn, .editBtn2 {
   border: none;
   padding: 10px 12px;
@@ -905,42 +977,88 @@ footer.login-footer {
 8. Small Devices
 -----------------------------------------------------------------*/
 
-@media screen and (max-width:1199px)  {   header { padding: 15px 30px 10px 220px;  }
+@media screen and (max-width:1199px)  {   
+    header { padding: 15px 30px 10px 220px;  }
+    .sidebar-nav {  width:190px;  }
+    .content-posts {  margin-left:190px;}
+    .container-posts { padding:0px 30px;  }
 
-                                          .sidebar-nav {  width:190px;  }
+    .avatar-wrapper {
+        position: relative;
+        height: 160px;
+        width: 160px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 
-                                          .content-posts {  margin-left:190px;}
+    .avatar-wrapper .profile-pic {
+        height: 100%;
+        width: 100%;
+        margin:0 auto; 
+        border: 4px solid #555;
+    }
 
-                                          .container-posts { padding:0px 30px;  }
-                                      }
+    .avatar-wrapper .upload-button .fa-camera {
+        position: absolute;
+        font-size: 80px;
+        top: 40px;
+        left: 40px;
+        text-align: center;
+    }
 
-@media screen and (max-width:991px) {  .img-user { width: 100%;
-                                                   margin: 0px;}
+}
 
-                                        header .dropdown-menu { top:33px; }
-
-                                        .primary-content { width:100%;}
-                                     }
+@media screen and (max-width:991px) {  
+    .avatar-wrapper { 
+        width: 100%;
+        margin: 0px;
+    }
+    header .dropdown-menu { top:33px; }
+    .primary-content { width:100%;}
+}
 
 @media screen and (max-width:767px)  {
 
-  header { padding:0px;
+    header { padding:0px;
            min-height: 104px;
            padding-left:125px;}
 
-  header .search, header .search input, header .dropdown { width:100%; }
+    header .search, header .search input, header .dropdown { width:100%; }
 
-  header .search input  { border-radius:0px;
-                          height: 40px;}
+    header .search input  { border-radius:0px;
+                            height: 40px;}
 
-  header .dropdown-menu { top:36px; }
+    header .dropdown-menu { top:36px; }
 
-  .sidebar-nav {  width:125px;
-                  height: auto;
-                  padding: 10px;}
+    .sidebar-nav {  
+        width:125px;
+        height: auto;
+        padding: 10px;
+    }
 
-  .img-user   { width:80%;
-                margin-left:10%;  }
+    .avatar-wrapper{ 
+        margin-left:10%;  
+        position: relative;
+        height: 104px;
+        width: 104px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .avatar-wrapper .profile-pic {
+        height: 100%;
+        width: 100%;
+        margin:0 auto; 
+        border: 4px solid #555;
+    }
+
+    .avatar-wrapper .upload-button .fa-camera {
+        position: absolute;
+        font-size: 52px;
+        top: 26px;
+        left: 26px;
+        text-align: center;
+    }
 
   .card-post .img-user { width:70%;
                         margin-left:15%; }

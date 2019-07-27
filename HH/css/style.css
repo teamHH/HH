@@ -40,6 +40,9 @@ body {
     font-family: 'Poppins','Noto Sans TC', sans-serif !important;
     line-height: 1.8;
     color: #404040;
+    min-width:1000px;
+    width: auto !important;  /* Firefox will set width as auto */
+    width:1000px;
 }
 
 ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive {
@@ -111,6 +114,91 @@ a {
 
 /* 我加的 */
 
+.leaderboard{
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 30px 50px;
+    display: none;
+}
+
+.leaderboard:before {
+    position: absolute;
+    content: '';
+    /*right: calc(100% + 1rem);*/
+    left: 15px;
+    top: 0;
+    height: 100%;
+    width: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #e9c17b;
+    background: repeating-linear-gradient(-45deg, #fdefb2 0px, #fdefb2 4px, #e9c17b 4px, #e9c17b 8px);
+}
+
+.leaderboard tr > * {
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.leaderboard tr th{
+    font-weight: 300;
+    letter-spacing: 0.04rem;
+    font-size: 1.5rem;
+    color: #fe7d67;
+    text-transform: uppercase;
+}
+
+.leaderboard tr td{
+    font-size: 18px;
+    color: #ff4136;
+}
+
+.leaderboard tr th:nth-child(1), .leaderboard tr td:nth-child(1){
+    width: 100px;
+}
+
+.leaderboard tr th:nth-child(2), .leaderboard tr th:nth-child(3),
+.leaderboard tr td:nth-child(2), .leaderboard tr td:nth-child(3){
+    width: 300px;
+}
+
+.leaderboard tr td.position {
+    font-weight: 500;
+    width: 100px;
+    /*text-align: right;
+    padding-right: 80px;*/
+}
+
+.leaderboard td.user {
+    padding-left: 1rem;
+    font-size: 18px;
+}
+
+.leaderboard td.points span {
+    background: #fdeb75;
+    border-radius: 30px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    /*text-transform: uppercase;*/
+}
+
+button#toggle{
+    float: right; 
+    margin:30px 30px 30px 0;
+    border: none;
+    background: transparent;
+}
+
+button#toggle .fa-chevron-down{
+    color: #fe7d67;
+}
+
+
+
+.postType{
+    font-size: 20px;
+    border-radius: 5px;
+}
 
 .btnTag {
     overflow: visible;
@@ -896,9 +984,13 @@ input.star:checked ~ .rev-box{
     /*background: linear-gradient(45deg, #ee6363 10%, #ffbf00 90%);*/
 }
 
-.addAct-form div div.col-md-3, .addAct-form div div.col-md-9{
+.addAct-form form div div.col-md-3, .addAct-form form div div.col-md-9{
     font-size: 18px;
     color: #171717;
+}
+
+.addAct-form form div div.col-md-3{
+    padding-left: 50px;
 }
 
 .addAct-form .col-md-12{
@@ -918,7 +1010,6 @@ input.star:checked ~ .rev-box{
 }
 
 .richText{
-    width: 600px;
     background: #fff;
 }
 
