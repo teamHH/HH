@@ -101,7 +101,6 @@ function myFunction(){
 }
 
 
-
 /*使用者換大頭照*/
 
 $(document).ready(function() {
@@ -126,46 +125,6 @@ $(document).ready(function() {
      $(".file-upload").click();
   });
 });
-
-
-
-/* ----------------------------------------------------------- */
-/* quill                                                      */
-/* ----------------------------------------------------------- */ 
-
-var toolbarOptions = [
-  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-  ['blockquote', 'code-block'],
-
-  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-  [{ 'align': [] }],
-
-  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-  [{ 'font': [] }],
-
-  ['link', 'image'],
-
-  ['clean']                                         // remove formatting button
-];
-
-
-var options = {
-  debug: 'info',
-  modules: {
-    toolbar: toolbarOptions
-  },
-  //placeholder: '快來分享今天發生了什麼吧',
-  theme: 'snow',
-  scrollingContainer:'true'
-};
-
-var editor = new Quill('#editor', options);
-
 
 
 
@@ -465,7 +424,8 @@ $(document).ready(function() {
 /*personal-profile 修改個人資料*/
 /* ----------------------------------------------------------- */
 /** Playing around with editable text
-	* and local storage.*/
+  * and local storage.*/
+/*
 if (typeof(Storage) !== "undefined") {
 	if (localStorage.getItem('user-name') !== null) {
 		$('.user-name').text(localStorage.getItem('user-name'));
@@ -481,14 +441,36 @@ if (typeof(Storage) !== "undefined") {
 		localStorage.setItem($(this).attr('class'), $(this).text());
 	});
 }
-  
+*/
+
+
 
 /* ----------------------------------------------------------- */
-/*addActivity 新增活動*/
-/* ----------------------------------------------------------- 
-const button = document.querySelector('.addAct-btn')
-const form   = document.querySelector('.addAct-form')
-
-button.addEventListener('click', function() {
-   form.classList.add('form--no') 
-});*/
+/*totPost personal-profile 發文*/
+/* ----------------------------------------------------------- */
+var uploadBtn = document.querySelector('.post-actions__upload');
+var uploadLabel = document.querySelector('.post-actions__label');
+					
+var fakeUploadClick = function(e) {
+	var keyboardNum = e.which;
+	if (keyboardNum === 13 || keyboardNum === 32) {
+		uploadLabel.click();
+	}
+};
+					
+uploadBtn.addEventListener('keydown', fakeUploadClick);
+function readURL(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+														
+			reader.onload = function(e) {
+				$('#blah').attr('src', e.target.result);
+			}
+															
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+					
+$("#upload-image").change(function() {
+	readURL(this);
+});
