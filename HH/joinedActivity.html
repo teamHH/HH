@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>How Healthy</title>
 	<link rel="icon" href="img/2.png" type="image/x-icon">
@@ -13,8 +13,10 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/navbar.css" rel="stylesheet">
+	<link href="css/filterBtn.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -24,190 +26,106 @@
 
 <body>
 	<div class="container-fluid">
-        <nav>
-			<!-- The Modal -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<span class="close">&times;</span>
-						<h2>設定</h2>
-					</div>
-					<div class="modal-body">
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>使用者名稱: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>張傑婷</p>
-							</div>
-							<div class="col-sm-3">
-								<a href="#" title="編輯使用者名字"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>Email: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>10456022@ntub.edu.tw</p>
-							</div>
-							<div class="col-sm-3">
-								<a href="#" title="編輯Email"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p>
-									<label>更改密碼: </label>
-								</p>
-							</div>
-							<div class="col-sm-6">
-								<p>*********</p>
-							</div>
-							<div class="col-sm-3">
-								<a href="password.html" title="更改密碼"><i class="fa fa-pencil-alt" aria-hidden="true"></i> <i>編輯</i></a>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>性別: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<select type="text" class="gender" name="gender">
-									<option value="M"> 男</option>
-									<option value="F"> 女</option>
-									</select>
-								</p>
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>公開帳號: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<p>
-									<input class="switch-checkbox" type="checkbox" name="PublicProfile" data-on-text="開" data-off-text="關" checked>
-								</p>
-							</div>
-							<div class="col-sm-3">
-							</div>
-						</div>
-						<div class="row modal-row">
-							<div class="col-sm-3">
-								<p><label>通知信件: </label></p>
-							</div>
-							<div class="col-sm-6">
-								<input class="switch-checkbox" type="checkbox" name="NotificationsEmail" data-on-text="開" data-off-text="關" checked>
-							</div>
-							<div class="col-sm-3">
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">關閉</button>
-						<button type="button" class="btn btn-social">儲存變更</button>
-					</div>
-				</div>
-			</div>
+        <!-- nav -->
+		<nav>
             <section id="aa-menu-area">
-                <div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
-                    <div class="col-md-4">
-                        <ul id="top-menu" class="nav navbar-nav aa-main-nav">
-                            <!--<li class="active"><a href="index.html">HOME</a></li>-->
-                            <li class="dropdown nav-item">
-                                <div class="box-logo">
-                                    <!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
-                                    <a href="homepage.html" class="logo">HH</a>
-                                </div>
-                            </li>
-                        </ul> 
-                    </div>
+              	<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
+					<div class="col-md-4">
+						<ul id="top-menu" class="nav navbar-nav aa-main-nav">
+							<!--<li class="active"><a href="index.html">HOME</a></li>-->
+							<li class="dropdown nav-item">
+							<div class="box-logo">
+								<!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
+								<a href="homepage.html" class="logo">HH</a>
+							</div>
+							</li>
+						</ul> 
+					</div>
     
-                    <div class="col-md-8 right">
-                        <ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
-                            <li class="dropdown" >
-                                <a class="dropdown-toggle">
-                                    <form class="form-inline">
-                                        <input class="form-control mr-sm-2" type="text" placeholder="可輸入關鍵字或代碼搜尋"> 
-                                        <button class="btn btn-primary2" type="submit">
-                                            搜尋
-                                        </button>
-                                    </form>
-                                </a>
-                            </li>
-                                
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="totPost.html">
-                                    <i class="far fa-newspaper" style="font-size:30px;"></i>
-                                </a>
-                            </li>  
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="joinActivity.html">
-                                    <i class="material-icons icon-align" style="font-size:35px;">event</i>
-                                </a>
-                            </li>   
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
-                                    <span class="badge">3</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu">                
-                                    <li class="notific">
-                                        <div class="media mb-4">
-                                            <img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
-                                            <div class="media-body">
-                                                <h4 class="mt-0 name">劉安</h4><p>說你的貼文讚</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="notific">
-                                        <div class="media mb-4">
-                                            <img class=" mr-3 rounded-circle" src="img/profile/4.jpg" alt="">
-                                            <div class="media-body">
-                                                <h4 class="mt-0 name">郭加于</h4><p>說你的貼文讚</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="notific">
-                                        <div class="media mb-4">
-                                            <img class=" mr-3 rounded-circle" src="img/profile/2.jpg" alt="">
-                                            <div class="media-body">
-                                                <h4 class="mt-0 name">陳盈臻</h4><p>在此篇文留言說你最口愛</p>
-                                            </div>
-                                        </div>
-                                    </li>                                           
-                                </ul>
-                            </li>
-                                
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="personal-profile.html">
-                                    <i class="fas fa-user" style="font-size:30px;"></i>
-                                </a>
-                            </li>  
-
-                            <li class="dropdown">
-		        				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				    				<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+					<div class="col-md-8 right">
+						<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
+							<li class="dropdown" >
+								<a class="dropdown-toggle">
+									<form class="form-inline">
+									<input class="form-control mr-sm-2" type="text" placeholder="可輸入關鍵字或代碼搜尋"> 
+									<button class="btn btn-primary2" type="submit">
+										搜尋
+									</button>
+									</form>
 								</a>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
-                                    <li>
-                                        <a href="settings.html" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
-                                            <i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>設定
-                                        </a>  
-                                    </li>    
-                                    <li><a href="index.html"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!--/.nav-collapse --> 
-            </section>
-        </nav>
+							</li>
+								
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="totPost.html">
+									<i class="far fa-newspaper" style="font-size:30px;"></i>
+								</a>
+							</li>  
+
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="joinActivity.html">
+									<i class="material-icons icon-align" style="font-size:35px;">event</i>
+								</a>
+							</li>   
+											
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
+									<span class="badge">3</span>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right" role="menu">                
+									<li class="notific">
+										<div class="media mb-4">
+											<img class=" mr-3 rounded-circle" src="img/profile/3.jpg" alt="">
+											<div class="media-body">
+											<h4 class="mt-0 name">劉安</h4><p>說你的貼文讚</p>
+											</div>
+										</div>
+									</li>
+									<li class="notific">
+										<div class="media mb-4">
+											<img class=" mr-3 rounded-circle" src="img/profile/4.jpg" alt="">
+											<div class="media-body">
+											<h4 class="mt-0 name">郭加于</h4><p>說你的貼文讚</p>
+											</div>
+										</div>
+									</li>
+									<li class="notific">
+										<div class="media mb-4">
+											<img class=" mr-3 rounded-circle" src="img/profile/2.jpg" alt="">
+											<div class="media-body">
+											<h4 class="mt-0 name">陳盈臻</h4><p>在此篇文留言說你最口愛</p>
+											</div>
+										</div>
+									</li>                                           
+								</ul>
+							</li>
+									
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="personal-profile.html">
+									<i class="fas fa-user" style="font-size:30px;"></i>
+								</a>
+							</li>  
+
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
+									<li>
+										<a href="resetPassword.html" title="設定" > <!--data-target="#settingsmodal"-->
+											<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
+										</a>  
+									</li>    
+									<li><a href="index.html"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div><!--/.nav-collapse --> 
+			</section>
+		</nav>
         <!-- end nav -->
+
 
 
 		<div class="container container2">
@@ -221,258 +139,170 @@
 						</div>
 						<!-- end top bar -->
 
-						<!-- main container -->
-						<div class="main-container portfolio-inner clearfix">
-							<!-- portfolio div -->
-							<div class="portfolio-div">
-								<div class="portfolio">
-									<!-- portfolio_filter -->
-									<div class="categories-grid wow fadeInLeft">
-										<nav class="categories text-center">
-											<ul class="portfolio_filter act">
-												<li><a href="" class="active actType" data-filter="*">所有活動</a></li>
-												<li><a href="" class="actType" data-filter=".public">官方活動</a></li>
-												<li><a href="" class="actType" data-filter=".spont">自主活動</a></li>		
-												<li>
-													<a href="addActivity.html">
-														<i class="material-icons icon-align2">add_circle_outline</i>
-													</a>
-												</li>									
-											</ul>
-										</nav>
-									</div>
-									<!-- portfolio_filter -->
+						<div class="text-center actBtn">
+							<input id="tab1" type="radio" name="tabs" checked>
+							<label for="tab1">官方活動</label>
 
-									<div class="clear"></div>
-									<!-- portfolio_container -->
-									<div class="portfolio_container clearfix">
-										
-										<div class="col-md-12 col-sm-6 public spont">
-											<div class="actTitle">
-												<ul>
-													<li>活動名稱</li>
-													<li>類型</li>
-													<li>內容</li>
-													<li>可得點數</li>
-													<li>加入</li>
-												</ul>
-											</div>
-											<div class="clear"></div>
-										</div>
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>Taishin Women Run Taipei</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="https://www.newbalance.com.tw/event/2019/women-run-taipei/" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li>已加入
-														<button id="deleteConfirm2" title="刪除" style="border:none; background-color: transparent;">
-															<i class="fa fa-trash" aria-hidden="true" style="color:#555;"></i>
-														</button>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+							<input id="tab2" type="radio" name="tabs">
+							<label for="tab2">自發活動</label>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 spont">
-											<div class="actDesc">
-												<ul>
-													<li>一起跑3k</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="detailedAct.html" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="joinSpontActivity.html"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
-										
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>2019 PUMA螢光夜跑</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="http://www.puma-nightrun.com.tw/" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+							<input id="tab3" type="radio" name="tabs">
+							<label for="tab3">
+								<a href="addActivity.html">
+									<i class="material-icons icon-align2">add_circle_outline</i>
+								</a>
+							</label>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>2019 Elle Run With Style</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="https://bao-ming.com/eb/www/activity_content.php?activitysn=3585&contentsn=18280" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+							<section id="content1">
+								<table class="publicAct">
+									<thead>
+										<tr>
+											<th>活動名稱</th>
+											<th>類型</th>
+											<th>內容</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Taishin Women Run Taipei</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="https://www.newbalance.com.tw/event/2019/women-run-taipei/" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>2019 臺北101垂直馬拉松</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="http://www.taipei101-runup.com.tw/index.aspx" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+										<tr>
+											<td>2019 PUMA螢光夜跑</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="http://www.puma-nightrun.com.tw/" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>環海岸山脈挑戰</li>
-													<li>自行車</li>
-													<li>
-														<div class="watch-more2">
-															<a href="http://www.cyclist.org.tw/event_txt.asp?pno=100" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+										<tr>
+											<td>2019 Elle Run With Style</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="https://bao-ming.com/eb/www/activity_content.php?activitysn=3585&contentsn=18280" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>2019 日出迎新 為愛兒跑</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="https://bao-ming.com/eb/www/activity_content.php?activitysn=3618&contentsn=18364" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+										<tr>
+											<td>2019 臺北101垂直馬拉松</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="http://www.taipei101-runup.com.tw/index.aspx" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>牛仔帽路跑</li>
-													<li>路跑</li>
-													<li>
-														<div class="watch-more2">
-															<a href="http://www.pesports.org/2019%E7%89%9B%E4%BB%94%E5%B8%BD%E8%B7%AF%E8%B7%91/" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+										<tr>
+											<td>環海岸山脈挑戰</td>
+											<td>自行車</td>
+											<td>
+												<div class="watch-more2">
+													<a href="http://www.cyclist.org.tw/event_txt.asp?pno=100" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 public">
-											<div class="actDesc">
-												<ul>
-													<li>日本北海道「Granfondo 摩周」挑戰遊</li>
-													<li>自行車</li>
-													<li>
-														<div class="watch-more2">
-															<a href="http://www.cyclist.org.tw/event_txt.asp?pno=109" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
-					
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 spont">
-											<div class="actDesc">
-												<ul>
-													<li>挑戰鐵馬30k</li>
-													<li>自行車</li>
-													<li>
-														<div class="watch-more2">
-															<a href="detailedAct2.html" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
+										<tr>
+											<td>2019 日出迎新 為愛兒跑</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="https://bao-ming.com/eb/www/activity_content.php?activitysn=3618&contentsn=18364" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
 
-										<!-- single work -->
-										<div class="col-md-12 col-sm-6 spont">
-											<div class="actDesc">
-												<ul>
-													<li>徜徉水中</li>
-													<li>游泳</li>
-													<li>
-														<div class="watch-more2">
-															<a href="detailedAct.html" class="aa-top-slider-btn">看更多</a>
-														</div>
-													</li>
-													<li>10</li>
-													<li><a href="#"><i class="material-icons check">done</i></a></li>
-												</ul>
-											</div>
-										</div>
-										<!-- end single work -->
-					
-									</div>
-									<!-- end portfolio_container -->
-								</div>
-								<!-- portfolio -->
-							</div>
-							<!-- end portfolio div -->
+										<tr>
+											<td>牛仔帽路跑</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="http://www.pesports.org/2019%E7%89%9B%E4%BB%94%E5%B8%BD%E8%B7%AF%E8%B7%91/" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>日本北海道「Granfondo 摩周」挑戰遊</td>
+											<td>自行車</td>
+											<td>
+												<div class="watch-more2">
+													<a href="http://www.cyclist.org.tw/event_txt.asp?pno=109" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>						
+							</section>
+
+							<section id="content2">
+								<table class="spontAct">
+									<thead>
+										<tr>
+											<th>活動名稱</th>
+											<th>類型</th>
+											<th>內容</th>
+											<th>點數</th>
+											<th>加入</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>一起跑3k</td>
+											<td>路跑</td>
+											<td>
+												<div class="watch-more2">
+													<a href="detailedAct.html" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+											<td>10</td>
+											<td>已加入</td>
+										</tr>
+
+										<tr>
+											<td>挑戰鐵馬30k</td>
+											<td>自行車</td>
+											<td>
+												<div class="watch-more2">
+													<a href="detailedAct2.html" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+											<td>10</td>
+											<td><a href="#"><i class="material-icons check">done</i></a></td>
+										</tr>
+
+										<tr>
+											<td>徜徉水中</td>
+											<td>游泳</td>
+											<td>
+												<div class="watch-more2">
+													<a href="detailedAct.html" class="aa-top-slider-btn">看更多</a>
+												</div>
+											</td>
+											<td>10</td>
+											<td><a href="#"><i class="material-icons check">done</i></a></td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
 						</div>
-						<!-- end main container -->
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	
 	
 
 	
@@ -501,6 +331,7 @@
 	
 			<!--  custom script -->
 			<script src="js/custom.js"></script>
+			<script src="js/modernizr.js"></script>
 			<script src="js/scripts.js"></script>
 	
 	</body>
