@@ -6,7 +6,143 @@ Author URI: https://codeplus.it
 
 
 /*我加的*/
+a.editBio{
+    border:none;
+    color: #f57153;
+    letter-spacing: 1px;
+    display: inline-block;
+    cursor: pointer;
+}
 
+a.editBio:hover{
+    color: #ed6c4e;
+}
+
+a.editBio:focus{
+    border-color: #f57153;
+}
+  
+/* * Post widget * */
+  
+input[type="file"] {
+    display: none;
+}
+  
+.post-actions__upload {
+    padding: .5em 1em;  
+    background-color: transparent;
+    color: #6b7270;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+  
+.widget-post {
+    height: auto;  
+    border: 1px solid #aeaeae;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 1px rgba(130, 130, 130, 0.1);
+    background-color: #fff;  
+    overflow: hidden;
+}
+  
+.widget-post__content {
+    width: 100%;
+}
+
+.widget-post__textarea {
+    width: 100%;
+    min-height: 180px;
+    height: 100%;
+    padding: .5em; 
+    border: none;
+    resize: none;
+}
+
+.widget-post__textarea:focus {
+    outline: none;
+}
+  
+.widget-post__options {
+    padding: .5em;
+}
+
+.widget-post___input {
+    display: inline-block;
+    width: 24%;
+    padding: .2em .5em;  
+    border: 1px solid #eaeaea;
+    border-radius: 1.5em;
+}
+
+.post-actions__label {
+    cursor: pointer;
+}
+  
+.widget-post__actions {
+    width: 100%;
+    padding: .5em;
+}
+
+.post--actions {
+    position: relative;
+    padding: .5em;  
+    background-color: #f5f5f5;
+    color: #a2a6a7;
+    border: 0; 
+    margin-bottom:0;
+    border-top: 1px solid #bbb;
+}
+
+.post-actions__attachments {
+    display: inline-block;
+    width: 60%;
+}
+
+.attachments--btn {
+    background-color: #eaeaea;
+    color: #f57153;
+    border-radius: 1.5em;
+}
+  
+.post-actions__widget {
+    display: inline-block;
+    width: 38%;
+    text-align: right;
+}
+  
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+  
+/* * SR * */
+.sr-only {
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+}
+  
+  
+  /* *  Placeholder contrast * */
+::-webkit-input-placeholder {
+    color: #666;
+}
+::-moz-placeholder {
+    color: #666;
+}
+:-ms-input-placeholder {
+    color: #666;
+}
+:-moz-placeholder {
+    color: #666;
+}
+  
 
 ._box {
 	position: relative;

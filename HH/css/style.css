@@ -113,6 +113,71 @@ a {
 
 
 /* 我加的 */
+body{ 
+  font-family: "Dosis"; 
+  font-size: 1.3em;
+  line-height: 1.6em;
+}
+
+.headline{
+  font-size: 2em;
+  text-align: center;
+}
+
+button {
+  border: none;
+  padding: 0.8em;
+  background: #F96;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  margin: 0 0 1em;
+}
+
+button:hover, button:focus {
+  cursor: pointer;
+  outline: none;
+}
+
+#editor {
+  padding: 1em;
+  background: #E6E6E6;
+  border-radius: 3px;
+}
+
+#editor:focus {
+  background: #FFF;
+  border-color: #69c773;
+}
+
+[contenteditable="true"] {
+  font-family: "Rajdhani";
+  color: #C00;
+}
+
+
+.widget-post {
+    height: auto;  
+    border: 1px solid #aeaeae;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 1px rgba(130, 130, 130, 0.1);
+    background-color: #fff;  
+    overflow: hidden;
+}
+
+.widget-post__textarea {
+    width: 100%;
+    min-height: 180px;
+    height: 100%;
+    padding: .5em; 
+    border: none;
+    resize: none;
+}
+
+.widget-post__textarea:focus {
+    outline: none;
+}
+
 
 .leaderboard{
     width: 100%;
@@ -263,7 +328,7 @@ button#toggle .fa-chevron-down{
     padding: 5px; 
     border-radius: 5px; 
     border-style: none;
-    border:1px solid gray;
+    border:1px solid #aeaeae;
 }
 
 
@@ -822,6 +887,10 @@ p{
     margin: 3px auto;
 }
 
+.publicAct, .spontAct tr{
+    margin-bottom: 5px;
+}
+
 .publicAct, .spontAct tr th{
     font-size: 20px;
 }
@@ -831,12 +900,11 @@ p{
 }
 
 .publicAct tr td:nth-child(1), .publicAct tr th:nth-child(1){
-    width: 350px;
+    width: 450px;
 }
 
 .publicAct tr td:nth-child(2), .publicAct tr th:nth-child(2),
-.publicAct tr td:nth-child(3), .publicAct tr th:nth-child(3),
-.publicAct tr td:nth-child(4), .publicAct tr th:nth-child(4){
+.publicAct tr td:nth-child(3), .publicAct tr th:nth-child(3){
     width: 200px;
     margin-left: 5px;
 }
