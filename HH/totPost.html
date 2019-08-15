@@ -24,31 +24,18 @@
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
     <script src="js/bootstrap-switch.min.js"></script>
-    <script src="https://twemoji.maxcdn.com/twemoji.min.js"></script>
+	<script src="https://twemoji.maxcdn.com/twemoji.min.js"></script>
 
     <!-- include libraries(jQuery, bootstrap) -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-
-    <!-- include summernote css/js 
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>-->
 	
 	<!-- sweetalert -->
 	<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 
-    <!-- Include stylesheet -->
-	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-	<!-- Include the Quill library -->
-	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 	<link rel="shortcut icon" href="img/2.png">
-	
-	<!--
-	<link href="css/semantic.css" rel="stylesheet">
-	<script src="js/semantic.js"></script>
-	-->
 
 </head>
 
@@ -164,7 +151,7 @@
 
 			<div id="wrapper">
 				<section>
-						<center><a class="editBio" href="editBio.html">編輯個人資料</a></center>
+					<center><a id="editBio" href="editBio.html">編輯個人資料</a></center>
 					<h2 class="text-center hidden-xs user-name" data-max-length="10"><a href="personal-profile.html" title="Profile">張傑婷</a></h2>
 						
 					<div class="text-center" style="margin-bottom: 15px;">
@@ -193,12 +180,10 @@
 			</form>			
 
 			<script>
-			
 				$('#signIn').on('click',function(){
 					$(this).attr('disabled','disabled');
 					$(this).innerHTML="Close Curtain";
-				});
-				
+				});		
 			</script>
         </div>
         
@@ -307,14 +292,23 @@
 													<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
 													<td>
 														<div class="col-md-12">
-															<select type="text" class="postType">
-																<option value="sports">運動</option>
-																<option value="leisure">休閒</option>
-																<option value="races">賽事分享</option>
-																<option value="discussion">討論</option>
-																<option value="loseWeight">減肥</option>
-																<option value="yoga">瑜珈</option>
-															</select>
+															<div class="col-md-6">
+																<select type="text" class="postType">
+																	<option value="sports">運動</option>
+																	<option value="leisure">休閒</option>
+																	<option value="races">賽事分享</option>
+																	<option value="discussion">討論</option>
+																	<option value="loseWeight">減肥</option>
+																	<option value="yoga">瑜珈</option>
+																</select>
+															</div>
+															
+															<div class="col-md-6">
+																<select type="text" class="friendType">
+																	<option value="type1">好友</option>
+																	<option value="type2">摯友</option>
+																</select>
+															</div>
 														</div>
 													</td>
 												</tr>	
@@ -450,50 +444,52 @@
 									</a>
 								</div>
 								<div class="col-xs-9 col-sm-10 info-user">
-									<div class="col-xs-2 col-sm-2" style="float: right; position: relative; top:0;">							
-										<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">  
-											<li class="dropdown">
-												<!--data-toggle指以什麼事件觸發，常用的如modal,popover,tooltips等，
-													data-target指事件的目標，一起使用就是代表data-target所指的元素以data-toggle指定的形式顯示-->
-												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
-													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
-												</button>
-												
-											</li>
-										</ul>
+									<div class="col-xs-2 col-sm-2" style="float: right;">							
+										<button id="editBtn" type="button" style="border: none; background-color:transparent;">
+											<i class="fas fa-edit" style="font-size: 16px; color: #404040;"></i>
+										</button>
+										<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
+											<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
+										</button>
 									</div>
+									
 									<h3><a href="personal-profile.html" title="Profile">張傑婷</a></h3>
-									<p><i>2h</i></p>
+									<p class="friendType">
+										<i>2h</i>
+										<select type="text" class="" name="friendType">
+											<option value="type1">好友</option>
+											<option value="type2">摯友</option>
+										</select>
+									</p>
 								</div>
 							</div>
 							<div class="row">
-								<div class=" col-sm-8 col-sm-offset-2 data-post">
-										<button id="edit" onclick="edit()" type="button" style="border: none; background-color:transparent;">
-											<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
-										</button>
-										<button id="save" onclick="save()" type="button" style="border: none; background-color:transparent;">
-											<i class="far fa-save" style="font-size: 20px; color: #404040;"></i>儲存貼文
-										</button>
-										<div class="click2edit">
-											<h2>HOW健康</h2>
-											<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
-											<img src="img/6.jpg" alt="image post" class="img-post">
-										</div>
-									
+								<div class=" col-sm-8 col-sm-offset-2 data-post">									
+									<div id="editor-content">
+										<h2>HOW健康</h2>
+										<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
+										<img src="img/6.jpg" alt="image post" class="img-post">
+								   	</div>
+
 									<div class="reaction">
 										<div class="react">
 											<a href="javascript:void(0);" class="like-button">
-											<i class="material-icons not-liked bouncy">favorite_border</i>
-											<i class="material-icons is-liked bouncy">favorite</i>
-											<span class="like-overlay"></span>
-										</a>
+												<i class="material-icons not-liked bouncy">favorite_border</i>
+												<i class="material-icons is-liked bouncy">favorite</i>
+												<span class="like-overlay"></span>
+											</a>
 										</div>
-										
+												
 										<div class="react" style="margin: 10px 0 0 10px;">
 											&#x1F496; 1234 &#x1F4AC; 54
 										</div>
+
+										<div class="btnTags" style="float: right;">
+											<button class="btnTag btn--stripe">休閒</button>
+										</div>
 										<div class="clear"></div>
 									</div>
+												
 									<div class="comments">
 										<div class="more-comments">查看更多留言</div>
 										<ul>
@@ -547,49 +543,17 @@
 										<ul>
 											<li><b>張傑婷</b> 
 												<div style="float: right;">
-													<button id="editBtn" type="button" style="border: none; background-color:transparent;">
-														<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯留言
+													<button id="editCommentBtn" type="button" style="border: none; background-color:transparent;">
+														<i class="fas fa-edit" style="font-size: 16px; color: #404040;"></i>
 													</button>
 													<button id="deleteComment" title="刪除" style="border: none; background-color:transparent;">
-														<i class="far fa-trash-alt" style="font-size: 13px; color: #404040;"></i>
+														<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
 													</button>
 												</div>
 												
-												<div id="editor-content">
+												<div id="editor-comment">
 													&#x1F923;&#x1F923;&#x1F923;你很煩
 												</div>
-
-												<script>
-													var editBtn = document.getElementById("editBtn");
-													var editable = document.getElementById("editor-content");
-			
-													function saveContent() {
-													// Save the data in localStorage
-													localStorage.setItem(editable, editable.innerHTML);
-													}
-			
-													editBtn.addEventListener("click", function(e) {
-													if (!editable.isContentEditable) {
-														editable.contentEditable = "true";
-														editable.style.border = "1px dashed #404040";
-														editBtn.innerHTML = "<i class='far fa-save' style='font-size: 20px; color: #404040;'></i>"+"儲存留言";
-														editBtn.style.backgroundColor = "transparent"; 
-														editBtn.style.color = "#404040";
-														editBtn.style.fontSize = "14px";
-														editBtn.style.border = "none"; 
-			
-													} else { // Disable Editing
-														editable.contentEditable = "false";
-														editable.style.border = "none";
-														editBtn.innerHTML = "<i class='fas fa-edit' style='font-size: 20px; color: #404040;'></i>"+"編輯留言";
-														editBtn.style.backgroundColor = "transparent";
-														editBtn.style.color = "#404040";
-														editBtn.style.fontSize = "14px";
-														editBtn.style.border = "none"; 
-														saveContent();
-													}
-													});
-												</script>
 											</li>
 											<li><b>劉安</b> 我也要發嗎 &#x1F602;</li>
 										</ul>
@@ -643,15 +607,8 @@
 					</div>
 				</div>
 				<!-- end tab points -->
-				
-
-
-	
-			</div><!-- Close Tab Content-->
-		
+			</div><!-- Close Tab Content-->		
         </div><!--Close content posts-->
-        
-
     </div>
 
 
@@ -666,22 +623,21 @@
 
     <!-- back to top -->
     <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
-    <!-- end back to top -->
-    
+    <!-- end back to top -->               
+
 	<!-- jQuery -->
-	
 	<script src="js/scripts.js" type="text/javascript"></script>
-	
-
-
+	<script src="js/uploadPic.js" type="text/javascript"></script>
+	<script src="js/likeBtn.js" type="text/javascript"></script>
+	<script src="js/editComment.js" type="text/javascript"></script>
+	<script src="js/editPost.js" type="text/javascript"></script>
+	<script src="js/deletePost.js" type="text/javascript"></script>
+	<script src="js/deleteComment.js" type="text/javascript"></script>
 
 	<!--  plugins -->
 	<script src="js/bootstrap.min.js"></script>
-	
-
 	<!--  custom script -->
 	<script src="js/custom.js"></script>
-                
 
 </body>
 

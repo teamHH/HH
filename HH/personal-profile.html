@@ -202,7 +202,7 @@
 
 			<div id="wrapper">
 				<section>
-					<center><a class="editBio" href="editBio.html">編輯個人資料</a></center>
+					<center><a id="editBio" href="editBio.html">編輯個人資料</a></center>
 					<h2 class="text-center hidden-xs user-name"><a href="personal-profile.html" title="Profile">張傑婷</a></h2>
 						
 					<div class="text-center" style="margin-bottom: 15px;">
@@ -232,12 +232,10 @@
 			</form>			
 
 			<script>
-			
 				$('#signIn').on('click',function(){
 					$(this).attr('disabled','disabled');
 					$(this).innerHTML="Close Curtain";
 				});
-				
 			</script>
         </div>
         
@@ -292,14 +290,23 @@
 													<td><input placeholder="標題" type="text" class="postTitle" style="font-size: 20px;"></td>
 													<td>
 														<div class="col-md-12">
-															<select type="text" class="postType">
-																<option value="sports">運動</option>
-																<option value="leisure">休閒</option>
-																<option value="races">賽事分享</option>
-																<option value="discussion">討論</option>
-																<option value="loseWeight">減肥</option>
-																<option value="yoga">瑜珈</option>
-															</select>
+															<div class="col-md-6">
+																<select type="text" class="postType">
+																	<option value="sports">運動</option>
+																	<option value="leisure">休閒</option>
+																	<option value="races">賽事分享</option>
+																	<option value="discussion">討論</option>
+																	<option value="loseWeight">減肥</option>
+																	<option value="yoga">瑜珈</option>
+																</select>
+															</div>
+															
+															<div class="col-md-6">
+																<select type="text" class="friendType">
+																	<option value="type1">好友</option>
+																	<option value="type2">摯友</option>
+																</select>
+															</div>
 														</div>
 													</td>
 												</tr>	
@@ -317,13 +324,13 @@
 											
 												<div class="widget-post__actions post--actions">
 													<div class="post-actions__attachments">
-														<button type="button" class="btn post-actions__upload attachments--btn">
-															<label for="upload-image" class="post-actions__label">
-																<i class="fa fa-upload" aria-hidden="true"></i> 
-																上傳圖片
-															</label>
-														</button>
-														<input type="file" id="upload-image" accept="image/*" name="img" multiple>
+															<button type="button" class="btn post-actions__upload attachments--btn">
+																<label for="upload-image" class="post-actions__label">
+																	<i class="fa fa-upload" aria-hidden="true"></i> 
+																	上傳圖片
+																</label>
+															</button>
+															<input type="file" id="upload-image" accept="image/*" name="img" multiple>
 													</div>
 												</div>
 											</div>
@@ -343,65 +350,32 @@
 									</a>
 								</div>
 								<div class="col-xs-9 col-sm-10 info-user">
-									<div class="col-xs-2 col-sm-2" style="float: right; position: relative; top:0;">							
-										<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">  
-											<li class="dropdown">
-												<!--data-toggle指以什麼事件觸發，常用的如modal,popover,tooltips等，
-													data-target指事件的目標，一起使用就是代表data-target所指的元素以data-toggle指定的形式顯示-->
-												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
-													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
-												</button>							
-											</li>
-										</ul>
+									<div class="col-xs-2 col-sm-2" style="float: right;">							
+										<button id="editBtn" type="button" style="border: none; background-color:transparent;">
+											<i class="fas fa-edit" style="font-size: 16px; color: #404040;"></i>
+										</button>
+										<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
+											<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
+										</button>
 									</div>
+									
 									<h3><a href="personal-profile.html" title="Profile">張傑婷</a></h3>
-									<p><i>2h</i></p>
+									<p class="friendType">
+										<i>2h</i>
+										<select type="text" class="" name="friendType">
+											<option value="type1">好友</option>
+											<option value="type2">摯友</option>
+										</select>
+									</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class=" col-sm-8 col-sm-offset-2 data-post">									
-									
-									<button id="editBtn" type="button" style="border: none; background-color:transparent;">
-										<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
-									</button>
 									<div id="editor-content">
 										<h2>HOW健康</h2>
 										<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
 										<img src="img/6.jpg" alt="image post" class="img-post">
 								   	</div>
-
-								   	<script>
-										var editBtn = document.getElementById("editBtn");
-										var editable = document.getElementById("editor-content");
-
-										function saveContent() {
-										// Save the data in localStorage
-											localStorage.setItem(editable, editable.innerHTML);
-										}
-
-										editBtn.addEventListener("click", function(e) {
-											if (!editable.isContentEditable) {
-												editable.contentEditable = "true";
-												editable.style.border = "1px dashed #404040";
-												editBtn.innerHTML = "<i class='far fa-save' style='font-size: 20px; color: #404040;'></i>"+"儲存貼文";
-												editBtn.style.backgroundColor = "transparent"; 
-												editBtn.style.color = "#404040";
-												editBtn.style.fontSize = "14px";
-												editBtn.style.border = "none"; 
-
-											} else { // Disable Editing
-												editable.contentEditable = "false";
-												editable.style.border = "none";
-												editBtn.innerHTML = "<i class='fas fa-edit' style='font-size: 20px; color: #404040;'></i>"+"編輯貼文";
-												editBtn.style.backgroundColor = "transparent";
-												editBtn.style.color = "#404040";
-												editBtn.style.fontSize = "14px";
-												editBtn.style.border = "none"; 
-												saveContent();
-											}
-										});
-									</script>
-
 
 									<div class="reaction">
 										<div class="react">
@@ -435,122 +409,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<!--
-						<div class="card-post">
-							<div class="row">
-								<div class="col-xs-3 col-sm-2">
-									<a href="personal-profile.html" title="Profile">
-										<img src="img/profile/1.jpg" alt="User name" class="img-circle img-user">
-									</a>
-								</div>
-								<div class="col-xs-9 col-sm-10 info-user">
-									<div class="col-xs-2 col-sm-2" style="float: right; position: relative; top:0;">							
-										<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">  
-											<li class="dropdown">
-												<button id="deleteConfirm" title="刪除" style="border: none; background-color:transparent;">
-													<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
-												</button>
-											</li>
-										</ul>
-									</div>
-									<h3><a href="personal-profile.html" title="Profile">張傑婷</a></h3>
-									<p><i>6h</i></p>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-sm-8 col-sm-offset-2 data-post">
-									<button id="edit" onclick="edit2()" type="button" style="border: none; background-color:transparent;">
-										<i class="fas fa-edit" style="font-size: 20px; color: #404040;"></i>編輯貼文
-									</button>
-									<button id="save" onclick="save2()" type="button" style="border: none; background-color:transparent;">
-										<i class="far fa-save" style="font-size: 20px; color: #404040;"></i>儲存貼文
-									</button>
-									<div class="click2edit2">
-										<p>太美了......</p>
-										<video controls>
-										<source src="img/post-video.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-											你使用的瀏覽器不支援上傳影片
-										</video>
-									</div>
-
-									<div class="reaction">
-										<div class="react">
-											<a href="javascript:void(0);" class="like-button">
-												<i class="material-icons not-liked bouncy">favorite_border</i>
-												<i class="material-icons is-liked bouncy">favorite</i>
-												<span class="like-overlay"></span>
-											</a>
-										</div>
-												
-										<div class="react" style="margin: 10px 0 0 10px;">
-											&#x1F496; 1234 &#x1F4AC; 54
-										</div>
-
-										<div class="btnTags" style="float: right;">
-											<button class="btnTag btn--stripe">休閒</button>
-										</div>
-
-										<div class="clear"></div>
-									</div>
-			
-									<div class="comments">
-										<div class="more-comments">查看更多留言</div>
-											<ul>
-												<li><b>陳盈臻</b> 美哭我</li>
-												<li><b>郭加于</b> 太讚了吧&#x1F602;</li>
-												<li>
-													<b>張傑婷</b> 
-													<div style="float: right;">
-														
-													</div>
-													<button id="editBtn2" type="button" style="border: none; background-color:transparent;">
-														<i class="fas fa-edit" style="font-size: 13px; color: #404040;"></i>編輯留言
-													</button>
-		
-													<button id="deleteComment" title="刪除" style="border: none; background-color:transparent;">
-														<i class="far fa-trash-alt" style="font-size: 13px; color: #404040;"></i>
-													</button>
-
-													<div id="editor-content">
-														是吧～～～～
-													</div>
-													
-
-													<script>
-														var editBtn2 = document.getElementById("editBtn2");
-														var editable2 = document.getElementById("editor-content");
-														
-														function saveContent() {
-															// Save the data in localStorage
-															localStorage.setItem(editable2, editable2.innerHTML);
-														}
-
-														editBtn2.addEventListener("click", function(e) {
-															if (!editable2.isContentEditable) {
-																editable2.contentEditable = "true";
-																editBtn2.innerHTML = "儲存";
-																editBtn2.style.backgroundColor = "#6F9"; 
-															} else { // Disable Editing
-																editable2.contentEditable = "false";
-																editBtn2.innerHTML = "編輯";
-																editBtn2.style.backgroundColor = "#F96";
-																saveContent();
-															}
-														});
-													</script>
-												</li>
-											</ul>
-				
-											<form>
-												<input type="text" class="form-control" placeholder="回覆留言">
-											</form>
-									</div>
-								</div>
-							</div>
-						</div>-->		
+						</div>		
 					</div>
 					
 					<div id="loading">
@@ -571,27 +430,6 @@
 										<button id="deleteFriend" title="刪除" style="border: none; background-color:transparent; float: right;">
 											<i class="far fa-trash-alt" style="font-size: 16px; color: #404040;"></i>
 										</button>
-										<script>
-											document.getElementById("deleteFriend").onclick = function() {
-												swal({
-													title: "你確定嗎？",
-													text: "刪除好友後須將重新遞送交友邀請",
-													type: "warning",
-													showCancelButton: true,
-													confirmButtonColor: "#DD6B55",
-													confirmButtonText: "是的，删除！",
-													cancelButtonText: "不，取消",
-													closeOnConfirm: false,
-													closeOnCancel: false
-												}, function(isConfirm) {
-													if (isConfirm) {
-														swal("確定删除", "已經成功刪除！", "success")                    
-													} else{
-														swal("取消", "已經取消刪除！", "error")
-													}
-												})
-											};
-										</script>
 										<p><b>陳盈臻</b></p>
 										<p class="friendType">
 											<select type="text" class="" name="friendType">
@@ -826,11 +664,16 @@
     <!-- end back to top -->
     
 	<!-- jQuery -->
-	
 	<script src="js/scripts.js" type="text/javascript"></script>
-	
-
-
+	<script src="js/filterBtn.js" type="text/javascript"></script>
+	<script src="js/uploadPic.js" type="text/javascript"></script>
+	<script src="js/likeBtn.js" type="text/javascript"></script>
+	<script src="js/editComment.js" type="text/javascript"></script>
+	<script src="js/editPost.js" type="text/javascript"></script>
+	<script src="js/deleteAct.js" type="text/javascript"></script>
+	<script src="js/deletePost.js" type="text/javascript"></script>
+	<script src="js/deleteComment.js" type="text/javascript"></script>
+	<script src="js/deleteFriend.js" type="text/javascript"></script>
 
 	<!--  plugins -->
 	<script src="js/bootstrap.min.js"></script>
