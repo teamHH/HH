@@ -6,20 +6,24 @@ Author URI: https://codeplus.it
 
 
 /*我加的*/
-a.editBio{
+
+select.friendType{
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+p.friendType select{
+    font-size: 14px;
+    margin: 0 0 3px 10px;
+    padding-top: 0;
+}
+
+a#editBio{
     border:none;
     color: #f57153;
     letter-spacing: 1px;
     display: inline-block;
     cursor: pointer;
-}
-
-a.editBio:hover{
-    color: #ed6c4e;
-}
-
-a.editBio:focus{
-    border-color: #f57153;
 }
   
 /* * Post widget * */
@@ -77,6 +81,7 @@ input[type="file"] {
 
 .post-actions__label {
     cursor: pointer;
+    line-height: normal; 
 }
   
 .widget-post__actions {
@@ -96,13 +101,14 @@ input[type="file"] {
 
 .post-actions__attachments {
     display: inline-block;
-    width: 60%;
+    width: 100%;
 }
 
 .attachments--btn {
     background-color: #eaeaea;
     color: #f57153;
     border-radius: 1.5em;
+    vertical-align: text-bottom;
 }
   
 .post-actions__widget {
@@ -142,7 +148,6 @@ input[type="file"] {
 :-moz-placeholder {
     color: #666;
 }
-  
 
 ._box {
 	position: relative;
@@ -207,12 +212,6 @@ input[type="file"] {
 	padding-top: 6px;
 	color: #607D8B;
 }
-
-
-
-
-
-
 
 .editBtn, .editBtn2 {
   border: none;
@@ -859,6 +858,10 @@ header .badge {
     margin-top: 5px;
 }
 
+.info-user h3 a{
+    font-size: 18px;
+}
+
 .reaction {
     padding: 10px 0;
 }
@@ -875,6 +878,7 @@ header .badge {
 
 .comments ul li, .comments .more-comments {
     padding: 5px 0;
+    font-size: 16px;
 }
 
 .comments .more-comments {
@@ -1015,7 +1019,7 @@ textarea.post-textarea {
 
 .row-user-list .friendType{
     font-size: 14px;
-    margin: -10px 0 3px 10px;
+    margin: 0 0 3px 0;
     padding-top: 0;
 }
 
