@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (tap)="logout()">
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
       紀錄
     </ion-title>
@@ -13,33 +18,54 @@
     <!--
       <ion-searchbar></ion-searchbar>
     -->
+      <ion-row class="selectRecord">
+        <ion-col class="month">
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="action-sheet">
+            <ion-select-option value="all_month" selected>全部月份</ion-select-option>
+            <ion-select-option value="month_6">2019/6</ion-select-option>
+            <ion-select-option value="month_5">2019/5</ion-select-option>
+            <ion-select-option value="month_4">2019/4</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col class="type">
+          <ion-select [interfaceOptions]="customPopoverOptions" interface="action-sheet">
+            <ion-select-option value="all_type" selected>全部類型</ion-select-option>
+            <ion-select-option value="walk">健走</ion-select-option>
+            <ion-select-option value="run">跑步</ion-select-option>
+            <ion-select-option value="bicycle">單車</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
 
     <!-- Recard_card -->
-    <ion-card>
-      <ion-img src="/assets/images/img_map.PNG"></ion-img>
-      <ion-card-header>
-        <ion-card-title class="card_title">
-          <ion-icon name="man"></ion-icon>健走
-        </ion-card-title>
-        <ion-card-subtitle>
-            January 1, 2019
-        </ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row align-items-center>
-          <ion-col>
-            5<br>km
-          </ion-col>
-          <ion-col>
-            60<br>min
-          </ion-col>
-          <ion-col>
-            12<br>min／km
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-    <!-- ----------- -->
+    <ion-list *ngFor="let record of records" >
+      <ion-card>
+        <ion-img src="/assets/images/img_map.PNG"></ion-img>
+        <ion-card-header>
+          <ion-card-title class="card_title">
+            <ion-icon name="{{record.icon}}"></ion-icon>{{record.otype}}
+          </ion-card-title>
+          <ion-card-subtitle>
+              {{record.sportstarttime}}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row align-items-center>
+            <ion-col>
+              60<br>km
+            </ion-col>
+            <ion-col>
+              {{record.time}}<br>{{record.unit}}
+            </ion-col>
+            <ion-col>
+              12<br>min／km
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    
+    <!--
     <ion-card>
       <ion-img src="/assets/images/img_map.PNG"></ion-img>
       <ion-card-header>
@@ -64,7 +90,7 @@
         </ion-row>
       </ion-card-content>
     </ion-card>
-    <!-- ----------- -->
+
     <ion-card >
       <ion-img src="/assets/images/img_map.PNG"></ion-img>
       <ion-card-header>
@@ -89,7 +115,7 @@
         </ion-row>
       </ion-card-content>
     </ion-card>
-    <!----------------->
+    -->
 
   </ion-list>
 </ion-content>

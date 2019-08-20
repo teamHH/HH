@@ -4,12 +4,11 @@
 
 ion-title{
   font-family: 'Noto Sans TC', sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 ion-content{
   --ion-font-family: 'Noto Sans TC', sans-serif;
-  
 }
 
 .body {
@@ -26,10 +25,30 @@ ion-select {
 
 #map {
   width: 100%;
-  height: 50%;
+  height: 65%;
+}
+
+.div2{
+  height: 25%;
+}
+
+.div3{
+  height: 10%;
 }
 
 ion-button{
   height: 40px;
   --border-radius: 10px;
+}
+
+.active { 
+  width:200%;
+} 
+
+.checker1{
+  background-color:#FFFFFF;
+}
+
+.checker{
+  background-color:#FFFFFF;
 }

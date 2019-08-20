@@ -1,64 +1,75 @@
 <ion-header>
+  <!--
   <ion-toolbar>
-    <ion-title>
-      開始
-    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid">
+        <ion-icon slot="start" name="contact"></ion-icon>
+        Contact
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Solid Buttons</ion-title>
+  </ion-toolbar>
+  -->
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (tap)="logout()">
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>開始</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="no-scroll">
     
-    <!-- ........................... -->
+    <!-- 1........................... -->
     <div #mapContainer id="map"></div>
     <!-- ........................... -->
 
-    <!-- 第一部分 -->
-    <ion-row align-self-center>
+
+    <!-- 2........................... -->
+    <ion-row align-self-center class="div2">
       <ion-col>
         <div>
+          <!-- SELECT -->
           <div>
             <ion-item>
               <ion-col size="auto">
                 <ion-label>運動項目</ion-label>
               </ion-col>
-              <ion-col class="ion_right">
-                <ion-select [interfaceOptions]="customPopoverOptions" interface="action-sheet">
-                  <ion-select-option value="walk">健走</ion-select-option>
-                  <ion-select-option value="run" selected>跑步</ion-select-option>
-                  <ion-select-option value="bicycle">單車</ion-select-option>
-                </ion-select>
-              </ion-col>
+            
+              <ion-select [compareWith]="compareWith" [ngModel]="sportType" (ngModelChange)="sportType=$event;">
+                <ion-select-option *ngFor="let sport of sports" [value]="sport">{{sport.type}}</ion-select-option>
+              </ion-select>
             </ion-item>
           </div>
           
+          <!-- BUTTON-->
           <div>
             <ion-row size="auto">
               <ion-col>
-                <ion-button expand="block" (tap)="doTap()">{{btnStart || '開始'}}</ion-button>
+                <ion-button expand="block" (tap)="startInterval()" ng-class="{true : 'checker1',false : 'checker' }">{{btnStart || '開始'}}</ion-button>
               </ion-col>
               <ion-col>
-                <ion-button expand="block" disabled="true">{{btnStop || '暫停'}}</ion-button>
+                <ion-button expand="block" (tap)="stopInterval()">{{btnStop || '暫停'}}</ion-button>
               </ion-col>
               <ion-col>
-                <ion-button expand="block" disabled="true">{{btnEnd || '結束'}}</ion-button>
+                <ion-button expand="block" (tap)="endInterval()">{{btnEnd || '結束'}}</ion-button>
               </ion-col>
             </ion-row>
           </div>
+
         </div>
       </ion-col>  
     </ion-row> 
-
+    <!-- ........................... -->
     
 
-
-    <!-- 尾巴 -->
-    <div>
+    <!-- 3........................... -->
+    <div class="div3">
       <ion-card-title text-center>How健康</ion-card-title>
       <ion-card-subtitle text-center>Version 1.0.0</ion-card-subtitle>
     </div>
+    <!-- ........................... -->
     
-
-    
-
-        
 </ion-content>

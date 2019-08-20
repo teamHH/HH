@@ -1,6 +1,6 @@
 ion-title{
   font-family: 'Noto Sans TC', sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 ion-content{
@@ -30,4 +30,17 @@ ion-card-content{
     font-size: 130%;
     font-weight: 500;
     line-height: 130%;
+}
+
+ion-icon{
+    padding-right: 10px;
+}
+
+.selectRecord{
+    width: 100%;
+    text-align: right;
+}
+.selectRecord{
+    text-align: center;
+    overflow: hidden;
 }

@@ -9,11 +9,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabsPageModule } from './tabs/tabs.module';
-import { HttpModule } from '@angular/http';
 
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { HTTP } from '@ionic-native/http/ngx'
+
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,14 +31,20 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule, 
     TabsPageModule,
     HttpModule,  //**增加
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AndroidPermissions,
+    Geolocation,
+    NativeGeocoder,
+    LocationAccuracy,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLitePorter,
-    SQLite
+    SQLite,
+    HTTP
   ],
   bootstrap: [AppComponent]
 })
