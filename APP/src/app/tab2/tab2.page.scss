@@ -38,9 +38,16 @@ ion-icon{
 
 .selectRecord{
     width: 100%;
-    text-align: right;
-}
-.selectRecord{
     text-align: center;
-    overflow: hidden;
 }
+
+ion-toolbar{
+    text-align: center;
+    
+}
+
+.spinner-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }

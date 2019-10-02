@@ -15,32 +15,32 @@
   <ion-list lines="none">
 
     <!-- 搜尋 -->
-    <!--
-      <ion-searchbar></ion-searchbar>
-    -->
-      <ion-row class="selectRecord">
-        <ion-col class="month">
-          <ion-select [interfaceOptions]="customPopoverOptions" interface="action-sheet">
-            <ion-select-option value="all_month" selected>全部月份</ion-select-option>
-            <ion-select-option value="month_6">2019/6</ion-select-option>
-            <ion-select-option value="month_5">2019/5</ion-select-option>
-            <ion-select-option value="month_4">2019/4</ion-select-option>
-          </ion-select>
-        </ion-col>
-        <ion-col class="type">
-          <ion-select [interfaceOptions]="customPopoverOptions" interface="action-sheet">
-            <ion-select-option value="all_type" selected>全部類型</ion-select-option>
-            <ion-select-option value="walk">健走</ion-select-option>
-            <ion-select-option value="run">跑步</ion-select-option>
-            <ion-select-option value="bicycle">單車</ion-select-option>
-          </ion-select>
-        </ion-col>
-      </ion-row>
+    <ion-row class="selectRecord">
+      <ion-col>
+        <ion-select [compareWith]="compareFn" [ngModel]=months[0] (ngModelChange)="ngMonth($event)">
+          <ion-select-option *ngFor="let month of months" value="{{month}}">{{month}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-select [compareWith]="compareFn" [ngModel]=types[0] (ngModelChange)="ngSportType($event)">
+          <ion-select-option *ngFor="let type of types" value="{{type}}">{{type}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
 
     <!-- Recard_card -->
+    <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+    </div>
+    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="放開手指將更新紀錄"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
     <ion-list *ngFor="let record of records" >
       <ion-card>
-        <ion-img src="/assets/images/img_map.PNG"></ion-img>
         <ion-card-header>
           <ion-card-title class="card_title">
             <ion-icon name="{{record.icon}}"></ion-icon>{{record.otype}}
@@ -55,7 +55,7 @@
               60<br>km
             </ion-col>
             <ion-col>
-              {{record.time}}<br>{{record.unit}}
+              {{record.time}}
             </ion-col>
             <ion-col>
               12<br>min／km
@@ -64,58 +64,10 @@
         </ion-card-content>
       </ion-card>
     </ion-list>
+    <ion-toolbar>
+      <ion-label>資料到底囉!</ion-label>
+    </ion-toolbar>
     
-    <!--
-    <ion-card>
-      <ion-img src="/assets/images/img_map.PNG"></ion-img>
-      <ion-card-header>
-        <ion-card-title>
-          <ion-icon name="walk"></ion-icon>跑步
-        </ion-card-title>
-        <ion-card-subtitle>
-            January 1, 2019
-        </ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row align-items-center>
-          <ion-col>
-            5<br>km
-          </ion-col>
-          <ion-col>
-            25<br>min
-          </ion-col>
-          <ion-col>
-            5<br>min／km
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card >
-      <ion-img src="/assets/images/img_map.PNG"></ion-img>
-      <ion-card-header>
-        <ion-card-title>
-          <ion-icon name="bicycle"></ion-icon>單車
-        </ion-card-title>
-        <ion-card-subtitle>
-            January 1, 2019
-        </ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row align-items-center>
-            <ion-col>
-              5<br>km
-            </ion-col>
-            <ion-col>
-              18<br>min
-            </ion-col>
-            <ion-col>
-              3.6<br>min／km
-            </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-    -->
 
   </ion-list>
 </ion-content>

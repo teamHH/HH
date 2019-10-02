@@ -23,8 +23,9 @@
 <ion-content class="no-scroll">
     
     <!-- 1........................... -->
-    <div #mapContainer id="map"></div>
+    <div id="mapId" style="height:70%;"></div>
     <!-- ........................... -->
+
 
 
     <!-- 2........................... -->
@@ -37,8 +38,7 @@
               <ion-col size="auto">
                 <ion-label>運動項目</ion-label>
               </ion-col>
-            
-              <ion-select [compareWith]="compareWith" [ngModel]="sportType" (ngModelChange)="sportType=$event;">
+              <ion-select [ngModel]="sports[0]" (ngModelChange)="ngSportType($event)">
                 <ion-select-option *ngFor="let sport of sports" [value]="sport">{{sport.type}}</ion-select-option>
               </ion-select>
             </ion-item>
@@ -48,13 +48,10 @@
           <div>
             <ion-row size="auto">
               <ion-col>
-                <ion-button expand="block" (tap)="startInterval()" ng-class="{true : 'checker1',false : 'checker' }">{{btnStart || '開始'}}</ion-button>
+                <ion-button expand="block" (click)="startInterval();" ng-class="{true : 'checker1',false : 'checker' }" [disabled]="!isStartEnabled">{{btnStart || '開始'}}</ion-button>
               </ion-col>
               <ion-col>
-                <ion-button expand="block" (tap)="stopInterval()">{{btnStop || '暫停'}}</ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button expand="block" (tap)="endInterval()">{{btnEnd || '結束'}}</ion-button>
+                <ion-button expand="block" (click)="endInterval()" [disabled]="!isStopEnabled">{{btnEnd || '結束'}}</ion-button>
               </ion-col>
             </ion-row>
           </div>

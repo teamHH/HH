@@ -33,18 +33,8 @@ export class LoginPage implements OnInit {
     // 傳給主機的參數
     console.log(this.userId, this.password);
 
-    var headers = new HttpHeaders({ 
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'content-type': 'application/json'
-    });
-    console.log(headers);
-
-    let options = { headers: headers, withCredentials: true};
-
-    this.http.post("http://192.168.114.102:3000/mobile_login", {"userId":  this.userId, "password":  this.password}, options)
-    .subscribe(data  => {
+    this.http.post("http://140.131.115.88:80/mobile_login", {"userId":  this.userId, "password":  this.password})
+    .subscribe((data)  => {
       console.log("Login successful ", data);
       if(data == "0"){
         this.showConfirm();
@@ -54,9 +44,9 @@ export class LoginPage implements OnInit {
         this.showNotFound();
       }
     },
-    error  => {
-      console.log("Error", error);
-      this.showAlert();
+    (err)  => {
+      console.log("Error", err);
+      this.showAlert(err);
     }
     );
   }
@@ -79,7 +69,8 @@ export class LoginPage implements OnInit {
   //----------------------------------
   // 顯示讀取失敗訊息
   //----------------------------------
-  async showAlert(){
+  async showAlert(er){
+    console.log(er);
     const  alert = await this.alertController.create({
       header: '資料取得失敗!',
       subHeader: '請確定網路狀態, 或是主機是否提供服務中.',

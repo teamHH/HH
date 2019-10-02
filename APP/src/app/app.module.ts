@@ -21,6 +21,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,7 +45,8 @@ import { IonicStorageModule } from '@ionic/storage';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLitePorter,
     SQLite,
-    HTTP
+    HTTP,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

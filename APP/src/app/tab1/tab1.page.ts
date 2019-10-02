@@ -7,8 +7,21 @@ import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
-
-declare var google;
+import { icon, Marker, Map, latLng, tileLayer, Layer, marker } from 'leaflet';
+const iconRetinaUrl = 'assets/marker-icon-2x.png';
+const iconUrl = 'assets/marker-icon.png';
+const shadowUrl = 'assets/marker-shadow.png';
+const iconDefault = icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-tab1',
@@ -31,6 +44,9 @@ export class Tab1Page {
   record= [];
   sportRecord= [];
   orbitRecordNo: any;
+  
+  isStartEnabled: boolean = true;
+  isStopEnabled: boolean = false;
 
   center:any={
     'lat':25.042375,
@@ -53,11 +69,6 @@ export class Tab1Page {
       type: '單車'
     }
   ];
-  compareWithFn = (o1, o2) => {
-    return o1 && o2 ? o1.id === o2.id : o1 === o2;
-  };
-
-  compareWith = this.compareWithFn;
   
   //--------------------------------------------------- 
   // 建構元
@@ -73,6 +84,7 @@ export class Tab1Page {
       console.log(this.userId);
     });
   }
+  
   
   //////////////////////////登出
   async logout() {
@@ -95,21 +107,34 @@ export class Tab1Page {
     await alert.present();
   }
 
+  //////////////////////////disabled
+  isCheckStart(){
+    return true;
+  }
+
   //////////////////////////計時器
-  sportType:string='';
+  selectSportType: any = 4;
+  ngSportType(event){
+    this.selectSportType = event['id'];
+  }
   startInterval(){
     //按下去的當下即新增一筆紀錄
     this.locate();
     this.addOrbitRecord();
+    this.isStartEnabled = false;
+    this.isStopEnabled = true;
+    console.log("****" + this.selectSportType);
 
     //判斷sportType, 以設定計時器
-    if(this.sportType['id']===4){
+    if(this.selectSportType==null){
+      this.showNotChose();
+    }else if(this.selectSportType===4){
       console.log('走');
       this.get_duration_interval= setInterval(()=> { this.locate() }, 1000*8);
-    }else if(this.sportType['id']===5){
+    }else if(this.selectSportType===5){
       console.log('跑');
       this.get_duration_interval= setInterval(()=> { this.locate() }, 1000*5);
-    }else if(this.sportType['id']===6){
+    }else if(this.selectSportType===6){
       console.log('騎');
       this.get_duration_interval= setInterval(()=> { this.locate() }, 1000*2);
     }
@@ -117,7 +142,7 @@ export class Tab1Page {
   
   endInterval(){
     clearInterval(this.get_duration_interval);
-    this.sportRecord.push(this.sportType['id'], this.userId, this.record);
+    this.sportRecord.push(this.selectSportType, this.userId, this.record);
     console.log(this.sportRecord);
     console.log('start time: ' + this.record[0]);
     console.log('end time: ' + this.record[this.record.length-1]);
@@ -140,21 +165,24 @@ export class Tab1Page {
 
   //////////////////////////新增orbit_record
   addOrbitRecord(){
-    console.log("addOrbitRecord: " + this.userId, this.sportType['id'], Date());
+    console.log("addOrbitRecord: " + this.userId, this.selectSportType, Date());
     // 傳給主機的參數
     
-    this.http.post("http://192.168.114.102:3000/mobile_orbitrecord_add", {"userId":  this.userId, "sportType": this.sportType['id'], "sportStartTime": Date()})
+    this.http.post("http://140.131.115.88:80/mobile_orbitrecord_add", {"userId":  this.userId, "sportType": this.selectSportType, "sportStartTime": Date()})
     .subscribe(data  => {
       console.log("Add Orbit Record successful :", data);
       if(data == "0"){
-        this.showConfirm();
         this.queryOrbitRecordNo(); //找orbitRecordNo
       }else{
         this.showNotConfirm();
+        this.isStartEnabled = true;
+        this.isStopEnabled = false;
       }
     },
     error  => {
       console.log("Error", error);
+      this.isStartEnabled = true;
+      this.isStopEnabled = false;
       }
     );
   }
@@ -164,11 +192,10 @@ export class Tab1Page {
     console.log("queryOrbitRecord: " + this.userId, this.record[0][0]);
 
     // 傳給主機的參數
-    this.http.post("http://192.168.114.102:3000/mobile_returnNo", {"userId":  this.userId, "sportStartTime": this.record[0][0]})
+    this.http.post("http://140.131.115.88:80/mobile_returnNo", {"userId":  this.userId, "sportStartTime": this.record[0][0]})
     .subscribe(data  => {
-      console.log("Query Orbit Record Number successful :", data[0]);
-      this.orbitRecordNo = data[0];
-      this.orbitRecordNo = JSON.stringify(this.orbitRecordNo.orbitrecordno);
+      console.log("Query Orbit Record Number successful :", data[0].orbitrecordno);
+      this.orbitRecordNo = data[0].orbitrecordno;
     },
     error  => {
       console.log("Error", error);
@@ -184,7 +211,7 @@ export class Tab1Page {
       console.log("orbit: " + this.orbitRecordNo + " " + this.record[i][0], 
         this.record[i][1], this.record[i][2]);
       
-      this.http.post("http://192.168.114.102:3000/mobile_orbit_add", 
+      this.http.post("http://140.131.115.88:80/mobile_orbit_add", 
         {"orbitRecordNo":  this.orbitRecordNo, "orbitDatetime": this.record[i][0], "lat": this.record[i][1], "lng": this.record[i][2]})
       .subscribe(data  => {
         console.log("Add orbit successful :", data);
@@ -200,12 +227,21 @@ export class Tab1Page {
     console.log("updateOrbitRecord: " + this.orbitRecordNo, this.record[this.record.length-1][0]);
     // 傳給主機的參數
     
-    this.http.post("http://192.168.114.102:3000/mobile_update", {"orbitRecordNo":  this.orbitRecordNo, "sportEndTime": this.record[this.record.length-1][0]})
+    this.http.post("http://140.131.115.88:80/mobile_update", {"orbitRecordNo":  this.orbitRecordNo, "sportEndTime": this.record[this.record.length-1][0]})
     .subscribe(data  => {
       console.log("Update Orbit Record successful :", data);
+      if(data == 0){
+        this.showConfirm();
+        this.isStartEnabled = false;
+        this.isStopEnabled = true;
+      }else{
+        this.showNotChose();
+        this.isStartEnabled = false;
+      }
     },
     error  => {
       console.log("Error", error);
+      this.isStartEnabled = false;
       }
     );
     
@@ -218,7 +254,7 @@ export class Tab1Page {
   async showConfirm(){
     let alert = await this.alertController.create({
       header: '新增成功!',
-      subHeader: '歡迎使用How Heathly',
+      subHeader: '快去紀錄區查看你的運動紀錄吧!',
       buttons: ['OK']
     });
     await alert.present();
@@ -249,8 +285,42 @@ export class Tab1Page {
   }
   //----------------------------------    
 
+  //----------------------------------
+  // 顯示新增失敗訊息
+  //----------------------------------
+  async showNotChose() {
+    const  alert = await this.alertController.create({
+      header: '新增失敗!',
+      subHeader: '請選擇運動項目',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+  //----------------------------------    
+
   
   //////////////////////////MAP
+  ionViewDidEnter() {
+    this.leafletMap();
+  }
+
+  leafletMap() {
+    this.map = new Map('mapId').setView([25.0461158, 121.5255704], 17);
+    
+    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
+      foo: 'bar'
+    }).addTo(this.map);
+
+    const markPoint = marker([25.0461158, 121.5255704]);
+    markPoint.bindPopup('<p>I am here!</p>');
+    this.map.addLayer(markPoint);
+  }
+
+  ionViewWillLeave() {
+    this.map.remove();
+  }
+
+  /*
   //----------------------------------
   // 畫面完成後執行
   //----------------------------------
@@ -284,5 +354,6 @@ export class Tab1Page {
     
     myMarker.setMap(this.map);    
   }
+  */
   
 }
