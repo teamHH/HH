@@ -1,11 +1,56 @@
-/*
-Template Name: Socialyte
-Author: Codeplus team
-Author URI: https://codeplus.it
-*/
+/*我加的 start*/
+.actContainer {
+    text-align:center;
+    margin:0 auto;
+}
 
+.actContainer input[type="radio"] {
+    display:none;
+}
 
-/*我加的*/
+.actContainer label {
+    width:23%;
+    float:left;
+    text-align:center;
+    background:#ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    color:#222222;
+    padding:0.5%;
+    margin:0.5%;
+    margin-bottom:30px;
+    cursor:pointer;
+}
+
+.actContainer input[type="radio"][id="all"]:checked + label {
+    background:#ffbf00;
+}
+
+.actContainer input[type="radio"][id="tile"]:checked{
+    width:0;
+    height:0;
+    padding:0;
+    margin:0;
+    opacity:0;
+}
+
+.actContainer input[type="radio"][id="spont"]:checked + label,
+.actContainer input[type="radio"][id="create"]:checked + label {
+    background:#ffbf00;
+}
+
+.actContainer input[type="radio"][id="spont"]:checked ~ .create,
+.actContainer input[type="radio"][id="create"]:checked ~ .spont{
+    width:0;
+    height:0;
+    padding:0;
+    margin:0;
+    opacity:0;
+}
+
+.actContainer .tile {
+    /*float:left;*/
+    transition:all 0.5s;
+}
 
 select.friendType{
     font-size: 20px;
@@ -26,8 +71,9 @@ a#editBio{
     cursor: pointer;
 }
   
+/*post 發文
+====================================*/
 /* * Post widget * */
-  
 input[type="file"] {
     display: none;
 }
@@ -120,135 +166,204 @@ input[type="file"] {
 .scroller::-webkit-scrollbar {
     display: none;
 }
-  
-/* * SR * */
-.sr-only {
-    width: 1px;
-    height: 1px;
-    clip: rect(1px, 1px, 1px, 1px);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    overflow: hidden;
-    white-space: nowrap;
+
+.leaderboard{
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 30px 50px;
+    display: none;
+}
+
+.leaderboard:before {
     position: absolute;
+    content: '';
+    /*right: calc(100% + 1rem);*/
+    left: 15px;
     top: 0;
+    height: 100%;
+    width: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #e9c17b;
+    background: repeating-linear-gradient(-45deg, #fdefb2 0px, #fdefb2 4px, #e9c17b 4px, #e9c17b 8px);
 }
-  
-  
-  /* *  Placeholder contrast * */
-::-webkit-input-placeholder {
+
+.leaderboard tr > * {
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.leaderboard tr th{
+    font-weight: 300;
+    letter-spacing: 0.04rem;
+    font-size: 1.5rem;
+    color: #fe7d67;
+    text-transform: uppercase;
+}
+
+.leaderboard tr td{
+    font-size: 18px;
+    color: #ff4136;
+}
+
+.leaderboard tr th:nth-child(1), .leaderboard tr td:nth-child(1){
+    width: 100px;
+}
+
+.leaderboard tr th:nth-child(2), .leaderboard tr th:nth-child(3),
+.leaderboard tr td:nth-child(2), .leaderboard tr td:nth-child(3){
+    width: 300px;
+}
+
+.leaderboard tr td.position {
+    font-weight: 500;
+    width: 100px;
+    /*text-align: right;
+    padding-right: 80px;*/
+}
+
+.leaderboard td.user {
+    padding-left: 1rem;
+    font-size: 18px;
+}
+
+.leaderboard td.points span {
+    background: #fdeb75;
+    border-radius: 30px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    /*text-transform: uppercase;*/
+}
+
+button#toggle{
+    float: right; 
+    margin:30px 30px 30px 0;
+    border: none;
+    background: transparent;
+}
+
+button#toggle .fa-chevron-down{
+    color: #fe7d67;
+}
+
+
+
+
+
+
+.postType{
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.btnTag {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    line-height: normal;
+    cursor: pointer;
+    -moz-user-select: text;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px 18px 8px; 
+    background-color: #fff;
     color: #666;
+    border: 2px solid #666;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+    font-size: 15px;
+    float: left;
+    margin-right: 8px;
 }
-::-moz-placeholder {
-    color: #666;
+.btnTag:-moz-focus-inner {
+    padding: 0;
+    border: 0;
 }
-:-ms-input-placeholder {
-    color: #666;
+.btn--stripe {
+    overflow: hidden;
+    position: relative;
 }
-:-moz-placeholder {
-    color: #666;
+.btn--stripe:after {
+    content: '';
+    display: block;
+    height: 7px;
+    width: 100%;
+    background-image: repeating-linear-gradient(45deg, #666, #666 1px, transparent 2px, transparent 5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-top: 1px solid #666;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-size: 7px 7px;
 }
-
-._box {
-	position: relative;
-	width: 100rem;
-	margin: 1rem auto;
-	border-radius: 0.5rem;
-	box-shadow: 0 0.25rem 2rem rgba(67,160,71,0.1);
-	padding: 2rem;  
-	background-color: white;
-  	border-top: 0.125rem solid #e9c17b;
+.btn--stripe:hover {
+    background-color: #effd5f;
+    color: #b2560c;
+    border-color: #666;
+    font-weight: 600;
 }
-
-._box input.tags {
-	border: none;
-	box-shadow: none;
-	width: auto;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-._box input.tags:focus {
-	outline: none;
-	background: transparent;
-}
-
-._box .tag-cloud {
-	display: block;
-	height: 80px;
-	padding: .5em;
-	margin: .5em 0;
-	background: #FFF;
-	border: solid 1px #666;
-	border-radius: 4px;
-	font-size: 15px;
-}
-._box .tag-cloud .tag {
-	display: inline-block;
-	border-radius: 1em;
-	background: #E8F5E9;
-	color: #607D8B;
-	margin: 0 .25em 0 0;
-  padding: 3px 3px 3px 10px;
-}
-._box .tag-cloud .tag a.close {
-	display: block;
-	float: right;
-	white-space: nowrap;
-	overflow: hidden;
-	width: 15px;
-	margin: 0 3px 0 3px;
-	text-indent: -999em;
-	color: #607D8B;
-}
-._box .tag-cloud .tag a.close:before {
-	display: block;
-	float: left;
-	content: "\2716";
-	font-size: 15px;
-	font-weight: bold;
-	text-indent: 0;
-	line-height: 15px;
-	padding-top: 6px;
-	color: #607D8B;
+.btn--stripe:hover:after {
+    background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+    border-top: 1px solid #000;
+    animation: stripe-slide 12s infinite linear forwards;
 }
 
-.editBtn, .editBtn2 {
-  border: none;
-  padding: 10px 12px;
-  background: #F96;
-  border-radius: 3px;
-  color: white;
-  font-weight: bold;
-  font-size:15px;
-  margin: 0 0 1em;
-}
-
-.editBtn:hover, .editBtn2:hover,
-.editBtn:focus, .editBtn2:focus {
-  cursor: pointer;
-  outline: none;
+.postTitle{
+    width:400px; 
+    padding: 5px; 
+    border-radius: 5px; 
+    border-style: none;
+    border:1px solid #aeaeae;
 }
 
 
+/*edit post
+====================================*/
+#editBtn, #editBtn2 {
+    border: none;
+    padding: 10px 12px;
+    background: #F96;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    font-size:15px;
+    margin: 0 0 1em;
+}
 
+#editBtn:hover, #editBtn2:hover,
+#editBtn:focus, #editBtn2:focus {
+    cursor: pointer;
+    outline: none;
+}
 
-
+/*
+[contenteditable="true"] {
+  font-family: 'Poppins','Noto Sans TC', sans-serif;
+  color: #C00;
+}
+*/
 
 /** * Media query for tablet sized screens. */
  @media only screen and (max-width: 960px) {
 	 body {
-		 padding: 5% 10%;
+		padding: 5% 10%;
 	}
 }
 /** * Media query for tablet sized screens. */
  @media only screen and (max-width: 520px) {
 	 body {
-		 padding: 5%;
+		padding: 5%;
 	}
 }
 
-
+/*like button
+====================================*/
 .react{
     float: left;
 }
@@ -407,58 +522,15 @@ input[type="file"] {
     font-size: 14px;
 }
 
-
 .clear{
     clear: both;
 }
 
-
-@media (max-width: 560px) {
-    .filterDiv {
-		top: 35px;
-		left: 0;
-		right: auto;
-	}
-
-	.filterBtn {
-		margin: 0 15px 0 0;
-	}
-}
-
 /* The "show" class is added to the filtered elements */
 .show {
-  display: block;
+    display: block;
 }
 
-/* Style the buttons */
-.filterBtn {
-    margin: 0;
-	padding: 0 auto;
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	height: 40px;
-	line-height: 40px;
-	font-size: 16px;
-    color: #626262;
-    background-color: transparent;
-	cursor: pointer;
-	border: none;
-}
-
-
-/* Add a dark background to the active button */
-.myBtnContainer .active {
-  color: #ffbf00;
-}
-
-.filterDiv {
-  float: left;
-  color: #000;
-  text-align: center;
-  margin: 2px;
-  display: none; /* Hidden by default */
-}
 
 .points i{
     vertical-align: text-bottom;
@@ -640,9 +712,7 @@ button#deleteConfirm:focus{
 }
 
 
-
-
-/*我加的*/
+/*我加的 end*/
 
 /*---------------------------------------------------------------
 [Main Color]
@@ -866,10 +936,12 @@ header .badge {
     padding: 10px 0;
 }
 
+/*
 .comments {
     border-top: 1px solid #dadada;
     padding-top: 5px;
 }
+*/
 
 .comments ul {
     list-style: none;

@@ -44,6 +44,7 @@
     background: -webkit-linear-gradient(top right,#ffbf00 0,#ee6363 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding: 0 10px;
 }
 
 /*
@@ -137,16 +138,6 @@
     color: #555;
 }
 
-/*
-#aa-menu-area .navbar-fixed-top .navbar-nav li a.active{
-    background-color: #ffbf00;
-    padding: 0px 20px;
-    color: white !important;
-    border-radius: 25px;
-    text-decoration: none;
-}
-*/
-
 #aa-menu-area .navbar-fixed-top .navbar-nav li a.dropdown-toggle{
     color:#ffbf00;
     font-size:18px;
@@ -173,10 +164,15 @@
 
 .dropdown .dropdown-menu .notific{
     width: 300px;
-    margin:5px 5px !important;
+    margin:5px 15px;
+    margin-bottom: 0;
+    border-bottom :0.5px dashed #999;
 }
 
-.dropdown .dropdown-menu .notific:nth-child(1), .dropdown-menu .notific:nth-child(2){
+.dropdown .dropdown-menu .notific2{
+    width: 350px;
+    margin:5px 15px;
+    margin-bottom: 0;
     border-bottom :0.5px dashed #999;
 }
 
@@ -214,18 +210,56 @@
 	border-radius: 100%;
 	-moz-border-radius: 100%;
 	-webkit-border-radius: 100%;
-	-khtml-border-radius: 100%;
+    -khtml-border-radius: 100%;
+    margin: 5px 0 5px 0;
 }
 
-.name{
+.media-body .name{
     font-size: 16px;
-    margin-bottom: 3px;
+    font-weight: 550;
+    margin: 10px 0 3px 0;
+}
+
+.media-body .name a{
+    padding: 0;
+    margin: 0;
+    margin-left: -10px;
 }
 
 .media-body p{
     font-size: 13px;
 }
 
+#button-block{
+    float: right;
+}
+
+#button-block form button{
+    display:inline-block;
+}
+
+#confirm, #delete{
+    background-color:#ffbf00;
+    color:white;
+    padding:7px;
+    border-radius:4px;
+    margin: 10px 10px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#delete{
+    color:#222;
+    background-color:#bbb;
+    border:1px solid #999;
+    padding:6px;
+    margin-right:0;
+}
+
+#button-block form button:hover{
+    opacity:.8;
+    cursor:pointer;
+}
 
 
 
