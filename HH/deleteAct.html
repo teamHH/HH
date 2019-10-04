@@ -198,14 +198,26 @@
 		<!-- end nav -->
     </div>
 
+
+
+
     <div class="container addAct-container" >
 		<div class="row">
             <div class="addAct-form col-md-12">
                 <div class="addForm-title">
-                    發起活動
+                    刪除活動
                 </div>
                 
                 <form role="form">
+					<div class="col-md-12">
+                        <div class="col-md-3">
+                            活動編號
+                        </div>
+                        <div class="col-md-9">
+                            <input class="addAct-input form-control" required style="width: 600px;">
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="col-md-3">
                             活動名稱
@@ -233,34 +245,8 @@
                             時間
                         </div>
                         <div class="col-md-9">
-                            <input class="addAct-input form-control" type="date" required style="width: 600px;" onload="getDate()">
+                            <input class="addAct-input form-control" type="date" required style="width: 600px;">
 						</div>
-						
-						<script>
-							function getDate(){
-								var today = new Date();
-								var dd = today.getDate();
-								var mm = today.getMonth()+1; //January is 0!
-								var yyyy = today.getFullYear();
-
-								if(dd<10) {
-									dd = '0'+dd;
-								} 
-
-								if(mm<10) {
-									mm = '0'+mm;
-								} 
-
-								today = yyyy + '/' + mm + '/' + dd;
-								console.log(today);
-								document.getElementById("date").value = today;
-							}
-
-							window.onload = function() {
-								getDate();
-							};
-
-						</script>
                     </div>
 
                     <div class="col-md-12">
@@ -285,14 +271,15 @@
 								</div>
 							</div>
                         </div>
-                    </div>  
-
-                    <div class="addAct-btn col-md-12">
-                        <button type="submit" class="btn btn-primary2 addAct-btn">
-                            送出
-                        </button>
-                    </div>   
-                </form>
+					</div>    
+					</br>
+					<div class="deleteAct-btn col-md-12">
+						<input type="button" value="返回" class="btn btn-primary2 deletePost-btn" onclick="history.back()">
+						<button type="submit" class="btn btn-primary2 deletePost-btn">
+							刪除
+						</button>
+					</div>
+                </form> 
             </div>
 		</div>
     </div>

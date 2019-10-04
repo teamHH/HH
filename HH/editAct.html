@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Basic-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>How Healthy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<title>How Healthy</title>
-	<link rel="icon" href="img/2.png" type="image/x-icon">
-
-	<meta name="description" content="Source code generated using layoutit.com">
-	<meta name="author" content="LayoutIt!">
-
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="ionicons/css/ionicons.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/navbar.css" rel="stylesheet">
+    <!--Load Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	
-	
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/editBio.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+	<!-- include libraries(jQuery, bootstrap) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
+	<link rel="shortcut icon" href="img/2.png">
 </head>
 
-<body style="color: gray;">
+<body>
     <div class="container-fluid">
-        <!-- nav -->
+    	<!-- nav -->
 		<nav>
 			<section id="aa-menu-area">
               	<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
@@ -196,133 +198,55 @@
 			</section>
 		</nav>
 		<!-- end nav -->
-    </div>
 
-    <div class="container addAct-container" >
-		<div class="row">
-            <div class="addAct-form col-md-12">
-                <div class="addForm-title">
-                    發起活動
-                </div>
-                
-                <form role="form">
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            活動名稱
-                        </div>
-                        <div class="col-md-9">
-                            <input class="addAct-input form-control" required style="width: 600px;">
-                        </div>
+
+        <div>
+            <form class="editAct">
+                <div class="col-md-12">
+                    <div class="title">
+                        編輯活動內容
                     </div>
-            
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            類型
-                        </div>
-                        <div class="col-md-9">
-                            <select type="text" class="input100" name="actType" style="border-radius: 3px;">
-                                <option value="run">跑步</option>
-                                <option value="bicycle">自行車</option>
-                                <option value="swim">游泳</option>
-                            </select>
-                        </div>
-                    </div>
-            
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            時間
-                        </div>
-                        <div class="col-md-9">
-                            <input class="addAct-input form-control" type="date" required style="width: 600px;" onload="getDate()">
-						</div>
+                    
+                    <div>
+						<h4>活動名稱</h4>
+						<input class="inputBio" placeholder="活動名稱">
 						
-						<script>
-							function getDate(){
-								var today = new Date();
-								var dd = today.getDate();
-								var mm = today.getMonth()+1; //January is 0!
-								var yyyy = today.getFullYear();
+                        <h4>時間</h4>
+                        <input class="inputBio" placeholder="時間" type="datetime-local">
 
-								if(dd<10) {
-									dd = '0'+dd;
-								} 
-
-								if(mm<10) {
-									mm = '0'+mm;
-								} 
-
-								today = yyyy + '/' + mm + '/' + dd;
-								console.log(today);
-								document.getElementById("date").value = today;
-							}
-
-							window.onload = function() {
-								getDate();
-							};
-
-						</script>
+                        <h4>地點</h4>
+                        <input class="inputBio" placeholder="地點">
+						
+						<h4>內容</h4>
+						<div id="textarea" class="widget-post__textarea" style="font-size: 18px;" >
+							<textarea name="content" class="inputContent widget-post__textarea scroller"style="margin-top: 0;"></textarea>
+						</div>
                     </div>
-
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            地點
-                        </div>
-                        <div class="col-md-9">
-                            <input class="addAct-input form-control" required style="width: 600px;">
-                        </div>
-                    </div>
-            
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            內容
-                        </div>
-                        <div class="col-md-9">
-                            <div class="widget-post" aria-labelledby="post-header-title" style="width: 600px;">
-								<div class="widget-post__content" >
-									<div id="textarea"   class="widget-post__textarea" style="font-size: 18px;" >
-										<textarea name="content" id="post-content" class="widget-post__textarea scroller"></textarea>
-									</div> 
-								</div>
-							</div>
-                        </div>
-                    </div>  
-
-                    <div class="addAct-btn col-md-12">
-                        <button type="submit" class="btn btn-primary2 addAct-btn">
+                    
+                    <div class="center">
+                        <button class="btn btn-primary2" id="editAct" type="submit">
                             送出
                         </button>
-                    </div>   
-                </form>
-            </div>
-		</div>
-    </div>
-
-
-    <!-- footer -->
-	<footer>
-        <div class="container-fluid">
-            <p class="copyright">&copy; NTUB IMD  108506. All rights reserved.</p>
+                    </div>
+                </div>
+            </form>
         </div>
-    </footer>
-    <!-- end footer -->
-        
-    <!-- back to top -->
-    <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
-    <!-- end back to top -->
-        
-        
-        
-    <!-- jQuery -->
-    <script src="js/jquery-2.1.1.js"></script>
-    <!--  plugins -->
+    </div>
+    
+
+
+
+	<!-- jQuery -->
+	<script src="js/scripts.js" type="text/javascript"></script>
+	<script src="js/profilePic.js" type="text/javascript"></script>
+
+	<!--  plugins -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/animated-headline.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-
-
-    <script src="js/scripts.js"></script>
-
+	
+	<!--  custom script -->
+	<script src="js/custom.js"></script>
+                
 
 </body>
+
 </html>
