@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------*/
 /* deleteConfirm(SweetAlert)*/
 /*-----------------------------------------------------------*/
-document.getElementById("deleteComment").onclick = function() {
+$("[id='deleteComment']").click(function (e) {
     swal({
         title: "你確定嗎？",
-        text: "留言一經刪除後將無法恢復！",
+        text: "刪除好友後須將重新遞送交友邀請",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
@@ -14,9 +14,9 @@ document.getElementById("deleteComment").onclick = function() {
         closeOnCancel: false
     }, function(isConfirm) {
         if (isConfirm) {
-            swal("確定删除", "留言已經成功刪除！", "success")                    
+            swal("確定删除", "已經成功刪除！", "success")                    
         } else{
-            swal("取消", "留言已經取消刪除！", "error")
+            swal("取消", "已經取消刪除！", "error")
         }
     })
-};
+});

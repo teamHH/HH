@@ -2,7 +2,7 @@ body{
     background-color: #fed149;
 }
 
-form.editBio{
+form.editBio, form.editAct{
     width: 960px;
     background: #fff;
     border-radius: 10px;
@@ -107,6 +107,21 @@ h4{
     margin: 10px;
 }
 
+.inputContent{
+    font-size: 18px;
+    line-height: 1.5;
+    display: block;
+    width: 100%;
+    height: 150px;
+    background: #e6e6e6;
+    color: #666666;
+    border-color: transparent;
+    
+    border-radius: 25px;
+    padding: 10px 30px 10px 20px;
+    margin: 10px;
+}
+
 button#editBio{
     font-size: 18px;
     line-height: 1.5;
@@ -117,6 +132,19 @@ button#editBio{
     margin: 10px;
     border-radius: 25px;
     background: #ffa500;
+}
+
+button#editAct{
+    line-height: 1.5;
+    color: #fff;
+    margin: 30px 10px 10px 10px;
+    padding: 5px 15px;
+    border-radius: 25px;
+    background: #ffa500;
+}
+
+.center{
+    margin: 0 auto;
 }
 
 footer{

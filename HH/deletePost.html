@@ -14,7 +14,8 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="ionicons/css/ionicons.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<link href="css/navbar.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/personal-profile.css" rel="stylesheet">
 	
 	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,7 +28,7 @@
 
 </head>
 
-<body style="color: gray;">
+<body>
     <div class="container-fluid">
         <!-- nav -->
 		<nav>
@@ -198,100 +199,44 @@
 		<!-- end nav -->
     </div>
 
+
+
+
     <div class="container addAct-container" >
 		<div class="row">
             <div class="addAct-form col-md-12">
                 <div class="addForm-title">
-                    發起活動
+                    刪除文章
                 </div>
                 
                 <form role="form">
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            活動名稱
-                        </div>
-                        <div class="col-md-9">
-                            <input class="addAct-input form-control" required style="width: 600px;">
-                        </div>
-                    </div>
-            
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            類型
-                        </div>
-                        <div class="col-md-9">
-                            <select type="text" class="input100" name="actType" style="border-radius: 3px;">
-                                <option value="run">跑步</option>
-                                <option value="bicycle">自行車</option>
-                                <option value="swim">游泳</option>
-                            </select>
-                        </div>
-                    </div>
-            
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            時間
-                        </div>
-                        <div class="col-md-9">
-                            <input class="addAct-input form-control" type="date" required style="width: 600px;" onload="getDate()">
-						</div>
-						
-						<script>
-							function getDate(){
-								var today = new Date();
-								var dd = today.getDate();
-								var mm = today.getMonth()+1; //January is 0!
-								var yyyy = today.getFullYear();
+                    <div style="width:70%; margin: 0 auto;">
+                        <select type="text" class="postType">
+                            <option value="sports">運動</option>
+                            <option value="leisure">休閒</option>
+                            <option value="races">賽事分享</option>
+                            <option value="discussion">討論</option>
+                            <option value="loseWeight">減肥</option>
+                            <option value="yoga">瑜珈</option>
+                        </select>
 
-								if(dd<10) {
-									dd = '0'+dd;
-								} 
+                        <select type="text" class="friendType">
+                            <option value="type1">好友</option>
+                            <option value="type2">摯友</option>
+                        </select>
 
-								if(mm<10) {
-									mm = '0'+mm;
-								} 
-
-								today = yyyy + '/' + mm + '/' + dd;
-								console.log(today);
-								document.getElementById("date").value = today;
-							}
-
-							window.onload = function() {
-								getDate();
-							};
-
-						</script>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            地點
-                        </div>
-                        <div class="col-md-9">
-                            <input class="addAct-input form-control" required style="width: 600px;">
-                        </div>
-                    </div>
-            
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            內容
-                        </div>
-                        <div class="col-md-9">
-                            <div class="widget-post" aria-labelledby="post-header-title" style="width: 600px;">
-								<div class="widget-post__content" >
-									<div id="textarea"   class="widget-post__textarea" style="font-size: 18px;" >
-										<textarea name="content" id="post-content" class="widget-post__textarea scroller"></textarea>
-									</div> 
-								</div>
-							</div>
-                        </div>
-                    </div>  
-
-                    <div class="addAct-btn col-md-12">
-                        <button type="submit" class="btn btn-primary2 addAct-btn">
-                            送出
-                        </button>
-                    </div>   
+						<h2>HOW健康</h2>
+						<p>我們是How Health，不知道如何報名人生第一場賽事嗎？找不到愛運動的同好？別擔心，現在只要加入會員，就可以與我們一起打造健康生活！</p>
+						<img src="img/6.jpg" alt="image post" class="img-post" >
+					 </div>
+					 
+					</br>
+					<div class="deleteAct-btn col-md-12">
+						<input type="button" value="返回" class="btn btn-primary2 deletePost-btn" onclick="history.back()">
+						<button type="submit" class="btn btn-primary2 deletePost-btn">
+							刪除
+						</button>
+					</div> 
                 </form>
             </div>
 		</div>
