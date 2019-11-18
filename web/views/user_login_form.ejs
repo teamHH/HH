@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>How Healthy</title>
+	<link rel="icon" href="/img/2.png" type="/image/x-icon">
+
+	<meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+	<link href="/css/register.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="user">
+            <header class="user__header">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+                <h1 class="user__title">登入 Login</h1>
+            </header>
+
+            <form class="form validate-form myForm" action = "/user/login" method = "post">                
+                <div class="form__group validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input type="email" placeholder="Email" class="form__input input100" name="id"/>
+                </div>
+                
+                <div class="form__group validate-input" data-validate = "Password is required">
+                    <input type="password" placeholder="密碼" class="form__input input100" name="password"/>
+                </div>
+                
+                <button class="btn" type="submit">登入</button>
+            </form>
+        </div>
+
+        <div class="text-center p-t-20">
+            <a class="txt2" href="/user/add/form">
+                創建帳號
+            </a>
+
+            <span class="txt1">
+                /
+            </span>
+
+            <a class="txt2" href="/manager_login_form">
+                管理者登入
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- footer -->
+	<footer>
+        <div class="container-fluid">
+            <p class="copyright">&copy; NTUB IMD  108506. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- end footer -->
+        
+    <!-- back to top -->
+    <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
+    <!-- end back to top -->
+        
+        
+    <!-- jQuery -->
+    <script src="/js/jquery-2.1.1.js"></script>
+    <!--  plugins -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/animated-headline.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+        
+        
+    <script src="/js/custom.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Basic-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>How Healthy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--Load Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+    <link href="/css/navbar.css" rel="stylesheet">
+    <link href="/css/editBio.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
+
+	<link rel="shortcut icon" href="/img/2.png">
+	
+		
+	<!-- include libraries(jQuery, bootstrap) -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+		
+</head>
+
+<body>
+    <div class="container-fluid">
+    	<nav>
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<!-- Modal content -->	
+			</div>
+            <section id="aa-menu-area">
+					<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
+							<div class="col-md-2">
+								<ul id="top-menu" class="nav navbar-nav aa-main-nav">
+									<!--<li class="active"><a href="index.html">HOME</a></li>-->
+									<li class="dropdown nav-item">
+										<div class="box-logo">
+											<!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
+											<a href="/homepage" class="logo">HH</a>
+										</div>
+									</li>
+								</ul> 
+							</div>
+			
+							<div class="col-md-10 right">
+								<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
+									<li class="dropdown" >
+										<a class="dropdown-toggle">
+											<form class="form-inline" action="/search" method="GET">
+												<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入文章關鍵字搜尋"> 
+												<button class="btn btn-primary2" type="submit">
+													搜尋
+												</button>
+											</form>     
+										</a>
+									</li>
+		
+									<li class="dropdown" >
+										<a class="dropdown-toggle">
+											<form class="form-inline" action="/searchList" method="GET">
+												<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入關鍵字搜尋好友"> 
+												<button class="btn btn-primary2" type="submit">
+													搜尋
+												</button>
+											</form>     
+										</a>
+									</li>
+										
+									<li class="dropdown">
+										<a class="dropdown-toggle" href="/totPost">
+											<i class="far fa-newspaper" style="font-size:30px;"></i>
+										</a>
+									</li>  
+		
+									<li class="dropdown">
+										<a class="dropdown-toggle" href="/joinActivity">
+											<i class="material-icons icon-align" style="font-size:35px;">event</i>
+										</a>
+									</li>   
+		
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
+											<span class="badge"><%= results.count.total %></span>
+										</a>
+										<ul class="dropdown-menu dropdown-menu-right" role="menu">    
+											<% for(var i=0; i<results.notice.length; i++) {%>      
+											<li class="notific">
+												<div class="media mb-4">
+													<img class=" mr-3 rounded-circle" src="/user/<%= results.notice[i].img %>" alt="">
+													<div class="media-body">
+														<a href="/postone/<%= results.notice[i].postno %>"><h4 class="mt-0 name"><%= results.notice[i].displayname %></h4><p><%= results.notice[i].content %></p></a>
+													</div>
+												</div>
+											</li>
+											<% } %>                       
+										</ul>
+									</li>
+										
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fas fa-user-friends" aria-hidden="true" style="font-size: 30px;"></i>	
+											<span class="badge"><%= results.total.total %></span>
+										</a>
+										<ul class="dropdown-menu dropdown-menu-right" role="menu">
+											<% for(var i=0; i<results.invite.length; i++) {%>
+											<li class="notific2">
+												<div class="media mb-4">
+													<img class=" mr-3 rounded-circle" src="/user/<%= results.invite[i].img %>" alt="">
+													<div class="media-body" >
+														<h4 class="mt-0 name"><a href="/friend_judge/<%= results.invite[i].memno %>"><%= results.invite[i].displayname %></a></h4>
+														<p>向您寄出了交友邀請</p>
+													</div>
+													<div class="media-body">
+														<div id="button-block">
+														 <table>
+														  <tr>
+														   <td>
+															<form action="/friend_add" method="post" >
+															 <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
+															 <button id="confirm">確認</button>
+															</form>
+														   </td>
+														   <td>
+															<form action="invite_delete" method="post" >
+															 <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
+															 <button id="delete">刪除</button>
+															</form>
+														   </td>
+														  </tr>
+														 </table>             
+														</div>
+														<div class="clear"></div>
+													   </div>
+												</div>
+											</li> 
+											<% } %>           
+										</ul>
+									</li>
+		
+									<li class="dropdown">
+										<a class="dropdown-toggle" href="/personal_profile">
+											<i class="fas fa-user" style="font-size:30px;"></i>
+										</a>
+									</li>  
+		
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+										</a>
+										<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
+											<li>
+												<a href="/confirmPassword" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
+													<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
+												</a>  
+											</li>    
+											<li><a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
+										</ul>
+									</li>
+								</ul>
+							</div>
+					</div><!--/.nav-collapse --> 
+            </section>
+        </nav>
+		<!-- end nav -->
+
+
+        <div>
+            <form class="editBio" action="/user/update" method="POST" enctype="multipart/form-data">
+                <div class="col-md-6">
+                    <div class="avatar-wrapper">
+                        <img class="profile-pic img-circle img-user" src="/user/<%= results.img %>" />
+                        <div class="upload-button">
+                            <i class="fas fa-camera" aria-hidden="true"></i>
+                        </div>
+                        <input class="file-upload" type="file" accept="image/*" name="img" />
+                    </div>
+				</div>
+				
+                <div class="col-md-6">
+                    <div class="title">
+                        編輯個人資料
+                    </div>
+                    
+                    <div>
+                        <h4>使用者名稱 (最多10字)</h4>
+                        <input class="inputBio" placeholder="使用者名稱" maxlength="10" name="displayname" value="<%= results.displayname %>">
+
+                        <h4>個人敘述 (最多20字)</h4>
+                        <input class="inputBio" placeholder="個人敘述" maxlength="20" name="introduction" value="<%= results.introduction %>">
+                        
+                        <h4>生日</h4>
+                        <input class="inputBio" placeholder="生日" type="date" name="birthday" value="<%= results.birthday %>">
+                    </div>
+                    
+                    <button class="btn btn-primary2" id="editBio" type="submit" onload="getDate()">
+                        送出
+                    </button>
+
+                    <script>
+                        function getDate(){
+                            var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth()+1; //January is 0!
+                            var yyyy = today.getFullYear();
+
+                            if(dd<10) {
+                                dd = '0'+dd;
+                            } 
+
+                            if(mm<10) {
+                                mm = '0'+mm;
+                            } 
+
+                            today = yyyy + '/' + mm + '/' + dd;
+                            console.log(today);
+                            document.getElementById("date").value = today;
+                        }
+
+                        window.onload = function() {
+                            getDate();
+                        };
+
+                    </script>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+    <!-- jQuery -->
+ 	<script src="/js/scripts.js" type="text/javascript"></script>
+ 	<script src="/js/profilePic.js" type="text/javascript"></script>
+ 	<!--  plugins -->
+ 	<script src="js/bootstrap.min.js"></script>
+	
+ 	<!--  custom script -->
+ 	<script src="js/custom.js"></script>
+</body>
+
+</html>

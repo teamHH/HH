@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>How Healthy</title>
+    <link rel="icon" href="img/2.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- main css -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/navbar.css" rel="stylesheet">
+    <!--google icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- modernizr -->
+    <script src="/js/modernizr.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- nav -->
+		<nav>
+			<!-- The Modal -->
+            <section id="aa-menu-area">
+                <div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
+                    <div class="col-md-2">
+                        <ul id="top-menu" class="nav navbar-nav aa-main-nav">
+                            <!--<li class="active"><a href="index.html">HOME</a></li>-->
+                            <li class="dropdown nav-item">
+                                <div class="box-logo">
+                                    <!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
+                                    <a href="/homepage" class="logo">HH</a>
+                                </div>
+                            </li>
+                        </ul> 
+                    </div>
+    
+                    <div class="col-md-10 right">
+                        <ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
+                            <li class="dropdown" >
+                                <a class="dropdown-toggle">
+                                    <form class="form-inline" action="/searchM" method="GET">
+                                        <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入文章關鍵字搜尋"> 
+                                        <button class="btn btn-primary2" type="submit">
+                                            搜尋
+                                        </button>
+                                    </form>     
+                                </a>
+                            </li>
+
+                            <li class="dropdown" >
+                                <a class="dropdown-toggle">
+                                    <form class="form-inline" action="/searchList" method="GET">
+                                        <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入關鍵字搜尋好友"> 
+                                        <button class="btn btn-primary2" type="submit">
+                                            搜尋
+                                        </button>
+                                    </form>     
+                                </a>
+                            </li>
+                                
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="/totPost2">
+                                    <i class="far fa-newspaper" style="font-size:30px;"></i>
+                                </a>
+                            </li>  
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="/joinActivity2">
+                                    <i class="material-icons icon-align" style="font-size:35px;">event</i>
+                                </a>
+                            </li>   
+
+                            
+                        
+
+                            <li class="dropdown">
+		        				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				    				<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+								</a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
+                                    <li><a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--/.nav-collapse --> 
+            </section>
+        </nav>
+        <!-- end nav -->
+
+        
+
+
+        <!-- box-intro -->
+        <section class="box-intro">
+            <div class="table-cell">
+                <h1 class="box-headline letters rotate-2">
+                    <!--
+                        <span class="box-words-wrapper">
+                        <b class="is-visible">HOW HEALTHY</b>
+                        <b>&nbsp;108506.</b>
+                        <b>graphic.</b>
+                    </span>
+                    -->
+                    <b class="is-visible typewrite" data-period="3000" data-type='["HOW HEALTHY", "108506"]'>
+                        <span class="wrap"></span>
+                    </b> 
+                </h1>
+                </br>
+                <h5>Exercise Your Mind And Body.</h5>
+            </div>
+
+            <div class="mouse">
+                <div class="scroll"></div>
+            </div>
+        </section>
+        <!-- end box-intro -->
+    </div>
+
+    <!-- Latest property -->
+    
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">&copy; NTUB IMD  108506. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- back to top -->
+    <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
+    <!-- end back to top -->
+
+
+
+    <!-- jQuery -->
+    <script src="/js/jquery-2.1.1.js"></script>
+    <!--  plugins -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/animated-headline.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+
+
+    <!--  custom script -->
+    <script src="/js/custom.js"></script>
+    <script src="/js/scripts.js"></script>
+
+    </body>
+</html>
