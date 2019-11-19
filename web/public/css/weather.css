@@ -1,0 +1,202 @@
+#main-panel {
+    text-align: center;
+}
+
+#main-icon {
+    width: 130px;
+    padding-top: 10px;
+}
+
+#middle-col {
+    padding-top: 10px;
+}
+
+#location {
+    font-size: 35px;
+    font-weight: 600;
+    font-family: 'Poppins','Noto Sans TC', sans-serif;
+}
+
+#date {
+    margin-top: -22px;
+    font-size: 15px;
+}
+
+#summary {
+    font-style: italic;
+}
+
+.main-deg {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+/* Change Degree Button */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+/* C and F inside toggle button */
+.switch p {
+    text-align: center;
+    padding-top: 4px;
+    padding-right: 1px;
+    letter-spacing: 1px;
+    color: #AEAEAE;
+    font-size: 14px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px 0px 4px -1px inset;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 6px;
+    bottom: 4px;
+    background-color: #ffbf00;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 30px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.main-info {
+    margin-left: 4px;
+    font-family: 'Poppins','Noto Sans TC', sans-serif;
+    font-weight: 400;
+}
+
+#main-details {
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Poppins','Noto Sans TC', sans-serif;
+    padding-top: 55px;
+    font-weight: 600;
+}
+
+#main-details img {
+    width: 20px;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.weather h5{
+    /*color: #fe7d67;*/
+    color: #ffbf00;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.hourly-panel .col-2:nth-child(1n+2) {
+    border-left: 1px solid #EDEDED;
+}
+
+.hourly-panel {
+    text-align: center;
+}
+
+#hourly-icon-0, #hourly-icon-1, #hourly-icon-2, #hourly-icon-3, #hourly-icon-4, #hourly-icon-5 {
+    width: 32px;
+}
+
+.hourly-degree {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.hours {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.days {
+    margin-bottom: 20px;
+}
+
+.daily-degree {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.daily-panel .col-2:nth-child(1n+2) {
+    border-left: 1px solid #EDEDED;
+}
+
+.daily-panel {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#daily-icon-0, #daily-icon-1, #daily-icon-2, #daily-icon-3, #daily-icon-4, #daily-icon-5 {
+    width: 32px;
+}
+
+@media only screen and (max-width: 768px) {
+    #location {
+        font-size: 24px;
+    }
+    
+    #main-icon {
+        width: 110px;
+        padding-top: 30px;
+    }
+    
+    .main-deg {
+        font-size: 30px;
+    }
+    
+    #main-details {
+        padding-top: 35px;
+        font-size: 16px;
+    }
+    
+    #hourly-icon-0, #hourly-icon-1, #hourly-icon-2, #hourly-icon-3, #hourly-icon-4, #hourly-icon-5 {
+        width: 25px;
+    }
+    
+    #daily-icon-0, #daily-icon-1, #daily-icon-2, #daily-icon-3, #daily-icon-4, #daily-icon-5 {
+        width: 25px;
+    }
+    
+    .daily-panel {
+        margin-bottom: 40px;
+    }
+}

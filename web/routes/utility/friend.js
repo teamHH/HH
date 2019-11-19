@@ -158,6 +158,73 @@ var query2 = async function(memno,memno2,invitedmemno,invitedmemno2,postmemno,po
     
     return results;
 }
+<<<<<<< HEAD
+=======
+var query3 = async function(memno,memno_1,memno_2,memno2,memno3,memno4,memno5){
+    var results={};
+    await sql('SELECT * FROM member where memno=$1',[memno])
+        .then((data) => {
+            results.member = data.rows[0];  
+        }, (error) => {
+            results.member = [];
+    });
+     await sql('SELECT * from comment_view ')
+        .then((data) => {
+            results.comment = data.rows;  
+        }, (error) => {
+            results.comemnt = [];
+        });
+    await sql('SELECT * FROM post_view where memno=$1',[memno2])
+        .then((data) => {
+            results.msg = data.rows;  
+        }, (error) => {
+            results.msg = [];
+        });
+    await sql('select * from orbit_view where memno=$1 ',[memno5])
+        .then((data) => {
+            results.orbit = data.rows;  
+        }, (error) => {
+            results.orbit = [];
+        });
+    await sql('SELECT * from sactivity where memno=$1 ',[memno3])
+        .then((data) => {            
+            results.cact = data.rows;  
+        }, (error) => {
+            results.cact = [];
+        });
+    await sql('SELECT a.*,b.sactivity from joinedactivity a ,sactivity b where a.sactno=b.sactno and a.memno=$1 ',[memno4])
+        .then((data) => {            
+            results.sact = data.rows;  
+        }, (error) => {
+            results.sact = [];
+        });
+    return results;
+}
+var query4 = async function(memno,memno2){   
+    var results={};
+
+    //取得會員資料
+    await sql('SELECT * FROM member where memno=$1',[memno])
+        .then((data) => {
+            results.member = data.rows[0];  
+        }, (error) => {
+            results.member = [];
+    });
+    await sql('SELECT * from comment_view ')
+        .then((data) => {
+            results.comment = data.rows;  
+        }, (error) => {
+            results.comemnt = [];
+    });
+    await sql('SELECT * FROM post_view where memno=$1',[memno2])
+        .then((data) => {
+            results.msg = data.rows;  
+        }, (error) => {
+            results.msg = [];
+    });;
+    return results;
+}
+>>>>>>> add web files
 var invite = async function(newData){
     var result;
 
@@ -209,4 +276,8 @@ var addanddelete = async function(newData,newData1,invitememno,invitedmemno){
     return result;
 }
 //匯出
+<<<<<<< HEAD
 module.exports = {judge,query,query2,invite,invitedelete,addanddelete};
+=======
+module.exports = {judge,query,query2,query3,query4,invite,invitedelete,addanddelete};
+>>>>>>> add web files

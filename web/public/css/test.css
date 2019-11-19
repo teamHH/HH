@@ -1,0 +1,97 @@
+.rating {
+  display: inline-block;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.rating .btn-secondary {
+  display: block;
+  margin: 40px auto 0px;
+  text-align: center;
+  background: #FF2D55;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  padding: 10px 17px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.rating .btn-secondary:hover {
+  transform: translateY(-3px);
+}
+
+.rating .btn-secondary .fa {
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#posts-container div div div.data-post input[type="radio"] {
+  display:none;
+}
+
+#posts-container div div div.data-post label {
+  width:23%;
+  float:left;
+  text-align:center;
+  background:#ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#222222;
+  padding:0.5%;
+  margin:0.5%;
+  margin-bottom:30px;
+  cursor:pointer;
+}
+
+#posts-container div div div.data-post input[type="radio"][id="all"]:checked + label {
+  background:#ffbf00;
+}
+
+#posts-container div div div.data-post input[type="radio"][id="tile"]:checked{
+  width:0;
+  height:0;
+  padding:0;
+  margin:0;
+  opacity:0;
+}
+
+#posts-container div div div.data-post input[type="radio"][id="sports"]:checked + label,
+#posts-container div div div.data-post input[type="radio"][id="create"]:checked + label {
+  background:#ffbf00;
+}
+
+#posts-container div div div.data-post input[type="radio"][id="sports"]:checked ~ .create,
+#posts-container div div div.data-post input[type="radio"][id="create"]:checked ~ .spont{
+  width:0;
+  height:0;
+  padding:0;
+  margin:0;
+  opacity:0;
+}
+
+#posts-container div div div.data-post .tile {
+  /*float:left;*/
+  transition:all 0.5s;
+}

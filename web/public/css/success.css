@@ -1,0 +1,41 @@
+
+/*======================
+    success page
+=======================*/
+html,
+body {
+    height: 100%;
+    font-family: 'Poppins','Noto Sans TC', sans-serif !important;
+    line-height: 1.8;
+    color: #404040;
+}
+
+.page_404{ 
+    background:#fff; 
+}
+
+.four_zero_four_bg{
+    background-image: url(https://cdn.dribbble.com/users/780129/screenshots/2351280/angelterre.gif);
+    background-repeat:no-repeat;
+    height: 400px;
+    background-position: center;
+    margin: 20px 0;
+}
+ 
+/*.content_box_404{ 
+    margin-top:-50px;
+} */
+
+.content_box_404 h3{
+    font-size:60px;
+}
+			 
+.link_404{			 
+	color: #fff!important;
+    padding: 10px 20px;
+    background: darkorange;
+    margin: 20px 0;
+    display: inline-block;
+    font-size: 18px;
+}
+

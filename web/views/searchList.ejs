@@ -144,7 +144,11 @@
 							</li>
 									
 							<li class="dropdown">
+<<<<<<< HEAD
 								<a class="dropdown-toggle" href="personal-profile.html">
+=======
+								<a class="dropdown-toggle" href="personal_profile">
+>>>>>>> add web files
 									<i class="fas fa-user" style="font-size:30px;"></i>
 								</a>
 							</li>  
@@ -175,7 +179,16 @@
             <div class="col-md-12" style="margin-bottom:15px;">
                 <ul>
                     <li>
+<<<<<<< HEAD
                         <img src="/user/<%= results.friend[i].img %>" alt="User name" class="img-circle img-user" style="width: 80px;">
+=======
+						<% if (null != results.friend[i].img){%>
+						<img src="/user/<%= results.friend[i].img %>" alt="User name" class="img-circle img-user" style="width: 100px; height:100px;">
+						<% } %>
+						<% if (null == results.friend[i].img){%>
+						<img src="/profile/avatar.svg" style="width: 100px; height:100px;">
+						<% } %>	                      
+>>>>>>> add web files
                     </li>
                     <li>
                         <a href="/friend_judge/<%= results.friend[i].memno %>"><p style="font-size: 18px;"><%= results.friend[i].displayname %></p></a>

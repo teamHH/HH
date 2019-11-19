@@ -1,35 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>登入</ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
-  <ion-img src="/assets/images/logo1-removebg-medium.png"></ion-img>
-  <ion-item>
-    <ion-col size="2">
-      <ion-label>Email</ion-label>
-    </ion-col>
-    <ion-col>
-      <ion-input type="email" [(ngModel)]="userId"></ion-input>
-    </ion-col>
-  </ion-item>
+<ion-content padding has-header="true">
+  <div class="centerContent">
+    <div class="div1" >
+      <ion-img src="/assets/images/logo1-removebg.png" class="animated bounceIn" id="yourElement"></ion-img>
+      <div>
+        <h2 class="site_title">How Healthy.</h2>
+      </div>
+      <ion-item>
+        <ion-col>
+          <ion-input placeholder="E-mail" clearInput type="email" [(ngModel)]="userId"></ion-input>
+        </ion-col>
+      </ion-item>
 
-  <ion-item>
-    <ion-col size="2">
-      <ion-label>密碼</ion-label>
-    </ion-col>
-    <ion-col>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-col>
-  </ion-item>
-  <br>
-  <div class="submit">
-    <ion-button expand="block" (click)="loadData()" >登入</ion-button>
-    <ion-button expand="block">註冊</ion-button>
-    <ion-label class="forget">
-      <a href="">忘記密碼</a>
-    </ion-label>
+      <ion-item>
+        <ion-col>
+          <ion-input placeholder="Password" clearInput type="password" [(ngModel)]="password"></ion-input>
+        </ion-col>
+      </ion-item>
+    </div>
+
+    <div class="submit">
+      <ion-button expand="round" (click)="loadData()" [disabled]="!isLoginEnabled">登入</ion-button>
+    </div>
+
   </div>
-    
 </ion-content>

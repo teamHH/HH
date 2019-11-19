@@ -53,6 +53,10 @@ var user_confirmPassword= require('./routes/user_confirmPassword');
 var forgotPassword = require('./routes/forgotPassword');
 var friend_judge = require('./routes/friend_judge');
 var friend_judge2 = require('./routes/friend_judge2');
+<<<<<<< HEAD
+=======
+var friend_judge3 = require('./routes/friend_judge3');
+>>>>>>> add web files
 var friend_add = require('./routes/friend_add');
 var friend_invite = require('./routes/friend_invite');
 var invite_delete = require('./routes/invite_delete');
@@ -71,6 +75,10 @@ var eactsearch = require('./routes/eactsearch');
 var sactsearchM = require('./routes/sactsearchM');
 var eactsearchM = require('./routes/eactsearchM');
 var searchList = require('./routes/searchList');
+<<<<<<< HEAD
+=======
+var searchList2= require('./routes/searchList2');
+>>>>>>> add web files
 var comment_delete = require('./routes/comment_delete');
 var manager_login_form = require('./routes/manager_login_form');
 var manager_login = require('./routes/manager_login');
@@ -144,6 +152,10 @@ app.use('/user_confirmPassword', user_confirmPassword);
 app.use('/forgotPassword', forgotPassword);
 app.use('/friend_judge', friend_judge);
 app.use('/friend_judge2', friend_judge2);
+<<<<<<< HEAD
+=======
+app.use('/friend_judge3', friend_judge3);
+>>>>>>> add web files
 app.use('/friend_add', friend_add);
 app.use('/friend_invite', friend_invite);
 app.use('/invite_delete', invite_delete);
@@ -162,6 +174,10 @@ app.use('/eactsearch', eactsearch);
 app.use('/sactsearchM', sactsearchM);
 app.use('/eactsearchM', eactsearchM);
 app.use('/searchList', searchList);
+<<<<<<< HEAD
+=======
+app.use('/searchList2', searchList2);
+>>>>>>> add web files
 app.use('/comment_delete', comment_delete);
 app.use('/manager_login_form', manager_login_form);
 app.use('/manager_login', manager_login);

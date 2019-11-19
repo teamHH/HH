@@ -1,3 +1,21 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="end">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>歡迎，{{userName}}!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)='home()'><ion-icon name="walk"></ion-icon>開始</ion-item>
+      <ion-item (click)='record()'><ion-icon name="heart"></ion-icon>紀錄</ion-item>
+      <ion-item (click)='weather()'><ion-icon name="partly-sunny"></ion-icon>天氣</ion-item>
+      <ion-item href="http://140.131.115.88/"><ion-icon name="open"></ion-icon>前往官網</ion-item>
+      <ion-item (click)='openEmailComposer()'><ion-icon name="mail"></ion-icon>聯絡我們</ion-item>
+      <ion-item (click)='logout()'><ion-icon name="log-out"></ion-icon>登出</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet main></ion-router-outlet>
 </ion-app>

@@ -352,7 +352,16 @@
 								<form action ="/post/add" method="POST" enctype="multipart/form-data">
 									<div class="col-xs-3 col-sm-2">
 										<a href="/personal_profile" title="Profile">
+<<<<<<< HEAD
 											<img src="/user/<%= results.member.img %>" alt="My User" class="img-circle img-user">
+=======
+											<% if (null != results.member.img){%>
+											<img src="/user/<%= results.member.img %>" alt="My User" class="img-circle img-user" style="width: 100px; height:100px; margin-left: 35%;">
+											<% } %>
+											<% if (null == results.member.img){%>
+											<img src="/profile/avatar.svg" style="width: 100px; height:100px;">
+											<% } %>
+>>>>>>> add web files
 										</a>
 									</div>
 							
@@ -413,7 +422,16 @@
 							<div class="row">
 								<div class="col-xs-3 col-sm-2">
 									<a href="/friend_judge/<%= results.posts[i].memno %>" title="Profile">
+<<<<<<< HEAD
 										<img src="/user/<%= results.posts[i].postimg %>" alt="My User" class="img-circle img-user">
+=======
+										<% if (null != results.posts[i].postimg){%>
+										<img src="/user/<%= results.posts[i].postimg %>" alt="My User" class="img-circle img-user" style="width: 100px; height:100px; margin-left: 35%;">
+										<% } %>
+										<% if (null == results.posts[i].postimg){%>
+										<img src="/profile/avatar.svg" style="width: 100px; height:100px;">
+										<% } %>	
+>>>>>>> add web files
 									</a>
 								</div>
 								<div class="col-xs-9 col-sm-10 info-user">

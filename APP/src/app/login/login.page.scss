@@ -1,19 +1,45 @@
-ion-button{
-  height: 40px;
-  --border-radius: 10px;
-}
-
-ion-title{
-  font-family: 'Noto Sans TC', sans-serif;
+ion-content{
   text-align: center;
 }
+.centerContent{
+  width: 100%;
+  height: 100%;
+  padding: 25% 0 0 0;
+}
+.div1{
+  ion-title{
+    text-align: center;
+  }
 
-ion-content{
-  --ion-font-family: 'Noto Sans TC', sans-serif;
+  ion-img{
+    width: 70%;
+    max-width: 350px;
+    margin: auto;
+  }
+
 }
 
 .submit{
+  padding-top: 10%;
   text-align: center;
-  font-size: 80%;
-  margin: auto;
+  ion-button{
+    height: 40px;
+    width: 50%;
+  }
 }
+
+#yourElement {
+  animation-duration: 3s;
+  //animation-delay: 2s;
+  //animation-iteration-count: infinite;
+}
+
+.site_title {
+  color: #f35626;
+  background-image: linear-gradient(92deg, #f35626 0%,#feab3a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hue 60s infinite linear;
+}
+

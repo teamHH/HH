@@ -77,13 +77,21 @@
                             </li>
 								
 							<li class="dropdown">
+<<<<<<< HEAD
 								<a class="dropdown-toggle" href="/totPost.html">
+=======
+								<a class="dropdown-toggle" href="/totPost">
+>>>>>>> add web files
 									<i class="far fa-newspaper" style="font-size:30px;"></i>
 								</a>
 							</li>  
 
 							<li class="dropdown">
+<<<<<<< HEAD
 								<a class="dropdown-toggle" href="/joinActivity.html">
+=======
+								<a class="dropdown-toggle" href="/joinActivity">
+>>>>>>> add web files
 									<i class="material-icons icon-align" style="font-size:35px;">event</i>
 								</a>
 							</li>   
@@ -180,7 +188,11 @@
 			</div>		
 
 			</br>
+<<<<<<< HEAD
 			<h2 class="text-center hidden-xs"><a href="profile-friend.html" title="Profile"><%= results.member.displayname %></a></h2>
+=======
+			<h2 class="text-center hidden-xs"><a href="profile_friend" title="Profile"><%= results.member.displayname %></a></h2>
+>>>>>>> add web files
 
 			<p class="text-center user-description hidden-xs">
 				<i><%= results.member.introduction %></i>
@@ -219,7 +231,16 @@
 								<div class="row">
 									<div class="col-xs-3 col-sm-2">
 										<a href="/friend_judge/<%= results.msg[i].memno %>" title="Profile">
+<<<<<<< HEAD
 											<img src="/user/<%= results.msg[i].postimg %>" alt="My User" class="img-circle img-user">
+=======
+											<% if (null != results.msg[i].postimg){%>
+											<img src="/user/<%= results.msg[i].postimg %>" alt="My User" class="img-circle img-user" style="width: 100px; height:100px; margin-left: 35%;">
+											<% } %>
+											<% if (null == results.msg[i].postimg){%>
+											<img src="/profile/avatar.svg" style="width: 100px; height:100px;">
+											<% } %>	
+>>>>>>> add web files
 										</a>
 									</div>
 									<div class="col-xs-9 col-sm-10 info-user">
@@ -365,7 +386,11 @@
 
 									<div class="col-md-12">
 										<div class="col-md-4">
+<<<<<<< HEAD
 											<div class="col-md-12 distanceData"><%= results.orbit[i].sportdistance %></div>
+=======
+											<div class="col-md-12 distanceData"><%= results.orbit[i].distance %></div>
+>>>>>>> add web files
 											<div class="col-md-12 distance">km</div>
 										</div>
 										<div class="col-md-4">

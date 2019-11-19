@@ -1,9 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-//import { Http, URLSearchParams } from '@angular/http';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Observable, BehaviorSubject, of } from "rxjs";
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { map, filter, catchError, mergeMap, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
@@ -17,51 +14,77 @@ export class LoginPage implements OnInit {
   password: string;
   returnCode: any;
   theTodo: any;
+  isLoginEnabled: boolean= true;
 
-  constructor(public http: HttpClient, public alertController: AlertController, private router: Router, private storage: Storage) {
+  constructor(public http: HttpClient, 
+    public alertController: AlertController, 
+    private router: Router, 
+    private storage: Storage) {
   }
 
   ngOnInit() {
+    this.storage.get('userId').then((val) => {
+      this.userId = val;
+      if(this.userId != null){
+        this.router.navigate(['home']);
+      }else{
+        console.log(456);
+      }
+    });
   }
 
-  
+  animateCSS(element, animationName, callback) {
+    const node = document.querySelector(element)
+    node.classList.add('animated', animationName)
+
+    function handleAnimationEnd() {
+        node.classList.remove('animated', animationName)
+        node.removeEventListener('animationend', handleAnimationEnd)
+
+        if (typeof callback === 'function') callback()
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd)
+  }
 
   //----------------------------------
-  // 讀取主機資料
+  // 跟主機確認帳號密碼
   //---------------------------------- 
   loadData(){
-    // 傳給主機的參數
-    console.log(this.userId, this.password);
-
-    this.http.post("http://140.131.115.88:80/mobile_login", {"userId":  this.userId, "password":  this.password})
-    .subscribe((data)  => {
-      console.log("Login successful ", data);
-      if(data == "0"){
-        this.showConfirm();
-        this.storage.set('userId', this.userId);
-        this.storage.set('password', this.password);
-      }else{
-        this.showNotFound();
+    //禁止點擊登入Button
+    this.isLoginEnabled = false;
+    this.storage.clear();
+    setTimeout(async ()=>{
+      await this.http.post("http://140.131.115.88:80/mobile_login", {"userId":  this.userId, "password":  this.password})
+      .subscribe((data)  => {
+        console.log("Login successful ", data);
+        if(data != '1'){
+          this.showConfirm();
+          this.router.navigate(['/home']);
+          this.isLoginEnabled = true;
+          this.storage.set('userId', this.userId);
+          this.storage.set('password', this.password);
+          this.storage.set('userName', data);
+          console.log(this.storage);
+        }else{
+          this.showNotFound();
+          this.isLoginEnabled = true;
+        }
+      },
+      (err)  => {
+        console.log("Error", err);
+        this.showAlert(err);
+        this.isLoginEnabled = true;
       }
-    },
-    (err)  => {
-      console.log("Error", err);
-      this.showAlert(err);
-    }
-    );
+      );
+    },1000);
   }
 
   async showConfirm(){
     let alert = await this.alertController.create({
       header: '登入成功!',
       subHeader: '歡迎使用How Heathly',
-      buttons: [
-        {
-          text: 'OK', 
-          handler: () => {
-            this.router.navigate(['/start/:id'])
-        }}
-      ]
+      buttons: ['OK']
     });
     await alert.present();
   }
@@ -90,5 +113,5 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
-  //----------------------------------    
+  //----------------------------------  
 }

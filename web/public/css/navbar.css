@@ -1,0 +1,251 @@
+/*==================
+ NAVBAR SECTION
+====================*/
+#aa-menu-area {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    z-index: 999 !important;
+    display: block;
+    font-family: 'Poppins','Noto Sans TC', sans-serif !important;
+}
+
+#aa-menu-area .navbar-nav {
+    background-color: #fff;
+    border: medium none;
+    border-radius: 0;
+}
+
+#aa-menu-area .main-navbar .navbar-header .aa-logo {
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    padding: 15px;
+    line-height: 13px;
+}
+
+#aa-menu-area .navbar-collapse .right{
+    margin-left: auto;
+}
+
+.box-logo .logo{
+    /* color: -webkit-linear-gradient(left top,yellow,red);
+    color: -o-linear-gradient(bottom right,yellow,red);
+    color: -moz-linear-gradient(bottom right,yellow,red);
+    color: linear-gradient(to bottom right,yellow,red);
+    */
+
+    /* font-family: 'Akronim', cursive;*/
+    font-family: 'Lobster', cursive;
+    font-size: 35px;
+    line-height: 30px;
+    font-weight: 600;
+    background: -webkit-linear-gradient(top right,#ffbf00 0,#ee6363 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 10px;
+}
+
+/*
+#aa-menu-area .main-navbar .navbar-header .aa-logo-img {
+    border: none;
+    height: 60px;
+    width: 235px;
+}
+
+#aa-menu-area .main-navbar .navbar-header .aa-logo-img img {
+    width: 100%;
+    height: 100%;
+}
+*/
+
+.badge {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    padding: 4px 6px;
+    background: gray;
+    color: white;
+}
+
+#aa-menu-area .navbar-nav li a {
+    color: #fff;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#aa-menu-area .navbar-nav .active a {
+    background-color: #fff;
+}
+
+#aa-menu-area .navbar-nav .open a {
+    background-color: #fff;
+}
+  
+#aa-menu-area .navbar-nav .dropdown-menu {
+    border: none;
+    /* border-radius: 5%; 我覺得不好看*/
+    margin-top: 5px;
+}
+
+#aa-menu-area .navbar-nav .dropdown-menu li a {
+    color: #555;
+    padding: 8px 10px;
+}
+
+@media (max-width: 991px) {
+  #aa-menu-area .col-md-8 .navbar-nav li a {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+#aa-menu-area .navbar-fixed-top {
+    background-color: #FFF;
+    /*background-color: rgba(255, 191, 0, 0.06);*/
+    padding: 0 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#aa-menu-area .navbar-fixed-top .navbar-header .aa-logo {
+    border: 2px solid #888;
+    color: #555;
+}
+
+#aa-menu-area .navbar-fixed-top .navbar-nav li a {
+    color: #555;
+}
+
+#aa-menu-area .navbar-fixed-top .navbar-nav li a.dropdown-toggle{
+    color:#ffbf00;
+    font-size:18px;
+    line-height: 25px;
+}
+
+#aa-menu-area .navbar-fixed-top .navbar-nav li.dropdown a.dropdown-toggle:hover {
+    text-decoration: none;
+    background: #fff;
+    color:  darkorange;
+}
+
+.dropdown-toggle:focus{
+    color: #ffbf00;
+}
+
+.dropdown .dropdown-menu{
+    font-size: 15px;
+}
+
+.dropdown-menu .member{
+    text-align: center;
+}
+
+.dropdown .dropdown-menu .notific{
+    width: 300px;
+    margin:5px 15px;
+    margin-bottom: 0;
+    border-bottom :0.5px dashed #999;
+}
+
+.dropdown .dropdown-menu .notific2{
+    width: 350px;
+    margin:5px 15px;
+    margin-bottom: 0;
+    border-bottom :0.5px dashed #999;
+}
+
+.icon-align{
+    vertical-align: text-bottom;
+}
+
+.right ul{
+    float: right;
+    text-align: right;
+}
+
+.right ul li{
+    text-align: left;
+}
+
+.media {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.media-body {
+    -ms-flex: 1;
+    flex: 1;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.rounded-circle {
+    width: 54px;
+	float: left;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+    -khtml-border-radius: 100%;
+    margin: 5px 0 5px 0;
+}
+
+.media-body .name{
+    font-size: 16px;
+    font-weight: 550;
+    margin: 10px 0 3px 0;
+}
+
+.media-body .name a{
+    padding: 0;
+    margin: 0;
+    margin-left: -10px;
+}
+
+.media-body p{
+    font-size: 13px;
+}
+
+#button-block{
+    float: right;
+}
+
+#button-block form button{
+    display:inline-block;
+}
+
+#confirm, #delete{
+    background-color:#ffbf00;
+    color:white;
+    padding:7px;
+    border-radius:4px;
+    margin: 10px 10px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#delete{
+    color:#222;
+    background-color:#bbb;
+    border:1px solid #999;
+    padding:6px;
+    margin-right:0;
+}
+
+#button-block form button:hover{
+    opacity:.8;
+    cursor:pointer;
+}
+
+
+
