@@ -1,0 +1,89 @@
+<ion-header transparent>
+  <ion-toolbar>
+    <ion-buttons slot="start">  
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      天氣
+    </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content class="ion-padding" id='content'>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="放開手指將更新紀錄"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="weatherResult" class='nowWeather'>
+    <ion-row id='background_1'>
+      <ion-col size="6" class='wrapper'>
+        <p>
+          <ion-img src="{{ iconPath }}"></ion-img>
+        </p>
+        <p class='summary'>{{ currentWeather.summary }}</p>
+        <p>{{ temperature }}°C</p>
+      </ion-col>
+      <ion-col size="6" class='wrapper2'>
+        <ion-img src="https://image.ibb.co/mjFJFF/thermometer_icon.png"></ion-img>
+          <p>體感溫度: {{ apparentTemperature }} °C</p>
+          <br>
+
+          <ion-img src="https://image.ibb.co/nPUCaF/humidity.png"></ion-img>
+          <p>濕度: {{ humidity }} %</p>
+          <br>
+
+          <ion-img src="https://image.ibb.co/f9Oihv/rain_drop.png"></ion-img>
+          <p>降雨機率: {{ precipProbability }} %</p>
+          <br>
+
+          <ion-img src="https://image.ibb.co/d24pNv/wind_icon.png"></ion-img>
+          <p>風速: {{ windSpeed }} km/h</p>
+          <br>
+          
+          <ion-img src="https://i.ibb.co/QPHf84X/sun.png"></ion-img>
+          <p>紫外線指數: {{ currentWeather.uvIndex }}</p>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='wrapper_row_2'>
+          <p>所在位置: {{ weatherData.timezone }}</p>
+          <p>更新時間: {{ dateTime }}</p>
+        </ion-col>
+      </ion-row>
+  </div> 
+
+  <h3 id='h3'>今日</h3>
+  <div class='wrapper_hour' id='background_2'>
+    <div *ngFor="let todayWeather of todayWeathers" class='hourWeather'>
+      <ion-col>
+        <p>{{ todayWeather.temperature }}°C</p>
+        <p>
+          <ion-img src="{{ todayWeather.iconPath }}"></ion-img>
+        </p>
+        <p>{{ todayWeather.dateTime }}</p>
+      </ion-col>
+    </div>
+  </div>
+
+  <h3 id='h3_2'>一週天氣</h3>
+  <div class='wrapper_week' id='background_3'>
+    <div *ngFor="let weekWeather of weekWeathers" class='futureWeather'>
+      <ion-col>
+        <p>{{ weekWeather.dateTime }}</p>
+        <p>
+          <ion-img src="{{ weekWeather.iconPath }}"></ion-img>
+        </p>
+        <p>{{ weekWeather.temperatureHigh }}°C</p>
+        <p>{{ weekWeather.temperatureLow }}°C</p>
+      </ion-col>
+    </div>
+  </div>
+  <p class='source' id='p'>照片取自Gratisography/Pixabay/Photock</p>
+  
+  
+</ion-content>

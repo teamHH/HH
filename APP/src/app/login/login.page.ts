@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
@@ -54,8 +54,17 @@ export class LoginPage implements OnInit {
     //禁止點擊登入Button
     this.isLoginEnabled = false;
     this.storage.clear();
+    
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+    let options = {
+      headers: headers
+    }
+
     setTimeout(async ()=>{
-      await this.http.post("http://140.131.115.88:80/mobile_login", {"userId":  this.userId, "password":  this.password})
+      await this.http.post("http://140.131.115.88:80/mobile_login", {"userId":  this.userId, "password":  this.password}, options)
       .subscribe((data)  => {
         console.log("Login successful ", data);
         if(data != '1'){
