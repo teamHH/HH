@@ -11,13 +11,13 @@ router.get('/:memno2', function(req, res, next) {
     var memno3=req.params.memno2;
     var memno4=req.params.memno2;
     var memno5=req.params.memno2;
-    var memno_1=req.session.memno;
-    var memno_2=req.params.memno2;
     var invitedmemno=req.session.memno;
     var invitedmemno2=req.session.memno;
     var postmemno=req.session.memno;
     var postmemno2=req.session.memno;
-    friend.query(memno,memno_1,memno_2,memno2,memno3,memno4,memno5,invitedmemno,invitedmemno2,postmemno,postmemno2).then(data => {
+    var memno10=req.session.memno;
+    var memno15=req.session.memno;
+    friend.query(memno,memno2,memno3,memno4,memno5,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno15).then(data => {
         if (data==null){
             res.render('error');  //導向錯誤頁面
         }else {
@@ -89,7 +89,6 @@ router.get('/:memno2', function(req, res, next) {
                 }
                 data.orbit[i].sportstarttime=moment(data.orbit[i].sportstarttime).format("YYYY-MM-DD hh:mm:ss a");
                 data.orbit[i].sportendtime=moment(data.orbit[i].sportendtime).format("YYYY-MM-DD hh:mm:ss a");
-                console.log(data.orbit[i].sportendtime);
             }
             res.render('personal_friend', {results:data});  //將資料傳給顯示頁面
         }

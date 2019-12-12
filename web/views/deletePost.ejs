@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 	<meta name="description" content="Source code generated using layoutit.com">
 	<meta name="author" content="LayoutIt!">
 
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/ionicons/css/ionicons.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
     <link href="/css/navbar.css" rel="stylesheet">
@@ -30,149 +29,140 @@
 </head>
 
 <body style="background-color: #fed149;">
-    <div class="container-fluid">
-        <!-- nav -->
-		<nav>
-			<!-- The Modal -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->	
-			</div>
-            <section id="aa-menu-area">
-					<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
-							<div class="col-md-2">
-								<ul id="top-menu" class="nav navbar-nav aa-main-nav">
-									<!--<li class="active"><a href="index.html">HOME</a></li>-->
-									<li class="dropdown nav-item">
-										<div class="box-logo">
-											<!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
-											<a href="/homepage" class="logo">HH</a>
-										</div>
-									</li>
-								</ul> 
-							</div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand" href="/homepage">HH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+					<a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
 			
-							<div class="col-md-10 right">
-								<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
-									<li class="dropdown" >
-										<a class="dropdown-toggle">
-											<form class="form-inline" action="/search" method="GET">
-												<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入文章關鍵字搜尋"> 
-												<button class="btn btn-primary2" type="submit">
-													搜尋
-												</button>
-											</form>     
-										</a>
-									</li>
-		
-									<li class="dropdown" >
-										<a class="dropdown-toggle">
-											<form class="form-inline" action="/searchList" method="GET">
-												<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入關鍵字搜尋好友"> 
-												<button class="btn btn-primary2" type="submit">
-													搜尋
-												</button>
-											</form>     
-										</a>
-									</li>
-										
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="/totPost">
-											<i class="far fa-newspaper" style="font-size:30px;"></i>
-										</a>
-									</li>  
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="/joinActivity">
-											<i class="material-icons icon-align" style="font-size:35px;">event</i>
-										</a>
-									</li>   
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
-											<span class="badge"><%= results.count.total %></span>
-										</a>
-										<ul class="dropdown-menu dropdown-menu-right" role="menu">    
-											<% for(var i=0; i<results.notice.length; i++) {%>      
-											<li class="notific">
-												<div class="media mb-4">
-													<img class=" mr-3 rounded-circle" src="/user/<%= results.notice[i].img %>" alt="">
-													<div class="media-body">
-														<a href="/postone/<%= results.notice[i].postno %>"><h4 class="mt-0 name"><%= results.notice[i].displayname %></h4><p><%= results.notice[i].content %></p></a>
-													</div>
-												</div>
-											</li>
-											<% } %>                       
-										</ul>
-									</li>
-										
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fas fa-user-friends" aria-hidden="true" style="font-size: 30px;"></i>	
-											<span class="badge"><%= results.total.total %></span>
-										</a>
-										<ul class="dropdown-menu dropdown-menu-right" role="menu">
-											<% for(var i=0; i<results.invite.length; i++) {%>
-											<li class="notific2">
-												<div class="media mb-4">
-													<img class=" mr-3 rounded-circle" src="/user/<%= results.invite[i].img %>" alt="">
-													<div class="media-body" >
-														<h4 class="mt-0 name"><a href="/friend_judge/<%= results.invite[i].memno %>"><%= results.invite[i].displayname %></a></h4>
-														<p>向您寄出了交友邀請</p>
-													</div>
-													<div class="media-body">
-														<div id="button-block">
-														 <table>
-														  <tr>
-														   <td>
-															<form action="/friend_add" method="post" >
-															 <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
-															 <button id="confirm">確認</button>
-															</form>
-														   </td>
-														   <td>
-															<form action="invite_delete" method="post" >
-															 <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
-															 <button id="delete">刪除</button>
-															</form>
-														   </td>
-														  </tr>
-														 </table>             
-														</div>
-														<div class="clear"></div>
-													   </div>
-												</div>
-											</li> 
-											<% } %>           
-										</ul>
-									</li>
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="/personal_profile">
-											<i class="fas fa-user" style="font-size:30px;"></i>
-										</a>
-									</li>  
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
-										</a>
-										<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
-											<li>
-												<a href="/confirmPassword" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
-													<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
-												</a>  
-											</li>    
-											<li><a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
-										</ul>
-									</li>
-								</ul>
+
+			<ul class="navbar-nav ml-md-auto">
+				<form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+					<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="輸入關鍵字搜尋文章">
+					<button class="btn btn-primary2 my-2 my-sm-0" type="submit" style="margin: auto 10px auto 3px;">搜尋</button>
+				</form>
+
+				<form class="form-inline my-2 my-lg-0" action="/searchList" method="GET">
+                    <input class="form-control mr-sm-2" type="text" name="keyword"  placeholder="輸入關鍵字搜尋好友">
+					<button class="btn btn-primary2 my-2 my-sm-0" type="submit" style="margin: auto 10px auto 3px;">搜尋</button>
+				</form>
+
+				<li class="nav-item">
+                    <a class="nav-link" href="/totPost">
+						<i class="far fa-newspaper" style="font-size:30px;"></i>
+					</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/joinActivity">
+						<i class="material-icons icon-align" style="font-size:35px;">event</i>
+					</a>
+                </li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
+						<span class="badge badge-pill badge-dark"><%= results.count.total %></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 350px;">
+                        <% for(var i=0; i<results.notice.length; i++) {%>     
+                        <a class="dropdown-item" href="/postone/<%= results.notice[i].postno %>">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-4" style="margin: 0;">
+                                        <img src="/user/<%= results.notice[i].img %>" class="rounded-circle" style="margin-right:5%;"/>
+                                    </div>
+									<div class="col-md-8" style="float: right;">
+										<dl>
+											<dt><%= results.notice[i].displayname %></dt>
+											<dd><%= results.notice[i].content %></dd>
+										</dl>
+									</div>
+								</div>
 							</div>
-					</div><!--/.nav-collapse --> 
-            </section>
-        </nav>
-		<!-- end nav -->
-    </div>
+                        </a>
+                        <% } %>
+						<div class="dropdown-divider"></div> 
+					</div>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+						<i class="fas fa-user-friends" aria-hidden="true" style="font-size: 30px;"></i>
+						<span class="badge badge-pill badge-dark"><%= results.total.total %></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 350px;">
+                        <% for(var i=0; i<results.invite.length; i++) {%>
+                        <a class="dropdown-item" href="/friend_judge/<%= results.invite[i].memno %>">
+							<div class="row">
+								<div class="col-md-12">
+									<img src="/user/<%= results.invite[i].img %>" class="rounded-circle" style="margin-right:5%;"/>
+									<div class="col-md-8">
+										<dl>
+											<dt><%= results.invite[i].displayname %></dt>
+											<dd>向您寄出了好友邀請</dd>
+											<dd>
+												<div id="button-block">
+													<table>
+														<tr>
+															<td>
+																<form action="/friend_add" method="post"  >
+																	<input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
+																	<button id="confirm" class="btn btn-primary2">確認</button>
+																</form>
+															</td>
+															<td>
+																<form action="invite_delete" method="post" >
+																	<input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
+																	<button id="delete" class="btn btn-primary2">刪除</button>
+																</form>
+															</td>
+														</tr>
+													</table>													
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+                        </a> 
+                        <% } %>   
+						<div class="dropdown-divider"></div> 
+					</div>
+				</li>
+
+				<li class="nav-item">
+                    <a class="nav-link" href="personal_profile">
+						<i class="fas fa-user" style="font-size:30px;"></i>
+					</a>
+				</li>
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+						<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 200px;">
+						<a class="dropdown-item" href="#">
+							<a href="/resetPassword" title="設定" >
+								<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
+							</a>
+						</a> 
+						<div class="dropdown-divider"></div> 
+						<a class="dropdown-item" href="#">
+							<a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
 	<div>
         <form class="addAct-container" action="/post/delete" method="post">
@@ -213,7 +203,8 @@
         
         
     <!-- jQuery -->
-    <script src="/js/jquery-2.1.1.js"></script>
+	<script src="/js/jquery-2.1.1.js"></script>
+	<script src="/js/profilePic.js" type="text/javascript"></script>
     <!--  plugins -->
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/menu.js"></script>
@@ -225,232 +216,4 @@
 
 
 </body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>How Healthy</title>
-	<link rel="icon" href="/img/2.png" type="image/x-icon">
-
-	<meta name="description" content="Source code generated using layoutit.com">
-	<meta name="author" content="LayoutIt!">
-
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/ionicons/css/ionicons.min.css" rel="stylesheet">
-	<link href="/css/style.css" rel="stylesheet">
-    <link href="/css/navbar.css" rel="stylesheet">
-    <link href="/css/personal-profile.css" rel="stylesheet">
-	
-	
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
-
-
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-</head>
-
-<body style="background-color: #fed149;">
-    <div class="container-fluid">
-        <!-- nav -->
-		<nav>
-			<!-- The Modal -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->	
-			</div>
-            <section id="aa-menu-area">
-					<div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
-							<div class="col-md-2">
-								<ul id="top-menu" class="nav navbar-nav aa-main-nav">
-									<!--<li class="active"><a href="index.html">HOME</a></li>-->
-									<li class="dropdown nav-item">
-										<div class="box-logo">
-											<!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
-											<a href="/homepage" class="logo">HH</a>
-										</div>
-									</li>
-								</ul> 
-							</div>
-			
-							<div class="col-md-10 right">
-								<ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
-									<li class="dropdown" >
-										<a class="dropdown-toggle">
-											<form class="form-inline" action="/search" method="GET">
-												<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入文章關鍵字搜尋"> 
-												<button class="btn btn-primary2" type="submit">
-													搜尋
-												</button>
-											</form>     
-										</a>
-									</li>
-		
-									<li class="dropdown" >
-										<a class="dropdown-toggle">
-											<form class="form-inline" action="/searchList" method="GET">
-												<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入關鍵字搜尋好友"> 
-												<button class="btn btn-primary2" type="submit">
-													搜尋
-												</button>
-											</form>     
-										</a>
-									</li>
-										
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="/totPost">
-											<i class="far fa-newspaper" style="font-size:30px;"></i>
-										</a>
-									</li>  
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="/joinActivity">
-											<i class="material-icons icon-align" style="font-size:35px;">event</i>
-										</a>
-									</li>   
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
-											<span class="badge"><%= results.count.total %></span>
-										</a>
-										<ul class="dropdown-menu dropdown-menu-right" role="menu">    
-											<% for(var i=0; i<results.notice.length; i++) {%>      
-											<li class="notific">
-												<div class="media mb-4">
-													<img class=" mr-3 rounded-circle" src="/user/<%= results.notice[i].img %>" alt="">
-													<div class="media-body">
-														<a href="/postone/<%= results.notice[i].postno %>"><h4 class="mt-0 name"><%= results.notice[i].displayname %></h4><p><%= results.notice[i].content %></p></a>
-													</div>
-												</div>
-											</li>
-											<% } %>                       
-										</ul>
-									</li>
-										
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fas fa-user-friends" aria-hidden="true" style="font-size: 30px;"></i>	
-											<span class="badge"><%= results.total.total %></span>
-										</a>
-										<ul class="dropdown-menu dropdown-menu-right" role="menu">
-											<% for(var i=0; i<results.invite.length; i++) {%>
-											<li class="notific2">
-												<div class="media mb-4">
-													<img class=" mr-3 rounded-circle" src="/user/<%= results.invite[i].img %>" alt="">
-													<div class="media-body" >
-														<h4 class="mt-0 name"><a href="/friend_judge/<%= results.invite[i].memno %>"><%= results.invite[i].displayname %></a></h4>
-														<p>向您寄出了交友邀請</p>
-													</div>
-													<div class="media-body">
-														<div id="button-block">
-														 <table>
-														  <tr>
-														   <td>
-															<form action="/friend_add" method="post" >
-															 <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
-															 <button id="confirm">確認</button>
-															</form>
-														   </td>
-														   <td>
-															<form action="invite_delete" method="post" >
-															 <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
-															 <button id="delete">刪除</button>
-															</form>
-														   </td>
-														  </tr>
-														 </table>             
-														</div>
-														<div class="clear"></div>
-													   </div>
-												</div>
-											</li> 
-											<% } %>           
-										</ul>
-									</li>
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" href="/personal_profile">
-											<i class="fas fa-user" style="font-size:30px;"></i>
-										</a>
-									</li>  
-		
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
-										</a>
-										<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
-											<li>
-												<a href="/confirmPassword" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
-													<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
-												</a>  
-											</li>    
-											<li><a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
-										</ul>
-									</li>
-								</ul>
-							</div>
-					</div><!--/.nav-collapse --> 
-            </section>
-        </nav>
-		<!-- end nav -->
-    </div>
-
-	<div>
-        <form class="addAct-container" action="/post/delete" method="post">
-            <div class="col-md-12">
-                <div class="addForm-title">刪除文章</div>
-                  
-				<div style="width:70%; margin: 0 auto;">
-					<input type="hidden"class="addAct-input form-control" required style="width: 600px;" name="postno" value="<%= results.postno %>" readonly>
-					<h2><%= results.title %></h2>
-					<p><%= results.content %></p>
-					<% if (null != results.img){%>
-					<img src="/post/<%= results.img %>" alt="image post" class="img-post" >
-					<% } %>
-                </div>
-                    
-                <div class="center">
-                    <button class="btn btn-primary2" id="addAct-btn" type="submit">
-                        刪除
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-    <!-- footer -->
-	<footer style="background-color: transparent;">
-        <div class="container-fluid">
-            <p class="copyright">&copy; NTUB IMD  108506. All rights reserved.</p>
-        </div>
-    </footer>
-    <!-- end footer -->
-        
-    <!-- back to top -->
-    <a href="#0" class="cd-top"><i class="ion-android-arrow-up"></i></a>
-    <!-- end back to top -->
-        
-        
-        
-    <!-- jQuery -->
-    <script src="/js/jquery-2.1.1.js"></script>
-    <!--  plugins -->
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/menu.js"></script>
-    <script src="/js/animated-headline.js"></script>
-    <script src="/js/isotope.pkgd.min.js"></script>
-
-
-    <script src="/js/scripts.js"></script>
-
-
-</body>
->>>>>>> add web files
 </html>

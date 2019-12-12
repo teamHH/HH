@@ -4,7 +4,7 @@
 const sql = require('./asyncDB');
 
 
-var query = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
+var query = async function(invitedmemno,memno10,memno11,invitedmemno2,postmemno,postmemno2){
     var results=[];
 	
     await sql('SELECT * from sactivity_view ')
@@ -25,7 +25,7 @@ var query = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -41,7 +41,7 @@ var query = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -53,7 +53,24 @@ var query = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
     });
     return results;
 }
-var query2 = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
+var query3 = async function(){
+    var results=[];
+	
+    await sql('SELECT * from sactivity_view ')
+        .then((data) => {            
+            results.data2 = data.rows;  
+        }, (error) => {
+            results = [];
+        });
+    await sql('SELECT * from eactivity_view')
+        .then((data) => {            
+            results.data1 = data.rows;  
+        }, (error) => {
+            results = [];
+        });
+    return results;
+}
+var query2 = async function(invitedmemno,invitedmemno2,memno10,memno11,postmemno,postmemno2){
     var results=[];
 	
     await sql('SELECT b.displayname,b.img,b.memno FROM invite a ,member b where a.invitememno=b.memno and a.invitedmemno=$1',[invitedmemno])
@@ -62,7 +79,7 @@ var query2 = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -78,7 +95,7 @@ var query2 = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1  ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -91,7 +108,7 @@ var query2 = async function(invitedmemno,invitedmemno2,postmemno,postmemno2){
 	
     return results;
 }
-var one = async function(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,postmemno2){
+var one = async function(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11){
     var results=[];
     
     await sql('SELECT * from sactivityone_view where sactno=$1', [sactno])
@@ -116,7 +133,7 @@ var one = async function(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,pos
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -132,7 +149,7 @@ var one = async function(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,pos
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1  ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -174,7 +191,7 @@ var eadd = async function(newData){
 var update = async function(newData){
     var results;
 
-    await sql('UPDATE sactivity SET sacttime=$1,location=$2,scontent=$3,sacttypeno=$4 WHERE sactno = $5', [newData.sacttime,newData.location,newData.scontent,newData.sacttypeno,newData.sactno])
+    await sql('UPDATE sactivity SET sacttime=$1,location=$2,scontent=$3,sacttypeno=$4,sactivity=$5 WHERE sactno = $6', [newData.sacttime,newData.location,newData.scontent,newData.sacttypeno,newData.sactivity,newData.sactno])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {
@@ -183,7 +200,7 @@ var update = async function(newData){
 		
     return results;
 }
-var editAct = async function(sactno,invitedmemno,invitedmemno2,postmemno,postmemno2){
+var editAct = async function(sactno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11){
     var results=[];
     await sql('SELECT a.sactno,a.sactivity,a.scontent,a.sacttime,a.location,b.acttype from sactivity a, activitytype b where a.sacttypeno=b.acttypeno and a.sactno=$1',[sactno])
     .then((data) => {
@@ -197,7 +214,7 @@ var editAct = async function(sactno,invitedmemno,invitedmemno2,postmemno,postmem
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -213,7 +230,7 @@ var editAct = async function(sactno,invitedmemno,invitedmemno2,postmemno,postmem
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -261,7 +278,7 @@ var deleteAct3 = async function(eactno){
 		
     return results;
 }
-var joinedactivity = async function(memno,sactno,invitedmemno,invitedmemno2,postmemno,postmemno2){
+var joinedactivity = async function(memno,sactno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11){
     var results;
 
     await sql('SELECT a.sactno,b.sactivity,b.sacttime,b.location,b.scontent,c.acttype from joinedactivity a,sactivity b,activitytype c where a.sactno=b.sactno and b.sacttypeno=c.acttypeno and a.memno=$1 and a.sactno=$2', [memno,sactno])
@@ -276,7 +293,7 @@ var joinedactivity = async function(memno,sactno,invitedmemno,invitedmemno2,post
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -292,7 +309,7 @@ var joinedactivity = async function(memno,sactno,invitedmemno,invitedmemno2,post
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -304,7 +321,7 @@ var joinedactivity = async function(memno,sactno,invitedmemno,invitedmemno2,post
     });	
     return results;
 }
-var deleteActForm = async function(memno,sactno,invitedmemno,invitedmemno2,postmemno,postmemno2){
+var deleteActForm = async function(memno,sactno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11){
     var results;
 
     await sql('SELECT a.*,b.acttype from sactivity a,activitytype b where a.sacttypeno=b.acttypeno and memno=$1 and sactno=$2', [memno,sactno])
@@ -319,7 +336,7 @@ var deleteActForm = async function(memno,sactno,invitedmemno,invitedmemno2,postm
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -335,7 +352,7 @@ var deleteActForm = async function(memno,sactno,invitedmemno,invitedmemno2,postm
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -373,4 +390,4 @@ var joinactivity = async function(newData){
 }
 
 //匯出
-module.exports = {query,query2,add,eadd,one,update,editAct,quitAct,joinedactivity,deleteActForm,deleteAct,deleteAct3,addscore,joinactivity};
+module.exports = {query,query2,query3,add,eadd,one,update,editAct,quitAct,joinedactivity,deleteActForm,deleteAct,deleteAct3,addscore,joinactivity};

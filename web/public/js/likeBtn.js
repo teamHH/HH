@@ -4,9 +4,9 @@
 $(document).ready(function(){  
     $('.liketest').click(function() {
         var val = parseInt($(this).text(), 10);
-        $(this).toggleClass('is-liked2');
+        $(this).toggleClass('is-liked');
             
-        if ($(this).hasClass('is-liked2')) {
+        if ($(this).hasClass('is-liked')) {
             val++
             // User has liked (insert userId, itemId into Likes table)
         } else {

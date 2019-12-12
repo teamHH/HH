@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
     var sactno = req.body.sactno;
        //取得產品編號
     console.log(memno,sactno);
-    activity.quitAct(memno).then(d => {
+    activity.quitAct(memno,sactno).then(d => {
         if(d>=0){
             res.render('removeSuccessP', {results:d});  //傳至成功頁面     
         }else{

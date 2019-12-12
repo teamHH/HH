@@ -12,7 +12,9 @@ router.get('/', function(req, res, next) {
     var invitedmemno2=req.session.memno;
     var postmemno=req.session.memno;
     var postmemno2=req.session.memno;
-    personal.editBio(memno,invitedmemno,invitedmemno2,postmemno,postmemno2).then(d => {
+    var memno10=req.session.memno;
+    var memno11=req.session.memno;
+    personal.editBio(memno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11).then(d => {
         if (d==null){     
             res.render('notfound');  
         }else{

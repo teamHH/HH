@@ -10,12 +10,6 @@ router.post('/', function(req, res, next) {
     var postno = req.body.postno;
     var content="幫你的文章點讚";
     var postmemno=req.body.memno;
-    console.log("****************");
-    console.log(memno);
-    console.log(postno);
-    console.log(content);
-    console.log(postmemno);
-    console.log("****************");
     // 建立一個新資料物件
     var newData={
       memno:memno,
@@ -23,12 +17,11 @@ router.post('/', function(req, res, next) {
       content:content,
       postmemno:postmemno
     } 
-    
     comments.addlike(newData).then(d => {
         if (d==0){
             res.render('addSuccessT');  //傳至成功頁面
         }else{
-            res.render('addrepeat');     //導向錯誤頁面
+            res.render('backSuccessT');     //導向錯誤頁面
         }  
     })
 });

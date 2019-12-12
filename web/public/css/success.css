@@ -12,6 +12,7 @@ body {
 
 .page_404{ 
     background:#fff; 
+    width: 100%;
 }
 
 .four_zero_four_bg{
@@ -39,3 +40,16 @@ body {
     font-size: 18px;
 }
 
+
+
+@media screen and  (orientation: portrait) {
+    .page_404{
+        margin-right: 8%;
+    }
+}
+
+@media screen and  (orientation:landscape) {
+    .page_404{
+        margin-left: 8%;
+    }
+}

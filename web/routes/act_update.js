@@ -10,6 +10,7 @@ router.post('/',function(req, res, next) {
     console.log(sactno)
     var newData={
         sactno: sactno,
+        sactivity:req.body.sactivity,
         sacttime: moment(req.body.sacttime).format("YYYY-MM-DD hh:mm:ss"),
         location:req.body.location,
         sacttypeno:req.body.sacttypeno,

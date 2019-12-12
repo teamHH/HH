@@ -1,4 +1,3 @@
-
 /*======================
     404 page
 =======================*/
@@ -39,3 +38,14 @@ body {
     font-size: 18px;
 }
 
+@media screen and  (orientation:landscape) {
+    .page_404 div{
+        margin-left: 13%;
+    }
+}
+
+@media screen and  (orientation: portrait) {
+    .page_404 div{
+        margin-right: 1%;
+    }
+}

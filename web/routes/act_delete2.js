@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
     console.log(sactno);
     activity.deleteAct2(sactno).then(d => {
         if(d>=0){
-            res.render('removeSuccess2', {results:d});  //傳至成功頁面     
+            res.render('removeSuccess2J', {results:d});  //傳至成功頁面     
         }else{
             res.render('removeFail2');     //導向錯誤頁面
         }

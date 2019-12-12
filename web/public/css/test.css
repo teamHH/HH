@@ -1,97 +1,126 @@
-.rating {
-  display: inline-block;
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+  display: flex;
   width: 100%;
-  margin-top: 40px;
-  padding-top: 40px;
-  text-align: center;
 }
 
-.rating .btn-secondary {
+#sidebar {
+  width: 240px;
+  margin-top: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -240px;
+}
+
+#sidebar ul p {
+  padding: 10px;
+}
+
+#sidebar ul li a {
   display: block;
-  margin: 40px auto 0px;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+/* ---------------------------------------------------
+  CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+  width: calc(100% - 240px);
+  min-height: 100vh;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#content.active {
+  width: 100%;
+}
+
+#sidebarCollapse{
+  font-size: 20px;
+  margin: 0;
+  background: transparent;
+  border: transparent;
   text-align: center;
-  background: #FF2D55;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  padding: 10px 17px;
-  font-size: 18px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  text-decoration: none;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
 }
 
-.rating .btn-secondary:hover {
-  transform: translateY(-3px);
+.nav>li>#sidebarCollapse{
+  padding:10px 15px;
 }
 
-.rating .btn-secondary .fa {
-  margin-right: 5px;
+/* ---------------------------------------------------
+  MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -240px;
+      margin-top: 70px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+  #content {
+      width: 100%;
+      margin-top: -10px; /*-30px*/
+  }
+  #content.active {
+      width: calc(100% - 240px);
+  }
+  #sidebarCollapse span {
+      display: none;
+  }
+  #sidebar ul li .avatar-wrapper{
+    height: 200px !important;
+    width: 200px !important;
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#posts-container div div div.data-post input[type="radio"] {
-  display:none;
-}
-
-#posts-container div div div.data-post label {
-  width:23%;
-  float:left;
-  text-align:center;
-  background:#ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  color:#222222;
-  padding:0.5%;
-  margin:0.5%;
-  margin-bottom:30px;
-  cursor:pointer;
-}
-
-#posts-container div div div.data-post input[type="radio"][id="all"]:checked + label {
-  background:#ffbf00;
-}
-
-#posts-container div div div.data-post input[type="radio"][id="tile"]:checked{
-  width:0;
-  height:0;
-  padding:0;
-  margin:0;
-  opacity:0;
-}
-
-#posts-container div div div.data-post input[type="radio"][id="sports"]:checked + label,
-#posts-container div div div.data-post input[type="radio"][id="create"]:checked + label {
-  background:#ffbf00;
-}
-
-#posts-container div div div.data-post input[type="radio"][id="sports"]:checked ~ .create,
-#posts-container div div div.data-post input[type="radio"][id="create"]:checked ~ .spont{
-  width:0;
-  height:0;
-  padding:0;
-  margin:0;
-  opacity:0;
-}
-
-#posts-container div div div.data-post .tile {
-  /*float:left;*/
-  transition:all 0.5s;
+@media (min-width: 768px) and (max-width:992px) {
+  #sidebar {
+    width: 240px;
+    margin-top: 80px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+    margin-left: -240px;
+  }
+  #content {
+    width: calc(100% - 40px);
+  }
+  #content.active {
+      width: calc(100% + 190px);
+  }
+  #content {
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #sidebarCollapse span {
+      display: none;
+  }
 }

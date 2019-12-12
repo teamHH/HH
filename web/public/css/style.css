@@ -16,6 +16,7 @@ body {
     color: #404040;
     width: auto !important;  /* Firefox will set width as auto */
     width:1000px;
+    /*background-color: #fff; 會讓頁面怪怪的*/
 }
 
 ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive {
@@ -51,11 +52,15 @@ body {
 }
 
 .main-container {
-    padding: 100px 0;
+    padding: 100px 20px;
 }
 
 .center {
+    width: 100%;
     text-align: center;
+    margin: 0 auto !important;
+    padding: 10px;
+    /*border: 3px solid darkorange;*/
 }
 
 a {
@@ -86,6 +91,11 @@ a {
 
 
 /* 我加的 */
+.rounded-circle{
+    width: 100px !important;
+    height: 100px !important;
+}
+
 button {
   border: none;
   padding: 0.8em;
@@ -257,14 +267,6 @@ h2{font-size: 22px;}
 
 
 
-
-
-
-
-
-
-
-
 /* typography
 ==================================================*/
 
@@ -287,11 +289,14 @@ p{
     color: #333;
 }
 
+input:focus{
+    border-color: #ffa500 !important;
+    box-shadow: none;
+}
+
 
 /* preloader
 ==================================================*/
-
-
 .pre-container {
     position: absolute;
     left: 50%;
@@ -349,65 +354,6 @@ p{
         transform: scale(1.0);
         -webkit-transform: scale(1.0);
     }
-}
-
-
-/* headr
-==================================================*/
-
-.box-header {
-    position: absolute;
-    left: 0;
-    background: rgba(255, 255, 255, 0.95);
-    height: 60px;
-    width: 100%;
-    z-index: 3;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.box-header {
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    background: transparent;
-    box-shadow: none;
-}
-
-.box-header {
-    -webkit-transition: background-color 0.3s;
-    transition: background-color 0.3s;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.box-header.is-fixed {
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    background-color:#fff;
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: -webkit-transform 0.3s;
-    transition: transform 0.3s;
-    transition: transform 0.3s, -webkit-transform 0.3s;
-}
-
-.box-header.is-visible {
-    /* -webkit-transform: translate3d(0, 100%, 0); 
-    transform: translate3d(0, 100%, 0); */
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-}
-
-.box-header.menu-is-open {
-    background-color: #fff;
-}
-
-.box-logo {
-    display: block;
-    padding: 15px;
-    z-index: 100;
 }
 
 
@@ -638,14 +584,48 @@ p{
 
 /* joinActivity
 ==================================================*/
+.search-box {
+    display: inline-block;
+    width: 400px;
+    border-radius: 3px;
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    margin: 0 auto 15px auto;
+}
+.search-box.hovered, .search-box:hover, .search-box:active {
+    border: 1px solid #aaa;
+}
+.search-box input[type=text] {
+    border: none;
+    box-shadow: none;
+    display: inline-block;
+    padding: 0 10px;
+    background: transparent;
+}
+.search-box input[type=text]:hover, .search-box input[type=text]:focus, .search-box input[type=text]:active {
+    box-shadow: none;
+}
+.search-box .search-btn {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    color: #ffbf00;
+    background-color: transparent;
+    border-radius: 3px;
+    font-size: 21px;
+    padding: 5px 8px 1px;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
 .container{
     /* margin-top: 60px; */
     width: 90%;
-}
-
-.container2{
-    width: 100%;
-    margin-top: 60px;
 }
 
 *, *::before, *::after {
@@ -723,53 +703,53 @@ p{
     text-align: left;
 }
 
+#content1 .col-md-12, #content2 .col-md-12{
+    padding-left: 50px;
+}
+
 .publicAct, .spontAct{
-    width: 1200px;
-    margin: 3px auto;
+    width: 100%; /*1200px*/
+    margin: 0.82% auto; /*10px*/
 }
 
-.publicAct, .spontAct tr{
-    margin-bottom: 5px;
+.publicAct tr, .spontAct tr{
+    margin-left: 0.41%; /*5px*/
 }
 
-.publicAct, .spontAct tr th{
+.publicAct tr th, .spontAct tr th{
     font-size: 20px;
+    padding: 0.41% 0.45%;
 }
 
-.publicAct, .spontAct tr td{
+.publicAct tr td, .spontAct tr td{
     font-size: 18px;
+    padding: 0.41% 0.45%;
 }
 
 .publicAct tr td:nth-child(1), .publicAct tr th:nth-child(1){
-    width: 300px;
+    width: 20%; /*240px*/
+    margin-left: 1.23%; /*15px*/
 }
 
 .publicAct tr td:nth-child(2), .publicAct tr th:nth-child(2),
-.publicAct tr td:nth-child(3), .publicAct tr th:nth-child(3){
-    width: 140px;
-    margin-left: 5px;
-}
-
-.publicAct tr td:nth-child(4){
-    width: 50px;
-    height: 5px;
+.publicAct tr td:nth-child(3), .publicAct tr th:nth-child(3),
+.publicAct tr td:nth-child(4), .publicAct tr th:nth-child(4){
+    width: 8.33%; /*100px*/
+    margin-left: 1.23%; /*15px*/
 }
 
 .spontAct tr td:nth-child(1), .spontAct tr th:nth-child(1){
-    width: 350px;
+    width: 20%; /*240px*/
+    padding-left: 0.82%; /*10px*/
+    padding-left: 1.23%;
 }
 
 .spontAct tr td:nth-child(2), .spontAct tr th:nth-child(2),
 .spontAct tr td:nth-child(3), .spontAct tr th:nth-child(3),
-.spontAct tr td:nth-child(4), .spontAct tr th:nth-child(4){
-    width: 200px;
-    margin-left: 5px;
-}
-
+.spontAct tr td:nth-child(4), .spontAct tr th:nth-child(4),
 .spontAct tr td:nth-child(5), .spontAct tr th:nth-child(5),
 .spontAct tr td:nth-child(6), .spontAct tr th:nth-child(6){
-    width: 100px;
-    margin-left: 5px;
+    width: 8.33%; /*100px*/
 }
 
 ul.act li a i:hover{
@@ -789,6 +769,14 @@ i.check, i.cancel{
     color: #ffa500;
 }
 
+.publicAct tbody tr td button, .spontAct tbody tr td button{
+    border:none; 
+    background-color: transparent; 
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
 .clear{
     clear: both;
 }
@@ -801,13 +789,13 @@ i.check, i.cancel{
 
 .table-act tr th{
     color: #171717;
-    font-weight: 500;
+    font-weight: 550;
     width: 15%; 
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .table-act tr td{
-    font-size: 16px;
+    font-size: 22px;
     color: #171717;
 }
 
@@ -815,7 +803,7 @@ i.check, i.cancel{
     border-top: transparent;
 }
 
-.h-10 h4{
+.h-10 h6{
     color: #171717;
     margin-left: 25px;
 }
@@ -828,6 +816,7 @@ div.stars{
  
 input.star{
   display: none;
+  margin:0;
 }
  
 label.star{
@@ -861,41 +850,15 @@ label.star:before{
   content:'\f006';
   font-family: FontAwesome;
 }
- 
-/*.rev-box{
-  overflow: hidden;
-  height: 0;
-  width: 100%;
-  transition: all .25s;
-}
- 
-textarea.review{
-  background: #222;
-  border: none;
-  width: 100%;
-  max-width: 100%;
-  height: 100px;
-  padding: 10px;
-  box-sizing: border-box;
-  color: #EEE;
-}
- 
-label.review{
-  display: block;
-  transition:opacity .25s;
-}
- 
-input.star:checked ~ .rev-box{
-  height: 125px;
-  overflow: visible;
-}
-*/
 
+div.stars .btn{
+    margin-left: 95px;
+}
 
 /* searchList
 ==================================================*/
 .searchList{
-    width: 800px;
+    /*width: 75%;*/
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -912,7 +875,8 @@ input.star:checked ~ .rev-box{
 
 .searchList .title{
     font-size: 30px;
-    
+    font-weight: 500;
+    margin: 10px auto;
 }
 
 .searchList ul{
@@ -928,10 +892,10 @@ input.star:checked ~ .rev-box{
 }
 
 
-/* addActivity
+/* addActivity deleteFriend deletePost
 ==================================================*/
-.addAct-container{
-    width: 960px;
+.deleteFriend{
+    /*width: 50%;*/
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -942,7 +906,50 @@ input.star:checked ~ .rev-box{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 60px 80px 60px 50px;
+    margin: 100px auto 0 auto;
+}
+
+.deleteFriend .col-md-12 .delete{
+    width: 100%; 
+    padding: 10px 40px; 
+    margin: 0 50px 20px 100px;
+}
+
+.deletePost{
+    width: 70%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 70px 50px 50px;
+    margin: 100px auto 0 auto;
+}
+
+.deletePost div div.delete{
+    width: 70%; 
+    padding: 10px 0; 
+    margin: 0 auto;
+}
+
+.addAct-container{
+    /*width: 80%;*/
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 70px 50px 50px;
     margin: 100px auto 0 auto;
 }
 
@@ -978,7 +985,7 @@ input.star:checked ~ .rev-box{
     background: #e6e6e6;
     color: #666666;
     border-color: transparent;
-    
+    resize: none;
     border-radius: 25px;
     padding: 10px 30px 10px 20px;
     margin: 10px;
@@ -987,7 +994,7 @@ input.star:checked ~ .rev-box{
 button#addAct-btn{
     line-height: 1.5;
     color: #fff;
-    margin: 30px 10px 10px 10px;
+    margin: 30px 10px 0 10px;
     padding: 5px 15px;
     border-radius: 25px;
     background: #ffa500;
@@ -1022,6 +1029,7 @@ button#addAct-btn{
 .search2{
     max-width: 200px;
 }
+
 
 /* btn
 ==================================================*/
@@ -1076,10 +1084,20 @@ fieldset[disabled] a.btn {
     font-size: 18px;
 }
   
-.btn-primary2:hover {
+.btn-primary2:hover, .spontAct tbody .btn-primary3:hover {
     color: #333;
     background-color: #ffa500;
     border-color: #ffa500;
+}
+
+.spontAct tbody .btn-primary3 {
+    color: #ffbf00;
+    background-color: transparent;
+    border: #ffbf00 1px solid;
+    padding: 3px 6px;
+    font-size: 18px;
+    font-weight: 450;
+    display: block;
 }
 
 .btn-primary2:focus, .btn-primary2.focus {
@@ -1443,6 +1461,8 @@ footer img {
     background-attachment: fixed;
     background-position: center center;
     text-align: center;
+    width: 97%;
+    margin:0 auto;
 }
 
 .top-bar h1 {
@@ -1659,6 +1679,407 @@ textarea:focus {
 
 /* Responsive media queries
 ==================================================*/
+/*@media screen and  (orientation: portrait) {
+    .deleteFriend{
+        max-width: 50%;
+    }
+}
+
+@media screen and  (orientation:landscape) {
+    .deleteFriend{
+        max-width: 50%;
+    }
+}*/
+
+@media screen and (max-width: 576px) {
+    .searchList {
+        max-width: 340px;
+    }
+    .addAct-container, form.editAct, form.editBio{
+        max-width: 430px;
+    }
+    .deleteFriend{
+        max-width: 70%;
+        padding: 2% 3% !important;
+    }
+    .deleteFriend div div.addForm-title{
+        font-size: 24px;
+    }
+    .deleteFriend div div.delete{
+        padding: 0 !important;
+        margin: auto !important;
+    }
+    .deleteFriend div div.delete .col-sm-2{
+        padding: 0;
+    }
+    .deleteFriend div.delete .col-sm-2 img.rounded-circle{
+        width: 75px !important;
+        height: 75px !important;
+        margin-left: 20%;
+    }
+    .deleteFriend div.delete .col-sm-7 p{
+        font-size: 18px !important;
+        margin: -16% 0 0 70%;
+    }
+    .deleteFriend div.center button{
+        font-size: 16px;
+    }
+    .deletePost{
+        width: 90%;
+        padding: 30px 0 !important;
+    }
+    .deletePost div div.delete{
+        margin: 2% auto !important;
+    }
+    .deletePost div.center button{
+        font-size: 15px;
+    }
+    .table-act tr th{
+        font-weight: 550;
+        width: 20%; 
+        font-size: 18px;
+    }
+    .table-act tr td{
+        font-size: 18px;
+    }        
+    .h-10 h6{
+        margin:0;
+        padding: 0 0.75rem;
+    }
+    div.stars{
+        display: inline-block;
+        margin-left: -43px;
+    }    
+    input.star{
+        display: none;
+        margin:0;
+    }
+    label.star{
+        font-size: 18px;
+    }
+    div.stars .btn{
+        margin: 0 ;
+        margin-left:55px;
+    }
+    footer{
+        margin-top: 80px;
+    }
+    form.editBio .col-md-6 .avatar-wrapper {
+        position: relative;
+        height: 150px !important;
+        width: 150px !important;
+        margin:3% auto 0 auto !important;
+    }
+    form.editBio .col-md-6 .avatar-wrapper .upload-button .fa-camera {
+        position: absolute;
+        font-size: 90px !important;
+        top: 30px !important;
+        left: 30px !important;
+    }
+    .publicAct tr td:nth-child(1), .publicAct tr th:nth-child(1){
+        padding-left: 0;
+    }
+    #content1 .col-md-12, #content2 .col-md-12{
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .searchList {
+        max-width: 384px;
+    }
+    .addAct-container, form.editAct, form.editBio{
+        max-width: 461px;
+    }
+    .deleteFriend{
+        max-width: 72%;
+        padding: 2.5% 4% !important;
+    }
+    .deleteFriend div div.addForm-title{
+        font-size: 26px;
+    }
+    .deleteFriend div div.delete{
+        padding: 0 !important;
+        margin: auto !important;
+        margin-left: 20% !important;
+    }
+    .deleteFriend div div.delete .col-sm-2{
+        padding: 0;
+    }
+    .deleteFriend div.delete .col-sm-2 img.rounded-circle{
+        width: 80px !important;
+        height: 80px !important;
+        margin-left: 25%;
+    }
+    .deleteFriend div.delete .col-sm-7 p{
+        font-size: 20px !important;
+        margin: 25% 0 0 50%;
+        position: relative;
+    }
+    .deletePost{
+        width: 90%;
+        padding: 30px 0 38px 0 !important;
+    }
+    .deletePost div div.delete{
+        margin: 2% auto !important;
+    }
+    .deletePost div.center button{
+        font-size: 18px;
+    }
+    .table-act tr th{
+        font-weight: 550;
+        width: 20%; 
+        font-size: 19px;
+    }
+    .table-act tr td{
+        font-size: 19px;
+    }        
+    .h-10 h6{
+        margin:0;
+        padding: 0 0.75rem;
+    }
+    div.stars{
+        display: inline-block;
+        margin-left: -43px;
+    }    
+    input.star{
+        display: none;
+        margin:0;
+    }
+    label.star{
+        font-size: 25px;
+    }
+    div.stars .btn{
+        margin: 0 ;
+        margin-left:55px;
+    }
+    footer{
+        margin-top: 80px;
+    }
+    form.editBio .col-md-6 .avatar-wrapper {
+        position: relative;
+        height: 160px !important;
+        width: 160px !important;
+        margin:3% auto 0 auto !important;
+    }
+    form.editBio .col-md-6 .avatar-wrapper .upload-button .fa-camera {
+        position: absolute;
+        font-size: 90px !important;
+        top: 35px !important;
+        left: 35px !important;
+    }
+    .nav-item .dropdown-menu-right a .rounded-circle{
+        width: 70px !important;
+        height: 70px !important;
+    }
+    #content1 .col-md-12, #content2 .col-md-12{
+        padding-left: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .searchList {
+        max-width: 512px;
+    }
+    .addAct-container, form.editAct, form.editBio{
+        max-width: 615px;
+    }
+    .deleteFriend{
+        max-width: 60%;
+        padding: 4% 6% !important;
+    }
+    .deleteFriend div div.addForm-title{
+        font-size: 32px;
+    }
+    .deleteFriend div div.delete{
+        padding: 0 !important;
+        margin: auto !important;
+        margin-left: 16% !important;
+    }
+    .deleteFriend div div.delete .col-sm-2{
+        padding: 0;
+    }
+    .deleteFriend div.delete .col-sm-2 img.rounded-circle{
+        width: 85px !important;
+        height: 85px !important;
+        margin-left: 40%;
+    }
+    .deleteFriend div.delete .col-sm-7 p{
+        font-size: 24px !important;
+        margin: 25% 0 0 55%;
+        position: relative;
+    }
+    .deletePost{
+        width: 80%;
+        padding: 35px 0 40px 0 !important;
+    }
+    .deletePost div div.delete{
+        margin: 2% auto !important;
+    }
+    .deletePost div.center button{
+        font-size: 18px;
+    }
+    .table-act tr th{
+        font-weight: 550;
+        width: 20%; 
+        font-size: 20px;
+    }
+    .table-act tr td{
+        font-size: 20px;
+    }        
+    .h-10 h6{
+        margin:0;
+        padding: 0 0.75rem;
+    }
+    div.stars{
+        display: inline-block;
+        margin-left: -10px;
+    }    
+    input.star{
+        display: none;
+        margin:0;
+    }
+    label.star{
+        font-size: 25px;
+    }
+    div.stars .btn{
+        margin: 0 ;
+        margin-left:25px;
+    }
+    footer{
+        margin-top: 80px;
+    }
+    form.editBio .col-md-6 .avatar-wrapper {
+        position: relative;
+        height: 170px !important;
+        width: 170px !important;
+        margin:3% auto 0 auto !important;
+    }
+    form.editBio .col.md-6 .avatar-wrapper .upload-button .fa-camera {
+        position: absolute;
+        font-size: 95px !important;
+        top: 38px !important;
+        left: 38px !important;
+    }
+    .nav-item .dropdown-menu-right a .rounded-circle{
+        width: 75px !important;
+        height: 75px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .searchList {
+        max-width: 662px;
+    }
+    .addAct-container, form.editAct, form.editBio{
+        max-width: 794px;
+    }
+    .deleteFriend{
+        max-width: 60%;
+        padding: 5% 7% !important;
+    }
+    .deleteFriend div div.addForm-title{
+        font-size: 34px;
+    }
+    .deleteFriend div div.delete{
+        padding: 0 !important;
+        margin: auto !important;
+        margin-left: 20% !important;
+    }
+    .deleteFriend div div.delete .col-sm-2{
+        padding: 0;
+    }
+    .deleteFriend div.delete .col-sm-2 img.rounded-circle{
+        width: 80px !important;
+        height: 80px !important;
+        margin-left: 40%;
+    }
+    .deleteFriend div.delete .col-sm-7 p{
+        font-size: 26px !important;
+        margin: 18% 0 0 50%;
+        position: relative;
+    }
+    .deletePost{
+        width: 75%;
+        padding: 40px 0 45px 0 !important;
+    }
+    .deletePost div div.delete{
+        margin: 2% auto !important;
+    }
+    .deletePost div.center button{
+        font-size: 18px;
+    }
+    button#editBio{
+        width: 100%;
+    }
+    form.editBio .col-md-6 .avatar-wrapper {
+        position: relative;
+        height: 185px !important;
+        width: 185px !important;
+        margin:3% auto 0 auto !important;
+    }
+    form.editBio .col-md-6 .avatar-wrapper .upload-button .fa-camera {
+        position: absolute;
+        font-size: 95px !important;
+        top: 45px !important;
+        left: 45px !important;
+    }
+    .nav-item .dropdown-menu-right a .rounded-circle{
+        width: 78px !important;
+        height: 78px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .searchList {
+        max-width: 800px;
+    }
+    .addAct-container, form.editAct, form.editBio{
+        max-width: 960px;
+    }
+    .deleteFriend{
+        max-width: 50%;
+        padding: 40px 0 30px 0 !important;
+    }
+    .deleteFriend div div.delete{
+        padding: 0 !important;
+        margin: auto !important;
+        margin-left: 25% !important;
+    }
+    .deleteFriend div div.delete .col-sm-2{
+        padding: 0;
+    }
+    .deleteFriend div.delete .col-sm-2 img.rounded-circle{
+        width: 100px !important;
+        height: 100px !important;
+        margin-left: 40%;
+    }
+    .deleteFriend div.delete .col-sm-7 p{
+        font-size: 26px !important;
+        margin: 14% 0 0 30%;
+        position: relative;
+    }
+    .deletePost{
+        width: 70%;
+        padding: 40px 0 50px 0 !important;
+    }
+    .deletePost div div.delete{
+        margin: 2% auto !important;
+    }
+    .deletePost div.center button{
+        font-size: 18px;
+    }
+    button#editBio{
+        width: 100%;
+    }
+    .nav-item .dropdown-menu-right a .rounded-circle{
+        width: 80px !important;
+        height: 80px !important;
+    }
+}
+
+
+
 
 @media (max-width: 991px) {
     .portfolio .categories-grid span {
@@ -1711,7 +2132,7 @@ textarea:focus {
         font-size: 12px;
     }
     .main-container {
-        padding: 50px 0;
+        padding: 50px 10px;
     }
 }
 

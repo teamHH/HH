@@ -36,7 +36,9 @@ var deleteFriend = require('./routes/deleteFriend');
 var deleteAct = require('./routes/deleteAct');
 var activity_add = require('./routes/activity_add');
 var comment_add = require('./routes/comment_add');
+var comment_add2 = require('./routes/comment_add2');
 var post_add = require('./routes/post_add');
+var post_add2 = require('./routes/post_add2');
 var post_update = require('./routes/post_update');
 var post_delete = require('./routes/post_delete');
 var post_delete2 = require('./routes/post_delete2');
@@ -52,17 +54,14 @@ var user_resetPassword= require('./routes/user_resetPassword');
 var user_confirmPassword= require('./routes/user_confirmPassword');
 var forgotPassword = require('./routes/forgotPassword');
 var friend_judge = require('./routes/friend_judge');
-var friend_judge2 = require('./routes/friend_judge2');
-<<<<<<< HEAD
-=======
-var friend_judge3 = require('./routes/friend_judge3');
->>>>>>> add web files
 var friend_add = require('./routes/friend_add');
 var friend_invite = require('./routes/friend_invite');
 var invite_delete = require('./routes/invite_delete');
 var personal_friend = require('./routes/personal_friend');
 var personal_other = require('./routes/personal_other');
+var personal_other2 = require('./routes/personal_other2');
 var like_add = require('./routes/like_add');
+var like_add2 = require('./routes/like_add2');
 var score_add = require('./routes/score_add');
 var activity_join = require('./routes/activity_join');
 var typePost = require('./routes/typePost');
@@ -75,11 +74,10 @@ var eactsearch = require('./routes/eactsearch');
 var sactsearchM = require('./routes/sactsearchM');
 var eactsearchM = require('./routes/eactsearchM');
 var searchList = require('./routes/searchList');
-<<<<<<< HEAD
-=======
 var searchList2= require('./routes/searchList2');
->>>>>>> add web files
 var comment_delete = require('./routes/comment_delete');
+var comment_delete2 = require('./routes/comment_delete2');
+var comment_delete3 = require('./routes/comment_delete3');
 var manager_login_form = require('./routes/manager_login_form');
 var manager_login = require('./routes/manager_login');
 var addPublicAct = require('./routes/addPublicAct');
@@ -134,7 +132,9 @@ app.use('/act/delete3',act_delete3);
 app.use('/friend/delete',friend_delete);
 app.use('/activity/add', activity_add);
 app.use('/post/add', post_add);
+app.use('/post/add2', post_add2);
 app.use('/comment/add', comment_add);
+app.use('/comment/add2', comment_add2);
 app.use('/post/delete', post_delete);
 app.use('/post/delete2', post_delete2);
 app.use('/post/update', post_update);
@@ -151,17 +151,14 @@ app.use('/user_resetPassword', user_resetPassword);
 app.use('/user_confirmPassword', user_confirmPassword);
 app.use('/forgotPassword', forgotPassword);
 app.use('/friend_judge', friend_judge);
-app.use('/friend_judge2', friend_judge2);
-<<<<<<< HEAD
-=======
-app.use('/friend_judge3', friend_judge3);
->>>>>>> add web files
 app.use('/friend_add', friend_add);
 app.use('/friend_invite', friend_invite);
 app.use('/invite_delete', invite_delete);
 app.use('/personal_friend', personal_friend);
 app.use('/personal_other', personal_other);
+app.use('/personal_other2', personal_other2);
 app.use('/like_add', like_add);
+app.use('/like_add2', like_add2);
 app.use('/score_add', score_add);
 app.use('/activity_join', activity_join);
 app.use('/typePost', typePost);
@@ -174,11 +171,10 @@ app.use('/eactsearch', eactsearch);
 app.use('/sactsearchM', sactsearchM);
 app.use('/eactsearchM', eactsearchM);
 app.use('/searchList', searchList);
-<<<<<<< HEAD
-=======
 app.use('/searchList2', searchList2);
->>>>>>> add web files
 app.use('/comment_delete', comment_delete);
+app.use('/comment_delete2', comment_delete2);
+app.use('/comment_delete3', comment_delete3);
 app.use('/manager_login_form', manager_login_form);
 app.use('/manager_login', manager_login);
 app.use('/addPublicAct', addPublicAct);

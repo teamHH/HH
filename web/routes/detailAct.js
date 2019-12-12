@@ -13,14 +13,16 @@ router.get('/:sactno', function(req, res, next) {
     var invitedmemno2=req.session.memno;
     var postmemno= req.session.memno;
     var postmemno2= req.session.memno;
+    var memno10=req.session.memno;
+    var memno11=req.session.memno;
     console.log(sactno,sactno2)
-    activity.one(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,postmemno2).then(data => {
+    activity.one(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11).then(data => {
         if (data==null){
             res.render('error');  //導向錯誤頁面
         }else if(data==-1){
             res.render('notFound');  //導向找不到頁面                
         }else{
-            data.sa.sacttime=moment(data.sa.sacttime).format("YYYY-MM-DD ,h:mm:ss a")
+            data.sa.sacttime=moment(data.sa.sacttime).format("YYYY-MM-DD")
             if(data.score.total==null){
                 data.score.total=0;
             }else{

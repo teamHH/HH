@@ -12,13 +12,13 @@ router.get('/:memno2', function(req, res, next) {
     var invitedmemno2 = req.session.memno;
     var postmemno= req.session.memno;
     var postmemno2= req.session.memno;
-    console.log('************');
-    console.log(memno);
-    friend.query2(memno,memno2,invitedmemno,invitedmemno2,postmemno,postmemno2).then(data => {
-        console.log(data)
+    var memno10=req.session.memno;
+    var memno11=req.session.memno;
+    friend.query2(memno,memno2,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11).then(data => {
         if (data==null){
             res.render('error');  //導向錯誤頁面
         }else{
+            data.member.birthday=moment(data.member.birthday).format("YYYY-MM-DD")
             for(var i =0; i<data.msg.length;i++){
                 data.msg[i].posttime=moment(data.msg[i].posttime).format("LLL");
             }

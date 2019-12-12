@@ -29,8 +29,7 @@ router.post('/',function(req, res, next) {
       msg:msg,
       content:content,
       postmemno:postmemno
-    } 
-    
+    }     
     comments.add(newData).then(d => {
         if (d==0){
             res.render('addSuccessT');  //傳至成功頁面

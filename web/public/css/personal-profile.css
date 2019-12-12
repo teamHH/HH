@@ -1,4 +1,8 @@
 /*我加的 start*/
+.nav-tabs .btn-link{
+    color: #ffbf00;
+}
+
 .actContainer {
     text-align:center;
     margin:0 auto;
@@ -69,6 +73,8 @@ a#editBio{
     letter-spacing: 1px;
     display: inline-block;
     cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
   
 /*post 發文
@@ -85,6 +91,7 @@ input[type="file"] {
     border: none;
     cursor: pointer;
     font-size: 15px;
+    margin-bottom: 0;
 }
   
 .widget-post {
@@ -153,6 +160,7 @@ input[type="file"] {
 .attachments--btn {
     background-color: #eaeaea;
     color: #f57153;
+    font-weight: 600;
     border-radius: 1.5em;
     vertical-align: text-bottom;
 }
@@ -250,6 +258,66 @@ button#toggle .fa-chevron-up{
 
 
 
+.nav-tabs{
+    border-bottom:1px solid #ddd;
+}
+.nav-tabs>li{
+    float:left;
+    margin-bottom:-1px;
+}
+.nav-tabs>li>a{
+    margin-right:2px;
+    line-height:1.42857143;
+    border:1px solid transparent;
+    border-radius:4px 4px 0 0
+}
+.nav-tabs>li>a:hover{
+    border-color:#eee #eee #ddd;
+}
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover{
+    color:#555;
+    cursor:default;
+    background-color:#fff;
+    border:1px solid #ddd;
+    border-bottom-color:transparent;
+}
+.nav>li{
+    position:relative;
+    display:block;
+}
+.nav>li>a{
+    position:relative;
+    display:block;
+    padding:10px 15px;
+}
+.nav>li>a:focus,.nav>li>a:hover{
+    text-decoration:none;
+    background-color:#eee;
+}
+.nav>li.disabled>a{
+    color:#777;
+}
+.nav>li.disabled>a:focus,.nav>li.disabled>a:hover{
+    color:#777;
+    text-decoration:none;
+    cursor:not-allowed;
+    background-color:transparent;
+}
+.tab-content>.tab-pane{
+    display:none;
+}
+.tab-content>.active{
+    display:block;
+}
+.fade{
+    opacity:0;
+    -webkit-transition:opacity .15s linear;
+    -o-transition:opacity .15s linear;
+    transition:opacity .15s linear;
+}
+.fade.in{
+    opacity:1;
+}
 
 .postType{
     font-size: 20px;
@@ -276,7 +344,7 @@ button#toggle .fa-chevron-up{
     border-radius: 6px;
     margin-bottom: 10px;
     transition: all 0.5s ease;
-    font-size: 15px;
+    font-size: 18px;
     float: left;
     margin-right: 8px;
 }
@@ -325,6 +393,23 @@ button#toggle .fa-chevron-up{
 
 /*edit post
 ====================================*/
+.btn-group{
+    float: right; 
+    width: 100%;
+}
+
+.editBtn{
+    border: none; 
+    background-color:transparent;
+    width: 50%;
+}
+
+.deleteBtn{
+    border: none; 
+    background-color:transparent;
+    width: 50%;
+}
+
 #editBtn, #editBtn2 {
     border: none;
     padding: 10px 12px;
@@ -341,13 +426,6 @@ button#toggle .fa-chevron-up{
     cursor: pointer;
     outline: none;
 }
-
-/*
-[contenteditable="true"] {
-  font-family: 'Poppins','Noto Sans TC', sans-serif;
-  color: #C00;
-}
-*/
 
 /** * Media query for tablet sized screens. */
  @media only screen and (max-width: 960px) {
@@ -366,6 +444,7 @@ button#toggle .fa-chevron-up{
 ====================================*/
 .react{
     float: left;
+    font-size: 15px;
 }
 
 .like-button {
@@ -504,7 +583,7 @@ button#toggle .fa-chevron-up{
     height: 200px;
     width: 200px;
     transition: all 0.3s ease;
-    background-image: url('../img/profile/avatar.svg');
+    /*background-image: url('../img/profile/avatar.svg');*/
     background-size: cover;
     background-position: center;
     margin:0 auto; 
@@ -514,11 +593,11 @@ button#toggle .fa-chevron-up{
 .img-circle{
     height: 100px;
     width: 100px;
-    border-radius: 50%;
+    border-radius: 50% !important;
     overflow: hidden;
     background-size: cover;
-    background-position: center;
-    object-fit: cover;
+    background-position: center !important;
+    object-fit: cover !important;
 }
 
 .avatar-wrapper .profile-pic:after {
@@ -563,6 +642,17 @@ button#toggle .fa-chevron-up{
     clear: both;
 }
 
+.userName{
+    margin: 20% 0 0 26%;
+}
+
+.deleteF{
+    border: none; 
+    background-color:transparent; 
+    float: right;
+    margin-top: 8%;
+}
+
 /* The "show" class is added to the filtered elements */
 .show {
     display: block;
@@ -579,6 +669,7 @@ button#toggle .fa-chevron-up{
 	margin:0 ;
 	display: inline-block;
     vertical-align: middle;
+    font-size: 16px;
 }
 
 
@@ -788,10 +879,6 @@ ul.recordTitle li:nth-child(2){
 
 /*我加的 end*/
 
-/*---------------------------------------------------------------
-[Main Color]
-here you can change #f3ad00 main color.
------------------------------------------------------------------*/
 .btn-social, /*.badge,*/ .btn-social, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary,
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
 ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive {
@@ -857,6 +944,13 @@ video, img {
 .content-posts {
     margin-left: 240px;
     margin-top: 70px;
+    width: calc(100% - 240px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    /*position: absolute;*/
+    top: 0;
+    right: 0;
+    height: 100%;
 }
 
 .img-user {
@@ -882,7 +976,6 @@ video, img {
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
     position: fixed;
     width: 240px;
-    margin-top: 67px;
     padding: 50px 10px 0px 10px;
     background: #ffffff;
     z-index: 1;
@@ -1108,8 +1201,32 @@ textarea.post-textarea {
 }
 
 /*----------------------------------------------------------------
-8. Small Devices
+8. Small Devices rwd
 -----------------------------------------------------------------*/
+@media screen and (max-width: 576px) {
+    .sidebar-nav{
+        margin: 0;
+    }
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+
+
 
 @media screen and (max-width:1199px)  {   
     header { padding: 15px 30px 10px 220px;  }
@@ -1216,12 +1333,15 @@ textarea.post-textarea {
 
   .container-posts, .primary-content .container-posts { padding:0px 15px;  }
 
-  .data-post { margin-top:10px;}
+  .data-post { 
+        margin-top:10px;
+        margin: auto;
+    }
 
   .profile-content  {  margin-top: 0px;
                        padding-top: 100px;}
 
-  .profile-content .nav-tabs  { padding-left:15px; }
+  .profile-content .nav-tabs  { padding-left:15px !important; }
 
   .chat-message .chat-time {   top: 6px;
                                right: 10px;}

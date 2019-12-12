@@ -18,10 +18,13 @@ router.post('/', function(req, res, next) {
     var memno_1=req.session.memno;
     var memno4=req.session.memno;
     var memno5=req.session.memno;
+    var memno10=req.session.memno;
+    var memno11=req.session.memno;
+    var memno12=req.session.memno;
     var hour =0;
     var minute=0;
     var second=0;
-    personal.query2(memno,posttypeno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno2,memno3,memno_1,memno4,memno5).then(data => {
+    personal.query2(memno,memno10,memno11,posttypeno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno2,memno3,memno_1,memno4,memno5,memno12).then(data => {
         if (data==null){
             res.render('error');  //導向錯誤頁面
         }else if(data.msg.length >= 0){

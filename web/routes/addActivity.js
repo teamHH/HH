@@ -11,8 +11,10 @@ router.get('/', function(req, res, next) {
     var invitedmemno2 = req.session.memno;
     var postmemno = req.session.memno;  
     var postmemno2 = req.session.memno;
+    var memno10=req.session.memno;
+    var memno11=req.session.memno;
     console.log(invitedmemno,invitedmemno2)
-    activity.query2(invitedmemno,invitedmemno2,postmemno,postmemno2).then(data => {
+    activity.query2(invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11).then(data => {
         if (data==null){
             res.render('error');  //導向錯誤頁面
         }else if(data==-1){

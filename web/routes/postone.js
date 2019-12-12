@@ -11,8 +11,11 @@ router.get('/:postno', function(req, res, next) {
   var invitedmemno2=req.session.memno;
   var postmemno=req.session.memno;
   var postmemno2=req.session.memno;
+  var memno10=req.session.memno;
+  var memno11=req.session.memno;
+  var memno12=req.session.memno;
   console.log(postno)
-  post.query3(memno,postno,invitedmemno,invitedmemno2,postmemno,postmemno2).then(data => {
+  post.query3(memno,postno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11,memno12).then(data => {
     if(data==null){
         res.render('error');  //導向錯誤頁面
     }else if(data.posts.length >= 0){
@@ -20,9 +23,6 @@ router.get('/:postno', function(req, res, next) {
         for(var i =0; i<data.posts.length;i++){
           data.posts[i].posttime=moment(data.posts[i].posttime).format("LLL");
         }  
-        console.log("**************************");
-        console.log(data);
-        console.log("**************************");
         res.render('totPost', {results:data});  //將資料傳給顯示頁面
     }else{
         res.render('notFound');  //導向找不到頁面

@@ -10,7 +10,9 @@ router.get('/', function(req, res, next) {
   var invitedmemno2=req.session.memno;
   var postmemno= req.session.memno;
   var postmemno2= req.session.memno;
-  user.search2(keyword,keyword,invitedmemno,invitedmemno2,postmemno,postmemno2).then(data => {
+  var memno10=req.session.memno;
+  var memno11=req.session.memno;
+  user.search2(keyword,keyword,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11).then(data => {
     if(data==null){
         res.render('error');  //導向錯誤頁面
     }else if(data.data2.length > 0){

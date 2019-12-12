@@ -4,7 +4,7 @@
 const sql = require('./asyncDB');
 
 
-var query = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno2,memno3,memno_1,memno4,memno5){
+var query = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno2,memno3,memno_1,memno5,memno10,memno11,memno12){
     var results={};
     await sql('SELECT * FROM member where memno=$1',[memno])
         .then((data) => {
@@ -12,13 +12,19 @@ var query = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemno2
         }, (error) => {
             results,member = [];
         });
+    await sql("SELECT count(*)as date from signin where memno=$1 and signdate BETWEEN '2019-01-01'and'2019-12-31'",[memno12])
+        .then((data) => {
+            results.sign = data.rows[0];  
+        }, (error) => {
+            results.sign = [];
+        });
      await sql('SELECT b.displayname,b.img,b.memno FROM invite a ,member b where a.invitememno=b.memno and a.invitedmemno=$1',[invitedmemno])
         .then((data) => {
             results.invite = data.rows;  
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -34,7 +40,7 @@ var query = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemno2
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -82,7 +88,7 @@ var query = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemno2
         });
     return results;  
 }
-var query2 = async function(memno,posttypeno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno2,memno3,memno_1,memno4,memno5){
+var query2 = async function(memno,memno10,memno11,posttypeno,invitedmemno,invitedmemno2,postmemno,postmemno2,memno2,memno3,memno_1,memno5,memno12){
     var results={};
     await sql('SELECT * FROM member where memno=$1',[memno])
         .then((data) => {
@@ -90,13 +96,19 @@ var query2 = async function(memno,posttypeno,invitedmemno,invitedmemno2,postmemn
         }, (error) => {
             results,member = [];
         });
+    await sql("SELECT count(*)as date from signin where memno=$1 and signdate BETWEEN '2019-01-01'and'2019-12-31'",[memno12])
+        .then((data) => {
+            results.sign = data.rows[0];  
+        }, (error) => {
+            results.sign = [];
+        });
      await sql('SELECT b.displayname,b.img,b.memno FROM invite a ,member b where a.invitememno=b.memno and a.invitedmemno=$1',[invitedmemno])
         .then((data) => {
             results.invite = data.rows;  
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -112,7 +124,7 @@ var query2 = async function(memno,posttypeno,invitedmemno,invitedmemno2,postmemn
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -170,7 +182,7 @@ var user_update = async function(newData){
         });	
     return results;
 }
-var editBio = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemno2){
+var editBio = async function(memno,memno10,invitedmemno,invitedmemno2,postmemno,postmemno2,memno11){
     var results;
     await sql('SELECT * FROM member where memno=$1',[memno])
     .then((data) => {
@@ -184,7 +196,7 @@ var editBio = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemn
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -200,7 +212,7 @@ var editBio = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemn
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -212,7 +224,7 @@ var editBio = async function(memno,invitedmemno,invitedmemno2,postmemno,postmemn
     });
     return results;
 }
-var editPost = async function(postno,invitedmemno,invitedmemno2,postmemno,postmemno2){
+var editPost = async function(postno,memno10,invitedmemno,invitedmemno2,postmemno,postmemno2,memno11){
     var results;
     await sql('SELECT * FROM posts where postno=$1',[postno])
     .then((data) => {
@@ -226,7 +238,7 @@ var editPost = async function(postno,invitedmemno,invitedmemno2,postmemno,postme
         }, (error) => {
             results.invite = [];
     });
-    await sql('select a.*,b.displayname,b.img from notice a, member b where a.memno=b.memno and a.postmemno=$1 ORDER BY noticeno desc LIMIT 5 ',[postmemno])
+    await sql('select * from notice_view where postmemno=$1 and memno!=$2 limit 5 ',[postmemno,memno10])
         .then((data) => {
             results.notice = data.rows;  
         }, (error) => {
@@ -242,7 +254,7 @@ var editPost = async function(postno,invitedmemno,invitedmemno2,postmemno,postme
         }, (error) => {
             results.total = [];
     });
-    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 ',[postmemno2])
+    await sql('SELECT count(postmemno) as total from notice where postmemno=$1 and memno!=$2 ',[postmemno2,memno11])
         .then((data) => {
             if(data!=null){
                 results.count = data.rows[0];
@@ -256,7 +268,7 @@ var editPost = async function(postno,invitedmemno,invitedmemno2,postmemno,postme
 }
 var post_update = async function(newData){
     var results;
-    await sql('UPDATE posts SET posttime=$1,posttypeno=$2,title=$3,content=$4,img=$5 WHERE postno = $6', [newData.posttime,newData.posttypeno,newData.title,newData.content,newData.img,newData.postno])
+    await sql('UPDATE posts SET posttypeno=$1,title=$2,content=$3,img=$4 WHERE postno = $5', [newData.posttypeno,newData.title,newData.content,newData.img,newData.postno])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {

@@ -3,7 +3,7 @@ var router = express.Router();
 
 //增加引用函式
 const personal = require('./utility/personal');
-var moment = require('moment');
+
 // 引用multer外掛
 //---------------------------
 const multer  = require('multer');
@@ -44,7 +44,6 @@ router.post('/',upload.single('img'),function(req, res, next) {
     console.log(img)
     var newData={
         postno:postno,                   //產品編號
-        posttime:moment(req.body.posttime).format("YYYY-MM-DD "),    //取得產品名稱
         posttypeno:req.body.posttypeno,
         title:req.body.title, //取得價格
         content:req.body.content,

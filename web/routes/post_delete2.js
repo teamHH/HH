@@ -7,7 +7,6 @@ const post = require('./utility/post');
 //接收POST請求
 router.post('/', function(req, res, next) {
     var postno = req.body.postno;   //取得產品編號
-    console.log(postno);
     post.deletePost(postno).then(d => {
         console.log(d);
         if(d>=0){

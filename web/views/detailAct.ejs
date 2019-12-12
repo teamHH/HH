@@ -10,7 +10,7 @@
     <link rel="icon" href="/img/2.png" type="image/x-icon">
 
     <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
@@ -27,147 +27,141 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <!-- nav -->
-		<nav>
-			<!-- The Modal -->
-            <section id="aa-menu-area">
-                    <div id="navbar" class="navbar-collapse collapse  navbar-fixed-top justify-content-end">
-                            <div class="col-md-2">
-                                <ul id="top-menu" class="nav navbar-nav aa-main-nav">
-                                    <!--<li class="active"><a href="index.html">HOME</a></li>-->
-                                    <li class="dropdown nav-item">
-                                        <div class="box-logo">
-                                            <!--<a href="index.html"><img src="img/1.png" width="50" alt="Logo"></a>-->
-                                            <a href="/homepage" class="logo">HH</a>
-                                        </div>
-                                    </li>
-                                </ul> 
-                            </div>
-            
-                            <div class="col-md-10 right">
-                                <ul id="top-menu" class="nav navbar-nav aa-main-nav ml-auto">
-                                    <li class="dropdown" >
-                                        <a class="dropdown-toggle">
-                                            <form class="form-inline" action="/search" method="GET">
-                                                <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入文章關鍵字搜尋"> 
-                                                <button class="btn btn-primary2" type="submit">
-                                                    搜尋
-                                                </button>
-                                            </form>     
-                                        </a>
-                                    </li>
-        
-                                    <li class="dropdown" >
-                                        <a class="dropdown-toggle">
-                                            <form class="form-inline" action="/searchList" method="GET">
-                                                <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="可輸入關鍵字搜尋好友"> 
-                                                <button class="btn btn-primary2" type="submit">
-                                                    搜尋
-                                                </button>
-                                            </form>     
-                                        </a>
-                                    </li>
-                                        
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" href="/totPost">
-                                            <i class="far fa-newspaper" style="font-size:30px;"></i>
-                                        </a>
-                                    </li>  
-        
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" href="/joinActivity">
-                                            <i class="material-icons icon-align" style="font-size:35px;">event</i>
-                                        </a>
-                                    </li>   
-        
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
-                                            <span class="badge"><%= results.count.total %></span>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">    
-                                            <% for(var i=0; i<results.notice.length; i++) {%>      
-                                            <li class="notific">
-                                                <div class="media mb-4">
-                                                    <img class=" mr-3 rounded-circle" src="/user/<%= results.notice[i].img %>" alt="">
-                                                    <div class="media-body">
-                                                        <a href="/postone/<%= results.notice[i].postno %>"><h4 class="mt-0 name"><%= results.notice[i].displayname %></h4><p><%= results.notice[i].content %></p></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <% } %>                       
-                                        </ul>
-                                    </li>
-                                        
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <i class="fas fa-user-friends" aria-hidden="true" style="font-size: 30px;"></i>	
-                                            <span class="badge"><%= results.total.total %></span>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <% for(var i=0; i<results.invite.length; i++) {%>
-                                            <li class="notific2">
-                                                <div class="media mb-4">
-                                                    <img class=" mr-3 rounded-circle" src="/user/<%= results.invite[i].img %>" alt="">
-                                                    <div class="media-body" >
-                                                        <h4 class="mt-0 name"><a href="/friend_judge/<%= results.invite[i].memno %>"><%= results.invite[i].displayname %></a></h4>
-                                                        <p>向您寄出了交友邀請</p>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div id="button-block">
-                                                         <table>
-                                                          <tr>
-                                                           <td>
-                                                            <form action="/friend_add" method="post" >
-                                                             <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
-                                                             <button id="confirm">確認</button>
-                                                            </form>
-                                                           </td>
-                                                           <td>
-                                                            <form action="invite_delete" method="post" >
-                                                             <input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
-                                                             <button id="delete">刪除</button>
-                                                            </form>
-                                                           </td>
-                                                          </tr>
-                                                         </table>             
-                                                        </div>
-                                                        <div class="clear"></div>
-                                                       </div>
-                                                </div>
-                                            </li> 
-                                            <% } %>           
-                                        </ul>
-                                    </li>
-        
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" href="/personal_profile">
-                                            <i class="fas fa-user" style="font-size:30px;"></i>
-                                        </a>
-                                    </li>  
-        
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                            <i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSettings">                
-                                            <li>
-                                                <a href="/resetPassword" title="設定" data-toggle="modal" id="settingsmodal"> <!--data-target="#settingsmodal"-->
-                                                    <i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
-                                                </a>  
-                                            </li>    
-                                            <li><a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a></li>                                           
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                    </div><!--/.nav-collapse --> 
-            </section>
-        </nav>
-        <!-- end nav -->
-        
-           
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand" href="/homepage">HH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+					<a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+			
+
+			<ul class="navbar-nav ml-md-auto">
+				<form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+					<input class="form-control mr-sm-2" type="text" name="keyword" placeholder="輸入關鍵字搜尋文章">
+					<button class="btn btn-primary2 my-2 my-sm-0" type="submit" style="margin: auto 10px auto 3px;">搜尋</button>
+				</form>
+
+				<form class="form-inline my-2 my-lg-0" action="/searchList" method="GET">
+                    <input class="form-control mr-sm-2" type="text" name="keyword"  placeholder="輸入關鍵字搜尋好友">
+					<button class="btn btn-primary2 my-2 my-sm-0" type="submit" style="margin: auto 10px auto 3px;">搜尋</button>
+				</form>
+
+				<li class="nav-item">
+                    <a class="nav-link" href="/totPost">
+						<i class="far fa-newspaper" style="font-size:30px;"></i>
+					</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/joinActivity">
+						<i class="material-icons icon-align" style="font-size:35px;">event</i>
+					</a>
+                </li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px;"></i>
+						<span class="badge badge-pill badge-dark"><%= results.count.total %></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 350px;">
+                        <% for(var i=0; i<results.notice.length; i++) {%>     
+                        <a class="dropdown-item" href="/postone/<%= results.notice[i].postno %>">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-4" style="margin: 0;">
+                                        <img src="/user/<%= results.notice[i].img %>" class="rounded-circle" style="margin-right:5%;"/>
+                                    </div>
+									<div class="col-md-8" style="float: right;">
+										<dl>
+											<dt><%= results.notice[i].displayname %></dt>
+											<dd><%= results.notice[i].content %></dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+                        </a>
+                        <% } %>
+						<div class="dropdown-divider"></div> 
+					</div>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+						<i class="fas fa-user-friends" aria-hidden="true" style="font-size: 30px;"></i>
+						<span class="badge badge-pill badge-dark"><%= results.total.total %></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 350px;">
+                        <% for(var i=0; i<results.invite.length; i++) {%>
+                        <a class="dropdown-item" href="/friend_judge/<%= results.invite[i].memno %>">
+							<div class="row">
+								<div class="col-md-12">
+									<img src="/user/<%= results.invite[i].img %>" class="rounded-circle" style="margin-right:5%;"/>
+									<div class="col-md-8">
+										<dl>
+											<dt><%= results.invite[i].displayname %></dt>
+											<dd>向您寄出了好友邀請</dd>
+											<dd>
+												<div id="button-block">
+													<table>
+														<tr>
+															<td>
+																<form action="/friend_add" method="post"  >
+																	<input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
+																	<button id="confirm" class="btn btn-primary2">確認</button>
+																</form>
+															</td>
+															<td>
+																<form action="invite_delete" method="post" >
+																	<input type="hidden" name="memno" value="<%= results.invite[i].memno %>">
+																	<button id="delete" class="btn btn-primary2">刪除</button>
+																</form>
+															</td>
+														</tr>
+													</table>													
+												</div>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+                        </a> 
+                        <% } %>   
+						<div class="dropdown-divider"></div> 
+					</div>
+				</li>
+
+				<li class="nav-item">
+                    <a class="nav-link" href="personal_profile">
+						<i class="fas fa-user" style="font-size:30px;"></i>
+					</a>
+				</li>
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+						<i class="fa fa-cogs" aria-hidden="true" style="font-size: 30px;"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 200px;">
+						<a class="dropdown-item" href="#">
+							<a href="/resetPassword" title="設定" >
+								<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
+							</a>
+						</a> 
+						<div class="dropdown-divider"></div> 
+						<a class="dropdown-item" href="#">
+							<a href="/user/logout"><i class="material-icons icon-align">exit_to_app</i>登出</a>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+    <div class="container-fluid" style="margin-top: 70px;">          
         <div class="container container2">
             <div class="content">
                 <div class="row">
@@ -176,9 +170,18 @@
                             <h1><%= results.sa.sactivity %></h1>
                             <p><a href="/personal_profile"><%= results.sa.displayname %></a>
                         </div>
-                        <div class="container main-container">        
-                            <div class="col-md-9">
+                        <div class="main-container">        
+                            <div class="col-md-9"style="float: left;">
                                 <table class="table table-act">
+                                    <% var memno=results.invite.postmemno; %>
+                                    <% if (memno == results.sa.memno){%>
+                                    <a id="edit" href="/editAct/<%= results.sa.sactno %>" style="border: none; color: #404040; float: left; margin-right: 20px;">
+                                         <i class="fas fa-pencil-alt" style="font-size: 16px; margin-right:3px;"></i>編輯活動內容
+                                    </a>                                                           
+                                    <a id="edit" href="/deleteAct/<%= results.sa.sactno %>" style="border: none; color: #404040; float: left;">
+                                        <i class="fas fa-trash-alt" style="font-size: 16px; margin-right:3px;"></i>刪除活動
+                                    </a>
+                                    <% } %>
                                     <tr>
                                         <th>日期</th>
                                         <td><%= results.sa.sacttime %></td>
@@ -194,52 +197,50 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>目前平均評分</th>
+                                        <th>平均評分</th>
                                         <td>
                                             <p><%= results.score.total %></p>
                                         </td>
                                     </tr>
                                 </table>
                                                             
-                            </div>
-        
-                            <div class="col-md-3">
-                                <div class="h-10">
-                                    <h4>為這個活動評分吧</h4>
-                                    
-                                    <div class="stars">
-                                        <form action="/score_add" method="post">
-                                            <input type="hidden" name="sactno" value="<%= results.sa.sactno %>"/>
-                                            <input type="hidden" name="memno" value="<%= results.sa.memno %>"/>
-                                            <input class="star star-5" id="star-5" type="radio" name="score" value="5" />
-                                            <label class="star star-5" for="star-5"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="score"value="4"/>
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="score"value="3"/>
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="score"value="2"/>
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-1" id="star-1" type="radio" name="score"value="1"/>
-                                            <label class="star star-1" for="star-1"></label>
+                            </div>                          
+                            <div class="col-md-3" style="float: left;">
+                                    <div class="h-10">
+                                        <h6>為這個活動評分吧</h6>
+                                        <div class="stars">
+                                             <form action="/score_add" method="post">
+                                                <input type="hidden" name="sactno" value="<%= results.sa.sactno %>"/>
+                                                <input type="hidden" name="memno" value="<%= results.sa.memno %>"/>
+                                                <input class="star star-5" id="star-5" type="radio"name="score" value="5"/>
+                                                <label class="star star-5" for="star-5"></label>
 
-                                            <div class="addAct-btn col-md-12" style="margin-left: 95px;">
-                                                <button type="submit" class="btn btn-primary2 addAct-btn" >
+                                                <input class="star star-4" id="star-4" type="radio"name="score" value="4"/>
+                                                <label class="star star-4" for="star-4"></label>
+
+                                                <input class="star star-3" id="star-3" type="radio"name="score" value="3"/>
+                                                <label class="star star-3" for="star-3"></label>
+
+                                                <input class="star star-2" id="star-2" type="radio"name="score" value="2"/>
+                                                <label class="star star-2" for="star-2"></label>
+
+                                                <input class="star star-1" id="star-1" type="radio"name="score" value="1"/>
+                                                <label class="star star-1" for="star-1"></label>
+
+                                                <button type="submit" class="btn btn-primary2">
                                                     送出
                                                 </button>
-                                            </div>   
-                                        </form>
-                                        
+                                            </form>
+                                        </div>
                                     </div>
-                                    
                                 </div>
-                            </div>
+                                <div class="clear"></div>
                         </div>
                         <!-- end main-container -->
                     </div>
                 </div>
             </div>
-        </div>
-                                    
+        </div>                            
     </div>                            
                         
 
