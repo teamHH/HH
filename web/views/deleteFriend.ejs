@@ -139,7 +139,7 @@
 				</li>
 
 				<li class="nav-item">
-                    <a class="nav-link" href="personal_profile">
+                    <a class="nav-link" href="/personal_profile">
 						<i class="fas fa-user" style="font-size:30px;"></i>
 					</a>
 				</li>
@@ -150,7 +150,7 @@
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 200px;">
 						<a class="dropdown-item" href="#">
-							<a href="/resetPassword" title="設定" >
+							<a href="/confirmPassword" title="設定" >
 								<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
 							</a>
 						</a> 
@@ -165,26 +165,26 @@
 	</nav>
 
 	<div>
-        <form class="addAct-container" style="width: 700px;">
+        <form class="deleteFriend" style="width: 700px;" action="/friend/delete">
             <div class="col-md-12">
                 <div class="addForm-title">刪除好友</div>
 				</br>  
-				<div style="width: 100%; padding: 10px 40px; margin: 0 50px 10px 100px;">
+				<div class="delete">
 					<div class="col-sm-2 col-xs-3">
 						<% if (null != results.img){%>
-						<img src="/user/<%= results.img %>" alt="User name" class="img-circle img-user" style="width: 100px;">
+						<img src="/user/<%= results.img %>" alt="User name" class="img-circle img-user" style="width: 100px; height: 100px;">
 						<% } %>
 					</div>
-					<div class="col-sm-7 col-xs-9" style="margin:15px 0 0 -40px;">
+					<div class="col-sm-7 col-xs-9" style="margin:-15px 0 0 -40px;">
                         <input type="hidden" class="addAct-input form-control" required style="width: 600px;" name="serno" value="<%= results.serno %>" readonly>
                         <p style="font-size: 24px;"><b><%= results.displayname %></b></p>
 					</div>
 				</div>    
 				<div class="clear"></div>
 				</br>
-                <div style="margin: auto auto;">
+                <div class="center">
                     <button class="btn btn-primary2" id="addAct-btn" type="submit">
-                        送出
+                        刪除
                     </button>
                 </div>
             </div>

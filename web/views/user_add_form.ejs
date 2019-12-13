@@ -16,7 +16,11 @@
 	<link href="/css/register.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="/css/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700" rel="stylesheet">
 
 </head>
 
@@ -25,7 +29,7 @@
         <div class="user">
             <header class="user__header">
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
-                <h1 class="user__title"><a class="login" href="homepage.html">註冊 Register</a></h1>
+                <h1 class="user__title"><a class="login">註冊 Register</a></h1>
             </header>
             
             <form class="form" action = "/user/add" method = "post">
@@ -38,7 +42,15 @@
                 </div>
                 
                 <div class="form__group">
-                    <input type="password" placeholder="Password" class="form__input" name="mempassword" required />
+                    <input type="password" placeholder="Password" class="form__input" id="psw" name="mempassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="請確認密碼是否符合規定" required />
+                </div>
+
+                <div id="message">
+                    <h3>請確認您的密碼包含:</h3>
+                    <p id="letter" class="invalid">至少一個 <b>小寫</b> 英文字母</p>
+                    <p id="capital" class="invalid">至少一個 <b>大寫</b> 英文字母</p>
+                    <p id="number" class="invalid">至少一個 <b>數字</b></p>
+                    <p id="length" class="invalid">密碼長度 <b>8-12</b> 位數</p>
                 </div>
                 
                 <button class="btn" type="submit" style="font-size: 18px;">註冊</button>
@@ -68,10 +80,11 @@
     <script src="/js/animated-headline.js"></script>
     <script src="/js/isotope.pkgd.min.js"></script>
         
-        
     <!--  custom script -->
     <script src="/js/custom.js"></script>
     <script src="/js/scripts.js"></script>
     <script src="/js/register.js"></script>
+
+    <script src="/js/password.js"></script>
 </body>
 </html>

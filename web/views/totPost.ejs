@@ -161,7 +161,7 @@
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="width: 200px;">
 						<a class="dropdown-item" href="#">
-							<a href="/resetPassword" title="設定" >
+							<a href="/confirmPassword" title="設定" >
 								<i class="fa fa-wrench" aria-hidden="true" style="font-size: 20px; margin-right: 5px;"></i>修改密碼
 							</a>
 						</a> 
@@ -248,7 +248,7 @@
                               <div class="row">
                                   <div class="col-xs-9 col-sm-10 data-post">
                                       <div class="btnTags">
-                                          <form action="/type" method="post">
+                                          <form action="/typePost" method="post">
                                             <button class="btnTag btn--stripe" name="posttypeno" value="1">運動</button>
                                             <button class="btnTag btn--stripe" name="posttypeno" value="2">休閒</button>
                                             <button class="btnTag btn--stripe" name="posttypeno" value="4">賽事分享</button>                                         
@@ -483,11 +483,18 @@
                                   <div class=" col-sm-8 col-sm-offset-2 data-post">									
                                       <div id="editor-content">
                                           <h2><%= results.posts[i].title %></h2>
-                                          <p><%= results.posts[i].content %></p>
+                                          <textarea maxlengh="200" class="AutoHeight" readonly><%= results.posts[i].content %></textarea>
                                           <% if ( results.posts[i].img != null){%>
 										  <img src="/post/<%= results.posts[i].img %>">
 										  <% } %>	
-                                      </div>
+									  </div>
+									  <script type="text/javascript">   
+                                        jQuery(function($) {  
+                                            $("textarea.AutoHeight").css("overflow","hidden").bind("keydown keyup", function(){  
+                                                $(this).height('0px').height($(this).prop("scrollHeight")+"px");  
+                                            }).keydown();  
+                                        });  
+										</script>
 
                                       <div class="reaction">
                                           <div class="react" style="margin: 10px 0 0 10px;">

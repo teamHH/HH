@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
     post.deletePost(postno).then(d => {
         console.log(d);
         if(d>=0){
-            res.render('removeSuccess2', {results:d});  //傳至成功頁面     
+            res.render('removeSuccess2T', {results:d});  //傳至成功頁面     
         }else{
             res.render('removeFail2');     //導向錯誤頁面
         }

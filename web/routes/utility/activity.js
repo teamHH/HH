@@ -111,7 +111,7 @@ var query2 = async function(invitedmemno,invitedmemno2,memno10,memno11,postmemno
 var one = async function(sactno,sactno2,invitedmemno,invitedmemno2,postmemno,postmemno2,memno10,memno11){
     var results=[];
     
-    await sql('SELECT * from sactivityone_view where sactno=$1', [sactno])
+    await sql('SELECT * from sactivityone_view  where sactno=$1', [sactno])
         .then((data) => {
             if(data.rows.length > 0){
                 results.sa = data.rows[0];   

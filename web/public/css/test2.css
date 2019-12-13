@@ -1,4 +1,16 @@
 /*我加的 start*/
+#editor-content textarea.AutoHeight{
+    margin-top: 10px; 
+    border: none; 
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    resize: none;
+    font-size: 18px;
+}
+
 @media screen and (max-width: 576px) {
     .card-post .row .col-xs-3 a img{
         width:72px;

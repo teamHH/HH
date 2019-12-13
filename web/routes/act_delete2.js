@@ -8,7 +8,7 @@ const activity = require('./utility/activity');
 router.post('/', function(req, res, next) {
     var sactno = req.body.sactno;   //取得產品編號
     console.log(sactno);
-    activity.deleteAct2(sactno).then(d => {
+    activity.deleteAct(sactno).then(d => {
         if(d>=0){
             res.render('removeSuccess2J', {results:d});  //傳至成功頁面     
         }else{

@@ -1,4 +1,16 @@
 /*我加的 start*/
+
+textarea.AutoHeight{
+    margin-top: 10px; 
+    border: none; 
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    resize: none;
+    font-size: 18px;
+}
 .nav-tabs .btn-link{
     color: #ffbf00;
 }
